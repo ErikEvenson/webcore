@@ -1,12 +1,12 @@
 # Technology stack
 
-These are the technologies used in implementing webcore.  Version numbers represent version noted as being used successfully with webcore.
+These are the technologies used in this project.  Version numbers represent version noted as being used successfully with webcore.
 
 Tools are organized by method of installation.  Methods to check for and apply updates are described.
 
-These sections are being updated...
-
 ## Foundational
+
+- ...
 
 ## apt-get-installed
 
