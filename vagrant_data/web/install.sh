@@ -89,7 +89,6 @@ echo "## Installing global npm packages ##"
 echo "####################################"
 npm install -g npm@1.4.23
 npm install -g npm-check-updates@1.2.0
-npm install -g yo@1.2.1
 
 # Change ownership to vagrant user.
 chown -R vagrant:vagrant ~vagrant/.npm
