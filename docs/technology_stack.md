@@ -14,7 +14,7 @@ These packages are installed into the development environment via the vagrant pr
 
 ***To check for available updates:***
 
-- web VM: `apt-get -s build-essential curl git mercurial python-software-properties`
+- web VM: `apt-get -s build-essential curl git mercurial node python-software-properties`
 
 Be sure to update this check command when adding new packages.
 
@@ -27,12 +27,13 @@ Be sure to update this check command when adding new packages.
 - [curl](http://packages.ubuntu.com/precise/curl) 7.22.0-3ubuntu4.8 - Get a file from an HTTP, HTTPS or FTP server.
 - [git](https://launchpad.net/~git-core/+archive/ubuntu/ppa) 1:2.0.4-0ppa1~ubuntu12.04.1 [Changelog](https://github.com/git/git/tree/master/Documentation/RelNotes) - fast, scalable, distributed revision control system.  A PPA is used to get the latest version of git.
 - [mercurial](https://launchpad.net/~mercurial-ppa/+archive/ubuntu/releases) 3.0.1-0ppa1~precise1 - easy-to-use, scalable distributed version control system.  A PPA is used to get a more recent version of mercurial.
+- [node](https://launchpad.net/~chris-lea/+archive/ubuntu/node.js) 0.10.30-1chl1~precise1 [Website](http://nodejs.org/) - Node.js is a platform built on Chrome's JavaScript runtime for easily building fast, scalable network applications.  Note that npm comes with node now.
 
 ## bash-installed
 
 These packges are installed manually into the develpoment VM using bash in the provisioning scripts.
 
-- [node](http://nodejs.org/) 0.10.30 and npm 1.4.23 - Node.js is a platform built on Chrome's JavaScript runtime for easily building fast, scalable network applications.  Note that npm comes with node now.  ***Manually check for updates.  Update by changing the `NODE_VERSION` parameter in the web VM install.sh script.***
+-...
 
 These packages are manually installed into the host machine using bash.
 
@@ -86,8 +87,11 @@ and repin the new version in the install script.
 
   Global:
 
+- [bower](https://www.npmjs.org/package/bower) 1.3.9 [Changelog](https://github.com/bower/bower/blob/master/CHANGELOG.md)[Fork](https://www.virtualbox.org/) - front end package management.  Bower will warn when it has an update.  Installed by yeoman.
+- [grunt-cli](https://github.com/gruntjs/grunt-cli) 0.1.13 [Fork](https://github.com/EATechnologies/grunt-cli) - [Grunt's](http://gruntjs.com/) command line interface.  Installed by yeoman.
 - [npm](https://npmjs.org/doc/) 1.4.23 [Fork](https://github.com/EATechnologies/npm) - "node package manager"
 - [npm-check-updates](https://www.npmjs.org/package/npm-check-updates) 1.2.0 [Fork](https://github.com/EATechnologies/npm-check-updates) - Find newer versions of dependencies than what your package.json allows.
+- [yeoman](http://yeoman.io/) 1.2.1 [Changelog](https://github.com/yeoman/yo/releases) [Fork](https://github.com/EATechnologies/yo) - "CLI tool for running Yeoman generators"  yeoman will install bower and grunt-cli.
 
   Local:
 
