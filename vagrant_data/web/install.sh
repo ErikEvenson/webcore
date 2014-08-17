@@ -87,7 +87,7 @@ echo "####################################"
 npm install -g npm@1.4.23
 
 npm install -g npm-check-updates@1.2.0
-# npm install -g yo@???
+npm install -g yo@1.2.1
 
 # Remove any packages that are no longer needed
 echo "#################################################"
