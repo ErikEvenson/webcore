@@ -1,6 +1,6 @@
 # Base box
 
-This is a base vagrant box.
+This is a base vagrant box with a puppet provisioner.
 
 ## Setting up the base box
 
@@ -10,6 +10,12 @@ Install the [vagrant-vbguest](https://github.com/dotless-de/vagrant-vbguest) plu
 
 ```
 	vagrant plugin install vagrant-vbguest
+```
+
+Install the [vagrant-librarian-puppet](https://github.com/mhahn/vagrant-librarian-puppet) plugin.
+
+```
+	vagrant plugin install vagrant-librarian-puppet
 ```
 
 Remove any existing vagrant boxes.
