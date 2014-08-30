@@ -11,7 +11,8 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 # Set usage string
 USAGE=$(cat <<EOF
-Usage: ${0##*/} test
+Usage: ${0##*/} papply
+or: ${0##*/} test
 EOF
 )
 
@@ -22,8 +23,17 @@ shift
 # Set script parameters
 # Switch between various management commands
 case $COMMAND in
+  papply)
+    source "$DIR/functions/papply.sh"
+    papply
+    exit
+    ;;
   test)
     echo "TEST"
     exit
+    ;;
+  * | $_NULL)
+    echo -e "$USAGE"
+    exit 1
     ;;
 esac
