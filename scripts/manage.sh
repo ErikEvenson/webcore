@@ -24,8 +24,13 @@ shift
 # Switch between various management commands
 case $COMMAND in
   papply)
-    source "$DIR/functions/papply.sh"
+    source "$DIR/functions/puppet/papply.sh"
     papply
+    exit
+    ;;
+  pvalidate)
+    source "$DIR/functions/puppet/pvalidate.sh"
+    pvalidate
     exit
     ;;
   test)
