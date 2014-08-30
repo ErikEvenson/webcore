@@ -9,6 +9,7 @@ These are the technologies used in this project.
 ## apt-get-installed
 
 - [git](http://git-scm.com/) 2.1.0 - "Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency." 
+- [mercurial](http://mercurial.selenic.com/) 3.0.1 - "Easy-to-use, scalable distributed version control system."
 
 ## bash-installed
 

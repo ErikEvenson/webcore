@@ -3,6 +3,7 @@
 
 class dev_base {
   include git
+  include mercurial
   include stdlib
 
   package {'puppet-lint':
