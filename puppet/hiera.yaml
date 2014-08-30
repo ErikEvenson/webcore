@@ -1,4 +1,5 @@
 :hierarchy:
+  - '%{hostname}'
   - common
 :backends:
   - yaml

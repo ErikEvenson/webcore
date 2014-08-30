@@ -4,6 +4,6 @@
 node 'base' {
   require dev_base
   
-  $message = hiera('magic_word')
+  $message = hiera('greeting')
   notify { $message: }
 }
