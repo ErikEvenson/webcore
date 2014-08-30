@@ -2,7 +2,7 @@
 # 2012-2014 3E Enterprises, LLC
 
 # .gitkeep files are used to maintain directories.
-.gitkeep
+!.gitkeep
 
 # Vagrant data files.
 .vagrant
