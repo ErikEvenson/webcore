@@ -44,4 +44,12 @@ Enter the virtual development environment on the web server.
 	vagrant ssh
 ```
 
+If you will be committing from the VM, be sure to set your name and email for commit messages, and keep git from being chatty (substitute your data).
+
+```
+  git config --global user.name "Erik Evenson"
+  git config --global user.email "erik.e.evenson@gmail.com"
+  git config --global push.default simple
+```
+
 When done, exit the virtual environment and `vagrant halt` to stop the virtual machine.  Use `vagrant destroy` to reclaim the disk space (although this will require you to re-provision the machine again later).  `vagrant remove` should be used to remove the base box from the system as well.  `vagrant up` and `vagrant ssh web` to start another development session later.
