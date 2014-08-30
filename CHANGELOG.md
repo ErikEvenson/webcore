@@ -7,6 +7,8 @@
 - Change to `/vagrant` on login.
 - Add puppet-lint.
 - Add git.
+- Add mercurial.
+- Add vim.
 
 ## Version 1.0
 
