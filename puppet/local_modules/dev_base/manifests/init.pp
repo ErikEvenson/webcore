@@ -2,6 +2,7 @@
 # 2012-2014 Van Brunt and Associates and 3E Enterprises, LLC
 
 class dev_base {
+  include git
   include stdlib
 
   package {'puppet-lint':

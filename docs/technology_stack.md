@@ -6,6 +6,10 @@ These are the technologies used in this project.
 
 - [bash](http://www.gnu.org/software/bash/manual/bashref.html) 4.2.24 - shell.
 
+## apt-get-installed
+
+- [git](http://git-scm.com/) 2.1.0 - "Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency." 
+
 ## bash-installed
 
 - [puppet](http://puppetlabs.com/) - "Open source Puppet is a flexible, customizable framework available under the Apache 2.0 license designed to help system administrators automate the many repetitive tasks they regularly perform."
@@ -28,6 +32,7 @@ These tools are installed directly on the host.  On a Mac, they are can be insta
 
 ## Puppet modules
 
+- [puppetlabs-apt](https://forge.puppetlabs.com/puppetlabs/apt) 1.6.0 - "The APT module provides a simple interface for managing APT source, key, and definitions with Puppet."
 - [puppetlabs-stdlib](https://forge.puppetlabs.com/puppetlabs/stdlib) 4.3.2 - "This module provides a "standard library" of resources for developing Puppet Modules."
 
 ## Vagrant/vagrant-installed

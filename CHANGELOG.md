@@ -6,6 +6,7 @@
 - Add scripts directory.
 - Change to `/vagrant` on login.
 - Add puppet-lint.
+- Add git.
 
 ## Version 1.0
 
