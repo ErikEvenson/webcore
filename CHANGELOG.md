@@ -5,6 +5,7 @@
 - Add .gitkeep to .gitignore.
 - Add scripts directory.
 - Change to `/vagrant` on login.
+- Add puppet-lint.
 
 ## Version 1.0
 

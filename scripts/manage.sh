@@ -11,7 +11,8 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 # Set usage string
 USAGE=$(cat <<EOF
-Usage: ${0##*/} papply
+Usage: ${0##*/} lint
+or: ${0##*/} papply
 or: ${0##*/} test
 EOF
 )
@@ -23,6 +24,11 @@ shift
 # Set script parameters
 # Switch between various management commands
 case $COMMAND in
+  lint)
+    source "$DIR/functions/lint/lint.sh"
+    lint
+    exit
+    ;;
   papply)
     source "$DIR/functions/puppet/papply.sh"
     papply

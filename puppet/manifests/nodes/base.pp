@@ -2,10 +2,5 @@
 # 3E Enterprises, LLC
 
 node 'base' {
-  include stdlib
-
-  file_line {'cd_vagrant':
-    path    => '/home/vagrant/.bashrc',
-    line    => "cd /vagrant",
-  }
+  require dev_base
 }
