@@ -5,6 +5,7 @@ class dev_base {
   include git
   include mercurial
   include stdlib
+  include vim
 
   package {'puppet-lint':
     ensure   => installed,
