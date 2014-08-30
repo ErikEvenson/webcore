@@ -2,8 +2,5 @@
 # 3E Enterprises, LLC
 
 node 'base' {
-  file {"temp.txt":
-    content => "Hello from puppet.\n",
-    path    => "/home/vagrant/temp.txt",
-  }
+  require dev_base
 }

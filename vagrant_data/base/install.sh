@@ -54,4 +54,3 @@ if [ $DISTRIB_CODENAME != "trusty" ]; then
 fi
 gem install --no-ri --no-rdoc rubygems-update
 update_rubygems >/dev/null
-
