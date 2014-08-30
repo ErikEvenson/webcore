@@ -20,4 +20,4 @@ These tools are installed directly on the host.  On a Mac, they are can be insta
 
 ## Vagrant-installed
 
-- [hashicorp/precise64](https://vagrantcloud.com/hashicorp/precise64) 1.1.0 - A standard [Ubuntu 12.04 LTS (Precise Pangolin)](http://releases.ubuntu.com/12.04/) 64-bit box.  ***Vagrant checks for updates to this box automatically.***
+- [ubuntu/trusty64](https://vagrantcloud.com/ubuntu/trusty64) 14.04 - A standard [Ubuntu 14.04 LTS (Trusty Tahr)](http://releases.ubuntu.com/14.04/) 64-bit box.  ***Vagrant checks for updates to this box automatically.***
