@@ -3,4 +3,7 @@
 
 node 'base' {
   require dev_base
+  
+  $message = hiera('greeting')
+  notify { $message: }
 }

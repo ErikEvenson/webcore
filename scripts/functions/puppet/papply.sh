@@ -7,7 +7,8 @@ papply()
   echo "Puppet apply..."
 
   puppet apply /vagrant/puppet/manifests/site.pp \
-    --modulepath=/vagrant/puppet/modules:/vagrant/puppet/local_modules $*
+    --modulepath=/vagrant/puppet/modules:/vagrant/puppet/local_modules \
+    --hiera_config=/vagrant/puppet/hiera.yaml $*
 
   return
 }
