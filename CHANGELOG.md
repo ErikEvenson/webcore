@@ -9,6 +9,7 @@
 - Add git.
 - Add mercurial.
 - Add vim.
+- Add node and yo.
 
 ## Version 1.0
 

@@ -1,6 +1,6 @@
-# Base box
+# Yeoman
 
-This is a base vagrant box with a puppet provisioner.
+A yeoman development box.
 
 ## Setting up the base box
 
