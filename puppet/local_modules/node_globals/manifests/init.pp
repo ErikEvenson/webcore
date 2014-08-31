@@ -12,6 +12,7 @@ class node_globals {
 
   $node_globals_array = [
     'yo@1.2.1',
+    'generator-webapp@0.4.9',
   ]
 
   $node_globals = join($node_globals_array, ' ')

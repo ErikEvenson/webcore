@@ -1,6 +1,6 @@
 # Yeoman
 
-A yeoman development box.
+A yeoman development box using generator-webapp.
 
 ## Setting up the base box
 
@@ -71,3 +71,15 @@ Enable ssh-agent.
 ```
 
 When done, exit the virtual environment and `vagrant halt` to stop the virtual machine.  Use `vagrant destroy` to reclaim the disk space (although this will require you to re-provision the machine again later).  `vagrant remove` should be used to remove the base box from the system as well.  `vagrant up` and `vagrant ssh web` to start another development session later.
+
+## Generate web site
+
+```
+mkdir example
+cd example
+yo webapp -coffee
+```
+
+Use bootstrap, Sass, Mondernizr, libsass
+yo will appear to hang when asking for bower data -- just hit return
+

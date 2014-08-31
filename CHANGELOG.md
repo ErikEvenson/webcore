@@ -10,6 +10,7 @@
 - Add mercurial.
 - Add vim.
 - Add node and yo.
+- Add generator-webapp.
 
 ## Version 1.0
 
