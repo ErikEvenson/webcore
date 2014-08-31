@@ -77,7 +77,7 @@ When done, exit the virtual environment and `vagrant halt` to stop the virtual m
 ```
 mkdir example
 cd example
-yo webapp -coffee
+yo webapp --coffee
 ```
 
 Use bootstrap, Sass, Mondernizr, libsass
