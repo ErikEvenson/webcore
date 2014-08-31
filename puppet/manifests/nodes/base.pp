@@ -8,10 +8,5 @@ node 'base' {
   notify { $message: }
 
   require nodejs
-
-  exec {'npm_globals':
-    command => '/usr/bin/npm config set prefix /home/vagrant/.npm \
-      && npm -g install yo@1.2.1',
-    timeout => 0,
-  }
+  require node_globals
 }
