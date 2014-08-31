@@ -22,6 +22,7 @@ These are the technologies used in this project.
 ## gem-installed
 
 - [puppet-lint](http://puppet-lint.com/) 1.0.1 - "Check that your Puppet manifest conform to the style guide."
+- [SASS](https://rubygems.org/gems/sass) 3.3.8 - CSS extension language.
 
 ## Installed on host
 

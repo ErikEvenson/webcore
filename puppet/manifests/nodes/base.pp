@@ -7,6 +7,5 @@ node 'base' {
   $message = hiera('greeting')
   notify { $message: }
 
-  require nodejs
   require node_globals
 }

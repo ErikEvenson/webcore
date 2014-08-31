@@ -74,12 +74,18 @@ When done, exit the virtual environment and `vagrant halt` to stop the virtual m
 
 ## Generate web site
 
+Generate the website.  Use bootstrap, SASS, Modernizr, and libsass.
+
 ```
 mkdir example
 cd example
 yo webapp --coffee
 ```
 
-Use bootstrap, Sass, Mondernizr, libsass
-yo will appear to hang when asking for bower data -- just hit return
+## Develop
 
+```
+grunt
+grunt test
+grunt serve
+```

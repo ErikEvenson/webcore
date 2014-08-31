@@ -7,7 +7,13 @@ class node_globals {
   # fontconfig needed for phantomjs operation.
   # phantomjs is used by many generators.
   package {'fontconfig':
-    ensure => installed
+    ensure => installed,
+  }
+
+  # SASS required by generator-webapp
+  package {'sass':
+    ensure => installed,
+    provider => gem,
   }
 
   $node_globals_array = [
@@ -23,7 +29,11 @@ class node_globals {
       && npm -g install ${node_globals} \
       && chown -R vagrant:vagrant /home/vagrant/.npm",
 
-    require => Package['fontconfig'],
+    require => [
+      Package['fontconfig'],
+      Package['sass'],
+    ],
+
     timeout => 0,
   }
 }
