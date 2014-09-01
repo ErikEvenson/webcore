@@ -197,20 +197,20 @@ Update grunt clean.
   },
 ```
 
-Test local.
+Test local: http://192.168.50.4:5000/
 
 ```
   grunt buildcontrol:local
   foreman start
 ```
 
-Test pages.
+Test pages: http://erikevenson.github.io/webcore/
 
 ```
   grunt buildcontrol:pages
 ```
 
-Test heroku.
+Test heroku: http://ancient-forest-2940.herokuapp.com/
 
 ```
   grunt buildcontrol:heroku
