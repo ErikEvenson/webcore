@@ -213,6 +213,6 @@ grunt buildcontrol:pages
 Test heroku.
 
 ```
-grunt buildcontrol.heroku
+grunt buildcontrol:heroku
 ```
 
