@@ -1,7 +1,7 @@
-# Installs node globals.
+# Installs generator_jekyllrb
 # 2012-2014 3E Enterprises, LLC
 
-class node_globals {
+class generator_jekyllrb {
   require nodejs
 
   # Install heroku toolbelt.
@@ -17,8 +17,20 @@ class node_globals {
     ensure => installed,
   }
 
-  # SASS required by generator-webapp
+  # bundler required by generator-jekyllrb
+  package {'bundler':
+    ensure => installed,
+    provider => gem,
+  }
+
+  # SASS required by generator-jekyllrb
   package {'sass':
+    ensure => installed,
+    provider => gem,
+  }
+
+  # jekyll required by generator-jekyllrb
+  package {'jekyll':
     ensure => installed,
     provider => gem,
   }
@@ -26,7 +38,7 @@ class node_globals {
   $node_globals_array = [
     'npm-check-updates@1.2.0',
     'yo@1.2.1',
-    'generator-webapp@0.5.0',
+    'generator-jekyllrb@1.2.1',
   ]
 
   $node_globals = join($node_globals_array, ' ')
@@ -39,6 +51,7 @@ class node_globals {
     require => [
       Package['fontconfig'],
       Package['sass'],
+      Package['bundler'],
     ],
 
     timeout => 0,

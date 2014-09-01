@@ -7,5 +7,5 @@ node 'base' {
   $message = hiera('greeting')
   notify { $message: }
 
-  require node_globals
+  require generator_jekyllrb
 }

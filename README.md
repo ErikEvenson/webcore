@@ -74,12 +74,12 @@ When done, exit the virtual environment and `vagrant halt` to stop the virtual m
 
 ## Generate web site
 
-Generate the website.  Use bootstrap, SASS, Modernizr, and libsass.
+Generate the website.  Use Compass, Autoprefixer, Coffeescript, Default Jekyll
 
 ```
   mkdir example
   cd example
-  yo webapp --coffee
+  yo jekyllrb
 ```
 
 Build and check site.

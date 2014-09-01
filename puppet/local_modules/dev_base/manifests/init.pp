@@ -7,6 +7,10 @@ class dev_base {
   include stdlib
   include vim
 
+  package {'ruby-dev':
+    ensure => installed,
+  }
+
   package {'puppet-lint':
     ensure   => installed,
     provider => gem,
