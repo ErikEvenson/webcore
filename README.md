@@ -210,3 +210,9 @@ Test pages.
 grunt buildcontrol:pages
 ```
 
+Test heroku.
+
+```
+grunt buildcontrol.heroku
+```
+
