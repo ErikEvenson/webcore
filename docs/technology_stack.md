@@ -11,6 +11,7 @@ These are the technologies used in this project.
 - [fontconfig](http://packages.ubuntu.com/precise/fontconfig) 2.8.0-3ubuntu9 - "generic font configuration library - support binaries."  Required by phantomjs.
 - [git](http://git-scm.com/) 2.1.0 - "Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency." 
 - [mercurial](http://mercurial.selenic.com/) 3.0.1 - "Easy-to-use, scalable distributed version control system."
+- [node](http://nodejs.org/) 0.10.31 - Node.js is a platform built on Chrome's JavaScript runtime for easily building fast, scalable network applications.  Note that npm comes with node now.
 
 ## bash-installed
 
@@ -19,10 +20,15 @@ These are the technologies used in this project.
 - [vagrant-librarian-puppet](https://github.com/mhahn/vagrant-librarian-puppet) 0.7.1 - A Vagrant plugin to install Puppet modules using Librarian-Puppet.
 - [vagrant-vbguest](https://github.com/dotless-de/vagrant-vbguest) 0.10.0 [Changelog[(https://github.com/dotless-de/vagrant-vbguest/blob/master/CHANGELOG.md) [Fork](https://github.com/EATechnologies/vagrant-vbguest) - automatically keeps VirtualBox Guest Additions up to date.  ***Updates are manual.***
 
+## bower-installed
+
+- [bootstrap-sass-official](https://github.com/twbs/bootstrap-sass) 3.2.0 - "Official Sass port of Bootstrap"
+- [modernizr](https://github.com/Modernizr/Modernizr) 2.8.2 = "Modernizr is a JavaScript library that detects HTML5 and CSS3 features in the user’s browser."
+
 ## gem-installed
 
 - [puppet-lint](http://puppet-lint.com/) 1.0.1 - "Check that your Puppet manifest conform to the style guide."
-- [SASS](https://rubygems.org/gems/sass) 3.3.8 - CSS extension language.
+- [SASS](https://rubygems.org/gems/sass) 3.4.2 - CSS extension language.
 
 ## Installed on host
 
@@ -44,6 +50,36 @@ Global:
 - [npm](https://npmjs.org/doc/) 1.4.23 [Fork](https://github.com/EATechnologies/npm) - "node package manager"
 - [npm-check-updates](https://www.npmjs.org/package/npm-check-updates) 1.2.0 [Fork](https://github.com/EATechnologies/npm-check-updates) - Find newer versions of dependencies than what your package.json allows.
 - [yeoman](http://yeoman.io/) 1.2.1 [Changelog](https://github.com/yeoman/yo/releases) [Fork](https://github.com/EATechnologies/yo) - "CLI tool for running Yeoman generators"  yeoman will install bower and grunt-cli.
+
+Local:
+
+- [apache-server-configs](https://github.com/h5bp/server-configs-apache) 2.7.1 - "Apache HTTP server boilerplate configs."
+- [grunt](http://gruntjs.com/) 0.4.5 - "The JavaScript Task Runner."
+- [grunt-autoprefixer](https://github.com/nDmitry/grunt-autoprefixer) 1.0.1 - "Parse CSS and add vendor-prefixed CSS properties using the Can I Use database."
+- [grunt-build-control](https://github.com/robwierzbowski/grunt-build-control) 0.1.3 - "Version control your built code."
+- [grunt-concurrent](https://github.com/sindresorhus/grunt-concurrent) 0.5.0 - "Run grunt tasks concurrently."
+- [grunt-contrib-clean](https://github.com/gruntjs/grunt-contrib-clean) 0.6.0 - "Clear files and folders."
+- [grunt-contrib-coffee](https://github.com/gruntjs/grunt-contrib-coffee) 0.11.1 - "Compile CoffeeScript files to JavaScript."
+- [grunt-contrib-concat](https://github.com/gruntjs/grunt-contrib-concat) 0.5.0 - "Concatenate files."
+- [grunt-contrib-connect](https://www.npmjs.org/package/grunt-contrib-connect) 0.8.0 - "Start a static web server."
+- [grunt-contrib-copy](https://github.com/gruntjs/grunt-contrib-copy) 0.5.0 - "Copy files and folders."
+grunt-contrib-cssmin@0.10.0
+grunt-contrib-htmlmin@0.3.0
+grunt-contrib-imagemin@0.8.1
+grunt-contrib-jshint@0.10.0
+grunt-contrib-sass@0.7.4
+grunt-contrib-uglify@0.5.1
+grunt-contrib-watch@0.6.1
+grunt-mocha@0.4.11
+grunt-modernizr@0.5.2
+grunt-newer@0.7.0
+grunt-rev@0.1.0
+grunt-svgmin@0.4.0
+grunt-usemin@2.4.0
+grunt-wiredep@1.8.0
+jshint-stylish@0.4.0
+load-grunt-tasks@0.4.0
+time-grunt@0.4.0
 
 ## Puppet modules
 
