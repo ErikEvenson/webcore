@@ -204,4 +204,9 @@ grunt buildcontrol:local
 foreman start
 ```
 
+Test pages.
+
+```
+grunt buildcontrol:pages
+```
 
