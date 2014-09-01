@@ -77,142 +77,141 @@ When done, exit the virtual environment and `vagrant halt` to stop the virtual m
 Generate the website.  Use bootstrap, SASS, Modernizr, and libsass.
 
 ```
-mkdir example
-cd example
-yo webapp --coffee
+  mkdir example
+  cd example
+  yo webapp --coffee
 ```
 
 Build and check site.
 
 ```
-grunt build
-grunt serve
+  grunt build
+  grunt serve
 ```
 
 Build a local.
 
 ```
-cd dist
-npm init
+  cd dist
+  npm init
 
-name: (dist) example
-version: (1.0.0) 0.0.0
-description: example
-entry point: (index.js) web.js
-test command: 
-git repository: git@github.com:ErikEvenson/webcore.git
-keywords: 
-author: 
-license: (ISC)
+  name: (dist) example
+  version: (1.0.0) 0.0.0
+  description: example
+  entry point: (index.js) web.js
+  test command: 
+  git repository: git@github.com:ErikEvenson/webcore.git
+  keywords: 
+  author: 
+  license: (ISC)
 
-npm install express gzippo --save
+  npm install express gzippo --save
 
 ```
 
 Add web.js
 
 ```
-var express = require('express');
-var http = require('http');
-var gzippo = require('gzippo');
-var app = express();
-app.use(express.logger());
-app.use(gzippo.staticGzip('' + __dirname));
-var server = http.createServer(app);
-server.listen(process.env.PORT || 5000);
+  var express = require('express');
+  var http = require('http');
+  var gzippo = require('gzippo');
+  var app = express();
+  app.use(express.logger());
+  app.use(gzippo.staticGzip('' + __dirname));
+  var server = http.createServer(app);
+  server.listen(process.env.PORT || 5000);
 ```
 
 Add Procfile
 
 ```
-web: node web.js
+  web: node web.js
 ```
 
 Add grunt-build-control.
 
 ```
-cd ..
-npm install grunt-build-control --save-dev
+  cd ..
+  npm install grunt-build-control --save-dev
 ```
 
 Add these lines to example/Gruntfile.js, replacing as necessary.
 
 ```
-var pkg = require('./package.json');
+  var pkg = require('./package.json');
 ```
 
 ```
-buildcontrol: {
-  options: {
-      dir: 'dist',
-      commit: true,
-      push: true,
-      message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%'
-  },
-  heroku: {
+  buildcontrol: {
     options: {
-      remote: 'git@heroku.com:ancient-forest-2940.git',
-      branch: 'master',
-      tag: pkg.version
-    }
-  },
-  local: {
-    options: {
-      remote: '../dist',
-      branch: 'build'
-    }
-  },
-  pages: {
-    options: {
-      remote: 'git@github.com:ErikEvenson/webcore.git',
-      branch: 'gh-pages'
+        dir: 'dist',
+        commit: true,
+        push: true,
+        message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%'
+    },
+    heroku: {
+      options: {
+        remote: 'git@heroku.com:ancient-forest-2940.git',
+        branch: 'master',
+        tag: pkg.version
+      }
+    },
+    local: {
+      options: {
+        remote: '../dist',
+        branch: 'build'
+      }
+    },
+    pages: {
+      options: {
+        remote: 'git@github.com:ErikEvenson/webcore.git',
+        branch: 'gh-pages'
+      }
     }
   }
-}
 ```
 
 ```
-grunt.loadNpmTasks('grunt-build-control');
+  grunt.loadNpmTasks('grunt-build-control');
 ```
 
 Update grunt clean.
 
 ```
-clean: {
-  dist: {
-    files: [{
-      dot: true,
-      src: [
-        '.tmp',
-        '<%= config.dist %>/*',
-        '!<%= config.dist %>/.git*',
-        '!<%= config.dist %>/Procfile',
-        '!<%= config.dist %>/package.json',
-        '!<%= config.dist %>/web.js',
-        '!<%= config.dist %>/node_modules'
-      ]
-    }]
+  clean: {
+    dist: {
+      files: [{
+        dot: true,
+        src: [
+          '.tmp',
+          '<%= config.dist %>/*',
+          '!<%= config.dist %>/.git*',
+          '!<%= config.dist %>/Procfile',
+          '!<%= config.dist %>/package.json',
+          '!<%= config.dist %>/web.js',
+          '!<%= config.dist %>/node_modules'
+        ]
+      }]
+    },
+    server: '.tmp'
   },
-  server: '.tmp'
-},
 ```
 
 Test local.
 
 ```
-grunt buildcontrol:local
-foreman start
+  grunt buildcontrol:local
+  foreman start
 ```
 
 Test pages.
 
 ```
-grunt buildcontrol:pages
+  grunt buildcontrol:pages
 ```
 
 Test heroku.
 
 ```
-grunt buildcontrol:heroku
+  grunt buildcontrol:heroku
 ```
-
