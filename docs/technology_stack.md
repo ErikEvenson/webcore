@@ -54,6 +54,7 @@ Global:
 Local:
 
 - [apache-server-configs](https://github.com/h5bp/server-configs-apache) 2.7.1 - "Apache HTTP server boilerplate configs."
+- [http://expressjs.com/](http://expressjs.com/) 4.8.7 - "Fast, unopinionated, minimalist web framework."
 - [grunt](http://gruntjs.com/) 0.4.5 - "The JavaScript Task Runner."
 - [grunt-autoprefixer](https://github.com/nDmitry/grunt-autoprefixer) 1.0.1 - "Parse CSS and add vendor-prefixed CSS properties using the Can I Use database."
 - [grunt-build-control](https://github.com/robwierzbowski/grunt-build-control) 0.1.3 - "Version control your built code."
@@ -63,23 +64,24 @@ Local:
 - [grunt-contrib-concat](https://github.com/gruntjs/grunt-contrib-concat) 0.5.0 - "Concatenate files."
 - [grunt-contrib-connect](https://www.npmjs.org/package/grunt-contrib-connect) 0.8.0 - "Start a static web server."
 - [grunt-contrib-copy](https://github.com/gruntjs/grunt-contrib-copy) 0.5.0 - "Copy files and folders."
-grunt-contrib-cssmin@0.10.0
-grunt-contrib-htmlmin@0.3.0
-grunt-contrib-imagemin@0.8.1
-grunt-contrib-jshint@0.10.0
-grunt-contrib-sass@0.7.4
-grunt-contrib-uglify@0.5.1
-grunt-contrib-watch@0.6.1
-grunt-mocha@0.4.11
-grunt-modernizr@0.5.2
-grunt-newer@0.7.0
-grunt-rev@0.1.0
-grunt-svgmin@0.4.0
-grunt-usemin@2.4.0
-grunt-wiredep@1.8.0
-jshint-stylish@0.4.0
-load-grunt-tasks@0.4.0
-time-grunt@0.4.0
+- [grunt-contrib-cssmin](https://github.com/gruntjs/grunt-contrib-cssmin) 0.10.0 - "Compress CSS files."
+- [grunt-contrib-htmlmin](https://github.com/gruntjs/grunt-contrib-htmlmin) 0.3.0 - "Minify HTML."
+- [grunt-contrib-imagemin](https://github.com/gruntjs/grunt-contrib-imagemin) 0.8.1 - "Minify PNG and JPEG images."
+- [grunt-contrib-jshint](https://github.com/gruntjs/grunt-contrib-jshint) 0.10.0 - "Validate files with JSHint."
+- [grunt-contrib-sass](https://github.com/gruntjs/grunt-contrib-sass) 0.7.4 - "Compile Sass to CSS."
+- [grunt-contrib-uglify](https://github.com/gruntjs/grunt-contrib-uglify) 0.5.1 - "Minify files with UglifyJS."
+- [grunt-contrib-watch](https://github.com/gruntjs/grunt-contrib-watch) 0.6.1 - "Run tasks whenever watched files change."
+- [grunt-mocha](https://www.npmjs.org/package/grunt-mocha) 0.4.11 - "Grunt task for running mocha specs in a headless browser (PhantomJS)."
+- [grunt-modernizr](https://github.com/Modernizr/grunt-modernizr) 0.5.2 - "Build out a lean, mean Modernizr machine."
+- [grunt-newer](https://github.com/tschaub/grunt-newer) 0.7.0 - "Configure Grunt tasks to run with newer files only."
+- [grunt-rev](https://github.com/cbas/grunt-rev) 0.1.0 - "Asset revving for Grunt.js."
+- [grunt-svgmin](https://github.com/sindresorhus/grunt-svgmin) 0.4.0 - "Minify SVG."
+- [grunt-usemin](https://github.com/yeoman/grunt-usemin) 2.4.0 - "Replaces references to non-optimized scripts or stylesheets into a set of HTML files (or any templates/views)."
+- [grunt-wiredep](http://stephenplusplus.github.io/grunt-wiredep/) 1.8.0 - "Finds your components and injects them directly into the HTML file you specify."
+- [gzippo](http://www.tomg.co/gzippo) 0.2.0 - "Gzip middleware for Connect using the native zlib library in node >= 0.6."
+- [jshint-stylish](https://github.com/sindresorhus/jshint-stylish) 0.4.0 - "Stylish reporter for JSHint."
+- [load-grunt-tasks](https://github.com/sindresorhus/load-grunt-tasks) 0.4.0 - "Load multiple grunt tasks using globbing patterns."
+- [time-grunt](https://github.com/sindresorhus/time-grunt) 0.4.0 - "Display the elapsed execution time of grunt tasks."
 
 ## Puppet modules
 
