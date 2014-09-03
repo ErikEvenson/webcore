@@ -74,13 +74,15 @@ When done, exit the virtual environment and `vagrant halt` to stop the virtual m
 
 ## Generate web site
 
-Generate the website.  Use Compass, Autoprefixer, Coffeescript, Default Jekyll
+Generate the website.  Use Compass, Autoprefixer, Coffeescript, Default Jekyll, pretty, ../dist
 
 ```
   mkdir example
   cd example
   yo jekyllrb
 ```
+
+0.0.0.0
 
 Build and check site.
 
@@ -89,6 +91,8 @@ Build and check site.
   grunt serve
 ```
 
+
+===
 Build a local.
 
 ```
@@ -169,10 +173,6 @@ Add these lines to example/Gruntfile.js, replacing as necessary.
       }
     }
   }
-```
-
-```
-  grunt.loadNpmTasks('grunt-build-control');
 ```
 
 Update grunt clean.

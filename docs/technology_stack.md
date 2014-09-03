@@ -28,7 +28,48 @@ These are the technologies used in this project.
 ## gem-installed
 
 - [puppet-lint](http://puppet-lint.com/) 1.0.1 - "Check that your Puppet manifest conform to the style guide."
-- [SASS](https://rubygems.org/gems/sass) 3.4.2 - CSS extension language.
+- [sass](https://rubygems.org/gems/sass) 3.4.2 - CSS extension language.
+
+blankslate (2.1.2.4)
+bundler (1.7.2)
+celluloid (0.15.2)
+chunky_png (1.3.1)
+classifier (1.3.4)
+classifier-reborn (2.0.1)
+coffee-script (2.3.0)
+coffee-script-source (1.8.0)
+colorator (0.1)
+commander (4.1.6)
+compass (1.0.1)
+compass-core (1.0.1)
+compass-import-once (1.0.5)
+execjs (2.2.1)
+fast-stemmer (1.0.2)
+ffi (1.9.3)
+highline (1.6.21)
+jekyll (2.3.0, 1.4.3)
+jekyll-coffeescript (1.0.1)
+jekyll-gist (1.1.0)
+jekyll-paginate (1.0.0)
+jekyll-sass-converter (1.2.1)
+jekyll-watch (1.1.0)
+kramdown (1.4.1)
+liquid (2.6.1, 2.5.5)
+listen (2.7.9, 1.3.1)
+maruku (0.7.2)
+mercenary (0.3.4)
+multi_json (1.10.1)
+parslet (1.5.0)
+posix-spawn (0.3.9)
+pygments.rb (0.6.0, 0.5.4)
+rb-fsevent (0.9.4)
+rb-inotify (0.9.5)
+rb-kqueue (0.2.3)
+redcarpet (3.1.2, 2.3.0)
+safe_yaml (1.0.3, 0.9.7)
+timers (1.1.0)
+toml (0.1.1)
+yajl-ruby (1.1.0)
 
 ## Installed on host
 
@@ -44,44 +85,41 @@ These tools are installed directly on the host.  On a Mac, they are can be insta
 Global:
 
 - [bower](https://www.npmjs.org/package/bower) 1.3.9 [Changelog](https://github.com/bower/bower/blob/master/CHANGELOG.md)[Fork](https://www.virtualbox.org/) - front end package management.  Bower will warn when it has an update.  Installed by yeoman.
-- [generator-mocha](https://www.npmjs.org/package/generator-mocha) 0.1.5 - "Yeoman generator for Mocha."  Installed by generator-webapp.
-- [generator-webapp](https://www.npmjs.org/package/generator-webapp) 0.5.0 - "Scaffold out a front-end web app."  Will install generator-mocha.
+- [generator-mocha](https://www.npmjs.org/package/generator-mocha) 0.1.5 - "Yeoman generator for Mocha."  Installed by generator-jekyllrb.
+- [generator-jekyllrb]() 1.2.1
 - [grunt-cli](https://github.com/gruntjs/grunt-cli) 0.1.13 [Fork](https://github.com/EATechnologies/grunt-cli) 
 - [npm](https://npmjs.org/doc/) 1.4.23 [Fork](https://github.com/EATechnologies/npm) - "node package manager"
 - [npm-check-updates](https://www.npmjs.org/package/npm-check-updates) 1.2.0 [Fork](https://github.com/EATechnologies/npm-check-updates) - Find newer versions of dependencies than what your package.json allows.
-- [yeoman](http://yeoman.io/) 1.2.1 [Changelog](https://github.com/yeoman/yo/releases) [Fork](https://github.com/EATechnologies/yo) - "CLI tool for running Yeoman generators"  yeoman will install bower and grunt-cli.
+- [yo](http://yeoman.io/) 1.2.1 [Changelog](https://github.com/yeoman/yo/releases) [Fork](https://github.com/EATechnologies/yo) - "CLI tool for running Yeoman generators"  yeoman will install bower and grunt-cli.
 
 Local:
 
-- [apache-server-configs](https://github.com/h5bp/server-configs-apache) 2.7.1 - "Apache HTTP server boilerplate configs."
-- [http://expressjs.com/](http://expressjs.com/) 4.8.7 - "Fast, unopinionated, minimalist web framework."
+- [coffeelint]() 1.6.0
 - [grunt](http://gruntjs.com/) 0.4.5 - "The JavaScript Task Runner."
 - [grunt-autoprefixer](https://github.com/nDmitry/grunt-autoprefixer) 1.0.1 - "Parse CSS and add vendor-prefixed CSS properties using the Can I Use database."
 - [grunt-build-control](https://github.com/robwierzbowski/grunt-build-control) 0.1.3 - "Version control your built code."
+- [grunt-coffeelint](https://github.com/vojtajina/grunt-coffeelint) 0.0.13
 - [grunt-concurrent](https://github.com/sindresorhus/grunt-concurrent) 0.5.0 - "Run grunt tasks concurrently."
 - [grunt-contrib-clean](https://github.com/gruntjs/grunt-contrib-clean) 0.6.0 - "Clear files and folders."
 - [grunt-contrib-coffee](https://github.com/gruntjs/grunt-contrib-coffee) 0.11.1 - "Compile CoffeeScript files to JavaScript."
+- [grunt-contrib-compass](https://github.com/gruntjs/grunt-contrib-compass) 0.7.2
 - [grunt-contrib-concat](https://github.com/gruntjs/grunt-contrib-concat) 0.5.0 - "Concatenate files."
 - [grunt-contrib-connect](https://www.npmjs.org/package/grunt-contrib-connect) 0.8.0 - "Start a static web server."
 - [grunt-contrib-copy](https://github.com/gruntjs/grunt-contrib-copy) 0.5.0 - "Copy files and folders."
+- [grunt-contrib-csslint](https://github.com/gruntjs/grunt-contrib-csslint) 0.2.0
 - [grunt-contrib-cssmin](https://github.com/gruntjs/grunt-contrib-cssmin) 0.10.0 - "Compress CSS files."
 - [grunt-contrib-htmlmin](https://github.com/gruntjs/grunt-contrib-htmlmin) 0.3.0 - "Minify HTML."
 - [grunt-contrib-imagemin](https://github.com/gruntjs/grunt-contrib-imagemin) 0.8.1 - "Minify PNG and JPEG images."
 - [grunt-contrib-jshint](https://github.com/gruntjs/grunt-contrib-jshint) 0.10.0 - "Validate files with JSHint."
-- [grunt-contrib-sass](https://github.com/gruntjs/grunt-contrib-sass) 0.7.4 - "Compile Sass to CSS."
 - [grunt-contrib-uglify](https://github.com/gruntjs/grunt-contrib-uglify) 0.5.1 - "Minify files with UglifyJS."
-- [grunt-contrib-watch](https://github.com/gruntjs/grunt-contrib-watch) 0.6.1 - "Run tasks whenever watched files change."
-- [grunt-mocha](https://www.npmjs.org/package/grunt-mocha) 0.4.11 - "Grunt task for running mocha specs in a headless browser (PhantomJS)."
-- [grunt-modernizr](https://github.com/Modernizr/grunt-modernizr) 0.5.2 - "Build out a lean, mean Modernizr machine."
-- [grunt-newer](https://github.com/tschaub/grunt-newer) 0.7.0 - "Configure Grunt tasks to run with newer files only."
-- [grunt-rev](https://github.com/cbas/grunt-rev) 0.1.0 - "Asset revving for Grunt.js."
+- [grunt-contrib-watch](https://github.com/gruntjs/grunt-contrib-watch) b8849488 - "Run tasks whenever watched files change."
+- [grunt-filerev]() 0.2.1
+- [grunt-jekyll](https://github.com/dannygarcia/grunt-jekyll) 0.4.2
 - [grunt-svgmin](https://github.com/sindresorhus/grunt-svgmin) 0.4.0 - "Minify SVG."
 - [grunt-usemin](https://github.com/yeoman/grunt-usemin) 2.4.0 - "Replaces references to non-optimized scripts or stylesheets into a set of HTML files (or any templates/views)."
-- [grunt-wiredep](http://stephenplusplus.github.io/grunt-wiredep/) 1.8.0 - "Finds your components and injects them directly into the HTML file you specify."
-- [gzippo](http://www.tomg.co/gzippo) 0.2.0 - "Gzip middleware for Connect using the native zlib library in node >= 0.6."
 - [jshint-stylish](https://github.com/sindresorhus/jshint-stylish) 0.4.0 - "Stylish reporter for JSHint."
 - [load-grunt-tasks](https://github.com/sindresorhus/load-grunt-tasks) 0.4.0 - "Load multiple grunt tasks using globbing patterns."
-- [time-grunt](https://github.com/sindresorhus/time-grunt) 0.4.0 - "Display the elapsed execution time of grunt tasks."
+- [time-grunt](https://github.com/sindresorhus/time-grunt) 0.2.10 - "Display the elapsed execution time of grunt tasks."
 
 ## Puppet modules
 
