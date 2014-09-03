@@ -82,12 +82,18 @@ Generate the website.  Use bootstrap, SASS, Modernizr, and libsass.
   yo webapp --coffee
 ```
 
+Edit grunt-contrib-connect to listen on 0.0.0.0:5000.
+
 Build and check site.
 
 ```
   grunt build
   grunt serve
 ```
+
+===
+http://fettblog.eu/blog/2013/09/02/using-assemble-io-with-yeoman-ios-webapp-gruntfile/
+===
 
 Build a local.
 
