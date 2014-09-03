@@ -150,6 +150,7 @@ Build and check site.
 Test pages: http://erikevenson.github.io/webcore/
 
 ```
+  grunt build
   grunt buildcontrol:pages
 ```
 
