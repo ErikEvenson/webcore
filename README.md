@@ -156,6 +156,8 @@ Test pages: http://erikevenson.github.io/webcore/
 
 
 ===
+
+heroku stub instructions
 Build a local.
 
 ```
