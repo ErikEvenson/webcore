@@ -82,13 +82,75 @@ Generate the website.  Use Compass, Autoprefixer, Coffeescript, Default Jekyll, 
   yo jekyllrb
 ```
 
-0.0.0.0
+0.0.0.0/5000
+
+Change baseurl in _config.yml and _config.build.yml
+
+Add these lines to example/Gruntfile.js, replacing as necessary.
+
+```
+  var pkg = require('./package.json');
+```
+
+```
+  buildcontrol: {
+    options: {
+        dir: 'dist',
+        commit: true,
+        push: true,
+        message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%'
+    },
+    heroku: {
+      options: {
+        remote: 'git@heroku.com:ancient-forest-2940.git',
+        branch: 'master',
+        tag: pkg.version
+      }
+    },
+    local: {
+      options: {
+        remote: '../dist',
+        branch: 'build'
+      }
+    },
+    pages: {
+      options: {
+        remote: 'git@github.com:ErikEvenson/webcore.git',
+        branch: 'gh-pages'
+      }
+    }
+  }
+```
+
+Add {{ set.baseurl }} to ...
+
+Add cdn task and add to build:
+```
+  npm install grunt-cdn --save-dev
+```
+
+```
+  cdn: {
+    options: {
+      cdn: '/baseurl/', flatten: true
+    },
+    dist: {
+      src: ['<%= yeoman.dist %>/**/*.html', '<%= yeoman.dist %>/**/*.css']
+    }
+  },
+```
 
 Build and check site.
 
 ```
   grunt build
   grunt serve
+```
+
+Test pages: http://erikevenson.github.io/webcore/
+
+```
+  grunt buildcontrol:pages
 ```
 
 
@@ -139,41 +201,6 @@ Add grunt-build-control.
   npm install grunt-build-control --save-dev
 ```
 
-Add these lines to example/Gruntfile.js, replacing as necessary.
-
-```
-  var pkg = require('./package.json');
-```
-
-```
-  buildcontrol: {
-    options: {
-        dir: 'dist',
-        commit: true,
-        push: true,
-        message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%'
-    },
-    heroku: {
-      options: {
-        remote: 'git@heroku.com:ancient-forest-2940.git',
-        branch: 'master',
-        tag: pkg.version
-      }
-    },
-    local: {
-      options: {
-        remote: '../dist',
-        branch: 'build'
-      }
-    },
-    pages: {
-      options: {
-        remote: 'git@github.com:ErikEvenson/webcore.git',
-        branch: 'gh-pages'
-      }
-    }
-  }
-```
 
 Update grunt clean.
 
@@ -204,11 +231,6 @@ Test local: http://192.168.50.4:5000/
   foreman start
 ```
 
-Test pages: http://erikevenson.github.io/webcore/
-
-```
-  grunt buildcontrol:pages
-```
 
 Test heroku: http://ancient-forest-2940.herokuapp.com/
 
