@@ -9,6 +9,7 @@
 // 'test/spec/**/*.js'
 
 module.exports = function (grunt) {
+  var pkg = require('./package.json');
   grunt.loadNpmTasks('assemble');
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
@@ -123,7 +124,11 @@ module.exports = function (grunt) {
           src: [
             '.tmp',
             '<%= config.dist %>/*',
-            '!<%= config.dist %>/.git*'
+            '!<%= config.dist %>/.git*',
+            '!<%= config.dist %>/Procfile',
+            '!<%= config.dist %>/package.json',
+            '!<%= config.dist %>/web.js',
+            '!<%= config.dist %>/node_modules'
           ]
         }]
       },
@@ -428,9 +433,37 @@ module.exports = function (grunt) {
           '.tmp/': ['<%= config.app %>/templates/pages/*.hbs']
         } 
       }
+    },
+    buildcontrol: {
+      options: {
+          dir: 'dist',
+          commit: true,
+          push: true,
+          message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%'
+      },
+      heroku: {
+        options: {
+          remote: 'git@heroku.com:ancient-forest-2940.git',
+          branch: 'master',
+          tag: pkg.version
+        }
+      },
+      local: {
+        options: {
+          remote: '../dist',
+          branch: 'build'
+        }
+      },
+      pages: {
+        options: {
+          remote: 'git@github.com:ErikEvenson/webcore.git',
+          branch: 'gh-pages'
+        }
+      }
     }
   });
 
+  grunt.loadNpmTasks('grunt-build-control');
 
   grunt.registerTask('serve', 'start the server and preview your app, --allow-remote for remote access', function (target) {
     if (grunt.option('allow-remote')) {
