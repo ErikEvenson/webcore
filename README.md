@@ -91,10 +91,145 @@ Build and check site.
   grunt serve
 ```
 
-===
+Adapted from:
 http://fettblog.eu/blog/2013/09/02/using-assemble-io-with-yeoman-ios-webapp-gruntfile/
-===
 
+Add template directories
+
+```
+  mkdir -p app/templates/{layouts,pages,partials}
+  touch app/templates/{layouts,pages,partials}/.gitkeep
+```
+
+Create app/templates/layouts/layout.hbs
+
+Install assemble.
+
+```
+  npm install --save-dev assemble
+```
+
+Add grunt task to Gruntfile.js.
+
+```
+  grunt.loadNpmTasks('assemble');
+```
+
+Alter Grunfile.js sections.
+
+```
+  assemble: {
+    options: {
+      flatten: true,
+      layout: 'layout.hbs',
+      layoutdir: '<%= config.app %>/templates/layouts',
+      assets: 'dist/images',
+      partials: ['<%= config.app %>/templates/partials/*.hbs']
+    },
+    dist: {
+      files: {
+        '.tmp/': ['<%= config.app %>/templates/pages/*.hbs']
+      } 
+    },
+    server: {
+      files: {
+        '.tmp/': ['<%= config.app %>/templates/pages/*.hbs']
+      } 
+    }
+  }
+
+  htmlmin: {
+    dist: {
+      options: {
+        collapseBooleanAttributes: true,
+        collapseWhitespace: true,
+        conservativeCollapse: true,
+        removeAttributeQuotes: true,
+        removeCommentsFromCDATA: true,
+        removeEmptyAttributes: true,
+        removeOptionalTags: true,
+        removeRedundantAttributes: true,
+        useShortDoctype: true
+      },
+      files: [{
+        expand: true,
+        cwd: '.tmp',
+        src: '{,*/}*.html',
+        dest: '<%= config.dist %>'
+      }]
+    }
+  }
+
+  concurrent: {
+    server: [
+      'sass:server',
+      'coffee:dist',
+      'copy:styles',
+      'assemble'
+    ],
+    test: [
+      'coffee',
+      'copy:styles'
+    ],
+    dist: [
+      'coffee',
+      'sass',
+      'assemble',
+      'copy:styles',
+      'imagemin',
+      'svgmin'
+    ]
+  },
+
+  livereload: {
+    options: {
+      livereload: '<%= connect.options.livereload %>'
+    },
+    files: [
+      '<%= config.app %>/{,*/}*.html',
+      '.tmp/styles/{,*/}*.css',
+      '.tmp/scripts/{,*/}*.js',
+      '<%= config.app %>/images/{,*/}*',
+      '.tmp/*.html', // Add this
+    ]
+  },
+
+  assemble: {
+   files: ['<%= config.app %>/templates/layouts/*.hbs',
+           '<%= config.app %>/templates/pages/*.hbs',
+           '<%= config.app %>/templates/partials/*.hbs'],
+   tasks: ['assemble:server']
+  }
+
+  useminPrepare: {
+    options: {
+      dest: '<%= config.dist %>'
+    },
+    html: [
+      '<%= config.app %>/index.html',
+      '.tmp/index.html'
+    ]
+  },
+
+  usemin: {
+    options: {
+      assetsDirs: ['<%= config.dist %>', '<%= config.dist %>/images']
+    },
+    html: ['<%= config.dist %>/{,*/}*.html', '.tmp/{,*/}*.html'],
+    css: ['<%= config.dist %>/styles/{,*/}*.css']
+  },
+
+
+  grunt.registerTask('default', [
+    'newer:jshint',
+    'test',
+    'build',
+    'newer:assemble'
+  ]);
+
+```
+
+===
 Build a local.
 
 ```
