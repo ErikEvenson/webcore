@@ -9,7 +9,7 @@
 // 'test/spec/**/*.js'
 
 module.exports = function (grunt) {
-
+  grunt.loadNpmTasks('assemble');
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
 
@@ -61,8 +61,15 @@ module.exports = function (grunt) {
           '<%= config.app %>/{,*/}*.html',
           '.tmp/styles/{,*/}*.css',
           '.tmp/scripts/{,*/}*.js',
-          '<%= config.app %>/images/{,*/}*'
+          '<%= config.app %>/images/{,*/}*',
+          '.tmp/*.html', // Add this
         ]
+      },
+      assemble: {
+       files: ['<%= config.app %>/templates/layouts/*.hbs',
+               '<%= config.app %>/templates/pages/*.hbs',
+               '<%= config.app %>/templates/partials/*.hbs'],
+       tasks: ['assemble:server']
       }
     },
 
@@ -245,7 +252,10 @@ module.exports = function (grunt) {
       options: {
         dest: '<%= config.dist %>'
       },
-      html: '<%= config.app %>/index.html'
+      html: [
+        '<%= config.app %>/index.html',
+        '.tmp/index.html'
+      ]
     },
 
     // Performs rewrites based on rev and the useminPrepare configuration
@@ -253,7 +263,7 @@ module.exports = function (grunt) {
       options: {
         assetsDirs: ['<%= config.dist %>', '<%= config.dist %>/images']
       },
-      html: ['<%= config.dist %>/{,*/}*.html'],
+      html: ['<%= config.dist %>/{,*/}*.html', '.tmp/{,*/}*.html'],
       css: ['<%= config.dist %>/styles/{,*/}*.css']
     },
 
@@ -295,7 +305,7 @@ module.exports = function (grunt) {
         },
         files: [{
           expand: true,
-          cwd: '<%= config.dist %>',
+          cwd: '.tmp',
           src: '{,*/}*.html',
           dest: '<%= config.dist %>'
         }]
@@ -384,7 +394,8 @@ module.exports = function (grunt) {
       server: [
         'sass:server',
         'coffee:dist',
-        'copy:styles'
+        'copy:styles',
+        'assemble'
       ],
       test: [
         'coffee',
@@ -393,10 +404,30 @@ module.exports = function (grunt) {
       dist: [
         'coffee',
         'sass',
+        'assemble',
         'copy:styles',
         'imagemin',
         'svgmin'
       ]
+    },
+    assemble: {
+      options: {
+        flatten: true,
+        layout: 'layout.hbs',
+        layoutdir: '<%= config.app %>/templates/layouts',
+        assets: 'dist/images',
+        partials: ['<%= config.app %>/templates/partials/*.hbs']
+      },
+      dist: {
+        files: {
+          '.tmp/': ['<%= config.app %>/templates/pages/*.hbs']
+        } 
+      },
+      server: {
+        files: {
+          '.tmp/': ['<%= config.app %>/templates/pages/*.hbs']
+        } 
+      }
     }
   });
 
