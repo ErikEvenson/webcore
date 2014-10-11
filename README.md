@@ -41,7 +41,8 @@ Bring up the box -- this will take a while the first time to both download and p
 Copy a version of the ssh keys necessary for connecting to the github repository to the web VM.  ***Be sure not to commit your ssh keys to the repository.***
 
 ```
-  cp ~/.ssh/*id_rsa* .
+  mkdir temp
+  cp -R ~/.ssh/{config,github,heroku} temp/.
 ```
 
 Enter the virtual development environment on the web server.
@@ -53,7 +54,7 @@ Enter the virtual development environment on the web server.
 Move the ssh keys necessary for connecting to the github repository to `~/.ssh` on web VM.  This will allow pulling/pushing to github.  ***Be sure not to commit your ssh keys to the repository.***
 
 ```
-  mv *id_rsa* ~/.ssh/.
+  mv temp/{config,github,heroku} ~/.ssh/.
 ```
 
 If you will be committing from the VM, be sure to set your name and email for commit messages, and keep git from being chatty (substitute your data).
@@ -67,7 +68,7 @@ If you will be committing from the VM, be sure to set your name and email for co
 Enable ssh-agent.
 
 ```
-  eval `ssh-agent -s` && ssh-add
+  eval `ssh-agent -s` && ssh-add ~/.ssh/**/*id_rsa
 ```
 
 When done, exit the virtual environment and `vagrant halt` to stop the virtual machine.  Use `vagrant destroy` to reclaim the disk space (although this will require you to re-provision the machine again later).  `vagrant remove` should be used to remove the base box from the system as well.  `vagrant up` and `vagrant ssh web` to start another development session later.
