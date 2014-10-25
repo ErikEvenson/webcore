@@ -11,7 +11,7 @@ class node_globals {
   }
 
   $node_globals_array = [
-    'yo@1.2.1',
+    'yo@1.3.3',
   ]
 
   $node_globals = join($node_globals_array, ' ')
