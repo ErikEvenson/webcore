@@ -9,4 +9,5 @@ node 'base' {
 
   require nodejs
   require node_globals
+  require mongodb
 }
