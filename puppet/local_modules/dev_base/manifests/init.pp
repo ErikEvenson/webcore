@@ -6,6 +6,7 @@ class dev_base {
   include mercurial
   include stdlib
   include vim
+  include '::mongodb::server'
 
   package {'puppet-lint':
     ensure   => installed,

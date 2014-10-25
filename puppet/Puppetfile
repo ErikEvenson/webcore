@@ -2,3 +2,4 @@ forge "https://forge.puppetlabs.com"
 
 mod 'puppetlabs-apt'
 mod 'puppetlabs-stdlib'
+mod 'puppetlabs-mongodb'
