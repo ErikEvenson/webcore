@@ -102,4 +102,15 @@ This seems to be necessary:
   npm install grunt-contrib-imagemin@0.7.1 --save-dev
 ```
 
+grunt build
+cd dist
+heroku login
+yo angular-fullstack:heroku
+heroku addons:add mongohq
+grunt build
+grunt buildcontrol:heroku
+
+
+
 Run grunt for building, grunt serve for preview, and grunt serve:dist for a preview of the built app.
+
