@@ -2,19 +2,6 @@
 
 These are the technologies used in this project.
 
-## TBD
-CoffeeScript
-Jade
-SASS
-uiRouter
-Bootstrap
-UI Bootstrap
-Mongoose
-Passport
-bower
-grunt-cli
-puppet-lint
-
 ## Foundational
 
 - [bash](http://www.gnu.org/software/bash/manual/bashref.html) 4.2.24 - shell.
@@ -35,28 +22,29 @@ puppet-lint
 
 ### Normal
 
-"angular": ">=1.2.*",
-"json3": "~3.3.1",
-"es5-shim": "~3.0.1",
-"jquery": "~1.11.0",
-"bootstrap-sass-official": "~3.1.1",
-"bootstrap": "~3.1.1",
-"angular-resource": ">=1.2.*",
-"angular-cookies": ">=1.2.*",
-"angular-sanitize": ">=1.2.*",
-"angular-bootstrap": "~0.11.0",
-"font-awesome": ">=4.1.0",
-"lodash": "~2.4.1",
-"angular-ui-router": "~0.2.10"
+- [angular](https://github.com/angular/bower-angular) 1.3.0 - 'Bower package for AngularJS.'
+- [json3](https://github.com/bestiejs/json3) 3.3.2 - 'A modern JSON implementation compatible with nearly all JavaScript platforms.'
+- [es5-shim](https://github.com/es-shims/es5-shim) 3.0.2 - 'ECMAScript 5 compatibility shims for legacy JavaScript engines.'
+- [jquery](https://github.com/jquery/jquery) 1.11.1 - 'jQuery JavaScript Library.'
+- [bootstrap-sass-official](https://github.com/twbs/bootstrap-sass) 3.1.1+2 - 'Official Sass port of Bootstrap.'
+- [bootstrap](https://github.com/twbs/bootstrap) 3.1.1 - 'The most popular HTML, CSS, and JavaScript framework for developing responsive, mobile first projects on the web.'
+- [angular-resource](https://github.com/angular/bower-angular-resource) 1.3.0 - 'angular-resource bower repo.'
+- [angular-cookies](https://github.com/angular/bower-angular-cookies) 1.3.0 - 'https://github.com/angular/bower-angular-cookies.'
+- [angular-sanitize](https://github.com/angular/bower-angular-sanitize) 1.3.0 - 'angular-sanitize bower repo.'
+- [angular-bootstrap](https://github.com/angular-ui/bootstrap-bower) 0.11.2 - 'This is a bower repository to hold Angular UI Bootstrap releases.'
+- [font-awesome](https://github.com/interval-braining/font-awesome-bower) 4.2.0 - 'FontAwesome bower component with reduced footprint.'
+- [lodash](https://github.com/lodash/lodash) 2.4.1 - 'A utility library delivering consistency, customization, performance, & extras.'
+- [angular-ui-router](https://github.com/angular-ui/ui-router) 0.2.11 - 'The de-facto solution to flexible routing with nested views.'
 
 ### Development
 
-"angular-mocks": ">=1.2.*",
-"angular-scenario": ">=1.2.*"
+- [angular-mocks](https://github.com/angular/bower-angular-mocks) 1.3.0 - 'angular-mocks.js bower repo.'
+- [angular-scenario](https://github.com/angular/bower-angular-scenario) 1.3.0 - 'bower repo for angular-scenario.js.'
 
 ## gem-installed
 
 - [puppet-lint](http://puppet-lint.com/) 1.0.1 - "Check that your Puppet manifest conform to the style guide."
+- [SASS](https://rubygems.org/gems/sass) 3.4.6 [Fork](https://github.com/EATechnologies/sass) - CSS extension language.  Installed during vagrant provisioning in install.sh for the web VM.  Used by django-pipeline to compile CSS.  ***Upgrade by changing the pinned version in the install.sh script and reprovision or gem install.***
 
 ## Installed on host
 
@@ -68,6 +56,10 @@ These tools are installed directly on the host.  On a Mac, they are can be insta
 - [Vagrant](https://www.vagrantup.com/) 1.6.3 [Change log](https://github.com/mitchellh/vagrant/blob/master/CHANGELOG.md) [Fork](https://github.com/EATechnologies/vagrant) - used to manage development environment configuration.
 - [VirtualBox](https://www.virtualbox.org/) 4.3.14 [Changelog](https://www.virtualbox.org/wiki/Changelog) 4.3.14-95030 - used to host development environment.
 
+## Heroku add-ons
+
+- [MongoHQ](https://addons.heroku.com/mongohq)
+
 ## npm-installed
 
 ### Global
@@ -77,7 +69,7 @@ These tools are installed directly on the host.  On a Mac, they are can be insta
 - [grunt-cli](https://github.com/gruntjs/grunt-cli) 0.1.13 [Fork](https://github.com/EATechnologies/grunt-cli) 
 - [npm](https://npmjs.org/doc/) 1.4.23 [Fork](https://github.com/EATechnologies/npm) - "node package manager"
 - [npm-check-updates](https://www.npmjs.org/package/npm-check-updates) 1.2.0 [Fork](https://github.com/EATechnologies/npm-check-updates) - Find newer versions of dependencies than what your package.json allows.
-- [yeoman](http://yeoman.io/) 1.3.3 [Changelog](https://github.com/yeoman/yo/releases) [Fork](https://github.com/EATechnologies/yo) - "CLI tool for running Yeoman generators"  yeoman will install bower and grunt-cli.
+- [yo](http://yeoman.io/) 1.3.3 [Changelog](https://github.com/yeoman/yo/releases) [Fork](https://github.com/EATechnologies/yo) - "CLI tool for running Yeoman generators"  yeoman will install bower and grunt-cli.
 
 ### Local
 
