@@ -82,6 +82,24 @@ Adapted from [usage instructions](https://github.com/DaftMonk/generator-angular-
   yo angular-fullstack example
 ```
 
+Prompts:
 
+bower stats yes
+coffeescript
+jade
+Sass
+uiRouter
+bootstrap
+UI Bootstrap
+mongodb
+auth
+no strategies
+no socket.io
 
-npm install grunt-contrib-imagemin@0.7.1 --save-dev
+This seems to be necessary:
+
+```
+  npm install grunt-contrib-imagemin@0.7.1 --save-dev
+```
+
+Run grunt for building, grunt serve for preview, and grunt serve:dist for a preview of the built app.
