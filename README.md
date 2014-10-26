@@ -1,6 +1,6 @@
 # Yeoman
 
-A yeoman development box.
+A yeoman development box with angular fullstack generator installed.
 
 ## Setting up the base box
 
@@ -72,3 +72,16 @@ Enable ssh-agent.
 ```
 
 When done, exit the virtual environment and `vagrant halt` to stop the virtual machine.  Use `vagrant destroy` to reclaim the disk space (although this will require you to re-provision the machine again later).  `vagrant remove` should be used to remove the base box from the system as well.  `vagrant up` and `vagrant ssh web` to start another development session later.
+
+## Generator
+
+Adapted from [usage instructions](https://github.com/DaftMonk/generator-angular-fullstack)
+
+```
+  mkdir example && cd $_
+  yo angular-fullstack example
+```
+
+
+
+npm install grunt-contrib-imagemin@0.7.1 --save-dev

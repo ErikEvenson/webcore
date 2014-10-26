@@ -7,7 +7,7 @@ class dev_base {
   include stdlib
   include vim
 
-  package {'puppet-lint':
+  package {['sass', 'puppet-lint']:
     ensure   => installed,
     provider => gem,
   }

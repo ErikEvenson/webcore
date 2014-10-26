@@ -11,7 +11,9 @@ class node_globals {
   }
 
   $node_globals_array = [
-    'yo@1.3.3',
+    'bower@1.3.12',
+    'generator-angular-fullstack@2.0.13',
+    'grunt-cli@0.1.13'
   ]
 
   $node_globals = join($node_globals_array, ' ')
