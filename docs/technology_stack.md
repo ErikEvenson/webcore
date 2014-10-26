@@ -31,6 +31,29 @@ puppet-lint
 - [vagrant-librarian-puppet](https://github.com/mhahn/vagrant-librarian-puppet) 0.7.1 - A Vagrant plugin to install Puppet modules using Librarian-Puppet.
 - [vagrant-vbguest](https://github.com/dotless-de/vagrant-vbguest) 0.10.0 [Changelog[(https://github.com/dotless-de/vagrant-vbguest/blob/master/CHANGELOG.md) [Fork](https://github.com/EATechnologies/vagrant-vbguest) - automatically keeps VirtualBox Guest Additions up to date.  ***Updates are manual.***
 
+## bower-installed
+
+### Normal
+
+"angular": ">=1.2.*",
+"json3": "~3.3.1",
+"es5-shim": "~3.0.1",
+"jquery": "~1.11.0",
+"bootstrap-sass-official": "~3.1.1",
+"bootstrap": "~3.1.1",
+"angular-resource": ">=1.2.*",
+"angular-cookies": ">=1.2.*",
+"angular-sanitize": ">=1.2.*",
+"angular-bootstrap": "~0.11.0",
+"font-awesome": ">=4.1.0",
+"lodash": "~2.4.1",
+"angular-ui-router": "~0.2.10"
+
+### Development
+
+"angular-mocks": ">=1.2.*",
+"angular-scenario": ">=1.2.*"
+
 ## gem-installed
 
 - [puppet-lint](http://puppet-lint.com/) 1.0.1 - "Check that your Puppet manifest conform to the style guide."
@@ -47,7 +70,7 @@ These tools are installed directly on the host.  On a Mac, they are can be insta
 
 ## npm-installed
 
-Global:
+### Global
 
 - [bower](https://www.npmjs.org/package/bower) 1.3.9 [Changelog](https://github.com/bower/bower/blob/master/CHANGELOG.md)[Fork](https://www.virtualbox.org/) - front end package management.  Bower will warn when it has an update.  Installed by yeoman.
 - [generator-angular-fullstack](https://www.npmjs.org/package/generator-angular-fullstack) 2.0.13 "Yeoman generator for creating MEAN stack applications, using MongoDB, Express, AngularJS, and Node."
@@ -56,6 +79,86 @@ Global:
 - [npm-check-updates](https://www.npmjs.org/package/npm-check-updates) 1.2.0 [Fork](https://github.com/EATechnologies/npm-check-updates) - Find newer versions of dependencies than what your package.json allows.
 - [yeoman](http://yeoman.io/) 1.3.3 [Changelog](https://github.com/yeoman/yo/releases) [Fork](https://github.com/EATechnologies/yo) - "CLI tool for running Yeoman generators"  yeoman will install bower and grunt-cli.
 
+### Local
+
+#### Normal
+
+"express": "~4.0.0",
+"morgan": "~1.0.0",
+"body-parser": "~1.5.0",
+"method-override": "~1.0.0",
+"serve-favicon": "~2.0.1",
+"cookie-parser": "~1.0.1",
+"express-session": "~1.0.2",
+"errorhandler": "~1.0.0",
+"compression": "~1.0.1",
+"lodash": "~2.4.1",
+"jade": "~1.2.0",
+"mongoose": "~3.8.8",
+"jsonwebtoken": "^0.3.0",
+"express-jwt": "^0.1.3",
+"passport": "~0.2.0",
+"passport-local": "~0.1.6",
+"composable-middleware": "^0.3.0",
+"connect-mongo": "^0.4.1"
+
+#### Development
+
+"connect-livereload": "~0.4.0",
+"grunt": "~0.4.4",
+"grunt-angular-templates": "^0.5.4",
+"grunt-asset-injector": "^0.1.0",
+"grunt-autoprefixer": "~0.7.2",
+"grunt-build-control": "DaftMonk/grunt-build-control",
+"grunt-concurrent": "~0.5.0",
+"grunt-contrib-clean": "~0.5.0",
+"grunt-contrib-coffee": "^0.10.1",
+"grunt-contrib-concat": "~0.4.0",
+"grunt-contrib-copy": "~0.5.0",
+"grunt-contrib-cssmin": "~0.9.0",
+"grunt-contrib-htmlmin": "~0.2.0",
+"grunt-contrib-imagemin": "^0.7.1",
+"grunt-contrib-jade": "^0.11.0",
+"grunt-contrib-jshint": "~0.10.0",
+"grunt-contrib-sass": "^0.7.3",
+"grunt-contrib-uglify": "~0.4.0",
+"grunt-contrib-watch": "~0.6.1",
+"grunt-dom-munger": "^3.4.0",
+"grunt-env": "~0.4.1",
+"grunt-express-server": "~0.4.17",
+"grunt-google-cdn": "~0.4.0",
+"grunt-karma": "~0.8.2",
+"grunt-mocha-test": "~0.10.2",
+"grunt-newer": "~0.7.0",
+"grunt-ng-annotate": "^0.2.3",
+"grunt-node-inspector": "~0.1.5",
+"grunt-nodemon": "~0.2.0",
+"grunt-open": "~0.2.3",
+"grunt-protractor-runner": "^1.1.0",
+"grunt-rev": "~0.1.0",
+"grunt-svgmin": "~0.4.0",
+"grunt-usemin": "~2.1.1",
+"grunt-wiredep": "~1.8.0",
+"jit-grunt": "^0.5.0",
+"jshint-stylish": "~0.1.5",
+"karma": "~0.12.9",
+"karma-chrome-launcher": "~0.1.3",
+"karma-coffee-preprocessor": "~0.2.1",
+"karma-firefox-launcher": "~0.1.3",
+"karma-html2js-preprocessor": "~0.1.0",
+"karma-jade-preprocessor": "0.0.11",
+"karma-jasmine": "~0.1.5",
+"karma-ng-html2js-preprocessor": "~0.1.0",
+"karma-ng-jade2js-preprocessor": "^0.1.2",
+"karma-ng-scenario": "~0.1.0",
+"karma-phantomjs-launcher": "~0.1.4",
+"karma-requirejs": "~0.2.1",
+"karma-script-launcher": "~0.1.0",
+"open": "~0.0.4",
+"requirejs": "~2.1.11",
+"should": "~3.3.1",
+"supertest": "~0.11.0",
+"time-grunt": "~0.3.1"
 
 ## Puppet modules
 
