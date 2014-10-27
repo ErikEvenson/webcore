@@ -96,16 +96,18 @@ These tools are installed directly on the host.  On a Mac, they are can be insta
 
 #### Development
 
-"connect-livereload": "~0.4.0",
-"grunt": "~0.4.4",
-"grunt-angular-templates": "^0.5.4",
-"grunt-asset-injector": "^0.1.0",
-"grunt-autoprefixer": "~0.7.2",
-"grunt-build-control": "DaftMonk/grunt-build-control",
-"grunt-concurrent": "~0.5.0",
-"grunt-contrib-clean": "~0.5.0",
-"grunt-contrib-coffee": "^0.10.1",
-"grunt-contrib-concat": "~0.4.0",
+- [connect-livereload](https://www.npmjs.org/package/connect-livereload) 0.5.0 - 'connect middleware for adding the livereload script to the response.'
+- [grunt](https://www.npmjs.org/package/grunt) 0.4.5 - 'The JavaScript Task Runner.'
+- [grunt-angular-templates](https://www.npmjs.org/package/grunt-angular-templates) 0.5.7 - 'Grunt build task to concatenate & register your AngularJS templates in the $templateCache.'
+- [grunt-asset-injector](https://www.npmjs.org/package/grunt-asset-injector) 0.1.0 - 'Inject references to files into other files (think scripts and stylesheets into an html file).'
+- [grunt-autoprefixer](https://www.npmjs.org/package/grunt-autoprefixer) 1.0.1 - 'Parse CSS and add vendor-prefixed CSS properties using the Can I Use database. Based on Autoprefixer.'
+- [grunt-build-control](https://www.npmjs.org/package/grunt-build-control) "DaftMonk/grunt-build-control" - 'Automate version control tasks for your project's built code. Keep built code in sync with source code, maintain multiple branches of built code, commit with automatic messages, and push to remote repositories.'
+- [grunt-concurrent](https://www.npmjs.org/package/grunt-concurrent) 1.0.0 - 'Run grunt tasks concurrently.'
+- [grunt-contrib-clean](https://www.npmjs.org/package/grunt-contrib-clean) 0.6.0 - 'Clean files and folders.'
+- [grunt-contrib-coffee](https://www.npmjs.org/package/grunt-contrib-coffee) 0.12.0 - 'Compile CoffeeScript files to JavaScript.'
+- [grunt-contrib-concat](https://www.npmjs.org/package/grunt-contrib-concat) 0.5.0 - 'Concatenate files.'
+
+
 "grunt-contrib-copy": "~0.5.0",
 "grunt-contrib-cssmin": "~0.9.0",
 "grunt-contrib-htmlmin": "~0.2.0",
