@@ -2,6 +2,22 @@
 
 These are the technologies used in this project.
 
+Key components:
+
+- Angular
+- Bootstrap
+- Express
+- Grunt
+- Jade
+- [Karma](http://karma-runner.github.io/0.12/index.html)
+- MongoDB
+- Mongoose
+- Puppet
+
+## TBD
+
+- [Protractor](http://angular.github.io/protractor/#/)
+
 ## Foundational
 
 - [bash](http://www.gnu.org/software/bash/manual/bashref.html) 4.2.24 - shell.
@@ -107,52 +123,51 @@ These tools are installed directly on the host.  On a Mac, they are can be insta
 - [grunt-contrib-coffee](https://www.npmjs.org/package/grunt-contrib-coffee) 0.12.0 - 'Compile CoffeeScript files to JavaScript.'
 - [grunt-contrib-concat](https://www.npmjs.org/package/grunt-contrib-concat) 0.5.0 - 'Concatenate files.'
 
-
-"grunt-contrib-copy": "~0.5.0",
-"grunt-contrib-cssmin": "~0.9.0",
-"grunt-contrib-htmlmin": "~0.2.0",
-"grunt-contrib-imagemin": "^0.7.1",
-"grunt-contrib-jade": "^0.11.0",
-"grunt-contrib-jshint": "~0.10.0",
-"grunt-contrib-sass": "^0.7.3",
-"grunt-contrib-uglify": "~0.4.0",
-"grunt-contrib-watch": "~0.6.1",
-"grunt-dom-munger": "^3.4.0",
-"grunt-env": "~0.4.1",
-"grunt-express-server": "~0.4.17",
-"grunt-google-cdn": "~0.4.0",
-"grunt-karma": "~0.8.2",
-"grunt-mocha-test": "~0.10.2",
-"grunt-newer": "~0.7.0",
-"grunt-ng-annotate": "^0.2.3",
-"grunt-node-inspector": "~0.1.5",
-"grunt-nodemon": "~0.2.0",
-"grunt-open": "~0.2.3",
-"grunt-protractor-runner": "^1.1.0",
-"grunt-rev": "~0.1.0",
-"grunt-svgmin": "~0.4.0",
-"grunt-usemin": "~2.1.1",
-"grunt-wiredep": "~1.8.0",
-"jit-grunt": "^0.5.0",
-"jshint-stylish": "~0.1.5",
-"karma": "~0.12.9",
-"karma-chrome-launcher": "~0.1.3",
-"karma-coffee-preprocessor": "~0.2.1",
-"karma-firefox-launcher": "~0.1.3",
-"karma-html2js-preprocessor": "~0.1.0",
-"karma-jade-preprocessor": "0.0.11",
-"karma-jasmine": "~0.1.5",
-"karma-ng-html2js-preprocessor": "~0.1.0",
-"karma-ng-jade2js-preprocessor": "^0.1.2",
-"karma-ng-scenario": "~0.1.0",
-"karma-phantomjs-launcher": "~0.1.4",
-"karma-requirejs": "~0.2.1",
-"karma-script-launcher": "~0.1.0",
-"open": "~0.0.4",
-"requirejs": "~2.1.11",
-"should": "~3.3.1",
-"supertest": "~0.11.0",
-"time-grunt": "~0.3.1"
+- [grunt-contrib-copy]
+- [grunt-contrib-cssmin]
+- [grunt-contrib-htmlmin]
+- [grunt-contrib-imagemin]
+- [grunt-contrib-jade]
+- [grunt-contrib-jshint]
+- [grunt-contrib-sass]
+- [grunt-contrib-uglify]
+- [grunt-contrib-watch]
+- [grunt-dom-munger]
+- [grunt-env]
+- [grunt-express-server]
+- [grunt-google-cdn]
+- [grunt-karma](https://github.com/karma-runner/grunt-karma)
+- [grunt-mocha-test]
+- [grunt-newer]
+- [grunt-ng-annotate]
+- [grunt-node-inspector]
+- [grunt-nodemon]
+- [grunt-open]
+- [grunt-protractor-runner]
+- [grunt-rev]
+- [grunt-svgmin]
+- [grunt-usemin]
+- [grunt-wiredep]
+- [jit-grunt]
+- [jshint-stylish]
+- [karma]
+- [karma-chrome-launcher]
+- [karma-coffee-preprocessor]
+- [karma-firefox-launcher]
+- [karma-html2js-preprocessor]
+- [karma-jade-preprocessor]
+- [karma-jasmine]
+- [karma-ng-html2js-preprocessor]
+- [karma-ng-jade2js-preprocessor]
+- [karma-ng-scenario]
+- [karma-phantomjs-launcher]
+- [karma-requirejs]
+- [karma-script-launcher]
+- [open]
+- [requirejs]
+- [should]
+- [supertest]
+- [time-grunt]
 
 ## Puppet modules
 
