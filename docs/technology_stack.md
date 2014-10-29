@@ -21,6 +21,9 @@ Key components:
 ## Foundational
 
 - [bash](http://www.gnu.org/software/bash/manual/bashref.html) 4.2.24 - shell.
+- [CSS]()
+- [HTML]()
+- [javascript]()
 
 ## apt-get-installed
 
