@@ -96,6 +96,12 @@ auth
 no strategies
 no socket.io
 
+Might need to:
+
+```
+  bower install & npm install
+```
+
 This seems to be necessary:
 
 ```
@@ -110,7 +116,7 @@ heroku addons:add mongohq
 grunt build
 grunt buildcontrol:heroku
 
-
-
 Run grunt for building, grunt serve for preview, and grunt serve:dist for a preview of the built app.
+
+## Development additions
 

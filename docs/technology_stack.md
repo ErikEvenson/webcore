@@ -7,7 +7,7 @@ Key components:
 - Angular
 - Bootstrap
 - Express
-- Grunt
+- [Grunt](http://gruntjs.com/)
 - Jade
 - [Karma](http://karma-runner.github.io/0.12/index.html)
 - MongoDB
@@ -151,7 +151,7 @@ These tools are installed directly on the host.  On a Mac, they are can be insta
 - [grunt-svgmin]
 - [grunt-usemin]
 - [grunt-wiredep]
-- [jit-grunt]
+- [jit-grunt](https://www.npmjs.org/package/jit-grunt) 0.9.0 - 'JIT plugin loader for Grunt.'
 - [jshint-stylish]
 - [karma]
 - [karma-chrome-launcher]
