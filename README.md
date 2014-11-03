@@ -120,3 +120,13 @@ Run grunt for building, grunt serve for preview, and grunt serve:dist for a prev
 
 ## Development additions
 
+http://www.thomasboyt.com/2013/09/01/maintainable-grunt.html
+Create tasks directory.
+
+```
+  npm install grunt-mongoimport --save-dev
+```
+
+Set up mongoimport.
+
+
