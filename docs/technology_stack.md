@@ -175,7 +175,7 @@ These tools are installed directly on the host.  On a Mac, they are can be insta
 - [supertest]
 - [time-grunt]
 - [mongodb]
-
+- [coffee-script]
 
 ## Puppet modules
 

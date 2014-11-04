@@ -474,9 +474,10 @@ module.exports = function (grunt) {
 
     mochaTest: {
       options: {
-        reporter: 'spec'
+        reporter: 'spec',
+        require: 'coffee-script/register'
       },
-      src: ['server/**/*.spec.js', 'tasks/**/*.spec.js']
+      src: ['server/**/*.spec.js', 'tasks/**/*.spec.coffee']
     },
 
     protractor: {
