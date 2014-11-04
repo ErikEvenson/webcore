@@ -1,9 +1,9 @@
 module.exports = {
   options: {
-    db : 'VBEZ',
+    db : 'vbez',
     collections : [
       { 
-        name : 'VBEZ', 
+        name : 'import', 
         type : 'json', 
         file : '../VBEZ.json', 
         jsonArray : true,
