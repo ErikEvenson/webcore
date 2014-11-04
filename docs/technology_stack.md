@@ -2,7 +2,7 @@
 
 These are the technologies used in this project.
 
-Key components:
+Key components that may or may not be directly required:
 
 - Angular
 - Bootstrap
@@ -10,6 +10,7 @@ Key components:
 - [Grunt](http://gruntjs.com/)
 - Jade
 - [Karma](http://karma-runner.github.io/0.12/index.html)
+- [Mocha](http://mochajs.org/)
 - MongoDB
 - Mongoose
 - Puppet

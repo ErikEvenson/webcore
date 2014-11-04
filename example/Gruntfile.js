@@ -31,7 +31,7 @@ module.exports = function (grunt) {
     protractor: 'grunt-protractor-runner',
     injector: 'grunt-asset-injector',
     buildcontrol: 'grunt-build-control',
-    pgToMongo: 'tasks/pgToMongo.coffee'
+    pgToMongo: 'tasks/pgToMongo/pgToMongo.coffee'
   });
 
   // Time how long tasks take. Can help when optimizing build times
@@ -476,7 +476,7 @@ module.exports = function (grunt) {
       options: {
         reporter: 'spec'
       },
-      src: ['server/**/*.spec.js']
+      src: ['server/**/*.spec.js', 'tasks/**/*.spec.js']
     },
 
     protractor: {

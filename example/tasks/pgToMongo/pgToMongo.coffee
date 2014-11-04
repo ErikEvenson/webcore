@@ -42,7 +42,7 @@ module.exports = (grunt) ->
     process.env.NODE_ENV = process.env.NODE_ENV || 'development';
     mongoose = require 'mongoose'
     path = require 'path'
-    rootPath = path.normalize(__dirname + '/..')
+    rootPath = path.normalize(__dirname + '/../..')
     configPath = path.join rootPath, 'server/config/environment'
     config = require configPath
     mongoose.connect config.mongo.uri, config.mongo.options
