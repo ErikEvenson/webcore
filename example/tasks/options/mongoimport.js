@@ -1,13 +1,13 @@
 module.exports = {
   options: {
-    db : 'vbez',
+    db          : 'vbez',
     collections : [
       { 
-        name : 'import', 
-        type : 'json', 
-        file : '../VBEZ.json', 
+        name      : 'entities', 
+        type      : 'json', 
+        file      : '../VBEZ.json', 
         jsonArray : true,
-        drop : true
+        drop      : true
       }
     ]
   }

@@ -173,7 +173,7 @@ These tools are installed directly on the host.  On a Mac, they are can be insta
 - [should]
 - [supertest]
 - [time-grunt]
-
+- [mongodb]
 
 
 ## Puppet modules
