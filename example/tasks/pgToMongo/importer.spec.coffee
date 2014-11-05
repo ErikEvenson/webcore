@@ -1,6 +1,7 @@
 assert = require 'assert'
 should = require 'should'
+pgToMongo = require './importer'
 
-describe 'pgToMongo', ->
+describe 'importer', ->
   it 'should be true', ->
     true
