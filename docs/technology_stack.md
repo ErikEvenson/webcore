@@ -6,6 +6,7 @@ Key components that may or may not be directly required:
 
 - Angular
 - Bootstrap
+- Connect
 - Express
 - [Grunt](http://gruntjs.com/)
 - Jade
@@ -13,6 +14,7 @@ Key components that may or may not be directly required:
 - [Mocha](http://mochajs.org/)
 - MongoDB
 - Mongoose
+- Passport
 - Puppet
 
 ## TBD
