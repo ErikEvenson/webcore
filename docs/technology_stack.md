@@ -162,21 +162,21 @@ These tools are installed directly on the host.  On a Mac, they are can be insta
 - [karma](https://www.npmjs.org/package/karma) 0.12.24 - 'Spectacular Test Runner for JavaScript.'
 - [karma-chrome-launcher](https://www.npmjs.org/package/karma-chrome-launcher) 0.1.5 - 'A Karma plugin. Launcher for Chrome and Chrome Canary.'
 - [karma-coffee-preprocessor](https://www.npmjs.org/package/karma-coffee-preprocessor) 0.2.1 - 'A Karma plugin. Compile coffee script on the fly.'
-- [karma-firefox-launcher]()
-- [karma-html2js-preprocessor]()
-- [karma-jade-preprocessor]()
-- [karma-jasmine]()
-- [karma-ng-html2js-preprocessor]()
-- [karma-ng-jade2js-preprocessor]()
-- [karma-ng-scenario]()
-- [karma-phantomjs-launcher]()
-- [karma-requirejs]()
-- [karma-script-launcher]()
-- [open]()
-- [requirejs]()
-- [should]()
-- [supertest]()
-- [time-grunt]()
+- [karma-firefox-launcher](https://www.npmjs.org/package/karma-firefox-launcher) 0.1.3 - 'A Karma plugin. Launcher for Firefox.'
+- [karma-html2js-preprocessor](https://www.npmjs.org/package/karma-html2js-preprocessor) 0.1.0 - 'A Karma plugin. Convert HTML files into JS strings to serve them in a script tag.'
+- [karma-jade-preprocessor](https://www.npmjs.org/package/karma-jade-preprocessor) 0.0.11 - 'A Karma plugin. Compile jade template on the fly.'
+- [karma-jasmine](https://www.npmjs.org/package/karma-jasmine) 0.2.3 - 'A Karma plugin - adapter for Jasmine testing framework.'
+- [karma-ng-html2js-preprocessor](https://www.npmjs.org/package/karma-ng-html2js-preprocessor) 0.1.2 - 'A Karma plugin. Compile AngularJS templates to JavaScript on the fly.'
+- [karma-ng-jade2js-preprocessor](https://www.npmjs.org/package/karma-ng-jade2js-preprocessor) 0.1.4 - 'A Karma plugin. Compile Jade AngularJS templates to JavaScript on the fly.'
+- [karma-ng-scenario](https://www.npmjs.org/package/karma-ng-scenario) 0.1.0 - 'A Karma plugin. Adapter for Angular's Scenario Runner.'
+- [karma-phantomjs-launcher](https://www.npmjs.org/package/karma-phantomjs-launcher-nonet) 0.1.3 - 'Fork of karma-phantomjs-launcher - it never downloads phantomjs from the internet.'
+- [karma-requirejs](https://www.npmjs.org/package/karma-requirejs) 0.2.2 - 'A Karma plugin. Adapter for RequireJS framework.'
+- [karma-script-launcher](https://www.npmjs.org/package/karma-script-launcher) 0.1.0 - 'A Karma plugin. Launcher for shell scripts.'
+- [open](https://www.npmjs.org/package/open) 0.0.5 - 'open a file or url in the user's preferred application'
+- [requirejs](https://www.npmjs.org/search?q=requirejs) 2.1.15 - 'Node adapter for RequireJS, for loading AMD modules. Includes RequireJS optimizer'
+- [should](https://www.npmjs.org/package/should) 4.2.1 - 'test framework agnostic BDD-style assertions'
+- [supertest](https://www.npmjs.org/package/supertest) 0.14.0 - 'Super-agent driven library for testing HTTP servers'
+- [time-grunt](https://www.npmjs.org/package/time-grunt) 1.0.0 - 'Display the elapsed execution time of grunt tasks'
 
 ## Puppet modules
 
