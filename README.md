@@ -93,7 +93,7 @@ Answer prompts with:
 - include UI Bootstrap
 - use mongodb with mongoose
 - use authorization scaffold
-- use all authorization strategies
+- use authorization strategies as needed
 - use socket.io
 
 Sometimes this fails.  Might need to:

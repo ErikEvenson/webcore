@@ -41,11 +41,12 @@ Key components:
 
 ### Normal
 
-- [angular](https://github.com/angular/bower-angular) 1.3.0 - 'Bower package for AngularJS.'
+- [angular](https://github.com/angular/bower-angular) 1.3.2 - 'Bower package for AngularJS.'
 - [angular-bootstrap](https://github.com/angular-ui/bootstrap-bower) 0.11.2 - 'This is a bower repository to hold Angular UI Bootstrap releases.'
 - [angular-cookies](https://github.com/angular/bower-angular-cookies) 1.3.0 - 'https://github.com/angular/bower-angular-cookies.'
 - [angular-resource](https://github.com/angular/bower-angular-resource) 1.3.0 - 'angular-resource bower repo.'
 - [angular-sanitize](https://github.com/angular/bower-angular-sanitize) 1.3.0 - 'angular-sanitize bower repo.'
+- [angular-socket-io](https://github.com/btford/angular-socket-io) 0.6.0 - 'Socket.IO component for AngularJS.'
 - [angular-ui-router](https://github.com/angular-ui/ui-router) 0.2.11 - 'The de-facto solution to flexible routing with nested views.'
 - [bootstrap](https://github.com/twbs/bootstrap) 3.1.1 - 'The most popular HTML, CSS, and JavaScript framework for developing responsive, mobile first projects on the web.'
 - [bootstrap-sass-official](https://github.com/twbs/bootstrap-sass) 3.1.1+2 - 'Official Sass port of Bootstrap.'
@@ -110,8 +111,14 @@ These tools are installed directly on the host.  On a Mac, they are can be insta
 - [mongoose](https://www.npmjs.org/package/mongoose) 3.8.18 - 'Mongoose MongoDB ODM.'
 - [morgan](https://www.npmjs.org/package/morgan) 1.4.1 - 'http request logger middleware for node.js.'
 - [passport](https://www.npmjs.org/package/passport) 0.2.1 - 'Simple, unobtrusive authentication for Node.js.'
+- [passport-facebook](https://www.npmjs.org/package/passport-facebook) 1.0.3 - 'Facebook authentication strategy for Passport.'
+- [passport-google-oauth](https://www.npmjs.org/package/passport-google-oauth) 0.1.5 - 'Google (OAuth) authentication strategies for Passport.'
 - [passport-local](https://www.npmjs.org/package/passport-local) 1.0.0 - 'Local username and password authentication strategy for Passport.'
+- [passport-twitter](https://www.npmjs.org/package/passport-twitter) 1.0.2 - 'Twitter authentication strategy for Passport.'
 - [serve-favicon](https://www.npmjs.org/package/serve-favicon) 2.1.6 - 'favicon serving middleware with caching.'
+- [socket.io](https://www.npmjs.org/package/socket.io) 1.2.0 - 'node.js realtime framework server'
+- [socket.io-client](https://www.npmjs.org/package/socket.io-client) 1.2.0 - ''
+- [socketio-jwt](https://www.npmjs.org/package/socketio-jwt) 2.3.5 - 'authenticate socket.io connections using JWTs'
 
 #### Development
 
