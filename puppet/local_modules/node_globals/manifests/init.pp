@@ -13,7 +13,8 @@ class node_globals {
   $node_globals_array = [
     'bower@1.3.12',
     'generator-angular-fullstack@2.0.13',
-    'grunt-cli@0.1.13'
+    'grunt-cli@0.1.13',
+    'npm-check-updates@1.2.0'
   ]
 
   $node_globals = join($node_globals_array, ' ')
