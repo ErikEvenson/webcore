@@ -82,40 +82,42 @@ Adapted from [usage instructions](https://github.com/DaftMonk/generator-angular-
   yo angular-fullstack example
 ```
 
-Prompts:
+Answer prompts with:
 
-bower stats yes
-coffeescript
-jade
-Sass
-uiRouter
-bootstrap
-UI Bootstrap
-mongodb
-auth
-no strategies
-no socket.io
+- bower stats yes
+- use coffeescript
+- use jade
+- use Sass
+- use uiRouter
+- include bootstrap
+- include UI Bootstrap
+- use mongodb with mongoose
+- use authorization scaffold
+- use all authorization strategies
+- use socket.io
 
-Might need to:
+Sometimes this fails.  Might need to:
 
 ```
+  sudo chown -R vagrant:vagrant /home/vagrant/.npm
   bower install & npm install
 ```
 
 This seems to be necessary:
 
 ```
-  npm install grunt-contrib-imagemin@0.7.1 --save-dev
+  npm install grunt-contrib-imagemin@0.7.1
 ```
 
-grunt build
-cd dist
-heroku login
-yo angular-fullstack:heroku
-heroku addons:add mongohq
-grunt build
-grunt buildcontrol:heroku
-
+```
+  grunt build
+  cd dist
+  heroku login
+  yo angular-fullstack:heroku
+  heroku addons:add mongohq
+  grunt build
+  grunt buildcontrol:heroku
+```
 Run grunt for building, grunt serve for preview, and grunt serve:dist for a preview of the built app.
 
 ## Development additions
