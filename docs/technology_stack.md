@@ -83,7 +83,7 @@ These tools are installed directly on the host.  On a Mac, they are can be insta
 
 ### Global
 
-- [bower](https://www.npmjs.org/package/bower) 1.3.9 [Changelog](https://github.com/bower/bower/blob/master/CHANGELOG.md)[Fork](https://www.virtualbox.org/) - front end package management.  Bower will warn when it has an update.  Installed by yeoman.
+- [bower](https://www.npmjs.org/package/bower) 1.3.12 [Changelog](https://github.com/bower/bower/blob/master/CHANGELOG.md)[Fork](https://www.virtualbox.org/) - front end package management.  Bower will warn when it has an update.
 - [generator-angular-fullstack](https://www.npmjs.org/package/generator-angular-fullstack) 2.0.13 "Yeoman generator for creating MEAN stack applications, using MongoDB, Express, AngularJS, and Node."
 - [grunt-cli](https://github.com/gruntjs/grunt-cli) 0.1.13 [Fork](https://github.com/EATechnologies/grunt-cli) 
 - [npm](https://npmjs.org/doc/) 1.4.23 [Fork](https://github.com/EATechnologies/npm) - "node package manager"
