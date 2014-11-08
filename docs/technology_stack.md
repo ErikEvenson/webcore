@@ -132,52 +132,51 @@ These tools are installed directly on the host.  On a Mac, they are can be insta
 - [grunt-contrib-clean](https://www.npmjs.org/package/grunt-contrib-clean) 0.6.0 - 'Clean files and folders.'
 - [grunt-contrib-coffee](https://www.npmjs.org/package/grunt-contrib-coffee) 0.12.0 - 'Compile CoffeeScript files to JavaScript.'
 - [grunt-contrib-concat](https://www.npmjs.org/package/grunt-contrib-concat) 0.5.0 - 'Concatenate files.'
-
-- [grunt-contrib-copy]
-- [grunt-contrib-cssmin]
-- [grunt-contrib-htmlmin]
-- [grunt-contrib-imagemin]
-- [grunt-contrib-jade]
-- [grunt-contrib-jshint]
-- [grunt-contrib-sass]
-- [grunt-contrib-uglify]
-- [grunt-contrib-watch]
-- [grunt-dom-munger]
-- [grunt-env]
-- [grunt-express-server]
-- [grunt-google-cdn]
-- [grunt-karma](https://github.com/karma-runner/grunt-karma)
-- [grunt-mocha-test]
-- [grunt-newer]
-- [grunt-ng-annotate]
-- [grunt-node-inspector]
-- [grunt-nodemon]
-- [grunt-open]
-- [grunt-protractor-runner]
-- [grunt-rev]
-- [grunt-svgmin]
-- [grunt-usemin]
-- [grunt-wiredep]
+- [grunt-contrib-copy](https://www.npmjs.org/package/grunt-contrib-copy) 0.7.0 - 'Copy files and folders.'
+- [grunt-contrib-cssmin](https://www.npmjs.org/package/grunt-contrib-cssmin) 0.10.0 - 'Compress CSS files.'
+- [grunt-contrib-htmlmin](https://www.npmjs.org/package/grunt-contrib-htmlmin) 0.3.0 - 'Minify HTML'
+- [grunt-contrib-imagemin](https://www.npmjs.org/package/grunt-contrib-imagemin) 0.9.1 - 'Minify images'
+- [grunt-contrib-jade](https://www.npmjs.org/package/grunt-contrib-jade) 0.13.0 - 'Compile Jade templates.'
+- [grunt-contrib-jshint](https://www.npmjs.org/package/grunt-contrib-jshint) 0.10.0 - 'Validate files with JSHint.'
+- [grunt-contrib-sass](https://www.npmjs.org/package/grunt-contrib-sass) 0.8.1 - 'Compile Sass to CSS'
+- [grunt-contrib-uglify](https://www.npmjs.org/package/grunt-contrib-uglify) 0.6.0 - 'Minify files with UglifyJS.'
+- [grunt-contrib-watch](https://www.npmjs.org/package/grunt-contrib-watch) 0.6.1 - 'Run predefined tasks whenever watched file patterns are added, changed or deleted.'
+- [grunt-dom-munger](https://www.npmjs.org/package/grunt-dom-munger) 3.4.0 - 'Read and manipulate HTML with CSS selectors. Ex. read <script> tags from your html. Remove nodes, add nodes, and more.'
+- [grunt-env](https://www.npmjs.org/package/grunt-env) 0.4.2 - 'Specify an ENV configuration for future tasks in the chain'
+- [grunt-express-server](https://www.npmjs.org/package/grunt-express-server) 0.4.19 - 'Grunt task for running an Express Server that works great with LiveReload + Watch/Regarde'
+- [grunt-google-cdn](https://www.npmjs.org/package/grunt-google-cdn) 0.4.3 - 'Grunt task for replacing refs to resources on the Google CDN'
+- [grunt-karma](https://www.npmjs.org/package/grunt-karma) 0.9.0 - 'grunt plugin for karma test runner'
+- [grunt-mocha-test](https://www.npmjs.org/package/grunt-mocha-test) 0.12.2 - 'A grunt task for running server side mocha tests'
+- [grunt-newer](https://www.npmjs.org/package/grunt-newer) 0.8.0 - 'Run Grunt tasks with only those source files modified since the last successful run.'
+- [grunt-ng-annotate](https://www.npmjs.org/package/grunt-ng-annotate) 0.5.0 - 'Add, remove and rebuild AngularJS dependency injection annotations.'
+- [grunt-node-inspector](https://www.npmjs.org/package/grunt-node-inspector) 0.1.5 - 'Run node-inspector with the rest of your workflow to debug node.js'
+- [grunt-nodemon](https://www.npmjs.org/package/grunt-nodemon) 0.3.0 - 'Grunt task to run a nodemon monitor of your node.js server'
+- [grunt-open](https://www.npmjs.org/package/grunt-open) 0.2.3 - 'Open urls and files from a grunt task'
+- [grunt-protractor-runner](https://www.npmjs.org/package/grunt-protractor-runner) 1.1.4 - 'A Grunt plugin for running protractor runner.'
+- [grunt-rev](https://www.npmjs.org/package/grunt-rev) 0.1.0 - 'Static file asset revisioning through content hashing'
+- [grunt-svgmin](https://www.npmjs.org/package/grunt-svgmin) 1.0.0 - 'Minify SVG'
+- [grunt-usemin](https://www.npmjs.org/package/grunt-usemin) 2.6.0 - 'Replaces references to non-optimized scripts or stylesheets into a set of HTML files (or any templates/views).'
+- [grunt-wiredep](https://www.npmjs.org/package/grunt-wiredep) 1.9.0 - 'Inject your Bower dependencies right into your HTML from Grunt.'
 - [jit-grunt](https://www.npmjs.org/package/jit-grunt) 0.9.0 - 'JIT plugin loader for Grunt.'
-- [jshint-stylish]
-- [karma]
-- [karma-chrome-launcher]
-- [karma-coffee-preprocessor]
-- [karma-firefox-launcher]
-- [karma-html2js-preprocessor]
-- [karma-jade-preprocessor]
-- [karma-jasmine]
-- [karma-ng-html2js-preprocessor]
-- [karma-ng-jade2js-preprocessor]
-- [karma-ng-scenario]
-- [karma-phantomjs-launcher]
-- [karma-requirejs]
-- [karma-script-launcher]
-- [open]
-- [requirejs]
-- [should]
-- [supertest]
-- [time-grunt]
+- [jshint-stylish](https://www.npmjs.org/package/jshint-stylish) 1.0.0 - 'Stylish reporter for JSHint'
+- [karma](https://www.npmjs.org/package/karma) 0.12.24 - 'Spectacular Test Runner for JavaScript.'
+- [karma-chrome-launcher](https://www.npmjs.org/package/karma-chrome-launcher) 0.1.5 - 'A Karma plugin. Launcher for Chrome and Chrome Canary.'
+- [karma-coffee-preprocessor](https://www.npmjs.org/package/karma-coffee-preprocessor) 0.2.1 - 'A Karma plugin. Compile coffee script on the fly.'
+- [karma-firefox-launcher]()
+- [karma-html2js-preprocessor]()
+- [karma-jade-preprocessor]()
+- [karma-jasmine]()
+- [karma-ng-html2js-preprocessor]()
+- [karma-ng-jade2js-preprocessor]()
+- [karma-ng-scenario]()
+- [karma-phantomjs-launcher]()
+- [karma-requirejs]()
+- [karma-script-launcher]()
+- [open]()
+- [requirejs]()
+- [should]()
+- [supertest]()
+- [time-grunt]()
 
 ## Puppet modules
 
