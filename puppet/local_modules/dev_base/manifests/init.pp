@@ -7,6 +7,11 @@ class dev_base {
   include stdlib
   include vim
 
+  package {['xvfb']:
+    ensure   => installed,
+    provider => apt,
+  }
+
   package {['sass', 'puppet-lint']:
     ensure   => installed,
     provider => gem,

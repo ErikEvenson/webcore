@@ -2,16 +2,20 @@
 
 These are the technologies used in this project.
 
-Key components:
+Key components (may be direct dependencies or loaded by direct dependencies):
 
-- Angular
+- [Angular](https://angularjs.org/)
 - Bootstrap
 - Express
 - [Grunt](http://gruntjs.com/)
+- heroku
 - Jade
+- Jasmine
 - [Karma](http://karma-runner.github.io/0.12/index.html)
+- Mocha
 - MongoDB
 - Mongoose
+- Protractor
 - Puppet
 
 ## TBD
@@ -30,6 +34,7 @@ Key components:
 - [fontconfig](http://packages.ubuntu.com/precise/fontconfig) 2.8.0-3ubuntu9 - "generic font configuration library - support binaries."  Required by phantomjs.
 - [git](http://git-scm.com/) 2.1.0 - "Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency." 
 - [mercurial](http://mercurial.selenic.com/) 3.0.1 - "Easy-to-use, scalable distributed version control system."
+- [xvfb](http://packages.ubuntu.com/trusty/xvfb) 2:1.15.1-0ubuntu2 - "Virtual Framebuffer 'fake' X server"
 
 ## bash-installed
 
@@ -78,6 +83,7 @@ These tools are installed directly on the host.  On a Mac, they are can be insta
 
 ## Heroku add-ons
 
+- [cedar-14]()
 - [MongoHQ](https://addons.heroku.com/mongohq)
 
 ## npm-installed
@@ -182,6 +188,7 @@ These tools are installed directly on the host.  On a Mac, they are can be insta
 
 - [puppetlabs-apt](https://forge.puppetlabs.com/puppetlabs/apt) 1.6.0 - "The APT module provides a simple interface for managing APT source, key, and definitions with Puppet."
 - [puppetlabs-stdlib](https://forge.puppetlabs.com/puppetlabs/stdlib) 4.3.2 - "This module provides a "standard library" of resources for developing Puppet Modules."
+- [jamesnetherton-google_chrome](https://forge.puppetlabs.com/jamesnetherton/google_chrome) 0.1.0 'Installs the Google Chrome web browser.'
 
 ## Vagrant/vagrant-installed
 

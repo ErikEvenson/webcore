@@ -109,6 +109,12 @@ This seems to be necessary:
   npm install grunt-contrib-imagemin@0.7.1
 ```
 
+Set up end-to-end testing:
+
+```
+  npm run update-webdriver
+```
+
 ```
   grunt build
   cd dist
@@ -121,4 +127,18 @@ This seems to be necessary:
 Run grunt for building, grunt serve for preview, and grunt serve:dist for a preview of the built app.
 
 ## Development additions
+
+## To do
+
+Xvfb config before e2e tests:
+
+```
+  Xvfb :1 -screen 5 1024x768x8 &
+  export DISPLAY=:1.5
+```
+
+http://www.yann.com/en/use-xvfb-selenium-and-chrome-to-drive-a-web-browser-in-php-23/08/2012.html
+https://github.com/cwarden/puppet-module-xvfb
+
+
 
