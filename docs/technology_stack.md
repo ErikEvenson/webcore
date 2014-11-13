@@ -15,6 +15,7 @@ Key components (may be direct dependencies or loaded by direct dependencies):
 - Mocha
 - MongoDB
 - Mongoose
+- [Passport](http://passportjs.org/)
 - Protractor
 - Puppet
 
@@ -110,13 +111,13 @@ These tools are installed directly on the host.  On a Mac, they are can be insta
 * [express](https://www.npmjs.org/package/express) 4.0.0 - 'Fast, unopinionated, minimalist web framework.'
 * [express-jwt](https://www.npmjs.org/package/express-jwt) 0.1.4 - 'JWT authentication middleware.'
 * [express-session](https://www.npmjs.org/package/express-session) 1.0.4 - 'Simple session middleware for Express.'
-- [jade](https://www.npmjs.org/package/jade) [Project](http://jade-lang.com/) 1.2.0 - 'Jade template engine.'
-- [jsonwebtoken](https://www.npmjs.org/package/jsonwebtoken) 1.1.2 - 'JSON Web Token implementation (symmetric and asymmetric).'
-- [lodash](https://www.npmjs.org/package/lodash) 2.4.1 - 'A utility library delivering consistency, customization, performance, & extras.'
-- [method-override](https://www.npmjs.org/package/method-override) 2.3.0 - 'Override HTTP verbs.'
-- [mongoose](https://www.npmjs.org/package/mongoose) 3.8.18 - 'Mongoose MongoDB ODM.'
-- [morgan](https://www.npmjs.org/package/morgan) 1.4.1 - 'http request logger middleware for node.js.'
-- [passport](https://www.npmjs.org/package/passport) 0.2.1 - 'Simple, unobtrusive authentication for Node.js.'
+* [jade](https://www.npmjs.org/package/jade) [Project](http://jade-lang.com/) 1.2.0 - 'Jade template engine.'
+* [jsonwebtoken](https://www.npmjs.org/package/jsonwebtoken) 0.3.0 - 'JSON Web Token implementation (symmetric and asymmetric).'
+* [lodash](https://www.npmjs.org/package/lodash) 2.4.1 - 'A utility library delivering consistency, customization, performance, & extras.'
+* [method-override](https://www.npmjs.org/package/method-override) 1.0.2 - 'Override HTTP verbs.'
+* [mongoose](https://www.npmjs.org/package/mongoose) 3.8.18 - 'Mongoose MongoDB ODM.'
+* [morgan](https://www.npmjs.org/package/morgan) 1.0.1 - 'http request logger middleware for node.js.'
+- [passport](https://www.npmjs.org/package/passport) 0.2.0 - 'Simple, unobtrusive authentication for Node.js.'
 - [passport-facebook](https://www.npmjs.org/package/passport-facebook) 1.0.3 - 'Facebook authentication strategy for Passport.'
 - [passport-google-oauth](https://www.npmjs.org/package/passport-google-oauth) 0.1.5 - 'Google (OAuth) authentication strategies for Passport.'
 - [passport-local](https://www.npmjs.org/package/passport-local) 1.0.0 - 'Local username and password authentication strategy for Passport.'
