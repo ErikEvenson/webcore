@@ -117,15 +117,15 @@ These tools are installed directly on the host.  On a Mac, they are can be insta
 * [method-override](https://www.npmjs.org/package/method-override) 1.0.2 - 'Override HTTP verbs.'
 * [mongoose](https://www.npmjs.org/package/mongoose) 3.8.18 - 'Mongoose MongoDB ODM.'
 * [morgan](https://www.npmjs.org/package/morgan) 1.0.1 - 'http request logger middleware for node.js.'
-- [passport](https://www.npmjs.org/package/passport) 0.2.0 - 'Simple, unobtrusive authentication for Node.js.'
-- [passport-facebook](https://www.npmjs.org/package/passport-facebook) 1.0.3 - 'Facebook authentication strategy for Passport.'
-- [passport-google-oauth](https://www.npmjs.org/package/passport-google-oauth) 0.1.5 - 'Google (OAuth) authentication strategies for Passport.'
-- [passport-local](https://www.npmjs.org/package/passport-local) 1.0.0 - 'Local username and password authentication strategy for Passport.'
-- [passport-twitter](https://www.npmjs.org/package/passport-twitter) 1.0.2 - 'Twitter authentication strategy for Passport.'
+* [passport](https://www.npmjs.org/package/passport) 0.2.0 - 'Simple, unobtrusive authentication for Node.js.'
+* [passport-facebook](https://www.npmjs.org/package/passport-facebook) 1.0.3 - 'Facebook authentication strategy for Passport.'
+* [passport-google-oauth](https://www.npmjs.org/package/passport-google-oauth) 0.1.5 - 'Google (OAuth) authentication strategies for Passport.'
+* [passport-local](https://www.npmjs.org/package/passport-local) 1.0.0 - 'Local username and password authentication strategy for Passport.'
+* [passport-twitter](https://www.npmjs.org/package/passport-twitter) 1.0.2 - 'Twitter authentication strategy for Passport.'
 - [serve-favicon](https://www.npmjs.org/package/serve-favicon) 2.1.6 - 'favicon serving middleware with caching.'
 * [socket.io](https://www.npmjs.org/package/socket.io) 1.2.0 - 'node.js realtime framework server'
-- [socket.io-client](https://www.npmjs.org/package/socket.io-client) 1.2.0 - ''
-- [socketio-jwt](https://www.npmjs.org/package/socketio-jwt) 2.3.5 - 'authenticate socket.io connections using JWTs'
+* [socket.io-client](https://www.npmjs.org/package/socket.io-client) 1.2.0 - ''
+* [socketio-jwt](https://www.npmjs.org/package/socketio-jwt) 2.3.5 - 'authenticate socket.io connections using JWTs'
 
 #### Development
 
