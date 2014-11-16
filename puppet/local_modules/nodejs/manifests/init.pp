@@ -24,7 +24,7 @@ class nodejs {
     path    => '/home/vagrant/.npmrc',
     owner   => vagrant,
     group   => vagrant,
-    content => "prefix = ~/.npm\n",
+    source  => 'puppet:///modules/nodejs/.npmrc',
   }
 
   # Put globals on PATH for vagrant user.

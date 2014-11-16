@@ -96,7 +96,7 @@ Answer prompts with:
 - use authorization strategies as needed
 - use socket.io
 
-Sometimes this fails.  Might need to:
+Sometimes this fails.  For conflicts, use angular 1.3.2 option #2.  Might need to:
 
 ```
   sudo chown -R vagrant:vagrant /home/vagrant/.npm
