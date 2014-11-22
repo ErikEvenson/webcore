@@ -20,7 +20,9 @@ class node_globals {
   $node_globals = join($node_globals_array, ' ')
 
   exec {'npm_globals':
-    command => "/usr/bin/npm config set prefix /home/vagrant/.npm",
+    command => "/usr/bin/npm config set prefix /home/vagrant/.npm \
+      && npm -g --registry http://registry.npmjs.eu/ --strict-ssl false install ${node_globals} \
+      && chown -R vagrant:vagrant /home/vagrant/.npm",
     require => Package['fontconfig'],
     timeout => 0,
   }

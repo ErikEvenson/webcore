@@ -73,6 +73,9 @@ Enable ssh-agent.
 
 When done, exit the virtual environment and `vagrant halt` to stop the virtual machine.  Use `vagrant destroy` to reclaim the disk space (although this will require you to re-provision the machine again later).  `vagrant remove` should be used to remove the base box from the system as well.  `vagrant up` and `vagrant ssh web` to start another development session later.
 
+/usr/bin/npm config set prefix /home/vagrant/.npm
+npm -g install bower@1.3.12 generator-angular-fullstack@2.0.13 grunt-cli@0.1.13 npm-check-updates@1.2.0
+
 ## Generator
 
 Adapted from [usage instructions](https://github.com/DaftMonk/generator-angular-fullstack)

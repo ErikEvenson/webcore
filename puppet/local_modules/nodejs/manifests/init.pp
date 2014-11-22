@@ -18,6 +18,15 @@ class nodejs {
     group  => vagrant,
   }
 
+  # Set the npm global prefix via config file.
+  file { 'npmrc':
+    ensure  => present,
+    path    => '/home/vagrant/.npmrc',
+    owner   => vagrant,
+    group   => vagrant,
+    source  => 'puppet:///modules/nodejs/npmrc',
+  }
+
   # Put globals on PATH for vagrant user.
   file_line {'npm_bashrc':
     path => '/home/vagrant/.bashrc',
