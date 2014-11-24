@@ -18,10 +18,9 @@ Install the [vagrant-librarian-puppet](https://github.com/mhahn/vagrant-libraria
 	vagrant plugin install vagrant-librarian-puppet
 ```
 
-Install vagrant-cachier to speed up provisioning.  Make sure nokogiri is installed first.  nokogiri requires Xcode Command Line Tools to be installed as well.
+Install vagrant-cachier to speed up provisioning.  vagrant-cachier requires Xcode Command Line Tools to be installed as well.
 
 ```
-  sudo gem install nokogiri -v '1.6.4.1'
   vagrant plugin install vagrant-cachier
 ```
 
