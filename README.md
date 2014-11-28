@@ -107,6 +107,7 @@ Sometimes this fails.  For conflicts, use angular 1.3.2 option #2.  Might need t
 ```
   sudo chown -R vagrant:vagrant /home/vagrant/.npm
   bower install & npm install
+  npm-install-missing
 ```
 
 This seems to be necessary:
