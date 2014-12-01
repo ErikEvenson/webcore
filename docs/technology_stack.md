@@ -113,6 +113,7 @@ These tools are installed directly on the host.  On a Mac, they are can be insta
 * [express](https://www.npmjs.org/package/express) 4.0.0 - 'Fast, unopinionated, minimalist web framework.'
 * [express-jwt](https://www.npmjs.org/package/express-jwt) 0.1.4 - 'JWT authentication middleware.'
 * [express-session](https://www.npmjs.org/package/express-session) 1.0.4 - 'Simple session middleware for Express.'
+* [glob](https://www.npmjs.org/package/glob) 4.0.6 - 'a little globber.'
 * [jade](https://www.npmjs.org/package/jade) [Project](http://jade-lang.com/) 1.2.0 - 'Jade template engine.'
 * [jsonwebtoken](https://www.npmjs.org/package/jsonwebtoken) 0.3.0 - 'JSON Web Token implementation (symmetric and asymmetric).'
 * [lodash](https://www.npmjs.org/package/lodash) 2.4.1 - 'A utility library delivering consistency, customization, performance, & extras.'
