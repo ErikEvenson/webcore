@@ -408,7 +408,7 @@ module.exports = function (grunt) {
       },
       heroku: {
         options: {
-          remote: 'heroku',
+          remote: 'git@heroku.com:webcore-example.git',
           branch: 'master'
         }
       },
