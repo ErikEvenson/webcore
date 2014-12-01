@@ -79,7 +79,7 @@ Enable ssh-agent.
 
 When done, exit the virtual environment and `vagrant halt` to stop the virtual machine.  Use `vagrant destroy` to reclaim the disk space (although this will require you to re-provision the machine again later).  `vagrant remove` should be used to remove the base box from the system as well.  `vagrant up` and `vagrant ssh web` to start another development session later.  Avoid using `--no-provision` as this seems to prevent `vagrant-cachier` from working correctly.
 
-## Generator
+## Generator -- first time
 
 Adapted from [usage instructions](https://github.com/DaftMonk/generator-angular-fullstack)
 
@@ -129,6 +129,35 @@ Set up end-to-end testing:
   yo angular-fullstack:heroku
   heroku addons:add mongohq
   grunt build
+  grunt buildcontrol:heroku
+```
+Run grunt for building, grunt serve for preview, and grunt serve:dist for a preview of the built app.
+
+## Generator -- subsequent clones
+
+```
+  cd example
+  sudo chown -R vagrant:vagrant /home/vagrant/.npm
+  bower install & npm install
+  npm-install-missing
+```
+
+This seems to be necessary:
+
+```
+  npm install grunt-contrib-imagemin@0.7.1
+```
+
+Set up end-to-end testing:
+
+```
+  npm run update-webdriver
+```
+
+```
+  grunt build
+  heroku login
+  set buildcontrol git@heroku.com:example.git
   grunt buildcontrol:heroku
 ```
 Run grunt for building, grunt serve for preview, and grunt serve:dist for a preview of the built app.

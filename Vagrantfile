@@ -3,7 +3,6 @@
 
 # This configuration will set up a default base VM provisioned with puppet.
 
-# Assumes the use of VirtualBox 4.3.14-95030 as a provider.
 # Uses vagrant-vbguest plugin (https://github.com/dotless-de/vagrant-vbguest)
 # to keep VirtualBox Guest Addition wrangled.
 
@@ -13,10 +12,6 @@ CPUS             = "1"
 IP               = "192.168.50.4"
 MEMORY           = "512"
 PROVIDER         = "virtualbox"
-
-# Eventually change this to a directory when this change hits vagrant (1.6.4?):
-# https://github.com/mitchellh/vagrant/pull/4169
-# This will kill the deprecation warning.
 PUPPET_MANIFEST_FILE    = "site.pp"
 
 HIERA_CONFIG_PATH       = "puppet/hiera.yaml"
