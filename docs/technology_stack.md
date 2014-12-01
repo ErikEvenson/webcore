@@ -81,7 +81,7 @@ These tools are installed directly on the host.  On a Mac, they are can be insta
 
 - [MongoDB](http://www.mongodb.org/) 2.6.5
 - [Vagrant](https://www.vagrantup.com/) 1.6.5 [Change log](https://github.com/mitchellh/vagrant/blob/master/CHANGELOG.md) [Fork](https://github.com/EATechnologies/vagrant) - used to manage development environment configuration.
-- [VirtualBox](https://www.virtualbox.org/) 4.3.14 [Changelog](https://www.virtualbox.org/wiki/Changelog) 4.3.14-95030 - used to host development environment.
+- [VirtualBox](https://www.virtualbox.org/) 4.3.20 [Changelog](https://www.virtualbox.org/wiki/Changelog) 4.3.20-96996 - used to host development environment.
 
 ## Heroku add-ons
 
