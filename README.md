@@ -127,11 +127,72 @@ Set up end-to-end testing:
   grunt build
   cd dist
   heroku login
-  yo angular-fullstack:heroku
-  heroku addons:add mongohq
-  grunt build
-  grunt buildcontrol:heroku
 ```
+
+Set up staging:
+
+```
+  yo angular-fullstack:heroku
+```
+
+Set name as `example-staging`.  Note heroku repo name and modify buildcontrol with something like this:
+
+
+```
+  staging: {
+    options: {
+      remote: 'git@heroku.com:example-staging.git',
+      branch: 'master'
+    }
+  }
+```
+
+Add mongodb addon and set environment (duplicate example/server/config/environment/production.js for staging):
+
+```
+  heroku addons:add mongohq --app example-staging
+  heroku config:set NODE_ENV=staging --app example-staging
+```
+
+Check buildcontrol:
+
+```
+  grunt build
+  grunt buildcontrol:staging
+```
+
+Set up production:
+
+```
+  yo angular-fullstack:heroku
+```
+
+Set name as `example`.  Note heroku repo name and modify buildcontrol with something like this:
+
+
+```
+  production: {
+    options: {
+      remote: 'git@heroku.com:example.git',
+      branch: 'master'
+    }
+  }
+```
+
+Add mongodb addon and set environment:
+
+```
+  heroku addons:add mongohq --app example
+  heroku config:set NODE_ENV=production --app example
+```
+
+Check buildcontrol:
+
+```
+  grunt build
+  grunt buildcontrol:production
+```
+
 Run grunt for building, grunt serve for preview, and grunt serve:dist for a preview of the built app.
 
 ## Generator -- subsequent clones
