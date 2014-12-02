@@ -88,9 +88,11 @@ Add node globals
 
 When done, exit the virtual environment and `vagrant halt` to stop the virtual machine.  Use `vagrant destroy` to reclaim the disk space (although this will require you to re-provision the machine again later).  `vagrant remove` should be used to remove the base box from the system as well.  `vagrant up` and `vagrant ssh web` to start another development session later.  Avoid using `--no-provision` as this seems to prevent `vagrant-cachier` from working correctly.
 
-## Generator -- first time
+## Generator
 
 Adapted from [usage instructions](https://github.com/DaftMonk/generator-angular-fullstack)
+
+If generating for the first time:
 
 ```
   mkdir example && cd $_
@@ -116,6 +118,16 @@ Sometimes this fails.  For conflicts, use angular 1.3.2 option #2.  Might need t
 ```
   npm-install-missing
 ```
+
+For subsequest installs, or installs on other development boxes:
+
+```
+  cd example
+  bower install
+  npm install
+```
+
+Be sure to copy credentials from/to example/server/config/environment/local.env.js.  Don't store this file in version control.
 
 Set up end-to-end testing:
 
@@ -205,35 +217,6 @@ Check buildcontrol:
   grunt buildcontrol:production
 ```
 
-Run grunt for building, grunt serve for preview, and grunt serve:dist for a preview of the built app.
-
-## Generator -- subsequent clones
-
-```
-  cd example
-  sudo chown -R vagrant:vagrant /home/vagrant/.npm
-  bower install & npm install
-  npm-install-missing
-```
-
-This seems to be necessary:
-
-```
-  npm install grunt-contrib-imagemin@0.7.1
-```
-
-Set up end-to-end testing:
-
-```
-  npm run update-webdriver
-```
-
-```
-  grunt build
-  heroku login
-  set buildcontrol git@heroku.com:example.git
-  grunt buildcontrol:heroku
-```
 Run grunt for building, grunt serve for preview, and grunt serve:dist for a preview of the built app.
 
 ## Development additions
