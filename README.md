@@ -131,6 +131,18 @@ Set up end-to-end testing:
 
 Set up staging:
 
+In `server/config/express.js`:
+
+```
+  if ('production' === env || 'staging' === env) {
+```
+
+In 'app.js':
+
+```
+  serveClient: (config.env === 'production' || config.env === 'staging') ? false : true,
+```
+
 ```
   yo angular-fullstack:heroku
 ```
