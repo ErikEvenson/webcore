@@ -95,7 +95,7 @@ These tools are installed directly on the host.  On a Mac, they are can be insta
 - [bower](https://www.npmjs.org/package/bower) 1.3.12 [Changelog](https://github.com/bower/bower/blob/master/CHANGELOG.md)[Fork](https://www.virtualbox.org/) - front end package management.  Bower will warn when it has an update.
 * [generator-angular-fullstack](https://www.npmjs.org/package/generator-angular-fullstack) 2.0.13 "Yeoman generator for creating MEAN stack applications, using MongoDB, Express, AngularJS, and Node."
 - [grunt-cli](https://github.com/gruntjs/grunt-cli) 0.1.13 [Fork](https://github.com/EATechnologies/grunt-cli) 
-- [npm](https://npmjs.org/doc/) 1.4.23 [Fork](https://github.com/EATechnologies/npm) - "node package manager"
+- [npm](https://npmjs.org/doc/) 2.1.10 - "node package manager"
 * [npm-check-updates](https://www.npmjs.org/package/npm-check-updates) 1.2.0 [Fork](https://github.com/EATechnologies/npm-check-updates) - Find newer versions of dependencies than what your package.json allows.
 * [npm-install-missing](https://www.npmjs.org/package/npm-install-missing) 0.1.4 - 'This module will attempt to reinstall any missing dependencies. It can be called via the command line or used programmatically.'
 * [yo](http://yeoman.io/) 1.3.3 [Changelog](https://github.com/yeoman/yo/releases) [Fork](https://github.com/EATechnologies/yo) - "CLI tool for running Yeoman generators"  yeoman will install bower and grunt-cli.

@@ -77,6 +77,15 @@ Enable ssh-agent.
   eval `ssh-agent -s` && ssh-add ~/.ssh/**/*id_rsa
 ```
 
+Add node globals
+
+```
+  npm config set strict-ssl false
+  npm config set registry http://registry.npmjs.eu/
+  sudo npm -g install npm@2.1.10
+  sudo npm -g install bower@1.3.12 generator-angular-fullstack@2.0.13 grunt-cli@0.1.13 npm-check-updates@1.2.0 npm-install-missing@0.1.4
+```
+
 When done, exit the virtual environment and `vagrant halt` to stop the virtual machine.  Use `vagrant destroy` to reclaim the disk space (although this will require you to re-provision the machine again later).  `vagrant remove` should be used to remove the base box from the system as well.  `vagrant up` and `vagrant ssh web` to start another development session later.  Avoid using `--no-provision` as this seems to prevent `vagrant-cachier` from working correctly.
 
 ## Generator -- first time
@@ -105,15 +114,7 @@ Answer prompts with:
 Sometimes this fails.  For conflicts, use angular 1.3.2 option #2.  Might need to:
 
 ```
-  sudo chown -R vagrant:vagrant /home/vagrant/.npm
-  bower install & npm install
   npm-install-missing
-```
-
-This seems to be necessary:
-
-```
-  npm install grunt-contrib-imagemin@0.7.1
 ```
 
 Set up end-to-end testing:
