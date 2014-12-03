@@ -13,7 +13,6 @@ IP               = "192.168.50.4"
 MEMORY           = "512"
 PROVIDER         = "virtualbox"
 PUPPET_MANIFEST_FILE    = "site.pp"
-
 HIERA_CONFIG_PATH       = "puppet/hiera.yaml"
 PUPPET_MANIFESTS_PATH   = "puppet/manifests"
 PUPPET_MODULE_PATH      = ["puppet/modules", "puppet/local_modules"]
@@ -60,6 +59,25 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     # }
   end
   
+  if Vagrant.has_plugin?("vagrant-cachier")
+    # Configure cached packages to be shared between instances of the same base box.
+    # More info on the "Usage" link above
+    config.cache.scope = :box
+
+    # OPTIONAL: If you are using VirtualBox, you might want to use that to enable
+    # NFS for shared folders. This is also very useful for vagrant-libvirt if you
+    # want bi-directional sync
+    
+    # config.cache.synced_folder_opts = {
+    #   type: :nfs,
+    #   # The nolock option can be useful for an NFSv3 client that wants to avoid the
+    #   # NLM sideband protocol. Without this option, apt-get might hang if it tries
+    #   # to lock files needed for /var/cache/* operations. All of this can be avoided
+    #   # by using NFSv4 everywhere. Please note that the tcp option is not the default.
+    #   mount_options: ['rw', 'vers=3', 'tcp', 'nolock']
+    # }
+  end
+
   # Run the bootstrap script on every machine.
   config.vm.provision :shell, :path => BOOTSTRAP_SCRIPT
 
