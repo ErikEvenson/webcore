@@ -52,5 +52,9 @@ echo "Installing RubyGems..."
 if [ $DISTRIB_CODENAME != "trusty" ]; then
   apt-get install -y rubygems >/dev/null
 fi
+
+# Use something like this in case of DDOS attacks on rubygems.org:
+# gem sources --add http://54.186.104.15
+
 gem install --no-ri --no-rdoc rubygems-update
 update_rubygems >/dev/null

@@ -2,6 +2,7 @@
 # 3E Enterprises, LLC
 
 node 'base' {
+  include 'google_chrome'
   require dev_base
   
   $message = hiera('greeting')
