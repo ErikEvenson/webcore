@@ -18,6 +18,12 @@ Install the [vagrant-librarian-puppet](https://github.com/mhahn/vagrant-libraria
 	vagrant plugin install vagrant-librarian-puppet
 ```
 
+Install vagrant-cachier to speed up provisioning.  vagrant-cachier requires Xcode Command Line Tools to be installed as well.
+
+```
+  vagrant plugin install vagrant-cachier
+```
+
 Remove any existing vagrant boxes.
 	
 ```
