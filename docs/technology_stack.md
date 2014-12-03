@@ -33,7 +33,7 @@ Key components (may be direct dependencies or loaded by direct dependencies):
 ## apt-get-installed
 
 - [fontconfig](http://packages.ubuntu.com/precise/fontconfig) 2.8.0-3ubuntu9 - "generic font configuration library - support binaries."  Required by phantomjs.
-- [git](http://git-scm.com/) 2.1.0 - "Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency." 
+- [git](http://git-scm.com/) [apt-get source](https://launchpad.net/~git-core) 2.2.0 - "Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency." 
 - [mercurial](http://mercurial.selenic.com/) 3.0.1 - "Easy-to-use, scalable distributed version control system."
 - [xvfb](http://packages.ubuntu.com/trusty/xvfb) 2:1.15.1-0ubuntu2 - "Virtual Framebuffer 'fake' X server"
 
