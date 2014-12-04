@@ -1,3 +1,0 @@
-prefix=/home/vagrant/.npm
-registry="http://registry.npmjs.eu/"
-strict-ssl=false

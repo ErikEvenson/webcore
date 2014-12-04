@@ -9,30 +9,4 @@ class node_globals {
   package {'fontconfig':
     ensure => installed
   }
-
-#  exec {'npm':
-#    command => "/usr/bin/npm config set prefix /home/vagrant/.npm \
-#      && npm -g --registry http://registry.npmjs.eu/ --strict-ssl false install npm@2.1.10 \
-#      && chown -R vagrant:vagrant /home/vagrant/.npm",
-#    require => Package['fontconfig'],
-#    timeout => 0,
-#  }
-
-#  $node_globals_array = [
-#    'bower@1.3.12',
-#    'generator-angular-fullstack@2.0.13',
-#    'grunt-cli@0.1.13',
-#    'npm-check-updates@1.2.0',
-#    'npm-install-missing@0.1.4'
-#  ]
-
-#  $node_globals = join($node_globals_array, ' ')
-
-#  exec {'npm_globals':
-#    command => "/usr/bin/npm config set prefix /home/vagrant/.npm \
-#      && npm -g --registry http://registry.npmjs.eu/ --strict-ssl false install ${node_globals} \
-#      && chown -R vagrant:vagrant /home/vagrant/.npm",
-#    require => Exec['npm'],
-#    timeout => 0,
-#  }
 }

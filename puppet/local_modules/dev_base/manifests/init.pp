@@ -26,7 +26,6 @@ class dev_base {
   exec {'heroku_toolbelt':
     command => 'wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh',
     path    => ['/bin', '/usr/bin'],
-    # require => Class['ruby_1_9'],
     unless  => 'which heroku | grep -c "heroku"',
   }
 
