@@ -24,7 +24,7 @@ PUPPET_MANIFESTS_PATH   = "puppet/manifests"
 PUPPET_MODULE_PATH      = ["puppet/modules", "puppet/local_modules"]
 SYNCED_FOLDER           = "/vagrant"
 SYNCED_FOLDER_TYPE      = "nfs"
-VAGRANT_VERSION_REQUIRE = ">= 1.6.3"
+VAGRANT_VERSION_REQUIRE = ">= 1.6.5"
 VAGRANTFILE_API_VERSION = "2"
 VM_BOX                  = "ubuntu/trusty64"
 VM_BOX_VERSION          = "14.04"
@@ -46,6 +46,25 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box_check_update = true
   config.vm.synced_folder ".", SYNCED_FOLDER, type: SYNCED_FOLDER_TYPE
   
+  if Vagrant.has_plugin?("vagrant-cachier")
+    # Configure cached packages to be shared between instances of the same base box.
+    # More info on the "Usage" link above
+    config.cache.scope = :box
+
+    # OPTIONAL: If you are using VirtualBox, you might want to use that to enable
+    # NFS for shared folders. This is also very useful for vagrant-libvirt if you
+    # want bi-directional sync
+    
+    # config.cache.synced_folder_opts = {
+    #   type: :nfs,
+    #   # The nolock option can be useful for an NFSv3 client that wants to avoid the
+    #   # NLM sideband protocol. Without this option, apt-get might hang if it tries
+    #   # to lock files needed for /var/cache/* operations. All of this can be avoided
+    #   # by using NFSv4 everywhere. Please note that the tcp option is not the default.
+    #   mount_options: ['rw', 'vers=3', 'tcp', 'nolock']
+    # }
+  end
+
   # Run the bootstrap script on every machine.
   config.vm.provision :shell, :path => BOOTSTRAP_SCRIPT
 
