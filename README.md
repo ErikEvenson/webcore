@@ -282,7 +282,7 @@ Check buildcontrol:
   grunt buildcontrol:production
 ```
 
-Finally, run `npm-shrinkwrap` to pin everything.  Run grunt for building, grunt serve for preview, and grunt serve:dist for a preview of the built app.
+Finally, run `npm shrinkwrap` to pin everything.  Run grunt for building, grunt serve for preview, and grunt serve:dist for a preview of the built app.
 
 ## Development additions
 
