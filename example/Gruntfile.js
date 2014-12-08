@@ -1,6 +1,21 @@
 // Generated on 2014-12-04 using generator-angular-fullstack 2.0.13
 'use strict';
 
+// Load config from multiple files.  Adpated from:
+// http://www.thomasboyt.com/2013/09/01/maintainable-grunt.html
+function loadConfig(path) {
+  var glob = require('glob');
+  var object = {};
+  var key;
+ 
+  glob.sync('*', {cwd: path}).forEach(function(option) {
+    key = option.replace(/\.js$/,'');
+    object[key] = require(path + option);
+  });
+ 
+  return object;
+}
+
 module.exports = function (grunt) {
   var localConfig;
   try {
@@ -24,8 +39,7 @@ module.exports = function (grunt) {
   require('time-grunt')(grunt);
 
   // Define the configuration for all the tasks
-  grunt.initConfig({
-
+  var config = {
     // Project settings
     pkg: grunt.file.readJSON('package.json'),
     yeoman: {
@@ -613,7 +627,11 @@ module.exports = function (grunt) {
         }
       }
     },
-  });
+  };
+
+  var _ = require('lodash');
+  _.extend(config, loadConfig('./tasks/options/'));
+  grunt.initConfig(config);
 
   // Used for delaying livereload until after server has restarted
   grunt.registerTask('wait', function () {
