@@ -135,6 +135,8 @@ Set up end-to-end testing:
   npm run update-webdriver
 ```
 
+This is now the "stock" site.
+
 ```
   grunt build
   heroku login
