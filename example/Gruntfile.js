@@ -406,15 +406,21 @@ module.exports = function (grunt) {
         connectCommits: false,
         message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%'
       },
-      heroku: {
-        options: {
-          remote: 'heroku',
-          branch: 'master'
-        }
-      },
       openshift: {
         options: {
           remote: 'openshift',
+          branch: 'master'
+        }
+      },
+      production: {
+        options: {
+          remote: 'git@heroku.com:gaf-production.git',
+          branch: 'master'
+        }
+      },
+      staging: {
+        options: {
+          remote: 'git@heroku.com:gaf-staging.git',
           branch: 'master'
         }
       }

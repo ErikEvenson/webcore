@@ -147,37 +147,100 @@ If first time, set up staging:
 In `server/config/express.js`:
 
 ```
-  if ('production' === env || 'staging' === env) {
+  -  if ('production' === env) {
+  +  if ('production' === env || 'staging' === env) {
+       app.use(favicon(path.join(config.root, 'public', 'favicon.ico')));
 ```
 
-In 'app.js':
+In 'server/app.js':
 
 ```
-  serveClient: (config.env === 'production' || config.env === 'staging') ? false : true,
+   var socketio = require('socket.io')(server, {
+  -  serveClient: (config.env === 'production') ? false : true,
+  +  serveClient: (config.env === 'production' || config.env === 'staging') ? false : true,
+     path: '/socket.io-client'
+```
+
+Change login seed with client/app/account/login.jade:
+
+```
+         h1 Login
+  -      p
+  -        | Accounts are reset on server restart from
+  -        code server/config/seed.js
+  -        | . Default account is
+  -        code test@test.com
+  -        | /
+  -        code test
+  -      p
+  -        | Admin account is
+  -        code admin@admin.com
+  -        | /
+  -        code admin
+  +      //- p
+  +      //-   | Accounts are reset on server restart from
+  +      //-   code server/config/seed.js
+  +      //-   | . Default account is
+  +      //-   code test@test.com
+  +      //-   | /
+  +      //-   code test
+  +      //- p
+  +      //-   | Admin account is
+  +      //-   code admin@admin.com
+  +      //-   | /
+  +      //-   code admin
+```
+
+and server/config.js
+
+```
+       email: 'test@test.com',
+  -    password: 'test'
+  +    password: 'test55555'
+     }, {
+
+      email: 'admin@admin.com',
+  -    password: 'admin'
+  +    password: 'admin55555'
+     }, function() {
 ```
 
 ```
   yo angular-fullstack:heroku
 ```
 
-Set name as `example-staging`.  Note heroku repo name and modify buildcontrol with something like this:
+Note heroku repo name and modify buildcontrol with something like this:
 
+Remove:
+
+```
+    heroku: {
+      options: {
+        remote: 'heroku',
+        branch: 'master'
+      }
+    },
+```
+
+Add:
 
 ```
   staging: {
     options: {
-      remote: 'git@heroku.com:example-staging.git',
+      remote: 'git@heroku.com:gaf-staging.git',
       branch: 'master'
     }
   }
 ```
 
-Add mongodb addon and set environment (duplicate example/server/config/environment/production.js for staging):
+Add mongodb addon.
 
 ```
-  heroku addons:add mongohq --app example-staging
-  heroku config:set NODE_ENV=staging --app example-staging
+  heroku addons:add mongohq --app gaf-staging
+  heroku config:set NODE_ENV=staging --app gaf-staging
 ```
+
+and set environment (duplicate example/server/config/environment/production.js for staging):
 
 Check buildcontrol:
 
@@ -192,23 +255,24 @@ Set up production:
   yo angular-fullstack:heroku
 ```
 
-Set name as `example`.  Note heroku repo name and modify buildcontrol with something like this:
+Note heroku repo name and modify buildcontrol with something like this:
 
+Add:
 
 ```
   production: {
     options: {
-      remote: 'git@heroku.com:example.git',
+      remote: 'git@heroku.com:gaf-production.git',
       branch: 'master'
     }
   }
 ```
 
-Add mongodb addon and set environment:
+Add mongodb addon.
 
 ```
-  heroku addons:add mongohq --app example
-  heroku config:set NODE_ENV=production --app example
+  heroku addons:add mongohq --app gaf-production
+  heroku config:set NODE_ENV=production --app gaf-production
 ```
 
 Check buildcontrol:

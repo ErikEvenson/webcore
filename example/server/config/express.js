@@ -40,7 +40,7 @@ module.exports = function(app) {
     store: new mongoStore({ mongoose_connection: mongoose.connection })
   }));
   
-  if ('production' === env) {
+  if ('production' === env || 'staging' === env) {
     app.use(favicon(path.join(config.root, 'public', 'favicon.ico')));
     app.use(express.static(path.join(config.root, 'public')));
     app.set('appPath', config.root + '/public');
