@@ -633,7 +633,6 @@ module.exports = function (grunt) {
 
   var _ = require('lodash');
   _.extend(config, loadConfig('./tasks/options/'));
-  console.log("XXXX", config);
   grunt.initConfig(config);
 
   // Used for delaying livereload until after server has restarted

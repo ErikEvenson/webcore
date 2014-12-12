@@ -2,6 +2,7 @@ module.exports = (grunt) ->
   grunt.registerTask 'herokuMaintenance',
     'Puts a heroku instance in or our of maintenance mode.',
     (instance, toggle) ->
+      done = @async()
       valid = true
       message = ''
       
@@ -16,6 +17,8 @@ module.exports = (grunt) ->
       if valid
         grunt.config.requires "heroku.options.#{instance}"
         appName = grunt.config.get "heroku.options.#{instance}"
-        grunt.log.writeln "heroku maintenance:#{toggle} --app #{appName}"
+        cmd = "/usr/bin/heroku maintenance:#{toggle} --app #{appName}"
+        exec = require('child_process').exec
+        exec cmd, (error, stdout, stderr) -> done()
       else
         grunt.fatal message
