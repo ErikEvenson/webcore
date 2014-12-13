@@ -5,9 +5,10 @@ module.exports = (grunt) ->
       done = @async()
       valid = true
       message = []
+      instances = ['staging', 'production']
       
-      if not instance? or not (instance in ['staging', 'production'])
-        message.push 'Instance must be "staging" or "production".'
+      if not instance? or not (instance in instances)
+        message.push 'Invalid instance.'
         valid = false
 
       if not toggle? or not (toggle in ['on', 'off'])

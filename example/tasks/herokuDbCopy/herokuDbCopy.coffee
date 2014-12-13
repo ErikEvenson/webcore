@@ -5,38 +5,31 @@ module.exports = (grunt) ->
       # done = @async()
       valid = true
       message = []
+      instances = ['development', 'staging', 'production']
       
-      if not fromInstance? or not (fromInstance in ['staging', 'production'])
-        message.push 'From instance must be "staging" or "production".'
+      if not fromInstance? or not (fromInstance in instances)
+        message.push 'Invalid "from" instance.'
         valid = false
 
-      if not toInstance? or not (toInstance in ['staging', 'production'])
-        message.push 'To instance must be "staging" or "production".'
+      if not toInstance? or not (toInstance in instances)
+        message.push 'Invalid "to" instance.'
         valid = false
 
       if fromInstance? and toInstance and fromInstance == toInstance
-        message.push 'From instance must be different from to instance.'
+        message.push '"From" instance must be different from "to" instance.'
         valid = false
 
       message = message.join '  '
 
       if valid
-        grunt.task.run "herokuMaintenance:#{fromInstance}:on"
-        grunt.task.run "mongodump:#{fromInstance}"
-        grunt.task.run "herokuMaintenance:#{fromInstance}:off"
+        path = "temp/#{Date.now()}-#{fromInstance}.dump"
+        grunt.task.run "herokuMaintenance:#{fromInstance}:on" unless fromInstance == 'development'
+        grunt.task.run "mongodump:#{fromInstance}:#{path}"
+        grunt.task.run "herokuMaintenance:#{fromInstance}:off" unless fromInstance == 'development'
 
-        grunt.task.run "herokuMaintenance:#{toInstance}:on"
+        grunt.task.run "herokuMaintenance:#{toInstance}:on" unless toInstance == 'development'
         # grunt.task.run "mongoimport:#{toInstance}"
-        grunt.task.run "herokuMaintenance:#{toInstance}:off"
-
-        # grunt.config.requires "heroku.options.#{instance}"
-        # appName = grunt.config.get "heroku.options.#{instance}"
-        # exec = require('child_process').exec
-        # cmd = "/usr/bin/heroku config --app #{appName}"
-
-        # exec cmd, (error, stdout, stderr) ->
-        #   grunt.log.writeln "STDOUT: #{stdout}"
-        #   done()
+        grunt.task.run "herokuMaintenance:#{toInstance}:off" unless toInstance == 'development'
 
       else
         grunt.fatal message
