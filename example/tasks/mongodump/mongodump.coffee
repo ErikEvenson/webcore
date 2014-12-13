@@ -1,7 +1,7 @@
 module.exports = (grunt) ->
-  grunt.registerTask 'herokuMaintenance',
-    'Puts a heroku instance in or our of maintenance mode.',
-    (instance, toggle) ->
+  grunt.registerTask 'mongodump',
+    'Dumps the mongo database of an instance.',
+    (instance) ->
       done = @async()
       valid = true
       message = []
@@ -10,17 +10,19 @@ module.exports = (grunt) ->
         message.push 'Instance must be "staging" or "production".'
         valid = false
 
-      if not toggle? or not (toggle in ['on', 'off'])
-        message.push 'Toggle must be "on" or "off".'
-        valid = false
-
-      message = message.join '  '
+      message.join '  '
 
       if valid
         grunt.config.requires "heroku.options.#{instance}"
         appName = grunt.config.get "heroku.options.#{instance}"
-        cmd = "/usr/bin/heroku maintenance:#{toggle} --app #{appName}"
+        grunt.config.requires "heroku.options.mongoUriKey"
+        mongoUriKey = grunt.config.get "heroku.options.mongoUriKey"
         exec = require('child_process').exec
-        exec cmd, (error, stdout, stderr) -> done()
+        cmd = "/usr/bin/heroku config --app #{appName} | grep #{mongoUriKey}"
+
+        exec cmd, (error, stdout, stderr) ->
+          grunt.log.writeln "STDOUT: #{stdout}"
+          done()
+
       else
         grunt.fatal message

@@ -1,6 +1,7 @@
 module.exports = {
   options: {
-    production: 'gaf-production',
-    staging   : 'gaf-staging'
+    mongoUriKey: "MONGOHQ_URL",
+    production : 'gaf-production',
+    staging    : 'gaf-staging'
   }
 };
