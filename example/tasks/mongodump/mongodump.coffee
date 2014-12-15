@@ -3,21 +3,13 @@ module.exports = (grunt) ->
     'Dumps the mongo database of an instance to a path.',
     (instance, path) ->
       exec        = require('child_process').exec
-      mongodbUri  = require('mongodb-uri')
-      development = require('../../server/config/environment/development')
       uuid        = require('uuid')
-
-      valid = true
-      message = []
-      instances = ['development', 'staging', 'production']
+      utils       = require '../utils/utils.coffee'
 
       dump = (uriObject, callback) ->
-        # mongodump -h hostname.mongohq.com:port_number -d database_name -u username -p password -o /path/on/my/local/computer
-        # grunt.log.writeln "STDOUT: #{JSON.stringify(uriObject, null, 2)}"
-
         host       = uriObject.hosts[0]
         hostname   = host.host
-        database   = uriObject.database
+        database   = uriObject.database.trim()
         port       = host.port
         username   = uriObject.username
         password   = uriObject.password
@@ -43,6 +35,10 @@ module.exports = (grunt) ->
           grunt.fatal error if error?
           callback() if callback?
 
+      valid = true
+      message = []
+      instances = ['development', 'staging', 'production']
+
       if not instance? or not (instance in instances)
         message.push 'Invalid instance.'
         valid = false
@@ -52,24 +48,9 @@ module.exports = (grunt) ->
       if valid
         done = @async()
 
-        if instance == 'development'
-          uri = development.mongo.uri
-          uriObject = mongodbUri.parse uri
+        utils.getMongoUriObject grunt, instance, (error, uriObject) ->
+          grunt.fatal error if error?
           dump uriObject, done
-        else
-          grunt.config.requires "heroku.options.#{instance}"
-          grunt.config.requires "heroku.options.mongoUriKey"
-
-          appName = grunt.config.get "heroku.options.#{instance}"
-          mongoUriKey = grunt.config.get "heroku.options.mongoUriKey"  
-          cmd = "/usr/bin/heroku config --app #{appName} | grep #{mongoUriKey}"
-          
-          exec cmd, (error, stdout, stderr) ->
-            grunt.fatal error if error?
-            uriKeyValue = stdout.split ' '
-            uri = uriKeyValue[1]
-            uriObject = mongodbUri.parse uri
-            dump uriObject, done
 
       else
         grunt.fatal message

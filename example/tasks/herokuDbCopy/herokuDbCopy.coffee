@@ -28,7 +28,7 @@ module.exports = (grunt) ->
         grunt.task.run "herokuMaintenance:#{fromInstance}:off" unless fromInstance == 'development'
 
         grunt.task.run "herokuMaintenance:#{toInstance}:on" unless toInstance == 'development'
-        # grunt.task.run "mongoimport:#{toInstance}"
+        # grunt.task.run "mongorestore:#{toInstance}"
         grunt.task.run "herokuMaintenance:#{toInstance}:off" unless toInstance == 'development'
 
       else
