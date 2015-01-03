@@ -50,6 +50,40 @@ module.exports =
           uriObject = mongodbUri.parse uri
           callback(error, uriObject)
 
+  restoreMongoDb: (uriObject, path, callback) ->
+    # mongorestore --host walt.compose.io:<portnumber> --db <database_name> 
+    # -u <username> -p<password> dump/<database_name>
+    host       = uriObject.hosts[0]
+    hostname   = host.host
+    database   = uriObject.database.trim()
+    port       = host.port
+    username   = uriObject.username
+    password   = uriObject.password
+    # path       = "temp/#{uuid.v4()}.dump" unless path?
+
+    if not path?
+      error = new Error 'No path provided.'
+      callback(error) if callback?
+    else if not host? or not database?
+      error = new Error 'Host or database not provided.'
+      callback(error) if callback?
+    else
+      cmd = []
+
+      if port?
+        cmd.push "mongorestore -h #{hostname}:#{port}"
+      else
+        cmd.push "mongorestore -h #{hostname}"
+
+      cmd.push "-d #{database}"
+      cmd.push "-u #{username}" unless not username?
+      cmd.push "-p #{password}" unless not username?
+      cmd.push "#{path}"
+      cmd = cmd.join ' '
+
+      exec cmd, (error, stdout, stderr) ->
+        callback(error) if callback?
+
   setMaintenanceMode: (appName, toggle, callback) ->
     if not appName?
       error = new Error("No appName provided.")
