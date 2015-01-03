@@ -33,6 +33,7 @@ module.exports = function (grunt) {
     protractor: 'grunt-protractor-runner',
     injector: 'grunt-asset-injector',
     buildcontrol: 'grunt-build-control',
+    
     herokuDbCopy: 'tasks/herokuDbCopy/herokuDbCopy.coffee',
     herokuMaintenance: 'tasks/herokuMaintenance/herokuMaintenance.coffee',
     mongodump: 'tasks/mongodump/mongodump.coffee'

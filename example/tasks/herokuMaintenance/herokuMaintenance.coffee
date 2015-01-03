@@ -2,9 +2,10 @@ module.exports = (grunt) ->
   grunt.registerTask 'herokuMaintenance',
     'Puts a heroku instance in or our of maintenance mode.',
     (instance, toggle) ->
-      done = @async()
-      valid = true
-      message = []
+      utils     = require '../utils/utils.coffee'
+      done      = @async()
+      valid     = true
+      message   = []
       instances = ['staging', 'production']
       
       if not instance? or not (instance in instances)
@@ -15,13 +16,13 @@ module.exports = (grunt) ->
         message.push 'Toggle must be "on" or "off".'
         valid = false
 
-      message = message.join '  '
-
       if valid
         grunt.config.requires "heroku.options.#{instance}"
         appName = grunt.config.get "heroku.options.#{instance}"
-        cmd = "/usr/bin/heroku maintenance:#{toggle} --app #{appName}"
-        exec = require('child_process').exec
-        exec cmd, (error, stdout, stderr) -> done()
+
+        utils.setMaintenanceMode appName, toggle, (error) ->
+          grunt.fatal error if error
+          done()
       else
+        message = message.join '  '
         grunt.fatal message
