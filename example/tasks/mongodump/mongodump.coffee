@@ -10,6 +10,7 @@ module.exports = (grunt) ->
       valid = true
       message = []
       instances = ['development', 'staging', 'production']
+      path = "temp/#{uuid.v4()}.dump" if not path?
 
       if not instance? or not (instance in instances)
         message.push 'Invalid instance.'
@@ -23,7 +24,7 @@ module.exports = (grunt) ->
           uri = development.mongo.uri
           uriObject = mongodbUri.parse uri
 
-          utils.dumpMongoDb uriObject, "temp/#{uuid.v4()}.dump", (error) ->
+          utils.dumpMongoDb uriObject, path, (error) ->
             grunt fatal error if error?
             done()
         else
@@ -36,7 +37,7 @@ module.exports = (grunt) ->
             if error?
               grunt.fatal error
             else
-              utils.dumpMongoDb uriObject, "temp/#{uuid.v4()}.dump", (error) ->
+              utils.dumpMongoDb uriObject, path, (error) ->
                 grunt fatal error if error?
                 done()
       else
