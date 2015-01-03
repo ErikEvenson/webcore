@@ -31,7 +31,7 @@ module.exports = (grunt) ->
             uriObject = mongodbUri.parse uri
             
             utils.restoreMongoDb uriObject, dumpPath, (error) ->
-              grunt fatal error if error?
+              grunt.fail.fatal error if error?
               done()
           else
             grunt.config.requires "heroku.options.#{instance}"
@@ -41,11 +41,11 @@ module.exports = (grunt) ->
 
             utils.getMongoUriObject appName, mongoUriKey, (error, uriObject) ->
               if error?
-                grunt.fatal error
+                grunt.fail.fatal error
               else
                 utils.restoreMongoDb uriObject, dumpPath, (error) ->
-                  grunt fatal error if error?
+                  grunt.fail.fatal error if error?
                   done()
       else
         message.join '  '
-        grunt.fatal message
+        grunt.fail.fatal message

@@ -21,8 +21,8 @@ module.exports = (grunt) ->
         appName = grunt.config.get "heroku.options.#{instance}"
 
         utils.setMaintenanceMode appName, toggle, (error) ->
-          grunt.fatal error if error
+          grunt.fail.fatal error if error
           done()
       else
         message = message.join '  '
-        grunt.fatal message
+        grunt.fail.fatal message

@@ -69,6 +69,15 @@ module.exports =
       callback(error) if callback?
     else
       cmd = []
+      # cmd.push "mongo --host #{hostname}"
+
+      # if port?
+      #   cmd.push "--port #{port}"
+
+      # # cmd.push "-d #{database}"
+      # cmd.push "-u #{username}" unless not username?
+      # cmd.push "-p #{password}" unless not username?
+      # cmd.push '--eval "db.dropDatabase();" &&'
 
       if port?
         cmd.push "mongorestore -h #{hostname}:#{port}"
@@ -80,7 +89,7 @@ module.exports =
       cmd.push "-p #{password}" unless not username?
       cmd.push "#{path}"
       cmd = cmd.join ' '
-
+      # console.log "xxxx", cmd
       exec cmd, (error, stdout, stderr) ->
         callback(error) if callback?
 

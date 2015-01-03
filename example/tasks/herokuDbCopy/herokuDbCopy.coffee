@@ -28,8 +28,7 @@ module.exports = (grunt) ->
         grunt.task.run "herokuMaintenance:#{fromInstance}:off" unless fromInstance == 'development'
 
         grunt.task.run "herokuMaintenance:#{toInstance}:on" unless toInstance == 'development'
-        # Need to drop existing db and postfix appcode
         grunt.task.run "mongorestore:#{toInstance}:#{path}"
         grunt.task.run "herokuMaintenance:#{toInstance}:off" unless toInstance == 'development'
       else
-        grunt.fatal message
+        grunt.fail.fatal message
