@@ -20,4 +20,4 @@ puppet/Puppetfile.lock
 npm-debug.log
 
 # Ignore temp directory
-temp
+example/temp

@@ -32,27 +32,23 @@ module.exports =
       exec cmd, (error, stdout, stderr) ->
         callback(error) if callback?
 
-  getMongoUriObject: (grunt, instance, callback) ->
-    error = null
+  getMongoUriObject: (appName, mongoUriKey, callback) ->
     uriObject = {}
 
-    if instance == 'development'
-      uri = development.mongo.uri
-      uriObject = mongodbUri.parse uri
-      callback(error, uriObject)
+    if not appName? or not mongoUriKey?
+      error = new Error('No appName or mongoUriKey provided.')
+      callback(error, uriObject) if callback?
     else
-      grunt.config.requires "heroku.options.#{instance}"
-      grunt.config.requires 'heroku.options.mongoUriKey'
-      appName = grunt.config.get "heroku.options.#{instance}"
-      mongoUriKey = grunt.config.get 'heroku.options.mongoUriKey'
       cmd = "/usr/bin/heroku config --app #{appName} | grep #{mongoUriKey}"
 
       exec cmd, (error, stdout, stderr) ->
-        callback error, uriObject if error?
-        uriKeyValue = stdout.split ' '
-        uri = uriKeyValue[1]
-        uriObject = mongodbUri.parse uri
-        callback(error, uriObject)
+        if error?
+          callback error, uriObject if error?
+        else
+          uriKeyValue = stdout.split ' '
+          uri = uriKeyValue[1]
+          uriObject = mongodbUri.parse uri
+          callback(error, uriObject)
 
   setMaintenanceMode: (appName, toggle, callback) ->
     if not appName?
