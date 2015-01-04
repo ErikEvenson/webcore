@@ -113,6 +113,7 @@ These tools are installed directly on the host.  On a Mac, they are can be insta
 * [express](https://www.npmjs.org/package/express) 4.0.0 - 'Fast, unopinionated, minimalist web framework.'
 * [express-jwt](https://www.npmjs.org/package/express-jwt) 0.1.4 - 'JWT authentication middleware.'
 * [express-session](https://www.npmjs.org/package/express-session) 1.0.4 - 'Simple session middleware for Express.'
+* [glob](https://www.npmjs.org/package/glob) 4.0.6 - 'a little globber.'
 * [jade](https://www.npmjs.org/package/jade) [Project](http://jade-lang.com/) 1.2.0 - 'Jade template engine.'
 * [jsonwebtoken](https://www.npmjs.org/package/jsonwebtoken) 0.3.0 - 'JSON Web Token implementation (symmetric and asymmetric).'
 * [lodash](https://www.npmjs.org/package/lodash) 2.4.1 - 'A utility library delivering consistency, customization, performance, & extras.'
@@ -181,11 +182,13 @@ These tools are installed directly on the host.  On a Mac, they are can be insta
 * [karma-phantomjs-launcher](https://www.npmjs.org/package/karma-phantomjs-launcher-nonet) 0.1.4 - 'Fork of karma-phantomjs-launcher - it never downloads phantomjs from the internet.'
 * [karma-requirejs](https://www.npmjs.org/package/karma-requirejs) 0.2.2 - 'A Karma plugin. Adapter for RequireJS framework.'
 * [karma-script-launcher](https://www.npmjs.org/package/karma-script-launcher) 0.1.0 - 'A Karma plugin. Launcher for shell scripts.'
+* [mongodb-uri](https://www.npmjs.com/package/mongodb-uri) 0.9.7 - 'A parser and formatter for MongoDB URIs.'
 * [open](https://www.npmjs.org/package/open) 0.0.5 - 'open a file or url in the user's preferred application'
 * [requirejs](https://www.npmjs.org/search?q=requirejs) 2.1.15 - 'Node adapter for RequireJS, for loading AMD modules. Includes RequireJS optimizer'
 * [should](https://www.npmjs.org/package/should) 3.3.2 - 'test framework agnostic BDD-style assertions'
 * [supertest](https://www.npmjs.org/package/supertest) 0.11.0 - 'Super-agent driven library for testing HTTP servers'
 * [time-grunt](https://www.npmjs.org/package/time-grunt) 0.3.2 - 'Display the elapsed execution time of grunt tasks'
+* [uuid](https://www.npmjs.com/package/uuid) 2.0.1 - 'Rigorous implementation of RFC4122 (v1 and v4) UUIDs.'
 
 ## Puppet modules
 
