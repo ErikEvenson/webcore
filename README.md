@@ -286,6 +286,8 @@ Finally, run `npm shrinkwrap` to pin everything.  Run grunt for building, grunt 
 
 ## Development additions
 
+Add heroku/mongoDB utils per fb6c05d18038c8a2da2b0eb37221ed1e0bd1470c.
+
 ## To do
 
 Xvfb config before e2e tests:
