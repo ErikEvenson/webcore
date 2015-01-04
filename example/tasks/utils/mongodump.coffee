@@ -4,8 +4,8 @@ module.exports = (grunt) ->
     (instance, path) ->
       development = require '../../server/config/environment/development'
       mongodbUri  = require 'mongodb-uri'
-      uuid        = require('uuid')
-      utils       = require '../utils/utils.coffee'
+      uuid        = require 'uuid'
+      utils       = require './utils.coffee'
 
       valid = true
       message = []

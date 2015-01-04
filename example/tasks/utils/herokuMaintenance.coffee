@@ -2,7 +2,7 @@ module.exports = (grunt) ->
   grunt.registerTask 'herokuMaintenance',
     'Puts a heroku instance in or our of maintenance mode.',
     (instance, toggle) ->
-      utils     = require '../utils/utils.coffee'
+      utils     = require './utils.coffee'
       done      = @async()
       valid     = true
       message   = []

@@ -34,10 +34,10 @@ module.exports = function (grunt) {
     injector: 'grunt-asset-injector',
     buildcontrol: 'grunt-build-control',
 
-    herokuDbCopy: 'tasks/herokuDbCopy/herokuDbCopy.coffee',
-    herokuMaintenance: 'tasks/herokuMaintenance/herokuMaintenance.coffee',
-    mongodump: 'tasks/mongodump/mongodump.coffee',
-    mongorestore: 'tasks/mongorestore/mongorestore.coffee'
+    herokuDbCopy     : 'tasks/utils/herokuDbCopy.coffee',
+    herokuMaintenance: 'tasks/utils/herokuMaintenance.coffee',
+    mongodump        : 'tasks/utils/mongodump.coffee',
+    mongorestore     : 'tasks/utils/mongorestore.coffee'
   });
 
   // Time how long tasks take. Can help when optimizing build times
