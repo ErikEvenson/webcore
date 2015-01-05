@@ -186,6 +186,7 @@ These tools are installed directly on the host.  On a Mac, they are can be insta
 * [open](https://www.npmjs.org/package/open) 0.0.5 - 'open a file or url in the user's preferred application'
 * [requirejs](https://www.npmjs.org/search?q=requirejs) 2.1.15 - 'Node adapter for RequireJS, for loading AMD modules. Includes RequireJS optimizer'
 * [should](https://www.npmjs.org/package/should) 3.3.2 - 'test framework agnostic BDD-style assertions'
+- [sinon](https://www.npmjs.com/package/sinon) 1.12.2 - 'Standalone and test framework agnostic JavaScript test spies, stubs and mocks.'
 * [supertest](https://www.npmjs.org/package/supertest) 0.11.0 - 'Super-agent driven library for testing HTTP servers'
 * [time-grunt](https://www.npmjs.org/package/time-grunt) 0.3.2 - 'Display the elapsed execution time of grunt tasks'
 * [uuid](https://www.npmjs.com/package/uuid) 2.0.1 - 'Rigorous implementation of RFC4122 (v1 and v4) UUIDs.'

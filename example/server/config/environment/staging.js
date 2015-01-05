@@ -3,6 +3,8 @@
 // Staging specific configuration
 // =================================
 module.exports = {
+  hostname: 'gaf-staging.herokuapp.com',
+
   // Server IP
   ip:       process.env.OPENSHIFT_NODEJS_IP ||
             process.env.IP ||

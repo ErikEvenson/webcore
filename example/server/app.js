@@ -11,6 +11,8 @@ var express = require('express');
 var mongoose = require('mongoose');
 var config = require('./config/environment');
 
+var forceSSL = require('../middleware/ssl').force(config.hostname);
+
 // Connect to database
 mongoose.connect(config.mongo.uri, config.mongo.options);
 
@@ -27,6 +29,10 @@ var socketio = require('socket.io')(server, {
 require('./config/socketio')(socketio);
 require('./config/express')(app);
 require('./routes')(app);
+
+if (app.get('env') in ['production', 'staging']) {
+  app.use(forceSSL);
+}
 
 // Start server
 server.listen(config.port, config.ip, function () {
