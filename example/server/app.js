@@ -21,18 +21,21 @@ if(config.seedDB) { require('./config/seed'); }
 
 // Setup server
 var app = express();
+
+if (config.env === 'production' || config.env === 'staging') {
+  app.use(forceSSL);
+}
+
 var server = require('http').createServer(app);
+
 var socketio = require('socket.io')(server, {
   serveClient: (config.env === 'production' || config.env === 'staging') ? false : true,
   path: '/socket.io-client'
 });
+
 require('./config/socketio')(socketio);
 require('./config/express')(app);
 require('./routes')(app);
-
-if (config.env in ['production', 'staging']) {
-  app.use(forceSSL);
-}
 
 // Start server
 server.listen(config.port, config.ip, function () {
