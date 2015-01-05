@@ -11,7 +11,7 @@ var express = require('express');
 var mongoose = require('mongoose');
 var config = require('./config/environment');
 
-var forceSSL = require('../middleware/ssl').force(config.hostname);
+var forceSSL = require('./middleware/ssl').force(config.hostname);
 
 // Connect to database
 mongoose.connect(config.mongo.uri, config.mongo.options);
