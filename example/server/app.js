@@ -30,7 +30,7 @@ require('./config/socketio')(socketio);
 require('./config/express')(app);
 require('./routes')(app);
 
-if (app.get('env') in ['production', 'staging']) {
+if (config.env in ['production', 'staging']) {
   app.use(forceSSL);
 }
 
