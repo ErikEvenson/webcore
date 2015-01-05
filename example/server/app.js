@@ -10,6 +10,7 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 var express = require('express');
 var mongoose = require('mongoose');
 var config = require('./config/environment');
+var forceSSL = require('./middleware/ssl').force(config.hostname);
 
 // Connect to database
 mongoose.connect(config.mongo.uri, config.mongo.options);
@@ -19,11 +20,18 @@ if(config.seedDB) { require('./config/seed'); }
 
 // Setup server
 var app = express();
+
+if (config.env === 'production' || config.env === 'staging') {
+  app.use(forceSSL);
+}
+
 var server = require('http').createServer(app);
+
 var socketio = require('socket.io')(server, {
   serveClient: (config.env === 'production' || config.env === 'staging') ? false : true,
   path: '/socket.io-client'
 });
+
 require('./config/socketio')(socketio);
 require('./config/express')(app);
 require('./routes')(app);
