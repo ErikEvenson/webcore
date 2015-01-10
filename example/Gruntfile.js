@@ -89,7 +89,7 @@ module.exports = function (grunt) {
         tasks: ['injector:css']
       },
       mochaTest: {
-        files: ['server/**/*.spec.js'],
+        files: ['server/**/*.spec.js', 'server/**/*.spec.coffee'],
         tasks: ['env:test', 'mochaTest']
       },
       jsTest: {
@@ -485,9 +485,10 @@ module.exports = function (grunt) {
 
     mochaTest: {
       options: {
-        reporter: 'spec'
+        reporter: 'spec',
+        require: 'coffee-script/register'
       },
-      src: ['server/**/*.spec.js']
+      src: ['server/**/*.spec.js', 'server/**/*.spec.coffee']
     },
 
     protractor: {
@@ -549,6 +550,16 @@ module.exports = function (grunt) {
           ],
           dest: '.tmp',
           ext: '.js'
+        },
+        {
+          expand: true,
+          cwd: 'server',
+          src: [
+            '{api}/**/*.coffee',
+            '!{api}/**/*.spec.coffee'
+          ],
+          dest: '.tmp',
+          ext: '.js'          
         }]
       }
     },
