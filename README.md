@@ -81,7 +81,6 @@ Add node globals
 
 ```
   npm config set strict-ssl false
-  npm config set registry http://registry.npmjs.eu/
   sudo npm -g install npm@2.1.10
   sudo npm -g install bower@1.3.12 grunt-cli@0.1.13 npm-check-updates@1.2.0 npm-install-missing@0.1.4
 ```
