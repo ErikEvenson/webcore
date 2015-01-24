@@ -18,7 +18,7 @@ PUPPET_MANIFESTS_PATH   = "puppet/manifests"
 PUPPET_MODULE_PATH      = ["puppet/modules", "puppet/local_modules"]
 SYNCED_FOLDER           = "/vagrant"
 SYNCED_FOLDER_TYPE      = "nfs"
-VAGRANT_VERSION_REQUIRE = ">= 1.6.5"
+VAGRANT_VERSION_REQUIRE = ">= 1.7.2"
 VAGRANTFILE_API_VERSION = "2"
 VM_BOX                  = "ubuntu/trusty64"
 VM_BOX_VERSION          = "14.04"

@@ -29,7 +29,7 @@ These tools are installed directly on the host.  On a Mac, they are can be insta
 
 ***Check for updates manually.***
 
-- [Vagrant](https://www.vagrantup.com/) 1.6.5 [Change log](https://github.com/mitchellh/vagrant/blob/master/CHANGELOG.md) [Fork](https://github.com/EATechnologies/vagrant) - used to manage development environment configuration.
+- [Vagrant](https://www.vagrantup.com/) 1.7.2 [Change log](https://github.com/mitchellh/vagrant/blob/master/CHANGELOG.md) [Fork](https://github.com/EATechnologies/vagrant) - used to manage development environment configuration.
 - [VirtualBox](https://www.virtualbox.org/) 4.3.20 [Changelog](https://www.virtualbox.org/wiki/Changelog) 4.3.20-96996 - used to host development environment.
 
 ## npm-installed
