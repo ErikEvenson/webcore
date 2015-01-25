@@ -13,6 +13,9 @@ puppet/modules/*
 !puppet/modules/.gitkeep
 puppet/Puppetfile.lock
 
+# Ignore puppet librarian config files
+puppet/.librarian
+
 # Ignore DS_Store files
 .DS_Store
 
