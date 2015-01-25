@@ -37,6 +37,7 @@ These tools are installed directly on the host.  On a Mac, they are can be insta
 Global:
 
 - [bower](https://www.npmjs.org/package/bower) 1.3.9 [Changelog](https://github.com/bower/bower/blob/master/CHANGELOG.md)[Fork](https://www.virtualbox.org/) - front end package management.  Bower will warn when it has an update.  Installed by yeoman.
+* [generator-generator](https://github.com/yeoman/generator-generator) 0.6.0 - 'Generate your own Yeoman generator.'
 - [grunt-cli](https://github.com/gruntjs/grunt-cli) 0.1.13 [Fork](https://github.com/EATechnologies/grunt-cli) 
 - [npm](https://npmjs.org/doc/) 2.3.0 - "node package manager"
 * [npm-check-updates](https://www.npmjs.org/package/npm-check-updates) 1.2.0 [Fork](https://github.com/EATechnologies/npm-check-updates) - Find newer versions of dependencies than what your package.json allows.
