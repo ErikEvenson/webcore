@@ -15,9 +15,9 @@ These are the technologies used in this project.
 ## bash-installed
 
 - [puppet](http://puppetlabs.com/) - "Open source Puppet is a flexible, customizable framework available under the Apache 2.0 license designed to help system administrators automate the many repetitive tasks they regularly perform."
-- [vagrant-cachier](https://github.com/fgrehm/vagrant-cachier/) 1.1.0 - "A Vagrant plugin that helps you reduce the amount of coffee you drink while waiting for boxes to be provisioned by sharing a common package cache among similiar VM instances."
-- [vagrant-librarian-puppet](https://github.com/mhahn/vagrant-librarian-puppet) 0.7.1 - A Vagrant plugin to install Puppet modules using Librarian-Puppet.
-- [vagrant-vbguest](https://github.com/dotless-de/vagrant-vbguest) 0.10.0 [Changelog[(https://github.com/dotless-de/vagrant-vbguest/blob/master/CHANGELOG.md) [Fork](https://github.com/EATechnologies/vagrant-vbguest) - automatically keeps VirtualBox Guest Additions up to date.  ***Updates are manual.***
+- [vagrant-cachier](https://github.com/fgrehm/vagrant-cachier/) 1.2.0 [Changelog](https://github.com/fgrehm/vagrant-cachier/blob/master/CHANGELOG.md)- "A Vagrant plugin that helps you reduce the amount of coffee you drink while waiting for boxes to be provisioned by sharing a common package cache among similiar VM instances."
+- [vagrant-librarian-puppet](https://github.com/mhahn/vagrant-librarian-puppet) 0.8.0 - A Vagrant plugin to install Puppet modules using Librarian-Puppet.
+- [vagrant-vbguest](https://github.com/dotless-de/vagrant-vbguest) 0.10.0 [Changelog](https://github.com/dotless-de/vagrant-vbguest/blob/master/CHANGELOG.md) [Fork](https://github.com/EATechnologies/vagrant-vbguest) - automatically keeps VirtualBox Guest Additions up to date.  ***Updates are manual.***
 
 ## gem-installed
 
@@ -38,7 +38,7 @@ Global:
 
 - [bower](https://www.npmjs.org/package/bower) 1.3.9 [Changelog](https://github.com/bower/bower/blob/master/CHANGELOG.md)[Fork](https://www.virtualbox.org/) - front end package management.  Bower will warn when it has an update.  Installed by yeoman.
 - [grunt-cli](https://github.com/gruntjs/grunt-cli) 0.1.13 [Fork](https://github.com/EATechnologies/grunt-cli) 
-- [npm](https://npmjs.org/doc/) 2.1.10 - "node package manager"
+- [npm](https://npmjs.org/doc/) 2.3.0 - "node package manager"
 * [npm-check-updates](https://www.npmjs.org/package/npm-check-updates) 1.2.0 [Fork](https://github.com/EATechnologies/npm-check-updates) - Find newer versions of dependencies than what your package.json allows.
 * [npm-install-missing](https://www.npmjs.org/package/npm-install-missing) 0.1.4 - 'This module will attempt to reinstall any missing dependencies. It can be called via the command line or used programmatically.'
 * [yo](http://yeoman.io/) 1.3.3 [Changelog](https://github.com/yeoman/yo/releases) [Fork](https://github.com/EATechnologies/yo) - "CLI tool for running Yeoman generators"  yeoman will install bower and grunt-cli.
