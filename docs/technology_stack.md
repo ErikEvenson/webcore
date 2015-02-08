@@ -11,7 +11,7 @@ These are the technologies used in this project.
 - [fontconfig](http://packages.ubuntu.com/precise/fontconfig) 2.8.0-3ubuntu9 - "generic font configuration library - support binaries."  Required by phantomjs.
 - [git](http://git-scm.com/) [apt-get source](https://launchpad.net/~git-core) 2.3.0 - "Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency." 
 - [mercurial](http://mercurial.selenic.com/) 3.0.1 - "Easy-to-use, scalable distributed version control system."
-- [vim](http://www.vim.org/) x.x.x - "Vim is an advanced text editor that seeks to provide the power of the de-facto Unix editor 'Vi', with a more complete feature set. It's useful whether you're already using vi or using a different editor."
+- [vim](http://www.vim.org/) 2:7.4.052-1ubuntu3 - "Vim is an advanced text editor that seeks to provide the power of the de-facto Unix editor 'Vi', with a more complete feature set. It's useful whether you're already using vi or using a different editor."
 
 ## bash-installed
 
