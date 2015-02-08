@@ -4,20 +4,20 @@ These are the technologies used in this project.
 
 ## Foundational
 
-- [bash](http://www.gnu.org/software/bash/manual/bashref.html) 4.2.24 - shell.
+- [bash](http://www.gnu.org/software/bash/manual/bashref.html) 4.3.11(1)-release (x86_64-pc-linux-gnu) - shell.
 
 ## apt-get-installed
 
-- [git](http://git-scm.com/) [apt-get source](https://launchpad.net/~git-core) 2.2.0 - "Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency." 
+- [git](http://git-scm.com/) [apt-get source](https://launchpad.net/~git-core) 2.3.0 - "Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency." 
 - [mercurial](http://mercurial.selenic.com/) 3.0.1 - "Easy-to-use, scalable distributed version control system."
 
 ## bash-installed
 
-- [puppet](http://puppetlabs.com/) - "Open source Puppet is a flexible, customizable framework available under the Apache 2.0 license designed to help system administrators automate the many repetitive tasks they regularly perform."
+- [puppet](http://puppetlabs.com/) 3.7.4 - "Open source Puppet is a flexible, customizable framework available under the Apache 2.0 license designed to help system administrators automate the many repetitive tasks they regularly perform."
 
 ## gem-installed
 
-- [puppet-lint](http://puppet-lint.com/) 1.0.1 - "Check that your Puppet manifest conform to the style guide."
+- [puppet-lint](http://puppet-lint.com/) 1.1.0 - "Check that your Puppet manifest conform to the style guide."
 
 ## Installed on host
 
@@ -33,8 +33,8 @@ These tools are installed directly on the host.  On a Mac, they are can be insta
 
 ## Puppet modules
 
-- [puppetlabs-apt](https://forge.puppetlabs.com/puppetlabs/apt) 1.6.0 - "The APT module provides a simple interface for managing APT source, key, and definitions with Puppet."
-- [puppetlabs-stdlib](https://forge.puppetlabs.com/puppetlabs/stdlib) 4.3.2 - "This module provides a "standard library" of resources for developing Puppet Modules."
+- [puppetlabs-apt](https://forge.puppetlabs.com/puppetlabs/apt) 1.7.0 - "The APT module provides a simple interface for managing APT source, key, and definitions with Puppet."
+- [puppetlabs-stdlib](https://forge.puppetlabs.com/puppetlabs/stdlib) 4.5.1 - "This module provides a "standard library" of resources for developing Puppet Modules."
 
 ## Vagrant/vagrant-installed
 
