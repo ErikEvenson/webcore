@@ -1,6 +1,6 @@
-# Yeoman
+# Slush webapp
 
-A yeoman development box.
+A slush-built webapp.
 
 ## Setting up the base box
 
@@ -83,6 +83,7 @@ Add node globals
   npm config set strict-ssl false
   sudo npm -g install npm@2.5.0
   sudo npm -g install npm-check-updates@1.5.1 npm-install-missing@0.1.4
+  sudo npm -g install bower@1.3.12 gulp@3.8.10 slush@1.0.1 slush-webapp@1.0.2
 ```
 
 When done, exit the virtual environment and `vagrant halt` to stop the virtual machine.  Use `vagrant destroy` to reclaim the disk space (although this will require you to re-provision the machine again later).  `vagrant remove` should be used to remove the base box from the system as well.  `vagrant up` and `vagrant ssh web` to start another development session later.  Avoid using `--no-provision` as this seems to prevent `vagrant-cachier` from working correctly.

@@ -2,6 +2,11 @@
 
 These are the technologies used in this project.
 
+bower
+gulp
+slush
+slush-webapp
+
 ## Foundational
 
 - [bash](http://www.gnu.org/software/bash/manual/bashref.html) 4.3.11(1)-release (x86_64-pc-linux-gnu) - shell.
