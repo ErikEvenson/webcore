@@ -42,6 +42,7 @@ Global:
 * [npm-check-updates](https://www.npmjs.org/package/npm-check-updates) 1.5.1 [Fork](https://github.com/EATechnologies/npm-check-updates) - Find newer versions of dependencies than what your package.json allows.
 * [npm-install-missing](https://www.npmjs.org/package/npm-install-missing) 0.1.4 - 'This module will attempt to reinstall any missing dependencies. It can be called via the command line or used programmatically.'
 - [slush](http://slushjs.github.io/#/) 1.0.1 'The streaming scaffolding system - Gulp as a replacement for Yeoman.'
+- [slush-generator](https://github.com/chrisenytc/slush-generator) 0.2.5 - 'A slush generator for create slush generators.'
 
 ## Puppet modules
 
