@@ -1,6 +1,7 @@
 'use strict';
 
-var gulp = require('gulp');
+var gulp    = require('gulp');
+var shell = require('gulp-shell');
 
 gulp.task('clean', function (cb) {
     require('rimraf')('dist', cb);
@@ -82,6 +83,11 @@ gulp.task('clean', function (cb) {
 //         });
 // });
 
+gulp.task('serve', shell.task([
+  'npm start'
+]))
+
+
 // gulp.task('serve', ['connect'], function () {
 //     var livereload = require('gulp-livereload');
 
@@ -98,6 +104,8 @@ gulp.task('clean', function (cb) {
     
 //     gulp.watch('bower.json', ['wiredep']);
 // });
+
+gulp.task('build', ['misc']);
 
 // gulp.task('build', ['lint', 'html', 'images', 'fonts', 'misc']);
 
