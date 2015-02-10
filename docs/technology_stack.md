@@ -37,6 +37,7 @@ These tools are installed directly on the host.  On a Mac, they are can be insta
 
 Global:
 
+- [bower](http://bower.io/) 1.3.12 - 'A package manager for the web.'
 - [gulp](http://gulpjs.com/) 3.8.10 - 'The streaming build system.'
 - [npm](https://npmjs.org/doc/) 2.5.0 - "node package manager"
 * [npm-check-updates](https://www.npmjs.org/package/npm-check-updates) 1.5.1 [Fork](https://github.com/EATechnologies/npm-check-updates) - Find newer versions of dependencies than what your package.json allows.
