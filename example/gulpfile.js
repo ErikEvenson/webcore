@@ -1,7 +1,8 @@
 'use strict';
 
-var gulp    = require('gulp');
-var shell = require('gulp-shell');
+var
+  gulp  = require('gulp'),
+  shell = require('gulp-shell');
 
 gulp.task('clean', function (cb) {
     require('rimraf')('dist', cb);
