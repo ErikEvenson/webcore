@@ -7,36 +7,41 @@ var
 
 // File locations
 var
-  source = './',
-  build  = 'build/',
+  config = {
+    source: './',
+    build: 'build/',
 
-  miscFiles = [
-    './**',
-    '!./build',
-    '!./build/**',
-    '!./gulpfile.js',
-    '!./node_modules',
-    '!./node_modules/**',
-    '!./README.md'
-  ],
+    miscFiles: [
+      './**',
+      '!./build',
+      '!./build/**',
+      '!./gulpfile.js',
+      '!./node_modules',
+      '!./node_modules/**',
+      '!./tasks',
+      '!./tasks/**',
+      '!./README.md'
+    ],
 
-  pkg = require('./package.json');
+    pkg: require('./package.json')
+  }
 
 // Show project information
-console.log(pkg.name + ' ' + pkg.version)
+console.log(config.pkg.name + ' ' + config.pkg.version);
+require('./tasks/heroku')(gulp, config);
 
 // Clean build folder
 gulp.task('clean', function(){
   del([
-    build + '*'
+    config.build + '*'
   ]);
 });
 
 // Move miscellaneous files to build folder
 gulp.task('misc', function(){
-  return gulp.src(miscFiles, {dot: true})
-    .pipe(newer(build))
-    .pipe(gulp.dest(build));
+  return gulp.src(config.miscFiles, {dot: true})
+    .pipe(newer(config.build))
+    .pipe(gulp.dest(config.build));
 });
 
 // Default task
