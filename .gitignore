@@ -19,5 +19,5 @@
 # Ignore logs
 npm-debug.log
 
-# Ignore example project
-/example/
+# Ignore example projects
+/example*/
