@@ -1,7 +1,7 @@
 {
-  "name": "node-js-getting-started",
-  "version": "0.1.2",
-  "description": "A sample Node.js app using Express 4",
+  "name": "example",
+  "version": "0.1.0",
+  "description": "An example app.",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
@@ -14,12 +14,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/heroku/node-js-getting-started"
+    "url": "https://github.com/ErikEvenson/webcore"
   },
   "keywords": [
     "node",
     "heroku",
     "express"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "del": "^1.1.1",
+    "gulp": "^3.8.11",
+    "gulp-newer": "^0.5.0"
+  }
 }
