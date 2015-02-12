@@ -6,6 +6,8 @@
 
 ## TODOs
 
+- Add heroku error handling
+- Add local env module
 - Add core heroku deploy
 - Add testing
 - Add gulp-plumber
