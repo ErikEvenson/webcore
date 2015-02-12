@@ -10,6 +10,7 @@
 - Add express
 - Add mongoDB
 - Add BrowserSync
+- Add source maps
 
 ## Architecture
 
