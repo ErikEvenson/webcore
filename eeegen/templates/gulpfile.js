@@ -33,10 +33,8 @@ console.log(config.pkg.name + ' ' + config.pkg.version);
 require('./tasks/heroku')(gulp, config);
 
 // Clean build folder
-gulp.task('clean', function(){
-  del([
-    config.build + '*'
-  ]);
+gulp.task('clean', function(cb){
+  del([config.build + '*'], cb);
 });
 
 // Move miscellaneous files to build folder
