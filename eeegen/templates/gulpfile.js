@@ -15,6 +15,8 @@ var
       './**',
       '!./build',
       '!./build/**',
+      '!./docs',
+      '!./docs/**',
       '!./gulpfile.js',
       '!./node_modules',
       '!./node_modules/**',
