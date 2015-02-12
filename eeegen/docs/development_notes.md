@@ -6,7 +6,6 @@
 
 ## TODOs
 
-- Add heroku error handling
 - Add local env module
 - Add core heroku deploy
 - Add testing
@@ -15,6 +14,8 @@
 - Add mongoDB
 - Add BrowserSync
 - Add source maps
+- Add logging
+- Add a restarter
 
 ## Architecture
 

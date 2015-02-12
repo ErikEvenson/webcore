@@ -1,4 +1,4 @@
-{
+module.exports = {
   "source": "./",
   "build": "build/",
 
@@ -6,7 +6,8 @@
     "./**",
     "!./build",
     "!./build/**",
-    "!./config.json",
+    "!./config",
+    "!./config/**",
     "!./docs",
     "!./docs/**",
     "!./gulpfile.js",

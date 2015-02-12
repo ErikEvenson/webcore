@@ -12,11 +12,14 @@ module.exports = function(gulp, config){
 
   gulp.task('heroku-listApps', function(cb){
     heroku.apps().list(function (err, apps) {
-      apps.forEach(function(app){
-        console.log(app.name);
-      });
+      if (err)
+        console.log(err.body.message);
+      else
+        apps.forEach(function(app){
+          console.log(app.name);
+        });
 
-      cb(err);
+      cb();
     });
   });
 }
