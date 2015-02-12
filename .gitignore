@@ -20,4 +20,7 @@
 npm-debug.log
 
 # Ignore example projects
-/example*/
+#/example*/
+
+# Ignore node_modules
+node_modules/
