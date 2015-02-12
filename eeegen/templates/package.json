@@ -7,7 +7,7 @@
     "start": "node index.js"
   },
   "dependencies": {
-    "express": "~4.9.x"
+    "express": "4.9.8"
   },
   "engines": {
     "node": "0.10.x"
@@ -23,9 +23,9 @@
   ],
   "license": "MIT",
   "devDependencies": {
-    "del": "^1.1.1",
-    "gulp": "^3.8.11",
-    "gulp-newer": "^0.5.0",
-    "heroku-client": "^1.9.1"
+    "del": "1.1.1",
+    "gulp": "3.8.11",
+    "gulp-newer": "0.5.0",
+    "heroku-client": "1.9.1"
   }
 }
