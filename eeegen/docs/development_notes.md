@@ -6,6 +6,8 @@
 
 ## TODOs
 
+- Add core heroku deploy
+- Add testing
 - Add gulp-plumber
 - Add express
 - Add mongoDB
