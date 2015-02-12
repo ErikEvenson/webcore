@@ -1,35 +1,17 @@
 // Include gulp and plugins
 var
   gulp  = require('gulp'),
-
   del   = require('del'),
   newer = require('gulp-newer');
 
-// File locations
 var
-  config = {
-    source: './',
-    build: 'build/',
+  config = require('./config.json'),
+  pkg    = require('./package.json');
 
-    miscFiles: [
-      './**',
-      '!./build',
-      '!./build/**',
-      '!./docs',
-      '!./docs/**',
-      '!./gulpfile.js',
-      '!./node_modules',
-      '!./node_modules/**',
-      '!./tasks',
-      '!./tasks/**',
-      '!./README.md'
-    ],
-
-    pkg: require('./package.json')
-  }
+config.pkg = pkg;
 
 // Show project information
-console.log(config.pkg.name + ' ' + config.pkg.version);
+console.log(pkg.name + ' ' + pkg.version);
 require('./tasks/heroku')(gulp, config);
 
 // Clean build folder
