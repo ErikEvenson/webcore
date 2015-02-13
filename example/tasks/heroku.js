@@ -10,9 +10,17 @@ module.exports = function(gulp, config){
     tar     = require('gulp-tar');
 
   // NOT WORKING
-  gulp.task('heroku-puttest', function() {
-    return fs.createReadStream(config.build.temp + 'archive.tar.gz')
-      .pipe(request.put(argv.puturl));
+  gulp.task('heroku-puttest', function(cb) {
+    options = {
+      url: argv.puturl,
+      headers: {
+        'Content-Type': null
+      }
+    }
+    
+    fs.createReadStream(config.build.temp + 'archive.tar.gz')
+      // .pipe(process.stdout);
+      .pipe(request.put(options, cb));
   });
 
   // gulp.task('heroku-deploy', ['heroku-tarball'], function(cb) {
