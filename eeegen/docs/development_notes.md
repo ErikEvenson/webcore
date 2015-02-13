@@ -3,6 +3,7 @@
 ## Core investigated techs
 
 - gulp
+- node
 
 ## TODOs
 

@@ -1,31 +1,16 @@
 module.exports = function(gulp, config){
   var
     argv    = require('yargs').argv,
-    buffer  = require('gulp-buffer'),
     fs      = require('fs'),
     gzip    = require('gulp-gzip'),
     Heroku  = require('heroku-client'),
     heroku  = new Heroku({token: config.env.HEROKU_API_TOKEN}),
-    request = require('request'),
+    shell   = require('gulp-shell'),
     tar     = require('gulp-tar');
 
-  // NOT WORKING
-  gulp.task('heroku-puttest', function(cb) {
-    options = {
-      url: argv.puturl,
-      headers: {
-        'Content-Type': null
-      }
-    }
-    
-    fs.createReadStream(config.build.temp + 'archive.tar.gz')
-      // .pipe(process.stdout);
-      .pipe(request.put(options, cb));
-  });
-
-  // gulp.task('heroku-deploy', ['heroku-tarball'], function(cb) {
-
-  // });
+  gulp.task('heroku-puttest', shell.task([
+    "curl '" + argv.puturl + "' -X PUT -H 'Content-Type:' --data-binary @temp/archive.tar.gz"
+  ]))
 
   gulp.task('heroku-tarball', function() {
     return gulp.src(config.build.build + '*')
