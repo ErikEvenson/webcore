@@ -23,4 +23,5 @@ Local:
 - [gulp-tar](https://github.com/sindresorhus/gulp-tar) 1.3.2 - 'Create tarball from files.'
 - [gulp-newer](https://github.com/tschaub/gulp-newer) 0.5.0 - 'Pass through newer source files only.'
 - [heroku-client](https://github.com/heroku/node-heroku-client) 1.9.1 - 'A wrapper around the Heroku API for Node.js.'
+- [request]() 2.53.0 - ''
 - [yargs](https://github.com/chevex/yargs) 2.3.0 - 'Yargs be a node.js library fer hearties tryin' ter parse optstrings.'

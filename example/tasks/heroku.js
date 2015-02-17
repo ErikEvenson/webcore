@@ -1,13 +1,15 @@
 module.exports = function(gulp, config){
   var
-    argv    = require('yargs').argv,
-    async   = require('async'),
-    fs      = require('fs'),
-    gzip    = require('gulp-gzip'),
-    Heroku  = require('heroku-client'),
-    heroku  = new Heroku({token: config.env.HEROKU_API_TOKEN}),
-    shell   = require('gulp-shell'),
-    tar     = require('gulp-tar');
+    argv     = require('yargs').argv,
+    async    = require('async'),
+    fs       = require('fs'),
+    gzip     = require('gulp-gzip'),
+    Heroku   = require('heroku-client'),
+    heroku   = new Heroku({token: config.env.HEROKU_API_TOKEN}),
+    request = require('request'),
+    shell    = require('gulp-shell'),
+    tar      = require('gulp-tar'),
+    url      = require('url');
 
   gulp.task('heroku-deploy', function(cb){
     app = argv.app
@@ -28,12 +30,37 @@ module.exports = function(gulp, config){
       },
       // PUT tarball
       function(source, cb){
-        console.log(source);
-        cb(null, source);
+        putUrl = source.source_blob.put_url;
+        urlObj = url.parse(putUrl);
+
+        options = {
+          // headers: {},
+          method : 'PUT',
+          url    : urlObj
+        }
+
+        // console.log('OPTIONS: ', options);
+        // cb(null, source);
+        
+        fs.createReadStream(config.build.temp + 'archive.tar.gz')
+          .pipe(request(
+            options, 
+            function(err, incoming, response){
+              console.log(err, response);
+
+              console.log(incoming.headers);
+
+              if (err){
+                cb(err);
+              } else {
+                cb(null, source);
+              }
+            }
+          ));
       },
       // Create build
       function(source, cb){
-        cb(null, 'create build');
+        cb(null, 'create build...');
       }
     ], function(err, result){
       if (err) {
