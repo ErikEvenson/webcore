@@ -13,6 +13,7 @@ Global:
 
 Local:
 
+- [async](https://github.com/caolan/async) 0.9.0 - 'Async utilities for node and the browser.'
 - [del](https://github.com/sindresorhus/del) 1.1.1 - 'Delete files/folders using globs.'
 - [express](http://expressjs.com/) 4.9.8 - 'Fast, unopinionated, minimalist web framework for Node.js.'
 - [gulp](http://gulpjs.com/) 3.8.11 - 'The streaming build system.'

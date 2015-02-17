@@ -1,12 +1,50 @@
 module.exports = function(gulp, config){
   var
     argv    = require('yargs').argv,
+    async   = require('async'),
     fs      = require('fs'),
     gzip    = require('gulp-gzip'),
     Heroku  = require('heroku-client'),
     heroku  = new Heroku({token: config.env.HEROKU_API_TOKEN}),
     shell   = require('gulp-shell'),
     tar     = require('gulp-tar');
+
+  gulp.task('heroku-deploy', function(cb){
+    app = argv.app
+
+    async.waterfall([
+      // Create source
+      function(cb){
+        heroku.apps(app).sources().create(
+          {},
+          function(err, source){
+            if (err){
+              cb(err);
+            } else {
+              cb(null, source);
+            }
+          }
+        );
+      },
+      // PUT tarball
+      function(source, cb){
+        console.log(source);
+        cb(null, source);
+      },
+      // Create build
+      function(source, cb){
+        cb(null, 'create build');
+      }
+    ], function(err, result){
+      if (err) {
+        console.log(err.body.message);
+        cb();
+      } else {
+        console.log(result);
+        cb();
+      }
+    });
+  });
 
   gulp.task('heroku-puttest', shell.task([
     "curl '" + argv.puturl + "' -X PUT -H 'Content-Type:' --data-binary @temp/archive.tar.gz"
