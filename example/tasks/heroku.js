@@ -46,6 +46,12 @@ module.exports = function(gulp, config){
     });
   });
 
+// { source_blob: 
+//    { get_url: 'https://s3-external-1.amazonaws.com/heroku-sources-production/heroku.com/2c6641c3-af40-4d44-8cdb-c44ee5f670c2?AWSAccessKeyId=AKIAJURUZ6XB34ESX54A&Signature=hYYNQ1WjwHqyyO0QMtjVXYBvsJg%3D&Expires=1424156543',
+//      put_url: 'https://s3-external-1.amazonaws.com/heroku-sources-production/heroku.com/2c6641c3-af40-4d44-8cdb-c44ee5f670c2?AWSAccessKeyId=AKIAJURUZ6XB34ESX54A&Signature=ecj4bxLnQL%2FZr%2FSKx6URJMr6hPk%3D&Expires=1424156543'
+//    }
+//  }
+
   gulp.task('heroku-puttest', shell.task([
     "curl '" + argv.puturl + "' -X PUT -H 'Content-Type:' --data-binary @temp/archive.tar.gz"
   ]))
