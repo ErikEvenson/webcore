@@ -6,8 +6,7 @@ module.exports = function(gulp, config){
     gzip     = require('gulp-gzip'),
     Heroku   = require('heroku-client'),
     heroku   = new Heroku({token: config.env.HEROKU_API_TOKEN}),
-    request = require('request'),
-    shell    = require('gulp-shell'),
+    request  = require('request'),
     tar      = require('gulp-tar'),
     url      = require('url');
 
