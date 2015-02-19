@@ -8,7 +8,7 @@ var
 var
   config = {};
 
-config.build  = require('./config/build'),
+config.build  = require('./config/build');
 config.pkg    = require('./package.json');
 
 try {
@@ -19,7 +19,10 @@ try {
 
 // Show project information
 console.log(config.pkg.name + ' ' + config.pkg.version);
+
+// Load tasks
 require('./tasks/heroku')(gulp, config);
+require('./tasks/lint')(gulp, config);
 
 // Clean build folder
 gulp.task('clean', function(cb){

@@ -11,7 +11,7 @@ module.exports = function(gulp, config){
     url      = require('url');
 
   gulp.task('heroku-deploy', ['heroku-tarball'], function(cb){
-    app = argv.app
+    app = argv.app;
 
     async.waterfall([
       // Create source
@@ -27,7 +27,7 @@ module.exports = function(gulp, config){
       },
       // PUT tarball
       function(source, cb){
-        console.log('Uploading tarball...')
+        console.log('Uploading tarball...');
         putUrl = source.source_blob.put_url;
         urlObj = url.parse(putUrl);
         
@@ -38,7 +38,7 @@ module.exports = function(gulp, config){
               body   : data,
               method : 'PUT',
               url    : urlObj
-            }
+            };
 
             request(options, function(err, incoming, response){
               if (err){ cb(err); } else { cb(null, source); }
@@ -48,7 +48,8 @@ module.exports = function(gulp, config){
       },
       // Create build
       function(source, cb){
-        console.log('Building app...')
+        console.log('Building app...');
+
         heroku.apps(app).builds().create(
           {
             source_blob: {
@@ -89,7 +90,7 @@ module.exports = function(gulp, config){
         if (err) {
           console.log(err.body.message);
         } else {
-          console.log(result)
+          console.log(result);
         }
         cb();
       }
@@ -102,7 +103,7 @@ module.exports = function(gulp, config){
         if (err) {
           console.log(err.body.message);
         } else {
-          console.log(result)
+          console.log(result);
         }
         cb();
       }
@@ -115,7 +116,7 @@ module.exports = function(gulp, config){
         if (err) {
           console.log(err.body.message);
         } else {
-          console.log(result)
+          console.log(result);
         }
         cb();
       }
@@ -148,7 +149,7 @@ module.exports = function(gulp, config){
         if (err) {
           console.log(err.body.message);
         } else {
-          console.log(result)
+          console.log(result);
         }
         cb();
       }
@@ -163,10 +164,10 @@ module.exports = function(gulp, config){
         if (err) {
           console.log(err.body.message);
         } else {
-          console.log(result)
+          console.log(result);
         }
         cb();
       }
     );
   });
-}
+};
