@@ -10,42 +10,60 @@ module.exports = function(gulp, config){
     tar      = require('gulp-tar'),
     url      = require('url');
 
+  // Create a source for an app
+  function createSource(app, cb){
+    heroku.apps(app).sources().create(
+      {},
+      function(err, source){
+        if (err){ cb(err); } else { cb(null, source); }
+      }
+    );
+  }
+
+  // PUT file to a URL
+  function putFile(file, putUrl, cb){
+    var urlObj = url.parse(putUrl);
+    
+    fs.readFile(file, function(err, data){
+      if (err){ cb(err); }
+      else {
+        var options = {
+          body   : data,
+          method : 'PUT',
+          url    : urlObj
+        };
+
+        request(options, function(err, incoming, response){
+          if (err){ cb(err); } else { cb(null); }
+        });
+      }
+    });
+  }
+
   gulp.task('heroku-deploy', ['heroku-tarball'], function(cb){
     var app = argv.app;
 
     async.waterfall([
-      // Create source
       function(cb){
         console.log('Creating upload source...');
 
-        heroku.apps(app).sources().create(
-          {},
-          function(err, source){
-            if (err){ cb(err); } else { cb(null, source); }
-          }
-        );
-      },
-      // PUT tarball
-      function(source, cb){
-        console.log('Uploading tarball...');
-        putUrl = source.source_blob.put_url;
-        urlObj = url.parse(putUrl);
-        
-        fs.readFile(config.build.temp + 'archive.tar.gz', function(err, data){
-          if (err){ cb(err); }
-          else {
-            var options = {
-              body   : data,
-              method : 'PUT',
-              url    : urlObj
-            };
-
-            request(options, function(err, incoming, response){
-              if (err){ cb(err); } else { cb(null, source); }
-            });
-          }
+        createSource(app, function(err, source){
+          if (err){ cb(err); } else { cb(null, source); }
         });
       },
+      // PUT tarball
+      function(source, cb){        
+        var 
+          putUrl = source.source_blob.put_url,
+          file   = config.build.temp + 'archive.tar.gz';
+        
+        console.log('Uploading tarball...');
+        
+        putFile(file, putUrl, function(err){
+          if (err){ cb(err); } else { cb(null, source); }
+        });
+      },
+
       // Create build
       function(source, cb){
         console.log('Building app...');
@@ -73,7 +91,7 @@ module.exports = function(gulp, config){
   });
 
   gulp.task('heroku-tarball', function() {
-    return gulp.src(config.build.build + '*')
+    return gulp.src([config.build.build + '*', config.build.build + '**/*'])
       .pipe(tar('archive.tar'))
       .pipe(gzip())
       .pipe(gulp.dest(config.build.temp));
@@ -86,19 +104,6 @@ module.exports = function(gulp, config){
       {
         name: argv.app
       },
-      function(err, result) {
-        if (err) {
-          console.log(err.body.message);
-        } else {
-          console.log(result);
-        }
-        cb();
-      }
-    );
-  });
-
-  gulp.task('heroku-appsDelete', function(cb){
-    heroku.apps(argv.app).delete(
       function(err, result) {
         if (err) {
           console.log(err.body.message);
@@ -135,39 +140,5 @@ module.exports = function(gulp, config){
         cb();
       }
     });
-  });
-
-  // build
-  gulp.task('heroku-buildsCreate', function(cb){
-    heroku.apps(argv.app).builds().create(
-      {
-        source_blob: {
-          url: argv.geturl
-        }
-      },
-      function(err, result) {
-        if (err) {
-          console.log(err.body.message);
-        } else {
-          console.log(result);
-        }
-        cb();
-      }
-    );
-  });
-
-  // source
-  gulp.task('heroku-sourcesCreate', function(cb){
-    heroku.apps(argv.app).sources().create(
-      {},
-      function(err, result) {
-        if (err) {
-          console.log(err.body.message);
-        } else {
-          console.log(result);
-        }
-        cb();
-      }
-    );
   });
 };
