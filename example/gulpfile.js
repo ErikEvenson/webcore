@@ -31,7 +31,7 @@ gulp.task('clean', function(cb){
 
 // Move miscellaneous files to build folder
 gulp.task('misc', function(){
-  return gulp.src(config.build.miscFiles, {dot: true})
+  return gulp.src(config.build.miscFiles, {base: './'})
     .pipe(newer(config.build.build))
     .pipe(gulp.dest(config.build.build));
 });

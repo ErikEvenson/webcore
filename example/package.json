@@ -2,9 +2,9 @@
   "name": "example",
   "version": "0.1.0",
   "description": "An example app.",
-  "main": "index.js",
+  "main": "server/index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node server/index.js"
   },
   "dependencies": {
     "express": "4.9.8"
