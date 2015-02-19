@@ -11,7 +11,7 @@ module.exports = function(gulp, config){
     url      = require('url');
 
   gulp.task('heroku-deploy', ['heroku-tarball'], function(cb){
-    app = argv.app;
+    var app = argv.app;
 
     async.waterfall([
       // Create source
@@ -34,7 +34,7 @@ module.exports = function(gulp, config){
         fs.readFile(config.build.temp + 'archive.tar.gz', function(err, data){
           if (err){ cb(err); }
           else {
-            options = {
+            var options = {
               body   : data,
               method : 'PUT',
               url    : urlObj
