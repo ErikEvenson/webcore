@@ -13,6 +13,8 @@ Global:
 
 Local:
 
+- [async]() 0.9.0 - ''
+- [debug](https://github.com/visionmedia/debug) 2.1.1 - 'Tiny node.js & browser debugging utility for your libraries and applications.'
 - [gulp](http://gulpjs.com/) 3.8.10 - 'The streaming build system.'
 - [gulp-conflict](https://github.com/slushjs/gulp-conflict) 0.1.2 - 'Check if files in stream conflict with those in target dir, with option to use new, keep old, show diff, etc.'
 - [gulp-install](https://github.com/slushjs/gulp-install) 0.1.8 - 'Automatically install npm and bower packages if package.json or bower.json is found in the gulp file stream respectively.'
