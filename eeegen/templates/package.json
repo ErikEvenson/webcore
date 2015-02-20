@@ -1,7 +1,7 @@
 {
-  "name": "example",
-  "version": "0.1.0",
-  "description": "An example app.",
+  "name": "<%= appName %>",
+  "version": "<%= appVersion %>",
+  "description": "<%= appDescription %>",
   "main": "./bin/www.js",
   "scripts": {
     "start": "node ./bin/www.js"
@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ErikEvenson/webcore"
+    "url": "https://github.com/<%= userName %>/<%= appName %>"
   },
   "keywords": [
     "node",
