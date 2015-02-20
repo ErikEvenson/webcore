@@ -10,6 +10,13 @@ module.exports = {
     staging: 'shielded-shore-8652'
   },
 
+  jsfiles: [
+    './config/**/*.js',
+    './gulpfile.js',
+    './server/**/*.js',
+    './tasks/**/*.js'
+  ],
+
   miscFiles: [
     './server/**/*.js',
     'app.json',

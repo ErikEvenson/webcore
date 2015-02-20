@@ -45,7 +45,17 @@ gulp.task('misc', function() {
     .pipe(gulp.dest(config.build.build));
 });
 
-// Default task
-gulp.task('default', ['lint', 'misc'], function() {
+// Build task
+gulp.task('build', ['lint', 'misc'], function() {
   // gulp.watch(source, ['misc']);
+});
+
+// Watch task
+gulp.task('watch', function() {
+  gulp.watch(config.build.jsfiles, ['lint']);
+});
+
+// Default task
+gulp.task('default', ['build'], function() {
+  // Default
 });

@@ -26,6 +26,7 @@
     "async": "0.9.0",
     "del": "1.1.1",
     "gulp": "3.8.11",
+    "gulp-cached": "1.0.2",
     "gulp-gjslint": "0.1.4",
     "gulp-gzip": "0.0.8",
     "gulp-jshint": "1.9.2",
