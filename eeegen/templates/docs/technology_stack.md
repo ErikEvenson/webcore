@@ -13,10 +13,21 @@ Global:
 
 Local:
 
+- [async](https://github.com/caolan/async) 0.9.0 - 'Async utilities for node and the browser.'
+- [debug](https://github.com/visionmedia/debug) 2.1.1 - 'Tiny node.js & browser debugging utility for your libraries and applications.'
 - [del](https://github.com/sindresorhus/del) 1.1.1 - 'Delete files/folders using globs.'
 - [express](http://expressjs.com/) 4.9.8 - 'Fast, unopinionated, minimalist web framework for Node.js.'
 - [gulp](http://gulpjs.com/) 3.8.11 - 'The streaming build system.'
-- [gulp-newer](https://github.com/tschaub/gulp-newer) 0.5.0 - 'Pass through newer source files only 
-https://npmjs.org/package/gulp-newer'
-- [heroku-client](https://github.com/heroku/node-heroku-client) 1.9.1 - 'A wrapper around the Heroku API for Node.js 
-https://npmjs.org/package/heroku-client.'
+- [gulp-cached](https://github.com/wearefractal/gulp-cached) 1.0.2 - 'A simple in-memory file cache for gulp.'
+- [gulp-develop-server](https://github.com/narirou/gulp-develop-server) 0.2.5 - 'Development assistant for node.js server by gulp.'
+- [gulp-gjslint](https://github.com/TomSeldon/gulp-gjslint) 0.1.4 - 'Gulp plugin to lint Javascript using Google Closure linter.'
+- [gulp-gzip](https://github.com/jstuckey/gulp-gzip) 0.0.8 - 'Gzip plugin for gulp.'
+- [gulp-jshint](https://github.com/spalger/gulp-jshint) 1.9.2 - 'JSHint plugin for gulp.'
+- [gulp-tar](https://github.com/sindresorhus/gulp-tar) 1.3.2 - 'Create tarball from files.'
+- [gulp-newer](https://github.com/tschaub/gulp-newer) 0.5.0 - 'Pass through newer source files only.'
+- [gulp-util](https://github.com/gulpjs/gulp-util) 3.0.3 - 'Utilities for gulp plugins.'
+- [heroku-client](https://github.com/heroku/node-heroku-client) 1.9.1 - 'A wrapper around the Heroku API for Node.js.'
+- [jade](http://jade-lang.com/) 1.92 - 'Robust, elegant, feature rich template engine for nodejs.'
+- [map-stream]() 0.0.5 - 'Create a through stream from an asyncronous function.'
+- [request]() 2.53.0 - 'Simplified HTTP request client.'
+- [yargs](https://github.com/chevex/yargs) 2.3.0 - 'Yargs be a node.js library fer hearties tryin' ter parse optstrings.'

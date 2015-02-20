@@ -1,40 +1,39 @@
+/**
+ * Root gulpfile.
+*/
+
 // Include gulp and plugins
 var
-  gulp  = require('gulp'),
-  del   = require('del'),
+  del = require('del'),
+  gulp = require('gulp'),
+  gutil = require('gulp-util'),
   newer = require('gulp-newer');
 
-// Get configuration
-var
-  config = {};
+// Create a configuration object.
+var config = {};
 
-config.build  = require('./config/build'),
-config.pkg    = require('./package.json');
+/** @param {Object} config.build - Build configuration parameters. */
+config.build = require('./config/build');
+
+/** @param {Object} config.env - Secret environment parameters. */
+config.env = {};
+
+/** @param {Object} config.pkg - package.json data. */
+config.pkg = require('./package.json');
 
 try {
-  config.env = require('./server/config/env');
-} catch(e) {
+  config.env = require('./config/env');
+} catch (e) {
   config.env = {};
 }
 
-// Show project information
-console.log(config.pkg.name + ' ' + config.pkg.version);
+// Set process environment variables
+/** @param {String} process.env.DEBUG - Set DEBUG level. */
+process.env.DEBUG = process.env.DEBUG || '*';
+
+// Load tasks
+require('./tasks/build')(gulp, config);
+require('./tasks/default')(gulp, config);
 require('./tasks/heroku')(gulp, config);
-
-// Clean build folder
-gulp.task('clean', function(cb){
-  del([config.build.build + '*'], cb);
-});
-
-// Move miscellaneous files to build folder
-gulp.task('misc', function(){
-  return gulp.src(config.build.miscFiles, {dot: true})
-    .pipe(newer(config.build.build))
-    .pipe(gulp.dest(config.build.build));
-});
-
-// Default task
-gulp.task('default', ['misc'], function(){
-  // gulp.watch(source, ['misc']);
-});
-
+require('./tasks/lint')(gulp, config);
+require('./tasks/server')(gulp, config);
