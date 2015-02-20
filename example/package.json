@@ -2,12 +2,14 @@
   "name": "example",
   "version": "0.1.0",
   "description": "An example app.",
-  "main": "server/index.js",
+  "main": "./bin/www.js",
   "scripts": {
-    "start": "node server/index.js"
+    "start": "node ./bin/www.js"
   },
   "dependencies": {
-    "express": "4.9.8"
+    "debug": "2.1.1",
+    "express": "4.9.8",
+    "jade": "1.9.2"
   },
   "engines": {
     "node": "0.10.x"

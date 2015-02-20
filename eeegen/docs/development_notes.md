@@ -7,6 +7,7 @@
 
 ## TODOs
 
+- Add shrinkwrap
 - Add local env module
 - Add core heroku deploy
 - Add testing

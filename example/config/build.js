@@ -11,6 +11,7 @@ module.exports = {
   },
 
   jsfiles: [
+    './bin/www.js',
     './config/**/*.js',
     './gulpfile.js',
     './server/**/*.js',
@@ -18,6 +19,7 @@ module.exports = {
   ],
 
   miscFiles: [
+    './bin/**/*.js',
     './server/**/*.js',
     'app.json',
     'package.json',
