@@ -4,8 +4,9 @@
 
 // Include gulp and plugins
 var
-  gulp = require('gulp'),
   del = require('del'),
+  gulp = require('gulp'),
+  gutil = require('gulp-util'),
   newer = require('gulp-newer');
 
 // Create a configuration object.
@@ -30,32 +31,12 @@ try {
 console.log(config.pkg.name + ' ' + config.pkg.version);
 
 // Load tasks
+require('./tasks/build')(gulp, config);
 require('./tasks/heroku')(gulp, config);
 require('./tasks/lint')(gulp, config);
-
-// Clean build folder
-gulp.task('clean', function(cb) {
-  del([config.build.build + '*', config.build.temp + '*'], cb);
-});
-
-// Move miscellaneous files to build folder
-gulp.task('misc', function() {
-  return gulp.src(config.build.miscFiles, {base: './'})
-    .pipe(newer(config.build.build))
-    .pipe(gulp.dest(config.build.build));
-});
-
-// Build task
-gulp.task('build', ['lint', 'misc'], function() {
-  // gulp.watch(source, ['misc']);
-});
-
-// Watch task
-gulp.task('watch', function() {
-  gulp.watch(config.build.jsfiles, ['lint']);
-});
 
 // Default task
 gulp.task('default', ['build'], function() {
   // Default
 });
+

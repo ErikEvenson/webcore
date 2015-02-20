@@ -23,6 +23,8 @@ Local:
 - [gulp-jshint](https://github.com/spalger/gulp-jshint) 1.9.2 - 'JSHint plugin for gulp.'
 - [gulp-tar](https://github.com/sindresorhus/gulp-tar) 1.3.2 - 'Create tarball from files.'
 - [gulp-newer](https://github.com/tschaub/gulp-newer) 0.5.0 - 'Pass through newer source files only.'
+- [gulp-util](https://github.com/gulpjs/gulp-util) 3.0.3 - 'Utilities for gulp plugins.'
 - [heroku-client](https://github.com/heroku/node-heroku-client) 1.9.1 - 'A wrapper around the Heroku API for Node.js.'
+- [map-stream]() 0.0.5 - 'Create a through stream from an asyncronous function.'
 - [request]() 2.53.0 - 'Simplified HTTP request client.'
 - [yargs](https://github.com/chevex/yargs) 2.3.0 - 'Yargs be a node.js library fer hearties tryin' ter parse optstrings.'
