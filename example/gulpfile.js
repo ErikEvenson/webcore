@@ -37,6 +37,6 @@ gulp.task('misc', function(){
 });
 
 // Default task
-gulp.task('default', ['misc'], function(){
+gulp.task('default', ['lint', 'misc'], function(){
   // gulp.watch(source, ['misc']);
 });

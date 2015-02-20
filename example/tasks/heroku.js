@@ -1,5 +1,7 @@
 module.exports = function(gulp, config){
   var
+    ARCHIVE_NAME = 'archive.tar',
+
     argv     = require('yargs').argv,
     async    = require('async'),
     fs       = require('fs'),
@@ -9,6 +11,20 @@ module.exports = function(gulp, config){
     request  = require('request'),
     tar      = require('gulp-tar'),
     url      = require('url');
+
+  // Create build
+  function createBuild(app, getUrl, cb){
+    heroku.apps(app).builds().create(
+      {
+        source_blob: {
+          url: getUrl
+        }
+      },
+      function(err, result) {
+        if (err) { cb(err); } else { cb(null, result); }
+      }
+    );
+  }
 
   // Create a source for an app
   function createSource(app, cb){
@@ -41,43 +57,37 @@ module.exports = function(gulp, config){
   }
 
   gulp.task('heroku-deploy', ['heroku-tarball'], function(cb){
-    var app = argv.app;
+    var
+      app          = argv.app,
+      options      = {};
 
     async.waterfall([
       function(cb){
         console.log('Creating upload source...');
 
         createSource(app, function(err, source){
-          if (err){ cb(err); } else { cb(null, source); }
+          options.source = source;
+          if (err){ cb(err); } else { cb(null, options); }
         });
       },
       // PUT tarball
-      function(source, cb){        
+      function(options, cb){        
         var 
-          putUrl = source.source_blob.put_url,
-          file   = config.build.temp + 'archive.tar.gz';
+          putUrl = options.source.source_blob.put_url,
+          file   = config.build.temp + ARCHIVE_NAME + '.gz';
         
         console.log('Uploading tarball...');
         
         putFile(file, putUrl, function(err){
-          if (err){ cb(err); } else { cb(null, source); }
+          if (err){ cb(err); } else { cb(null, options); }
         });
       },
 
       // Create build
-      function(source, cb){
+      function(options, cb){
+        var getUrl = options.source.source_blob.get_url;
         console.log('Building app...');
-
-        heroku.apps(app).builds().create(
-          {
-            source_blob: {
-              url: source.source_blob.get_url
-            }
-          },
-          function(err, result) {
-            if (err) { cb(err); } else { cb(null, result); }
-          }
-        );
+        createBuild(app, getUrl, cb);
       }
     ], function(err, result){
       if (err) {
@@ -92,7 +102,7 @@ module.exports = function(gulp, config){
 
   gulp.task('heroku-tarball', function() {
     return gulp.src([config.build.build + '*', config.build.build + '**/*'])
-      .pipe(tar('archive.tar'))
+      .pipe(tar(ARCHIVE_NAME))
       .pipe(gzip())
       .pipe(gulp.dest(config.build.temp));
   });
