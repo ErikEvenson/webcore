@@ -1,8 +1,12 @@
 /**
  * Provides build parameters.
 */
+var
+  path = require('path');
+
+/** @param {Object} module.exports - Export build configuration. */
 module.exports = {
-  source: './',
+  basepath: path.join(__dirname, '..'),
   build: './build/',
 
   instances: {
@@ -10,7 +14,11 @@ module.exports = {
     staging: 'shielded-shore-8652'
   },
 
-  jsfiles: [
+  htmlFiles: [
+    './views/**/*.jade'
+  ],
+
+  jsFiles: [
     './bin/www.js',
     './config/**/*.js',
     './gulpfile.js',
@@ -26,5 +34,6 @@ module.exports = {
     'Procfile'
   ],
 
+  source: './',
   temp: './temp/'
 };

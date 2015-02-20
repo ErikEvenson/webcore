@@ -19,6 +19,7 @@ Local:
 - [express](http://expressjs.com/) 4.9.8 - 'Fast, unopinionated, minimalist web framework for Node.js.'
 - [gulp](http://gulpjs.com/) 3.8.11 - 'The streaming build system.'
 - [gulp-cached](https://github.com/wearefractal/gulp-cached) 1.0.2 - 'A simple in-memory file cache for gulp.'
+- [gulp-develop-server](https://github.com/narirou/gulp-develop-server) 0.2.5 - 'Development assistant for node.js server by gulp.'
 - [gulp-gjslint](https://github.com/TomSeldon/gulp-gjslint) 0.1.4 - 'Gulp plugin to lint Javascript using Google Closure linter.'
 - [gulp-gzip](https://github.com/jstuckey/gulp-gzip) 0.0.8 - 'Gzip plugin for gulp.'
 - [gulp-jshint](https://github.com/spalger/gulp-jshint) 1.9.2 - 'JSHint plugin for gulp.'

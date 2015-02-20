@@ -30,14 +30,14 @@ module.exports = function(gulp, config) {
       flags: ['--beep']
     };
 
-    return gulp.src(config.build.jsfiles)
+    return gulp.src(config.build.jsFiles)
       .pipe(cache('gjslinting'))
       .pipe(gjslint(options))
       .pipe(gjslint.reporter('console'));
   });
 
   gulp.task('jshint', function() {
-    return gulp.src(config.build.jsfiles)
+    return gulp.src(config.build.jsFiles)
       .pipe(cache('jshinting'))
       .pipe(jshint())
       .pipe(jshint.reporter('default'))

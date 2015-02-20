@@ -1,4 +1,9 @@
-var 
+/**
+ * Main server application.
+*/
+
+var
+  debug = require('debug')(__filename),
   express = require('express'),
   path = require('path');
 
@@ -14,7 +19,8 @@ app.use(express.static(path.join(__dirname, '..', 'public')));
 app.use('/', routes);
 
 app.listen(app.get('port'), function() {
-  console.log('Node app is running at localhost:' + app.get('port'));
+  debug('Node app is running at localhost:' + app.get('port'));
 });
 
+/** @param {Object} module.exports - Export application. */
 module.exports = app;
