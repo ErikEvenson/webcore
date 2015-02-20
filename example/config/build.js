@@ -1,3 +1,6 @@
+/**
+ * Provides build parameters.
+*/
 module.exports = {
   source: './',
   build: './build/',
@@ -10,4 +13,4 @@ module.exports = {
   ],
 
   temp: './temp/'
-}
+};

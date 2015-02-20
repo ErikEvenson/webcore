@@ -1,10 +1,34 @@
-module.exports = function(gulp, config){
+/**
+ * Provides gulp linting tasks.
+ *
+ * @param {object} gulp - The gulp object.
+ * @param {object} config - The configuration object.
+*/
+module.exports = function(gulp, config) {
   var
-    jshint   = require('gulp-jshint');
+    gjslint = require('gulp-gjslint'),
+    jshint = require('gulp-jshint'),
 
-  gulp.task('lint', function(){
-    return gulp.src(['./server/**/*.js'])
+    jsfiles = [
+      './config/**/*.js',
+      './gulpfile.js',
+      './server/**/*.js',
+      './tasks/**/*.js'
+    ];
+
+  gulp.task('gjslint', function() {
+    return gulp.src(jsfiles)
+      .pipe(gjslint())
+      .pipe(gjslint.reporter('console'));
+  });
+
+  gulp.task('jslint', function() {
+    return gulp.src(jsfiles)
       .pipe(jshint())
       .pipe(jshint.reporter('default'));
+  });
+
+  gulp.task('lint', ['jslint', 'gjslint'], function() {
+    // Linting...
   });
 };

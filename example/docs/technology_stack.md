@@ -17,6 +17,7 @@ Local:
 - [del](https://github.com/sindresorhus/del) 1.1.1 - 'Delete files/folders using globs.'
 - [express](http://expressjs.com/) 4.9.8 - 'Fast, unopinionated, minimalist web framework for Node.js.'
 - [gulp](http://gulpjs.com/) 3.8.11 - 'The streaming build system.'
+- [gulp-gjslint](https://github.com/TomSeldon/gulp-gjslint) 0.1.4 - 'Gulp plugin to lint Javascript using Google Closure linter.'
 - [gulp-gzip](https://github.com/jstuckey/gulp-gzip) 0.0.8 - 'Gzip plugin for gulp.'
 - [gulp-jshint](https://github.com/spalger/gulp-jshint) 1.9.2 - 'JSHint plugin for gulp.'
 - [gulp-tar](https://github.com/sindresorhus/gulp-tar) 1.3.2 - 'Create tarball from files.'
