@@ -15,6 +15,7 @@ module.exports = function(gulp, config) {
     Heroku = require('heroku-client'),
     heroku = new Heroku({token: config.env.HEROKU_API_TOKEN}),
     request = require('request'),
+    Stream = require('stream'),
     tar = require('gulp-tar'),
     url = require('url');
 
@@ -42,6 +43,17 @@ module.exports = function(gulp, config) {
     );
   }
 
+  function gulpCallback(obj) {
+    var stream = new Stream.Transform({objectMode: true});
+
+    stream._transform = function(file, unused, callback) {
+      obj();
+      callback(null, file);
+    };
+
+    return stream;
+  }
+
   // PUT file to a URL
   function putFile(file, putUrl, cb) {
     var urlObj = url.parse(putUrl);
@@ -62,12 +74,41 @@ module.exports = function(gulp, config) {
     });
   }
 
-  gulp.task('heroku-deploy', ['heroku-tarball'], function(cb) {
+  gulp.task('heroku-deploy', function(cb) {
     var
       app = argv.app,
+      instance = argv.instance,
       options = {};
 
+    // Guard clauses
+    if (instance) {
+      app = config.build.instances[instance];
+
+      if (!app) {
+        console.error('The ' + instance + ' instance has not been configured.');
+        return;
+      }
+    }
+
+    if (!app) {
+      console.error('An app must be provided for the deployment.');
+      return;
+    }
+
+    // Deploy
     async.waterfall([
+      // Create tarball
+      function(cb) {
+        console.log('Creating tarball...');
+
+        gulp.src([config.build.build + '*', config.build.build + '**/*'])
+          .pipe(tar(ARCHIVE_NAME))
+          .pipe(gzip())
+          .pipe(gulp.dest(config.build.temp))
+          .pipe(gulpCallback(cb));
+      },
+
+      // Create upload source
       function(cb) {
         console.log('Creating upload source...');
 
@@ -76,6 +117,7 @@ module.exports = function(gulp, config) {
           if (err) { cb(err); } else { cb(null, options); }
         });
       },
+
       // PUT tarball
       function(options, cb) {
         var
@@ -100,7 +142,7 @@ module.exports = function(gulp, config) {
         console.log(err.body.message);
         cb();
       } else {
-        console.log('Build deployed.');
+        console.log('Build deployed to ' + app + '.');
         cb();
       }
     });
@@ -158,3 +200,4 @@ module.exports = function(gulp, config) {
     });
   });
 };
+
