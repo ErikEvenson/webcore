@@ -118,8 +118,10 @@ gulp.task('default', function (done) {
   //Ask
   inquirer.prompt(prompts,
     function (answers) {
+      var initializr;
       if (!answers.moveon) { return done(); }
       answers.appNameSlug = _.slugify(answers.appName);
+      initializr = require('./initializr')(answers);
 
       async.parallel([
         // Templates
@@ -139,27 +141,9 @@ gulp.task('default', function (done) {
             });
         },
         // Initializr modules
-        function(cb){
-          // Guard clause
-          var modules = answers.initializrModules;
-
-          if (modules.indexOf('h5bp-content') === -1) {
-            cb();
-          } else {
-            gulp.src(__dirname + '/initializr/h5bp-content/**')
-              .pipe(template(answers))
-              .pipe(rename(function (file) {
-                  if (file.basename[0] === '_') {
-                      file.basename = '.' + file.basename.slice(1);
-                  }
-              }))
-              .pipe(conflict('./'))
-              .pipe(gulp.dest('./'))
-              .on('end', function () {
-                  cb();
-              });
-          }
-        }
+        async.each(answers.initializrModules, initializr, function(err){
+          if (err) { console.log(err.message); }
+        })
       ], function(err, results){
         if (err) { console.log(err); }
         done();

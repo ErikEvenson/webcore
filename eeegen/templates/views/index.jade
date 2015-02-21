@@ -14,6 +14,10 @@ html
     //- {# index.html/head/styleslib3 #}
     //- {# index.html/head/stylesheet #}
     //- {# index.html/head/html5polyfill #}
+    <% if (initializrModules.indexOf('initializr') != -1) { %>
+    include ./initializr/modernizr/modernizr.jade
+    <% } %>
+
     //- {# index.html/head/respond #}
   body
     //- {# index.html/body/firstbody #}

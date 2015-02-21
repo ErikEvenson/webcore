@@ -11,13 +11,20 @@ module.exports = function(gulp, config) {
     newer = require('gulp-newer');
 
   // Build task
-  gulp.task('build', ['html', 'lint', 'misc'], function() {
+  gulp.task('build', ['css', 'html', 'lint', 'misc'], function() {
     // gulp.watch(source, ['misc']);
   });
 
   // Clean build folder
   gulp.task('clean', function(cb) {
     del([config.build.build + '*', config.build.temp + '*'], cb);
+  });
+
+  // Process css files
+  gulp.task('css', function(cb) {
+    return gulp.src(config.build.cssFiles, {base: './'})
+      .pipe(newer(config.build.build))
+      .pipe(gulp.dest(config.build.build));
   });
 
   // Process html/jade files
