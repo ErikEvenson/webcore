@@ -9,6 +9,10 @@ module.exports = {
   basepath: path.join(__dirname, '..'),
   build: './build/',
 
+  cssFiles: [
+    './public/**/*.css'
+  ],
+
   instances: {
     production: null,
     staging: null

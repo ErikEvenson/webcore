@@ -2,6 +2,23 @@
 
 These are the technologies used in this project.
 
+## HTML5 Boilerplate
+
+ac535f34d66411d99718be892290ee62199968ba
+
+https://github.com/verekia/initializr/tree/ac535f34d66411d99718be892290ee62199968ba
+
+https://github.com/verekia/initializr/tree/ac535f34d66411d99718be892290ee62199968ba/war/builder/modules
+
+h5bp-content
+modernizr
+h5bp-css
+h5bp-csshelpers
+h5bp-mediaqueryprint
+h5bp-mediaqueries
+simplehtmltag
+izr-emptyscript
+
 ## npm-installed
 
 Global:

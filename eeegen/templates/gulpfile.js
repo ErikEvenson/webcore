@@ -1,6 +1,8 @@
 /**
  * Root gulpfile.
-*/
+ *
+ * Copyright (c) 2015, 3E Enterprises, LLC
+ */
 
 // Include gulp and plugins
 var
