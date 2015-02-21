@@ -21,7 +21,7 @@ Local:
 - [gulp-rename](https://github.com/hparra/gulp-rename) 1.2.0 - 'Rename files easily.'
 - [gulp-template](https://github.com/sindresorhus/gulp-template) 0.1.2 - 'Compile Lo-Dash templates.'
 - [iniparser](https://github.com/shockie/node-iniparser) 1.0.5 - 'A .ini parser for node.js.'
-- [inquirer](https://github.com/SBoudrias/Inquirer.js) 0.4.1 - 'A collection of common interactive command line user interfaces.'
+- [inquirer](https://github.com/SBoudrias/Inquirer.js) 0.8.0 - 'A collection of common interactive command line user interfaces.'
 - [slush](http://slushjs.github.io/#/) 1.0.1 'The streaming scaffolding system - Gulp as a replacement for Yeoman.'
 - [underscore.string](https://github.com/epeli/underscore.string) 2.4.0 - 'String manipulation helpers for javascript 
 http://epeli.github.com/underscore.string/.'

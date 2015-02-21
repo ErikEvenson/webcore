@@ -45,8 +45,8 @@ process.env.DEBUG = process.env.DEBUG || '*';
 
 gulp.task('default', function (done) {
   var initializrValidation = function(input){
-    var urlObject = url.parse(input, true);
-    var query = urlObject.query;
+    // var urlObject = url.parse(input, true);
+    // var query = urlObject.query;
     return true;
   };
 
@@ -72,9 +72,42 @@ gulp.task('default', function (done) {
     name: 'userName',
     message: 'What is the github username?',
     default: defaults.userName
-  }, {
-    name: 'initializr',
-    message: 'Initializr URL?',
+  }, {    
+    choices: [
+      {
+        name: 'h5bp-content'
+      },
+      {
+        name: 'h5bp-css',
+        disabled: 'Under development'
+      },
+      {
+        name: 'h5bp-csshelpers',
+        disabled: 'Under development'
+      },
+      {
+        name: 'h5bp-mediaqueryprint',
+        disabled: 'Under development'
+      },
+      {
+        name: 'h5bp-mediaqueries',
+        disabled: 'Under development'
+      },
+      {
+        name: 'izr-emptyscript',
+        disabled: 'Under development'
+      },
+      {
+        name: 'modernizr'
+      },
+      {
+        name: 'simplehtmltag',
+        disabled: 'Under development'
+      }
+    ],
+    name: 'initializrModules',
+    message: 'What initializr modules would you like to include?',
+    type: 'checkbox',
     validate: initializrValidation
   }, {
     type: 'confirm',
@@ -88,10 +121,8 @@ gulp.task('default', function (done) {
       if (!answers.moveon) { return done(); }
       answers.appNameSlug = _.slugify(answers.appName);
 
-      var urlObject = url.parse(answers.initializr, true);
-      var query = urlObject.query;
-
       async.parallel([
+        // Templates
         function(cb){
           gulp.src(__dirname + '/templates/**')
             .pipe(template(answers))
@@ -105,11 +136,29 @@ gulp.task('default', function (done) {
             .pipe(install())
             .on('end', function () {
                 cb();
-            });          
+            });
         },
+        // Initializr modules
         function(cb){
-          console.log("Something else...");
-          cb();
+          // Guard clause
+          var modules = answers.initializrModules;
+
+          if (modules.indexOf('h5bp-content') === -1) {
+            cb();
+          } else {
+            gulp.src(__dirname + '/initializr/h5bp-content/**')
+              .pipe(template(answers))
+              .pipe(rename(function (file) {
+                  if (file.basename[0] === '_') {
+                      file.basename = '.' + file.basename.slice(1);
+                  }
+              }))
+              .pipe(conflict('./'))
+              .pipe(gulp.dest('./'))
+              .on('end', function () {
+                  cb();
+              });
+          }
         }
       ], function(err, results){
         if (err) { console.log(err); }

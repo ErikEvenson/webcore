@@ -37,7 +37,7 @@
     "gulp-rename": "1.2.0",
     "gulp-template": "0.1.2",
     "iniparser": "1.0.5",
-    "inquirer": "0.4.1",
+    "inquirer": "0.8.0",
     "slush": "1.0.1",
     "underscore.string": "2.4.0"
   },

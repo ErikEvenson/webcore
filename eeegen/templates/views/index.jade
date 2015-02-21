@@ -18,7 +18,9 @@ html
   body
     //- {# index.html/body/firstbody #}
     //- {# index.html/body/content #}
-    include ./h5bp-content/content.jade
+    <% if (initializrModules.indexOf('h5bp-content') != -1) { %>
+    include ./initializr/h5bp-content/content.jade
+    <% } %>
     //- {# index.html/body/jslib #}
     //- {# index.html/body/buildcommentjsstart #}
     //- {# index.html/body/jslib2 #}
