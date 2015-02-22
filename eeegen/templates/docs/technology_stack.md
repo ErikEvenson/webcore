@@ -11,11 +11,11 @@ https://github.com/verekia/initializr/tree/ac535f34d66411d99718be892290ee6219996
 https://github.com/verekia/initializr/tree/ac535f34d66411d99718be892290ee62199968ba/war/builder/modules
 
 h5bp-content
-h5bp-css (TBD)
+h5bp-css
 h5bp-csshelpers (TBD)
 h5bp-mediaqueryprint (TBD)
 h5bp-mediaqueries (TBD)
-h5bp-stylefile (TBD)
+h5bp-stylefile
 
 modernizr
 simplehtmltag (TBD)
