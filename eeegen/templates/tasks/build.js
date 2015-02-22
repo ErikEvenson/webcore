@@ -11,7 +11,7 @@ module.exports = function(gulp, config) {
     newer = require('gulp-newer');
 
   // Build task
-  gulp.task('build', ['css', 'html', 'lint', 'misc'], function() {
+  gulp.task('build', ['css', 'jsClient', 'html', 'lint', 'misc'], function() {
     // gulp.watch(source, ['misc']);
   });
 
@@ -30,6 +30,13 @@ module.exports = function(gulp, config) {
   // Process html/jade files
   gulp.task('html', function(cb) {
     return gulp.src(config.build.htmlFiles, {base: './'})
+      .pipe(newer(config.build.build))
+      .pipe(gulp.dest(config.build.build));
+  });
+
+  // Process client-side js files
+  gulp.task('jsClient', function(cb) {
+    return gulp.src(config.build.jsClientFiles, {base: './'})
       .pipe(newer(config.build.build))
       .pipe(gulp.dest(config.build.build));
   });

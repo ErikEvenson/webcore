@@ -22,6 +22,10 @@ module.exports = {
     './views/**/*.jade'
   ],
 
+  jsClientFiles: [
+    './public/js/**/*.js'
+  ],
+
   jsFiles: [
     './bin/www.js',
     './config/**/*.js',
