@@ -84,10 +84,7 @@ gulp.task('default', function (done) {
         name: 'h5bp-mediaqueries',
         disabled: 'Under development'
       },
-      {
-        name: 'h5bp-stylefile',
-        disabled: 'Under development'
-      },
+      {name: 'h5bp-stylefile'},
       {
         name: 'izr-emptyscript',
         disabled: 'Under development'

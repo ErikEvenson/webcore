@@ -1,0 +1,1 @@
+All less-mode options are ignored.

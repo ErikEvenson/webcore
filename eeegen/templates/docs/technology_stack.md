@@ -2,7 +2,7 @@
 
 These are the technologies used in this project.
 
-## HTML5 Boilerplate
+## HTML5 Boilerplate/initializr
 
 ac535f34d66411d99718be892290ee62199968ba
 

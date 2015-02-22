@@ -7,7 +7,6 @@ html
     title
     meta(name="description", content="")
     meta(name=viewport, content="width=device-width, initial-scale=1")
-    //- link(rel="stylesheet", href="css/main.css")
     //- {# index.html/head/appletouch #}
     //- {# index.html/head/styleslib #}
     <% if (initializrModules.indexOf('h5bp-css') != -1) { %>
@@ -16,6 +15,9 @@ html
     //- {# index.html/head/styleslib2 #}
     //- {# index.html/head/styleslib3 #}
     //- {# index.html/head/stylesheet #}
+    <% if (initializrModules.indexOf('h5bp-stylefile') != -1) { %>
+    include ./initializr/h5bp-stylefile/stylesheetinclude.jade
+    <% } %>    
     //- {# index.html/head/html5polyfill #}
     <% if (initializrModules.indexOf('modernizr') != -1) { %>
     include ./initializr/modernizr/modernizr.jade
