@@ -23,5 +23,6 @@ Local:
 - [iniparser](https://github.com/shockie/node-iniparser) 1.0.5 - 'A .ini parser for node.js.'
 - [inquirer](https://github.com/SBoudrias/Inquirer.js) 0.8.0 - 'A collection of common interactive command line user interfaces.'
 - [slush](http://slushjs.github.io/#/) 1.0.1 'The streaming scaffolding system - Gulp as a replacement for Yeoman.'
+- [underscore](http://underscorejs.org/) 1.8.1 - 'A JavaScript library that provides a whole mess of useful functional programming helpers without extending any built-in objects.'
 - [underscore.string](https://github.com/epeli/underscore.string) 2.4.0 - 'String manipulation helpers for javascript 
 http://epeli.github.com/underscore.string/.'

@@ -39,6 +39,7 @@
     "iniparser": "1.0.5",
     "inquirer": "0.8.0",
     "slush": "1.0.1",
+    "underscore": "1.8.1",
     "underscore.string": "2.4.0"
   },
   "keywords": [

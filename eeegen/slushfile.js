@@ -12,6 +12,7 @@ var
   async = require('async'),
   conflict = require('gulp-conflict'),
   gulp = require('gulp'),
+  initializr = require('./initializr'),
   inquirer = require('inquirer'),
   install = require('gulp-install'),
   rename = require('gulp-rename'),
@@ -44,12 +45,6 @@ var defaults = (function () {
 process.env.DEBUG = process.env.DEBUG || '*';
 
 gulp.task('default', function (done) {
-  var initializrValidation = function(input){
-    // var urlObject = url.parse(input, true);
-    // var query = urlObject.query;
-    return true;
-  };
-
   var prompts = [{
     name: 'appName',
     message: 'What is the name of your project?',
@@ -75,7 +70,7 @@ gulp.task('default', function (done) {
   }, {    
     choices: [
       {
-        name: 'h5bp-content'
+        name: 'h5bp-content',
       },
       {
         name: 'h5bp-css',
@@ -108,7 +103,7 @@ gulp.task('default', function (done) {
     name: 'initializrModules',
     message: 'What initializr modules would you like to include?',
     type: 'checkbox',
-    validate: initializrValidation
+    validate: initializr.validator
   }, {
     type: 'confirm',
     name: 'moveon',
@@ -118,10 +113,9 @@ gulp.task('default', function (done) {
   //Ask
   inquirer.prompt(prompts,
     function (answers) {
-      var initializr;
       if (!answers.moveon) { return done(); }
       answers.appNameSlug = _.slugify(answers.appName);
-      initializr = require('./initializr')(answers);
+      var processor = initializr.processor(answers);
 
       async.parallel([
         // Templates
@@ -141,7 +135,7 @@ gulp.task('default', function (done) {
             });
         },
         // Initializr modules
-        async.each(answers.initializrModules, initializr, function(err){
+        async.each(answers.initializrModules, processor, function(err){
           if (err) { console.log(err.message); }
         })
       ], function(err, results){
