@@ -20,7 +20,7 @@ module.exports = {
   },
 
   htmlFiles: [
-    './views/**/*.jade'
+    './server/views/**/*.jade'
   ],
 
   jsClientFiles: [
