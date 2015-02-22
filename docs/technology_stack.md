@@ -16,6 +16,7 @@ These are the technologies used in this project.
 
 ## bash-installed
 
+- [heroku toolbelt](https://toolbelt.heroku.com/) - 'Everything you need to get started using heroku.'
 - [puppet](http://puppetlabs.com/) 3.7.4 - "Open source Puppet is a flexible, customizable framework available under the Apache 2.0 license designed to help system administrators automate the many repetitive tasks they regularly perform."
 
 ## gem-installed
