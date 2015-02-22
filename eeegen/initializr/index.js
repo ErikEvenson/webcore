@@ -13,6 +13,7 @@ var
 var
   incompatabilities = {
     'h5bp-content': ["izr-responsive", "boot-hero"],
+    'h5bp-css': ["boot-css"],
     'modernizr': ["html5shiv", "modernizrrespond", "html5shivrespond"]
   };
 

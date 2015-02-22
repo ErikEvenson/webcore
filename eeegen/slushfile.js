@@ -12,6 +12,7 @@ var
   async = require('async'),
   conflict = require('gulp-conflict'),
   gulp = require('gulp'),
+  include = require('gulp-include'),
   initializr = require('./initializr'),
   inquirer = require('inquirer'),
   install = require('gulp-install'),
@@ -69,13 +70,8 @@ gulp.task('default', function (done) {
     default: defaults.userName
   }, {    
     choices: [
-      {
-        name: 'h5bp-content',
-      },
-      {
-        name: 'h5bp-css',
-        disabled: 'Under development'
-      },
+      {name: 'h5bp-content'},
+      {name: 'h5bp-css'},
       {
         name: 'h5bp-csshelpers',
         disabled: 'Under development'
@@ -89,12 +85,14 @@ gulp.task('default', function (done) {
         disabled: 'Under development'
       },
       {
-        name: 'izr-emptyscript',
+        name: 'h5bp-stylefile',
         disabled: 'Under development'
       },
       {
-        name: 'modernizr'
+        name: 'izr-emptyscript',
+        disabled: 'Under development'
       },
+      {name: 'modernizr'},
       {
         name: 'simplehtmltag',
         disabled: 'Under development'
@@ -122,6 +120,7 @@ gulp.task('default', function (done) {
         function(cb){
           gulp.src(__dirname + '/templates/**')
             .pipe(template(answers))
+            .pipe(include())
             .pipe(rename(function (file) {
                 if (file.basename[0] === '_') {
                     file.basename = '.' + file.basename.slice(1);

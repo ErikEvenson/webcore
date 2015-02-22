@@ -10,6 +10,9 @@ html
     //- link(rel="stylesheet", href="css/main.css")
     //- {# index.html/head/appletouch #}
     //- {# index.html/head/styleslib #}
+    <% if (initializrModules.indexOf('h5bp-css') != -1) { %>
+    include ./initializr/h5bp-css/includenormalize.jade
+    <% } %>
     //- {# index.html/head/styleslib2 #}
     //- {# index.html/head/styleslib3 #}
     //- {# index.html/head/stylesheet #}
@@ -17,7 +20,6 @@ html
     <% if (initializrModules.indexOf('modernizr') != -1) { %>
     include ./initializr/modernizr/modernizr.jade
     <% } %>
-
     //- {# index.html/head/respond #}
   body
     //- {# index.html/body/firstbody #}

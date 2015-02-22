@@ -33,6 +33,7 @@
     "debug": "2.1.1",
     "gulp": "3.8.11",
     "gulp-conflict": "0.1.2",
+    "gulp-include": "1.1.1",
     "gulp-install": "0.1.8",
     "gulp-rename": "1.2.0",
     "gulp-template": "0.1.2",

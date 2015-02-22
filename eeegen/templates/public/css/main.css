@@ -1,3 +1,12 @@
-/* ==========================================================================
-   Author's custom styles
-   ========================================================================== */
+/*{# main.css/boilerplate #}*/
+<% if (initializrModules.indexOf('h5bp-css') != -1) { %>
+//= include ../../../initializr/h5bp-css/public/css/initializr/h5bp-css/boilerplatecss.css
+<% } %>
+
+/*{# main.css/primary #}*/
+
+/*{# main.css/mediaqueries #}*/
+
+/*{# main.css/csshelpers #}*/
+
+/*{# main.css/mediaqueryprint #}*/

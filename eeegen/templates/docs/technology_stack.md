@@ -15,13 +15,15 @@ h5bp-css (TBD)
 h5bp-csshelpers (TBD)
 h5bp-mediaqueryprint (TBD)
 h5bp-mediaqueries (TBD)
+h5bp-stylefile (TBD)
 
 modernizr
 simplehtmltag (TBD)
 izr-emptyscript (TBD)
 
-## non-bower javascript libraries
+## non-bower css/javascript libraries
 - [modernizr](http://modernizr.com/) 2.8.3 custom build - 'A JavaScript library that detects HTML5 and CSS3 features in the user’s browser.'  Build: http://modernizr.com/download/#-fontface-backgroundsize-borderimage-borderradius-boxshadow-flexbox-hsla-multiplebgs-opacity-rgba-textshadow-cssanimations-csscolumns-generatedcontent-cssgradients-cssreflections-csstransforms-csstransforms3d-csstransitions-applicationcache-canvas-canvastext-draganddrop-hashchange-history-audio-video-indexeddb-input-inputtypes-localstorage-postmessage-sessionstorage-websockets-websqldatabase-webworkers-geolocation-inlinesvg-smil-svg-svgclippaths-touch-webgl-shiv-mq-cssclasses-addtest-prefixed-teststyles-testprop-testallprops-hasevent-prefixes-domprefixes-load
+- [normalize](http://necolas.github.io/normalize.css/) 3.0.2 - 'A collection of HTML element and attribute style-normalizations.'
 
 ## npm-installed
 

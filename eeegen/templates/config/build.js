@@ -10,7 +10,8 @@ module.exports = {
   build: './build/',
 
   cssFiles: [
-    './public/**/*.css'
+    './public/css/**/*.css',
+    '!./public/css/initializr/**'
   ],
 
   instances: {
