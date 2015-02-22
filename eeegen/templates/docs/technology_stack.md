@@ -22,6 +22,7 @@ simplehtmltag (TBD)
 izr-emptyscript (TBD)
 
 ## non-bower css/javascript libraries
+- [HTML5 Boilerplate](https://html5boilerplate.com/) 5.0.0 - 'A professional front-end template for building fast, robust, and adaptable web apps or sites.'
 - [modernizr](http://modernizr.com/) 2.8.3 custom build - 'A JavaScript library that detects HTML5 and CSS3 features in the user’s browser.'  Build: http://modernizr.com/download/#-fontface-backgroundsize-borderimage-borderradius-boxshadow-flexbox-hsla-multiplebgs-opacity-rgba-textshadow-cssanimations-csscolumns-generatedcontent-cssgradients-cssreflections-csstransforms-csstransforms3d-csstransitions-applicationcache-canvas-canvastext-draganddrop-hashchange-history-audio-video-indexeddb-input-inputtypes-localstorage-postmessage-sessionstorage-websockets-websqldatabase-webworkers-geolocation-inlinesvg-smil-svg-svgclippaths-touch-webgl-shiv-mq-cssclasses-addtest-prefixed-teststyles-testprop-testallprops-hasevent-prefixes-domprefixes-load
 - [normalize](http://necolas.github.io/normalize.css/) 3.0.2 - 'A collection of HTML element and attribute style-normalizations.'
 

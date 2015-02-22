@@ -32,7 +32,7 @@ module.exports = {
     return function(module, cb) {
       gulp.src([
         __dirname + '/' + module + '/**',
-        '!' + __dirname + '/' + module + '/public/css/initializr/**'
+        '!' + __dirname + '/' + module + '/public/css/initializr{,/**}'
       ])
         .pipe(template(answers))
         .pipe(rename(function (file) {

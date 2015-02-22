@@ -11,7 +11,7 @@ module.exports = {
 
   cssFiles: [
     './public/css/**/*.css',
-    '!./public/css/initializr/**'
+    '!./public/css/initializr{,/**}'
   ],
 
   instances: {
