@@ -30,7 +30,10 @@ function isIncompatible(module, modules) {
 module.exports = {
   processor: function(answers) {
     return function(module, cb) {
-      gulp.src(__dirname + '/' + module + '/**')
+      gulp.src([
+        __dirname + '/' + module + '/**',
+        '!' + __dirname + '/' + module + '/public/css/initializr/**'
+      ])
         .pipe(template(answers))
         .pipe(rename(function (file) {
             if (file.basename[0] === '_') {
