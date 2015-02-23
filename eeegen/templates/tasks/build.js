@@ -8,10 +8,22 @@ module.exports = function(gulp, config) {
   var
     del = require('del'),
     gutil = require('gulp-util'),
+    jade = require('gulp-jade'),
     newer = require('gulp-newer');
 
   // Build task
-  gulp.task('build', ['css', 'jsClient', 'html', 'lint', 'misc'], function() {
+  gulp.task('build', ['buildClient', 'buildServer'], function() {
+    // gulp.watch(source, ['misc']);
+  });
+
+  // Build client task
+  gulp.task('buildClient', [], function() {
+    // gulp.watch(source, ['misc']);
+  });
+
+  // Build server task
+  gulp.task('buildServer',
+    ['cssServer', 'jsServer', 'htmlServer', 'lint', 'misc'], function() {
     // gulp.watch(source, ['misc']);
   });
 
@@ -21,22 +33,32 @@ module.exports = function(gulp, config) {
   });
 
   // Process css files
-  gulp.task('css', function(cb) {
-    return gulp.src(config.build.cssFiles, {base: './'})
+  gulp.task('cssServer', function(cb) {
+    return gulp.src(config.build.cssServerFiles, {base: './'})
       .pipe(newer(config.build.build))
       .pipe(gulp.dest(config.build.build));
   });
 
-  // Process html/jade files
-  gulp.task('html', function(cb) {
-    return gulp.src(config.build.htmlFiles, {base: './'})
+  // Process html files
+  gulp.task('htmlServer', ['jadeServer'], function(cb) {
+    return gulp.src(config.build.htmlServerFiles, {base: './'})
       .pipe(newer(config.build.build))
       .pipe(gulp.dest(config.build.build));
+  });
+
+  // Process jade server files
+  gulp.task('jadeServer', function(cb) {
+    var LOCALS = {};
+
+    return gulp.src(config.build.jadeServerFiles, {base: './server/views/'})
+      .pipe(newer(config.build.build))
+      .pipe(jade({locals: LOCALS}))
+      .pipe(gulp.dest(config.build.source + '/public'));
   });
 
   // Process client-side js files
-  gulp.task('jsClient', function(cb) {
-    return gulp.src(config.build.jsClientFiles, {base: './'})
+  gulp.task('jsServer', function(cb) {
+    return gulp.src(config.build.jsServerFiles, {base: './'})
       .pipe(newer(config.build.build))
       .pipe(gulp.dest(config.build.build));
   });

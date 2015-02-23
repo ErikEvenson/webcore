@@ -46,6 +46,7 @@ Local:
 - [gulp-develop-server](https://github.com/narirou/gulp-develop-server) 0.2.5 - 'Development assistant for node.js server by gulp.'
 - [gulp-gjslint](https://github.com/TomSeldon/gulp-gjslint) 0.1.4 - 'Gulp plugin to lint Javascript using Google Closure linter.'
 - [gulp-gzip](https://github.com/jstuckey/gulp-gzip) 0.0.8 - 'Gzip plugin for gulp.'
+- [gulp-jade](https://github.com/phated/gulp-jade) 1.0.0 - 'Compile Jade templates with gulp build tool.'
 - [gulp-jshint](https://github.com/spalger/gulp-jshint) 1.9.2 - 'JSHint plugin for gulp.'
 - [gulp-tar](https://github.com/sindresorhus/gulp-tar) 1.3.2 - 'Create tarball from files.'
 - [gulp-newer](https://github.com/tschaub/gulp-newer) 0.5.0 - 'Pass through newer source files only.'

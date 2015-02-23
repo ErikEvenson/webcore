@@ -16,11 +16,27 @@ module.exports = function(gulp, config) {
   // Show project information
   debug(config.pkg.name + ' ' + config.pkg.version);
 
-  gulp.task('default', ['server:start'], function() {
-    var watcher = gulp.watch(config.build.jsfiles, ['lint', 'server:restart']);
+  gulp.task('default', ['jadeServer', 'server:start'], function() {
+    var jadeWatcher = gulp.watch(
+      config.build.jadeServerFiles,
+      ['jadeServer', 'server:restart']
+    );
 
-    watcher.on('change', function(e) {
+    var jsWatcher = gulp.watch(
+      config.build.jsFiles,
+      ['lint', 'server:restart']
+    );
+
+    function notify(e) {
       console.log('File ' + e.path + ' was ' + e.type + ', running tasks...');
+    }
+
+    jadeWatcher.on('change', function(e) {
+      notify(e);
+    });
+
+    jsWatcher.on('change', function(e) {
+      notify(e);
     });
   });
 };

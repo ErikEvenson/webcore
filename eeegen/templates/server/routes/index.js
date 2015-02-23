@@ -8,7 +8,7 @@ var
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Example' });
+  res.sendFile('public/index.html');
 });
 
 /** @param {Constructor} module.exports - Export router. */

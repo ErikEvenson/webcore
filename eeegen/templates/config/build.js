@@ -9,7 +9,7 @@ module.exports = {
   basepath: path.join(__dirname, '..'),
   build: './build/',
 
-  cssFiles: [
+  cssServerFiles: [
     './public/css/**/*.css',
     '!./public/css/initializr{,/**}'
   ],
@@ -19,11 +19,16 @@ module.exports = {
     staging: null
   },
 
-  htmlFiles: [
-    './server/views/**/*.jade'
+  htmlServerFiles: [
+    './public/**/*.html'
   ],
 
-  jsClientFiles: [
+  jadeServerFiles: [
+    './server/views/**/*.jade',
+    '!./server/views/initializr{,/**}'
+  ],
+
+  jsServerFiles: [
     './public/js/**/*.js'
   ],
 
