@@ -1,0 +1,2 @@
+# Ignore node module directories.
+node_modules/
