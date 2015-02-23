@@ -7,11 +7,11 @@
 
 ## TODOs
 
+- Add CDN
+- Add shrinkwrap
 - Add local env module
-- Add core heroku deploy
 - Add testing
 - Add gulp-plumber
-- Add express
 - Add mongoDB
 - Add BrowserSync
 - Add source maps
@@ -27,7 +27,8 @@ Targetted project structure.
 │   ├── assets              - Custom assets: fonts, images, etc…
 │   ├── components          - Our reusable components, non-specific to to our app
 │
-├── e2e                     - Our protractor end to end tests
+├── e2e (TBD)                     - Our protractor end to end tests
+├── public
 │
 └── server
     ├── api                 - Our apps server api

@@ -1,6 +1,8 @@
 /**
  * Root gulpfile.
-*/
+ *
+ * Copyright (c) 2015, 3E Enterprises, LLC
+ */
 
 // Include gulp and plugins
 var
@@ -27,16 +29,13 @@ try {
   config.env = {};
 }
 
-// Show project information
-console.log(config.pkg.name + ' ' + config.pkg.version);
+// Set process environment variables
+/** @param {String} process.env.DEBUG - Set DEBUG level. */
+process.env.DEBUG = process.env.DEBUG || '*';
 
 // Load tasks
 require('./tasks/build')(gulp, config);
+require('./tasks/default')(gulp, config);
 require('./tasks/heroku')(gulp, config);
 require('./tasks/lint')(gulp, config);
-
-// Default task
-gulp.task('default', ['build'], function() {
-  // Default
-});
-
+require('./tasks/server')(gulp, config);
