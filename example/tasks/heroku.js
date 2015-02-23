@@ -19,6 +19,22 @@ module.exports = function(gulp, config) {
     tar = require('gulp-tar'),
     url = require('url');
 
+  // Add addons
+  function addAddOns(app, addons, cb) {
+    async.each(
+      addons,
+      function(addon, cb) {
+        heroku.apps(app).addons().create(
+          addon,
+          cb
+        );
+      },
+      function(err, results) {
+        if (err) { cb(err); } else { cb(null, results); }
+      }
+    );
+  }
+
   // Configure app
   function configureApp(app, configVars, cb) {
     heroku.apps(app).configVars().update(
@@ -102,6 +118,10 @@ module.exports = function(gulp, config) {
       app = argv.app,
       instance = argv.instance;
 
+      addOns = [
+        { plan: 'mongolab' }
+      ];
+
     // Guard clauses
     if (!app) {
       console.error('A name must be provided.');
@@ -125,6 +145,11 @@ module.exports = function(gulp, config) {
 
         console.log('Configuring app...');
         configureApp(app, configVars, cb);
+      },
+      // Add addons
+      function(result, cb) {
+        console.log('Adding addons...');
+        addAddOns(app, addOns, cb);
       }
     ], function(err, result) {
       if (err) {
