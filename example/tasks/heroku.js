@@ -156,6 +156,24 @@ module.exports = function(gulp, config) {
   });
 
   // heroku API
+  // add on
+  gulp.task('heroku-addonsCreate', function(cb) {
+    heroku.apps(argv.app).addons().create(
+      {
+        config: argv.config,
+        plan: argv.plan
+      },
+      function(err, result) {
+        if (err) {
+          console.log(err.body.message);
+        } else {
+          console.log(result);
+        }
+        cb();
+      }
+    );
+  });
+
   // app
   gulp.task('heroku-appsCreate', function(cb) {
     heroku.apps().create(
@@ -199,5 +217,20 @@ module.exports = function(gulp, config) {
       }
     });
   });
+
+  // configVars
+  gulp.task('heroku-configVarsInfo', function(cb) {
+    heroku.apps(argv.app).configVars().info(
+      function(err, result) {
+        if (err) {
+          console.log(err.body.message);
+        } else {
+          console.log(result);
+        }
+        cb();
+      }
+    );
+  });
+
 };
 

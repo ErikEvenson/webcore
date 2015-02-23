@@ -16,7 +16,7 @@ module.exports = {
 
   instances: {
     production: null,
-    staging: null
+    staging: 'agile-basin-3894'
   },
 
   htmlServerFiles: [
