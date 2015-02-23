@@ -2,7 +2,11 @@
  * Main server application.
 */
 
+// Set default node environment to development
+process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+
 var
+  config = require('config/environment'),
   debug = require('debug')(__filename),
   express = require('express'),
   path = require('path');

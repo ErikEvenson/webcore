@@ -72,7 +72,14 @@ module.exports = function(gulp, config) {
 
   // Watch task
   gulp.task('watch', function() {
-    var watcher = gulp.watch(config.build.jsFiles, ['lint']);
+    var watcher = gulp.watch(
+      [
+        config.build.jsBuildFiles,
+        config.build.jsClientFiles,
+        config.build.jsServerFiles
+      ],
+      ['lint']
+    );
 
     watcher.on('change', function(e) {
       console.log('File ' + e.path + ' was ' + e.type + ', running tasks...');

@@ -23,7 +23,7 @@ module.exports = function(gulp, config) {
     );
 
     var jsWatcher = gulp.watch(
-      config.build.jsFiles,
+      [config.build.jsClientFiles, config.build.jsServerFiles],
       ['lint', 'server:restart']
     );
 

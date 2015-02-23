@@ -2,10 +2,10 @@
  * Provides build parameters.
 */
 var
+  buildConfig = {};
   path = require('path');
 
-/** @param {Object} module.exports - Export build configuration. */
-module.exports = {
+buildConfig = {
   basepath: path.join(__dirname, '..'),
   build: './build/',
 
@@ -28,16 +28,20 @@ module.exports = {
     '!./server/views/initializr{,/**}'
   ],
 
-  jsServerFiles: [
-    './public/js/**/*.js'
-  ],
-
-  jsFiles: [
+  jsBuildFiles: [
     './bin/www.js',
     './config/**/*.js',
     './gulpfile.js',
-    './server/**/*.js',
     './tasks/**/*.js'
+  ],
+
+  jsClientFiles: [
+    './public/js/**/*.js',
+    '!./public/js/vendor/**'
+  ],
+
+  jsServerFiles: [
+    './server/**/*.js'
   ],
 
   miscFiles: [
@@ -51,3 +55,13 @@ module.exports = {
   source: './',
   temp: './temp/'
 };
+
+/** @param {Object} buildConfig.jsFiles - Combine all js files. */
+buildConfig.jsFiles = [].concat(
+  buildConfig.jsBuildFiles,
+  buildConfig.jsClientFiles,
+  buildConfig.jsServerFiles
+);
+
+/** @param {Object} module.exports - Export build configuration. */
+module.exports = buildConfig;

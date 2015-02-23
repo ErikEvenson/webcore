@@ -19,6 +19,28 @@ module.exports = function(gulp, config) {
     tar = require('gulp-tar'),
     url = require('url');
 
+  // Configure app
+  function configureApp(app, configVars, cb) {
+    heroku.apps(app).configVars().update(
+      configVars,
+      function(err, result) {
+        if (err) { cb(err); } else { cb(null, result); }
+      }
+    );
+  }
+
+  // Create app
+  function createApp(app, cb) {
+    heroku.apps().create(
+      {
+        name: app
+      },
+      function(err, result) {
+        if (err) { cb(err); } else { cb(null, result); }
+      }
+    );
+  }
+
   // Create build
   function createBuild(app, getUrl, cb) {
     heroku.apps(app).builds().create(
@@ -74,6 +96,48 @@ module.exports = function(gulp, config) {
     });
   }
 
+  // Create Heroku app
+  gulp.task('heroku-createApp', function(cb) {
+    var
+      app = argv.app,
+      instance = argv.instance;
+
+    // Guard clauses
+    if (!app) {
+      console.error('A name must be provided.');
+      return;
+    }
+
+    // Create
+    async.waterfall([
+      // Create app
+      function(cb) {
+        console.log('Creating app...');
+        createApp(app, cb);
+      },
+      // Set configVars
+      function(result, cb) {
+        var configVars = {};
+
+        if (instance) {
+          configVars.NODE_ENV = instance;
+        }
+
+        console.log('Configuring app...');
+        configureApp(app, configVars, cb);
+      }
+    ], function(err, result) {
+      if (err) {
+        console.log(err.body.message);
+        cb();
+      } else {
+        console.log(app + ' created and configured.');
+        cb();
+      }
+    });
+  });
+
+  // Deploy to Heroku
   gulp.task('heroku-deploy', function(cb) {
     var
       app = argv.app,
@@ -174,22 +238,22 @@ module.exports = function(gulp, config) {
     );
   });
 
-  // app
-  gulp.task('heroku-appsCreate', function(cb) {
-    heroku.apps().create(
-      {
-        name: argv.app
-      },
-      function(err, result) {
-        if (err) {
-          console.log(err.body.message);
-        } else {
-          console.log(result);
-        }
-        cb();
-      }
-    );
-  });
+  // // app
+  // gulp.task('heroku-appsCreate', function(cb) {
+  //   heroku.apps().create(
+  //     {
+  //       name: argv.app
+  //     },
+  //     function(err, result) {
+  //       if (err) {
+  //         console.log(err.body.message);
+  //       } else {
+  //         console.log(result);
+  //       }
+  //       cb();
+  //     }
+  //   );
+  // });
 
   gulp.task('heroku-appsInfo', function(cb) {
     heroku.apps(argv.app).info(
@@ -231,6 +295,4 @@ module.exports = function(gulp, config) {
       }
     );
   });
-
 };
-
