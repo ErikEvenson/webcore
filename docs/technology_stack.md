@@ -29,6 +29,7 @@ These tools are installed directly on the host.  On a Mac, they are can be insta
 
 ***Check for updates manually.***
 
+- [mongoDB](http://www.mongodb.org/) 2.6.7 - 'The only database that harnesses the innovations of NoSQL (flexibility, scalability, performance) and builds on the foundation of relational databases (expressive query language, secondary indexes, strong consistency).'
 - [Vagrant](https://www.vagrantup.com/) 1.7.2 [Change log](https://github.com/mitchellh/vagrant/blob/master/CHANGELOG.md) [Fork](https://github.com/EATechnologies/vagrant) - used to manage development environment configuration.
 - [vagrant-cachier](https://github.com/fgrehm/vagrant-cachier/) 1.2.0 - "A Vagrant plugin that helps you reduce the amount of coffee you drink while waiting for boxes to be provisioned by sharing a common package cache among similiar VM instances."
 - [vagrant-librarian-puppet](https://github.com/mhahn/vagrant-librarian-puppet) 0.8.0 - A Vagrant plugin to install Puppet modules using Librarian-Puppet.
