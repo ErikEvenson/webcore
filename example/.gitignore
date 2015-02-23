@@ -1,9 +1,0 @@
-# Ignore environment settings.
-/config/env.js
-
-# Ignore node_modules
-node_modules/
-
-# Ignore build and temp dirs.
-build/
-temp/
