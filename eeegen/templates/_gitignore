@@ -1,3 +1,2 @@
-# Ignore environment settings.
-/config/env.js
+# Ignore node module directories.
 node_modules/
