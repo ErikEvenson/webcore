@@ -1,4 +1,6 @@
-var all;
+var
+  all,
+  _ = require('underscore');
 
 function requiredProcessEnv(name) {
   if (!process.env[name]) {

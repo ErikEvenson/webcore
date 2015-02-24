@@ -6,6 +6,7 @@ var
   path = require('path');
 
 buildConfig = {
+  TARFILE_NAME: 'archive.tar',
   basepath: path.join(__dirname, '..'),
   build: './build/',
 
@@ -16,7 +17,7 @@ buildConfig = {
 
   instances: {
     production: null,
-    staging: null
+    staging: 'agile-basin-3894'
   },
 
   htmlServerFiles: [

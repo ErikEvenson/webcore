@@ -6,6 +6,7 @@ var
   path = require('path');
 
 buildConfig = {
+  TARFILE_NAME: 'archive.tar',
   basepath: path.join(__dirname, '..'),
   build: './build/',
 
