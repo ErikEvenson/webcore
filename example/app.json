@@ -1,7 +1,9 @@
 {
-  "name": "Name TBD",
-  "description": "Description TBD",
-  "repository": "https://github.com/TBD",
-  "logo": "http://TBD/node.svg",
-  "keywords": ["node", "express", "static"]
+  "name": "example",
+  "addons": ["mongolab"],
+  "description": "example description",
+  "env": {},
+  "keywords": ["3E"],
+  "logo": "https://dl.dropboxusercontent.com/u/6779408/3E%20Enterprises/3E.png",
+  "repository": "https://github.com/ErikEvenson/webcore"
 }

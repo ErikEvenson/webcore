@@ -65,24 +65,26 @@ var createSource = function createSource(app, cb) {
   );
 };
 
+var createTarball = function createTarball(config, cb) {
+  gulp.src([config.build.build + '*', config.build.build + '**/*'])
+    .pipe(tar(config.build.TARFILE_NAME))
+    .pipe(gzip())
+    .pipe(gulp.dest(config.build.temp))
+    .pipe(gulpCallback(cb));
+};
+
 var deploySource = function deploySource(app, config, cb) {
   async.waterfall([
     // Create tarball
     function(cb) {
-      gulp.src([config.build.build + '*', config.build.build + '**/*'])
-        .pipe(tar(config.build.TARFILE_NAME))
-        .pipe(gzip())
-        .pipe(gulp.dest(config.build.temp))
-        .pipe(gulpCallback(cb));
+      createTarball(config, cb);
     },
-
     // Create upload source
     function(cb) {
       createSource(app, function(err, source) {
         if (err) { cb(err); } else { cb(null, source); }
       });
     },
-
     // PUT tarball
     function(source, cb) {
       var
@@ -138,6 +140,7 @@ var lib = {
   createApp: createApp,
   createBuild: createBuild,
   createSource: createSource,
+  createTarball: createTarball,
   deploySource: deploySource,
   gulpCallback: gulpCallback,
   putFile: putFile

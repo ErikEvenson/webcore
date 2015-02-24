@@ -7,7 +7,6 @@
 module.exports = function(gulp, config) {
   var
     ARCHIVE_NAME = 'archive.tar',
-
     argv = require('yargs').argv,
     async = require('async'),
     fs = require('fs'),
@@ -19,6 +18,19 @@ module.exports = function(gulp, config) {
     Stream = require('stream'),
     tar = require('gulp-tar'),
     url = require('url');
+
+  // Adapted from:
+  // stackoverflow.com/questions/105034/how-to-create-a-guid-uuid-in-javascript
+  function uuid() {
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+        var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+        return v.toString(16);
+    });
+  }
+
+  gulp.task('heroku-tarball', function(cb) {
+    lib.createTarball(config, cb);
+  });
 
   // Deploy build to a source URL
   gulp.task('heroku-deploy', function(cb) {
@@ -66,43 +78,46 @@ module.exports = function(gulp, config) {
     });
   });
 
-  // Deploy build to a source URL
-  gulp.task('heroku-setup', function(cb) {
+  // Deploy an app setup
+  gulp.task('heroku-setup', ['heroku-tarball'], function(cb) {
     var
       app,
       name,
+      getUrl,
       instance = argv.instance;
 
-    // Guard clauses
-    if (instance) {
-      app = config.build.instances[instance];
-
-      if (!app) {
-        console.error('The ' + instance + ' instance has not been configured.');
-        return;
-      }
-    } else {
-      app = argv.app;
-    }
-
-    name = app;
-    app = heroku.apps(app);
-
-    if (!app) {
-      console.error('An app must be provided for the deployment.');
-      return;
-    }
-
     async.waterfall([
+      // Create AWS url
       function(cb) {
-        lib.deploySource(app, config, cb);
-      },
-      function(source, cb) {
         var
-          attributes = {};
-          getUrl = source.source_blob.get_url;
+          AWS = require('aws-sdk'),
+          key = uuid() + '/' + config.build.TARFILE_NAME + '.gz',
+          params,
+          s3;
 
-        attributes.source_blob = source.source_blob;
+        AWS.config.update({
+          accessKeyId: config.env.AWS_ACCESS_KEY_ID,
+          region: config.aws.region,
+          secretAccessKey: config.env.AWS_SECRET_ACCESS_KEY
+        });
+
+        s3 = new AWS.S3({computeChecksums: true});
+        params = {Bucket: 'eeegen', Key: key};
+
+        s3.getSignedUrl('putObject', params, function(err, putUrl) {
+          cb(err, putUrl);
+        });
+      },
+      // PUT tarball
+      function(putUrl, cb) {
+        var file = config.build.temp + config.build.TARFILE_NAME + '.gz';
+
+        lib.putFile(file, putUrl, function(err) {
+          if (err) { cb(err); } else { cb(null, putUrl.split('?')[0]); }
+        });
+      },
+      function(getUrl, cb) {
+        var attributes = { source_blob: { url: getUrl } };
         heroku.appSetups().create(attributes, cb);
       }
     ], function(err, result) {
@@ -110,60 +125,11 @@ module.exports = function(gulp, config) {
         console.log(err.body.message);
         cb();
       } else {
-        console.log(name + ' set up.');
+        console.log(result);
         cb();
       }
     });
   });
-
-  // // Create Heroku app
-  // gulp.task('heroku-createApp', function(cb) {
-  //   var
-  //     app,
-  //     name = argv.app,
-  //     instance = argv.instance,
-  //     webUrl;
-
-  //     addOns = [
-  //       { plan: 'mongolab' }
-  //     ];
-
-  //   // Create
-  //   async.waterfall([
-  //     // Create app
-  //     function(cb) {
-  //       console.log('Creating app...');
-  //       lib.createApp(name, heroku, cb);
-  //     },
-  //     // Set configVars
-  //     function(result, cb) {
-  //       var configVars = {};
-  //       app = heroku.apps(result.name);
-  //       name = result.name;
-  //       webUrl = result.webUrl;
-
-  //       if (instance) {
-  //         configVars.NODE_ENV = instance;
-  //       }
-
-  //       console.log('Configuring app...');
-  //       lib.configureApp(app, configVars, cb);
-  //     },
-  //     // Add addons
-  //     function(result, cb) {
-  //       console.log('Adding addons...');
-  //       lib.addAddOns(app, addOns, cb);
-  //     }
-  //   ], function(err, result) {
-  //     if (err) {
-  //       console.log(err.body.message);
-  //       cb();
-  //     } else {
-  //       console.log(name + ' created and configured at ' + webUrl + '.');
-  //       cb();
-  //     }
-  //   });
-  // });
 
   // heroku API
   // add on

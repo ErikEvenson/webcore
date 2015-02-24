@@ -15,6 +15,9 @@ var
 function loadConfig(config) {
   if (!config) { config = {}; }
 
+  /** @param {Object} config.aws - AWS parameters. */
+  config.aws = require('./config/aws');
+
   /** @param {Object} config.build - Build configuration parameters. */
   config.build = require('./config/build');
 
@@ -41,6 +44,7 @@ config = loadConfig(config);
 process.env.DEBUG = process.env.DEBUG || '*';
 
 // Load tasks
+require('./tasks/aws')(gulp, config);
 require('./tasks/build')(gulp, config);
 require('./tasks/default')(gulp, config);
 require('./tasks/heroku')(gulp, config);
