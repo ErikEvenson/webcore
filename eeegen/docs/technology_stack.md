@@ -27,3 +27,7 @@ Local:
 - [underscore](http://underscorejs.org/) 1.8.1 - 'A JavaScript library that provides a whole mess of useful functional programming helpers without extending any built-in objects.'
 - [underscore.string](https://github.com/epeli/underscore.string) 2.4.0 - 'String manipulation helpers for javascript 
 http://epeli.github.com/underscore.string/.'
+
+## Services
+- [Amazon Web Services]()
+- [Heroku]()

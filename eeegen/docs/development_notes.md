@@ -7,12 +7,13 @@
 
 ## TODOs
 
+- Limit js lint
+- Refactor gulp task loading
 - Add CDN
 - Add shrinkwrap
 - Add local env module
 - Add testing
 - Add gulp-plumber
-- Add mongoDB
 - Add BrowserSync
 - Add source maps
 - Add logging

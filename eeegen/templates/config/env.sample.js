@@ -4,5 +4,7 @@
  * Should not be committed to version control.
 */
 module.exports = {
-  HEROKU_API_TOKEN: 'secret'
+  AWS_ACCESS_KEY_ID: '',
+  AWS_SECRET_ACCESS_KEY: '',
+  HEROKU_API_TOKEN: ''
 };

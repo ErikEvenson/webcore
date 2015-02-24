@@ -52,6 +52,10 @@ buildConfig = {
     'Procfile'
   ],
 
+  jsNoLintFiles: [
+    '!./public/js/vendor{,/**}'
+  ],
+
   source: './',
   temp: './temp/'
 };
@@ -61,6 +65,12 @@ buildConfig.jsFiles = [].concat(
   buildConfig.jsBuildFiles,
   buildConfig.jsClientFiles,
   buildConfig.jsServerFiles
+);
+
+/** @param {Object} buildConfig.lintFiles - Create list of lintable jsfiles. */
+buildConfig.jsLintFiles = [].concat(
+  buildConfig.jsFiles,
+  buildConfig.jsNoLintFiles
 );
 
 /** @param {Object} module.exports - Export build configuration. */
