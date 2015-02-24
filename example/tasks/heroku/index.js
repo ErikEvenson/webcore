@@ -19,125 +19,32 @@ module.exports = function(gulp, config) {
     tar = require('gulp-tar'),
     url = require('url');
 
-  // Add addons
-  function addAddOns(app, addons, cb) {
-    async.each(
-      addons,
-      function(addon, cb) {
-        heroku.apps(app).addons().create(
-          addon,
-          cb
-        );
-      },
-      function(err, results) {
-        if (err) { cb(err); } else { cb(null, results); }
-      }
-    );
-  }
+  // Deploy build to a source URL
+  gulp.task('heroku-deploySource', function(cb) {
 
-  // Configure app
-  function configureApp(app, configVars, cb) {
-    heroku.apps(app).configVars().update(
-      configVars,
-      function(err, result) {
-        if (err) { cb(err); } else { cb(null, result); }
-      }
-    );
-  }
-
-  // Create app
-  function createApp(app, cb) {
-    heroku.apps().create(
-      {
-        name: app
-      },
-      function(err, result) {
-        if (err) { cb(err); } else { cb(null, result); }
-      }
-    );
-  }
-
-  // Create build
-  function createBuild(app, getUrl, cb) {
-    heroku.apps(app).builds().create(
-      {
-        source_blob: {
-          url: getUrl
-        }
-      },
-      function(err, result) {
-        if (err) { cb(err); } else { cb(null, result); }
-      }
-    );
-  }
-
-  // Create a source for an app
-  function createSource(app, cb) {
-    heroku.apps(app).sources().create(
-      {},
-      function(err, source) {
-        if (err) { cb(err); } else { cb(null, source); }
-      }
-    );
-  }
-
-  function gulpCallback(obj) {
-    var stream = new Stream.Transform({objectMode: true});
-
-    stream._transform = function(file, unused, callback) {
-      obj();
-      callback(null, file);
-    };
-
-    return stream;
-  }
-
-  // PUT file to a URL
-  function putFile(file, putUrl, cb) {
-    var urlObj = url.parse(putUrl);
-
-    fs.readFile(file, function(err, data) {
-      if (err) { cb(err); }
-      else {
-        var options = {
-          body: data,
-          method: 'PUT',
-          url: urlObj
-        };
-
-        request(options, function(err, incoming, response) {
-          if (err) { cb(err); } else { cb(null); }
-        });
-      }
-    });
-  }
+  });
 
   // Create Heroku app
-  gulp.task('heroku-createApp', function(cb) {
+  gulp.task('heroku-createAppOld', function(cb) {
     var
-      app = argv.app,
+      name = argv.app,
       instance = argv.instance;
 
       addOns = [
         { plan: 'mongolab' }
       ];
 
-    // Guard clauses
-    if (!app) {
-      console.error('A name must be provided.');
-      return;
-    }
-
     // Create
     async.waterfall([
       // Create app
       function(cb) {
         console.log('Creating app...');
-        createApp(app, cb);
+        createApp(name, cb);
       },
       // Set configVars
       function(result, cb) {
         var configVars = {};
+        var app = heroku.app(name);
 
         if (instance) {
           configVars.NODE_ENV = instance;
@@ -165,7 +72,7 @@ module.exports = function(gulp, config) {
   // Deploy to Heroku
   gulp.task('heroku-deploy', function(cb) {
     var
-      app = argv.app,
+      app,
       instance = argv.instance,
       options = {};
 
@@ -177,7 +84,11 @@ module.exports = function(gulp, config) {
         console.error('The ' + instance + ' instance has not been configured.');
         return;
       }
+    } else {
+      app = argv.app;
     }
+
+    app = heroku.app(app);
 
     if (!app) {
       console.error('An app must be provided for the deployment.');
@@ -237,13 +148,6 @@ module.exports = function(gulp, config) {
     });
   });
 
-  gulp.task('heroku-tarball', function() {
-    return gulp.src([config.build.build + '*', config.build.build + '**/*'])
-      .pipe(tar(ARCHIVE_NAME))
-      .pipe(gzip())
-      .pipe(gulp.dest(config.build.temp));
-  });
-
   // heroku API
   // add on
   gulp.task('heroku-addonsCreate', function(cb) {
@@ -262,23 +166,6 @@ module.exports = function(gulp, config) {
       }
     );
   });
-
-  // // app
-  // gulp.task('heroku-appsCreate', function(cb) {
-  //   heroku.apps().create(
-  //     {
-  //       name: argv.app
-  //     },
-  //     function(err, result) {
-  //       if (err) {
-  //         console.log(err.body.message);
-  //       } else {
-  //         console.log(result);
-  //       }
-  //       cb();
-  //     }
-  //   );
-  // });
 
   gulp.task('heroku-appsInfo', function(cb) {
     heroku.apps(argv.app).info(
