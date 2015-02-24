@@ -1,6 +1,6 @@
-# Slush webapp
+# Slush generator workspace
 
-A slush-built webapp.
+A workspace for developing a slush generator.
 
 ## Setting up the base box
 
