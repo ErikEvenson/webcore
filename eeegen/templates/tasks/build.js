@@ -12,18 +12,18 @@ module.exports = function(gulp, config) {
     newer = require('gulp-newer');
 
   // Build task
-  gulp.task('build', ['buildClient', 'buildServer'], function() {
+  gulp.task('build', ['buildClient', 'buildServer', 'lint'], function() {
     // gulp.watch(source, ['misc']);
   });
 
   // Build client task
-  gulp.task('buildClient', [], function() {
+  gulp.task('buildClient', ['jsClient'], function() {
     // gulp.watch(source, ['misc']);
   });
 
   // Build server task
   gulp.task('buildServer',
-    ['cssServer', 'jsServer', 'htmlServer', 'lint', 'misc'], function() {
+    ['cssServer', 'jsServer', 'htmlServer', 'misc'], function() {
     // gulp.watch(source, ['misc']);
   });
 
@@ -56,7 +56,14 @@ module.exports = function(gulp, config) {
       .pipe(gulp.dest(config.build.source + '/public'));
   });
 
-  // Process client-side js files
+  // Process js client files
+  gulp.task('jsClient', function(cb) {
+    return gulp.src(config.build.jsClientFiles, {base: './'})
+      .pipe(newer(config.build.build))
+      .pipe(gulp.dest(config.build.build));
+  });
+
+  // Process js server files
   gulp.task('jsServer', function(cb) {
     return gulp.src(config.build.jsServerFiles, {base: './'})
       .pipe(newer(config.build.build))

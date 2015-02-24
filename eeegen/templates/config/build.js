@@ -37,8 +37,7 @@ buildConfig = {
   ],
 
   jsClientFiles: [
-    './public/js/**/*.js',
-    '!./public/js/vendor/**'
+    './public/js/**/*.js'
   ],
 
   jsServerFiles: [
