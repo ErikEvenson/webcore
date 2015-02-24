@@ -7,6 +7,7 @@
 
 ## TODOs
 
+- Query build/setup status
 - Create/clean AWS bucket
 - Refactor gulp task loading
 - Add CDN

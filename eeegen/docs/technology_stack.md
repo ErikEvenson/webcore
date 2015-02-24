@@ -2,6 +2,10 @@
 
 These are the technologies used in this project.
 
+## Heroku addons
+
+- [mongolab](https://mongolab.com/) - 'Fully managed MongoDB-as-a-Service.'
+
 ## npm-installed
 
 Global:
@@ -29,5 +33,6 @@ Local:
 http://epeli.github.com/underscore.string/.'
 
 ## Services
+
 - [Amazon Web Services]()
 - [Heroku]()
