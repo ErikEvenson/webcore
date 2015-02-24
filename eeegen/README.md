@@ -32,7 +32,7 @@ Run the generator from within the new folder:
   cd example && slush eeegen
 ```
 
-Answer the questions.
+Answer the questions.  Additional details about the built project are available in the built project's README.md file.
 
 ## Getting To Know Slush
 

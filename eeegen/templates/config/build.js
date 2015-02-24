@@ -17,7 +17,7 @@ buildConfig = {
 
   instances: {
     production: null,
-    staging: 'agile-basin-3894'
+    staging: null
   },
 
   htmlServerFiles: [
