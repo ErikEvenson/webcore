@@ -7,7 +7,7 @@
 
 ## TODOs
 
-- Limit js lint
+- Create/clean AWS bucket
 - Refactor gulp task loading
 - Add CDN
 - Add shrinkwrap

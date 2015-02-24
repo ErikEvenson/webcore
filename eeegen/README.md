@@ -8,7 +8,14 @@
 Install `slush-eeegen` globally:
 
 ```bash
-$ npm install -g slush-eeegen
+  npm install -g slush-eeegen
+```
+
+Note: until this generator is released to npm, link the module from the module's home directory with:
+
+```bash
+  npm install
+  sudo npm link
 ```
 
 ### Usage
@@ -16,14 +23,16 @@ $ npm install -g slush-eeegen
 Create a new folder for your project:
 
 ```bash
-$ mkdir my-slush-eeegen
+  mkdir example
 ```
 
 Run the generator from within the new folder:
 
 ```bash
-$ cd my-slush-eeegen && slush eeegen
+  cd example && slush eeegen
 ```
+
+Answer the questions.
 
 ## Getting To Know Slush
 

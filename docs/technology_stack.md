@@ -38,7 +38,7 @@ These tools are installed directly on the host.  On a Mac, they are can be insta
 
 ## npm-installed
 
-Global:
+Global (reflect and changes to these in the README.md file):
 
 - [gulp](http://gulpjs.com/) 3.8.10 - 'The streaming build system.'
 - [npm](https://npmjs.org/doc/) 2.5.0 - "node package manager"
