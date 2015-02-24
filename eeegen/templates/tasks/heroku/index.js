@@ -71,38 +71,43 @@ module.exports = function(gulp, config) {
     var
       app,
       name,
+      getUrl,
       instance = argv.instance;
 
-    // Guard clauses
-    if (instance) {
-      app = config.build.instances[instance];
+    // // Guard clauses
+    // if (instance) {
+    //   app = config.build.instances[instance];
 
-      if (!app) {
-        console.error('The ' + instance + ' instance has not been configured.');
-        return;
-      }
-    } else {
-      app = argv.app;
-    }
+    //   if (!app) {
+    //     console.error('The ' + instance + ' instance has not been configured.');
+    //     return;
+    //   }
+    // } else {
+    //   app = argv.app;
+    // }
 
-    name = app;
-    app = heroku.apps(app);
+    // name = app;
+    // app = heroku.apps(app);
 
-    if (!app) {
-      console.error('An app must be provided for the deployment.');
-      return;
-    }
+    // if (!app) {
+    //   console.error('An app must be provided for the deployment.');
+    //   return;
+    // }
 
     async.waterfall([
       function(cb) {
-        lib.deploySource(app, config, cb);
-      },
-      function(source, cb) {
         var
-          attributes = {};
-          getUrl = source.source_blob.get_url;
+          attributes = {},
+          // getUrl = source.source_blob.get_url;
+          getUrl = "https://dl.dropboxusercontent.com/u/6779408/Temporary/archive.tar.gz";
 
-        attributes.source_blob = source.source_blob;
+        attributes = {
+          source_blob: {
+            url: getUrl
+          }
+        }
+        console.log(attributes);
+
         heroku.appSetups().create(attributes, cb);
       }
     ], function(err, result) {
@@ -110,7 +115,7 @@ module.exports = function(gulp, config) {
         console.log(err.body.message);
         cb();
       } else {
-        console.log(name + ' set up.');
+        console.log(result);
         cb();
       }
     });
