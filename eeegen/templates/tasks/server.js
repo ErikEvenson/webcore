@@ -13,12 +13,12 @@ module.exports = function(gulp, config) {
   var
     app = path.join(config.build.basepath, 'bin/www.js');
 
-  gulp.task('server:start', function() {
-    server.listen({path: app});
-  });
-
   gulp.task('server:restart', function() {
     gulp.watch([app], server.restart);
+  });
+
+  gulp.task('server:start', function() {
+    server.listen({path: app});
   });
 };
 

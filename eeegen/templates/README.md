@@ -64,3 +64,65 @@ To ease deployment, add the app name as an instance to `config/build.js` and dep
 ```bash
   gulp heroku-deploy --instance staging
 ```
+
+## Gulp commands
+
+General build commands are documented inline in [config/build.js!](config/build.js).
+
+- gulp (default)
+- gulp build
+- gulp buildClient
+- gulp buildServer
+- gulp clean
+- gulp cssServer
+- gulp htmlServer
+- gulp jadeServer
+- gulp jsClient
+- gulp jsServer
+- gulp misc
+- gulp watch
+
+### AWS management
+
+- gulp aws-s3-bucketsList
+- gulp aws-s3-createBucket --name <bucketName>
+- gulp aws-s3-objectsList --name <bucketName>
+
+### Heroku management
+
+These commands aid the creation and deployment of the app on Heroku.
+
+- heroku-addonsCreate
+
+- heroku-appsInfo
+
+- heroku-appsList
+
+- gulp heroku-appSetupsInfo --id <appSetupId>
+
+Provides information about the app setup.
+
+- gulp heroku-buildsResultInfo --app <appName> --id <buildId> --instance <instanceName>
+
+Provides information about the build results.  Either an instance name or an app name should be provided.  The instance name takes precedence if both are provided.
+
+- heroku-configVarsInfo
+
+- heroku-deploy
+
+- heroku-setup
+
+- gulp heroku-tarball
+
+Creates a tarball (`.tar.gz`) of the built app in the build directory.
+
+### Lint management
+
+- gulp gjslint
+- gulp jshint
+- gulp lint
+
+### Server management
+
+- gulp server:restart
+- gulp server:start
