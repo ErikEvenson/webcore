@@ -26,7 +26,7 @@ module.exports = function(gulp, config) {
 
   function getApp() {
     var
-      app = argv.app
+      app = argv.app,
       instance = argv.instance;
 
     // Guard clauses

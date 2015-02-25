@@ -36,6 +36,9 @@ function loadConfig(config) {
   return config;
 }
 
+// Gulp always runs under the development environment
+process.env.NODE_ENV = 'development';
+
 // Create a configuration object.
 config = loadConfig(config);
 
@@ -49,4 +52,5 @@ require('./tasks/build')(gulp, config);
 require('./tasks/default')(gulp, config);
 require('./tasks/heroku')(gulp, config);
 require('./tasks/lint')(gulp, config);
+require('./tasks/mongo')(gulp, config);
 require('./tasks/server')(gulp, config);

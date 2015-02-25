@@ -13,8 +13,12 @@ var
   path = require('path');
 
 var
-  app = express(),
-  routes = require('./routes/index');
+  app,
+  routes;
+
+require('./lib/connection')(config);
+app = express();
+routes = require('./routes/index')(app);
 
 // middleware
 if (config.env === 'production' || config.env === 'staging') {
@@ -26,7 +30,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
 app.use(express.static(path.join(__dirname, '..', 'public')));
-app.use('/', routes);
+// app.use('/', routes);
 
 app.listen(app.get('port'), function() {
   debug('Node app is running at localhost:' + app.get('port'));

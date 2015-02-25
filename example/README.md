@@ -65,6 +65,12 @@ To ease deployment of an already provisioned and re-build app, add the app name 
   gulp heroku-deploy --instance staging
 ```
 
+## Featrues
+
+- mongo via Mongolab
+- initializr
+- SSL
+
 ## Gulp commands
 
 General build commands are documented inline in [config/build.js!](config/build.js).
