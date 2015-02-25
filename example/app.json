@@ -5,7 +5,7 @@
     "mongolab:sandbox"
   ],
 
-  "description": "",
+  "description": "example description",
 
   "env": {
     "NODE_ENV": "staging"
