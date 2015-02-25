@@ -26,14 +26,17 @@ function format(string) {
 }
 
 var defaults = (function () {
-  var homeDir = process.env.HOME || process.env.HOMEPATH || process.env.USERPROFILE,
+  var 
+    homeDir = process.env.HOME || process.env.HOMEPATH || process.env.USERPROFILE,
     workingDirName = process.cwd().split('/').pop().split('\\').pop(),
     osUserName = homeDir && homeDir.split('/').pop() || 'root',
     configFile = homeDir + '/.gitconfig',
     user = {};
+
   if (require('fs').existsSync(configFile)) {
     user = require('iniparser').parseSync(configFile).user;
   }
+  
   return {
     appName: workingDirName,
     userName: format(user.name) || osUserName,
@@ -140,3 +143,5 @@ gulp.task('default', function (done) {
       });
     });
 });
+
+gulp = require('./generators/temp')(gulp);
