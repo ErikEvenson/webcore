@@ -1,9 +1,29 @@
 {
   "name": "example",
-  "addons": ["mongolab"],
-  "description": "example description",
-  "env": {},
-  "keywords": ["3E"],
+
+  "addons": [
+    "mongolab:sandbox"
+  ],
+
+  "description": "",
+
+  "env": {
+    "NODE_ENV": "staging"
+  },
+
+  "keywords": [
+    "3E Enterprises, LLC",
+    "mongodb",
+    "node"
+  ],
+
   "logo": "https://dl.dropboxusercontent.com/u/6779408/3E%20Enterprises/3E.png",
-  "repository": "https://github.com/ErikEvenson/webcore"
+  "repository": "https://github.com/ErikEvenson/webcore",
+
+  "scripts": {
+    "postdeploy": "echo 'Deployed'"
+  },
+
+  "success_url": "/",
+  "webiste": "https://example.com/"
 }

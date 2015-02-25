@@ -6,7 +6,6 @@
 */
 module.exports = function(gulp, config) {
   var
-    ARCHIVE_NAME = 'archive.tar',
     argv = require('yargs').argv,
     async = require('async'),
     fs = require('fs'),
@@ -27,10 +26,6 @@ module.exports = function(gulp, config) {
         return v.toString(16);
     });
   }
-
-  gulp.task('heroku-tarball', function(cb) {
-    lib.createTarball(config, cb);
-  });
 
   // Deploy build to a source URL
   gulp.task('heroku-deploy', function(cb) {
@@ -72,7 +67,7 @@ module.exports = function(gulp, config) {
         console.log(err.body.message);
         cb();
       } else {
-        console.log(name + ' deployed.');
+        console.log(result);
         cb();
       }
     });
@@ -131,6 +126,10 @@ module.exports = function(gulp, config) {
     });
   });
 
+  gulp.task('heroku-tarball', function(cb) {
+    lib.createTarball(config, cb);
+  });
+
   // heroku API
   // add on
   gulp.task('heroku-addonsCreate', function(cb) {
@@ -142,10 +141,11 @@ module.exports = function(gulp, config) {
       function(err, result) {
         if (err) {
           console.log(err.body.message);
+          cb();
         } else {
           console.log(result);
+          cb();
         }
-        cb();
       }
     );
   });
@@ -155,18 +155,33 @@ module.exports = function(gulp, config) {
       function(err, result) {
         if (err) {
           console.log(err.body.message);
+          cb();
         } else {
           console.log(result);
+          cb();
         }
-        cb();
       }
     );
+  });
+
+  // appSetups
+  gulp.task('heroku-appSetupsInfo', function(cb) {
+    heroku.appSetups(argv.id).info(function(err, result) {
+      if (err) {
+        console.log(err.body.message);
+        cb();
+      } else {
+        console.log(result);
+        cb();
+      }
+    });
   });
 
   gulp.task('heroku-appsList', function(cb) {
     heroku.apps().list(function(err, apps) {
       if (err) {
         console.log(err.body.message);
+        cb();
       } else {
         apps.forEach(function(app) {
           console.log(app.name);
@@ -177,16 +192,52 @@ module.exports = function(gulp, config) {
     });
   });
 
+  // buildResult
+  gulp.task('heroku-buildsResultInfo', function(cb) {
+    var
+      app,
+      name,
+      instance = argv.instance;
+
+    // Guard clauses
+    if (instance) {
+      app = config.build.instances[instance];
+
+      if (!app) {
+        console.error('The ' + instance + ' instance has not been configured.');
+        return;
+      }
+    } else {
+      app = argv.app;
+    }
+
+    name = app;
+    app = heroku.apps(app);
+
+    app.builds(argv.id).info(
+      function(err, result) {
+        if (err) {
+          console.log(err.body.message);
+          cb();
+        } else {
+          console.log(result);
+          cb();
+        }
+      }
+    );
+  });
+
   // configVars
   gulp.task('heroku-configVarsInfo', function(cb) {
     heroku.apps(argv.app).configVars().info(
       function(err, result) {
         if (err) {
           console.log(err.body.message);
+          cb();
         } else {
           console.log(result);
+          cb();
         }
-        cb();
       }
     );
   });
