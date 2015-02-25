@@ -1,6 +1,12 @@
 /**
  * Provides gulp Heroku tasks.
  *
+ * Heroku API reference:
+ * https://devcenter.heroku.com/articles/platform-api-reference
+ *
+ * node-heroku-client docs:
+ * https://github.com/heroku/node-heroku-client/tree/master/docs
+ *
  * @param {object} gulp - The gulp object.
  * @param {object} config - The configuration object.
 */
@@ -18,6 +24,23 @@ module.exports = function(gulp, config) {
     tar = require('gulp-tar'),
     url = require('url');
 
+  function getApp() {
+    var
+      app = argv.app
+      instance = argv.instance;
+
+    // Guard clauses
+    if (instance) {
+      app = config.build.instances[instance];
+      if (!app) { return; }
+    } else {
+      app = argv.app;
+    }
+
+    app = heroku.apps(app);
+    return app;
+  }
+
   // Adapted from:
   // stackoverflow.com/questions/105034/how-to-create-a-guid-uuid-in-javascript
   function uuid() {
@@ -29,28 +52,10 @@ module.exports = function(gulp, config) {
 
   // Deploy build to a source URL
   gulp.task('heroku-deploy', function(cb) {
-    var
-      app,
-      name,
-      instance = argv.instance;
-
-    // Guard clauses
-    if (instance) {
-      app = config.build.instances[instance];
-
-      if (!app) {
-        console.error('The ' + instance + ' instance has not been configured.');
-        return;
-      }
-    } else {
-      app = argv.app;
-    }
-
-    name = app;
-    app = heroku.apps(app);
+    var app = getApp();
 
     if (!app) {
-      console.error('An app must be provided for the deployment.');
+      console.error('An app must be provided.');
       return;
     }
 
@@ -75,11 +80,7 @@ module.exports = function(gulp, config) {
 
   // Deploy an app setup
   gulp.task('heroku-setup', ['heroku-tarball'], function(cb) {
-    var
-      app,
-      name,
-      getUrl,
-      instance = argv.instance;
+    var getUrl;
 
     async.waterfall([
       // Create AWS url
@@ -194,25 +195,12 @@ module.exports = function(gulp, config) {
 
   // buildResult
   gulp.task('heroku-buildsResultInfo', function(cb) {
-    var
-      app,
-      name,
-      instance = argv.instance;
+    var app = getApp();
 
-    // Guard clauses
-    if (instance) {
-      app = config.build.instances[instance];
-
-      if (!app) {
-        console.error('The ' + instance + ' instance has not been configured.');
-        return;
-      }
-    } else {
-      app = argv.app;
+    if (!app) {
+      console.error('An app must be provided.');
+      return;
     }
-
-    name = app;
-    app = heroku.apps(app);
 
     app.builds(argv.id).info(
       function(err, result) {
@@ -229,7 +217,14 @@ module.exports = function(gulp, config) {
 
   // configVars
   gulp.task('heroku-configVarsInfo', function(cb) {
-    heroku.apps(argv.app).configVars().info(
+    var app = getApp();
+
+    if (!app) {
+      console.error('An app must be provided.');
+      return;
+    }
+
+    app.configVars().info(
       function(err, result) {
         if (err) {
           console.log(err.body.message);
@@ -241,4 +236,28 @@ module.exports = function(gulp, config) {
       }
     );
   });
+
+  // gulp.task('heroku-configVarsUpdate', function(cb) {
+  //   var app = getApp();
+
+  //   if (!app) {
+  //     console.error('An app must be provided.');
+  //     return;
+  //   }
+
+  //   app.configVars().update(
+  //     {
+
+  //     },
+  //     function(err, result) {
+  //       if (err) {
+  //         console.log(err.body.message);
+  //         cb();
+  //       } else {
+  //         console.log(result);
+  //         cb();
+  //       }
+  //     }
+  //   );
+  // });
 };

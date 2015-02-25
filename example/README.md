@@ -59,7 +59,7 @@ To deploy an already provisioned and re-built app with changes:
   gulp heroku-deploy --app appName
 ```
 
-To ease deployment, add the app name as an instance to `config/build.js` and deploy with:
+To ease deployment of an already provisioned and re-build app, add the app name as an instance to `config/build.js` and deploy with:
 
 ```bash
   gulp heroku-deploy --instance staging

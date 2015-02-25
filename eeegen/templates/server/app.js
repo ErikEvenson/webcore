@@ -9,11 +9,17 @@ var
   config = require('./config/environment'),
   debug = require('debug')(__filename),
   express = require('express'),
+  forceSSL = require('./middleware/ssl').force(config.hostname),
   path = require('path');
 
 var
   app = express(),
   routes = require('./routes/index');
+
+// middleware
+if (config.env === 'production' || config.env === 'staging') {
+  app.use(forceSSL);
+}
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

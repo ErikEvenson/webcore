@@ -1,7 +1,7 @@
 var
   developmentConfig = {
     env: process.env.NODE_ENV,
-    hostname: 'localhost'
+    hostname: null
   };
 
 /** @param {Constructor} module.exports - Export development config. */
