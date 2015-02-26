@@ -10,10 +10,9 @@ module.exports = function(gulp, config) {
     lib = require('./lib')(config);
 
     gulp.task('mongo-seed', function(cb) {
-      lib.seed(function(err, result) {
+      lib.seed(function(err, stdout, stderr) {
         if (err) { console.error(err); cb(); }
-        else { console.info(result); cb(); }
+        else { console.info(stdout, stderr); cb(); }
       });
     });
-
 };

@@ -24,20 +24,18 @@ module.exports = function(gulp, config) {
     tar = require('gulp-tar'),
     url = require('url');
 
-  function getApp() {
+  function getApp(options) {
     var
-      app = argv.app,
-      instance = argv.instance;
+      appName = options.appName,
+      instance = options.instance;
 
     // Guard clauses
     if (instance) {
-      app = config.build.instances[instance];
-      if (!app) { return; }
-    } else {
-      app = argv.app;
+      appName = config.build.instances[instance];
+      if (!appName) { return null; }
     }
 
-    app = heroku.apps(app);
+    app = heroku.apps(appName);
     return app;
   }
 
@@ -52,7 +50,10 @@ module.exports = function(gulp, config) {
 
   // Deploy build to a source URL
   gulp.task('heroku-deploy', function(cb) {
-    var app = getApp();
+    var app = getApp({
+      appName: argv.app,
+      instance: instance
+    });
 
     if (!app) {
       console.error('An app must be provided.');
@@ -73,6 +74,115 @@ module.exports = function(gulp, config) {
         cb();
       } else {
         console.log(result);
+        cb();
+      }
+    });
+  });
+
+  gulp.task('heroku-backup', function(cb) {
+    var app = getApp({
+      appName: argv.app,
+      instance: instance
+    });
+
+    var options = {
+      app: app,
+      config: config,
+      instance: argv.instance
+    };
+
+    lib.backup(options, function(err, stdout, stderr) {
+      if (err) { console.error(err.message); cb(); }
+      else {
+        console.info(stdout);
+        console.error(stderr);
+        cb();
+      }
+    });
+  });
+
+  gulp.task('heroku-copy', function(cb) {
+    var
+      fromInstance = argv.from,
+      toInstance = argv.to;
+
+    var fromApp = getApp({ instance: fromInstance });
+    var toApp = getApp({ instance: toInstance });
+    var fromUri = null;
+
+    async.series([
+      function(cb) {
+        lib.getInstanceUri({
+          app: fromApp,
+          config: config,
+          instance: fromInstance
+        }, function(err, result) {
+          fromUri = result;
+          cb(err, fromUri);
+        });
+      },
+      function(cb) {
+        var options = {
+          app: fromApp,
+          config: config,
+          instance: fromInstance
+        };
+
+        lib.backup(options, function(err, stdout, stderr) {
+          if (err) { console.error(err.message); cb(); }
+          else {
+            cb(null, {
+              stdout: stdout,
+              stderr: stderr
+            });
+          }
+        });
+      },
+      function(cb) {
+        var options = {
+          app: toApp,
+          config: config,
+          dir: fromUri.split('/').slice(-1)[0],
+          instance: toInstance
+        };
+
+        cb(null, options);
+
+        lib.restore(options, function(err, stdout, stderr) {
+          if (err) { console.error(err.message); cb(); }
+          else {
+            cb(null, {
+              stdout: stdout,
+              stderr: stderr
+            });
+          }
+        });
+      }
+    ], function(err, results) {
+      var output = results[2];
+      console.error(output.stderr);
+      console.info(output.stdout);
+    });
+  });
+
+  gulp.task('heroku-restore', function(cb) {
+    var app = getApp({
+      appName: argv.app,
+      instance: instance
+    });
+
+    var options = {
+      app: app,
+      dir: argv.dir,
+      config: config,
+      instance: argv.instance
+    };
+
+    lib.restore(options, function(err, stdout, stderr) {
+      if (err) { console.error(err.message); cb(); }
+      else {
+        console.info(stdout);
+        console.error(stderr);
         cb();
       }
     });
@@ -195,7 +305,10 @@ module.exports = function(gulp, config) {
 
   // buildResult
   gulp.task('heroku-buildsResultInfo', function(cb) {
-    var app = getApp();
+    var app = getApp({
+      appName: argv.app,
+      instance: instance
+    });
 
     if (!app) {
       console.error('An app must be provided.');
@@ -217,7 +330,10 @@ module.exports = function(gulp, config) {
 
   // configVars
   gulp.task('heroku-configVarsInfo', function(cb) {
-    var app = getApp();
+    var app = getApp({
+      appName: argv.app,
+      instance: instance
+    });
 
     if (!app) {
       console.error('An app must be provided.');

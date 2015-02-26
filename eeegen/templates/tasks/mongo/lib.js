@@ -2,10 +2,14 @@
 module.exports = function(config) {
   var
     async = require('async'),
+    utils = require('mongo-utils'),
     mongoose = require('mongoose');
 
   var seed = function seed(cb) {
-    appConfig = require(config.build.basepath + '/server/config/environment');
+    var appConfig = require(
+      config.build.basepath + '/server/config/environment'
+    );
+    
     require(config.build.basepath + '/server/lib/connection')(appConfig);
     require(config.build.basepath + '/server/models');
 

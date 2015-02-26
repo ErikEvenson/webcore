@@ -104,6 +104,10 @@ These commands aid the creation and deployment of the app on Heroku.
 
 - heroku-appsList
 
+- heroku-backup
+
+- gulp heroku-copy --from <fromInstance> --to <toInstance>
+
 - gulp heroku-appSetupsInfo --id <appSetupId>
 
 Provides information about the app setup.
@@ -116,11 +120,17 @@ Provides information about the build results.  Either an instance name or an app
 
 - heroku-deploy
 
+- heroku-restore
+
 - heroku-setup
 
 - gulp heroku-tarball
 
 Creates a tarball (`.tar.gz`) of the built app in the build directory.
+
+### Mongo management
+
+- mongo-seed
 
 ### Lint management
 

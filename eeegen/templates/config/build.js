@@ -16,8 +16,9 @@ buildConfig = {
   ],
 
   instances: {
-    production: null,
-    staging: null
+    // production: null,
+    // staging: null,
+    // someOtherInstance: null
   },
 
   htmlServerFiles: [

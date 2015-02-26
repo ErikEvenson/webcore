@@ -7,6 +7,7 @@
 
 ## TODOs
 
+- Add maint mode
 - Create/clean AWS bucket
 - Refactor gulp task loading
 - Add CDN

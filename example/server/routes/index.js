@@ -1,4 +1,4 @@
-/** @param {Function} module.exports - Set up routes. */
+
 module.exports = function(app) {
   var
     express = require('express'),

@@ -16,7 +16,7 @@ buildConfig = {
   ],
 
   instances: {
-    production: null,
+    // production: null,
     staging: 'ancient-springs-6665'
   },
 
