@@ -1,1 +1,1 @@
-The gitattributes and gitignore file are ignored.
+The gitignore file is ignored.
