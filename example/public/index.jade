@@ -4,7 +4,7 @@ html
   head
     meta(charset="utf-8")
     meta(http-equiv="X-UA-Compatible", content="IE=edge,chrome=1")
-    title TEST
+    title ANGULAR TEST
     meta(name="description", content="")
     meta(name=viewport, content="width=device-width, initial-scale=1")
     //- {# index.html/head/appletouch #}
@@ -26,12 +26,17 @@ html
 
     // bower:css
     // endbower
-  body
+  body(ng-app="app")
     //- {# index.html/body/firstbody #}
     //- {# index.html/body/content #}
     
     include ./initializr/h5bp-content/content.jade
-    
+
+    // ANGULAR TEST
+    input(ng-model="example")
+    div {{ example }}
+    // END ANGULAR TEST
+
     //- {# index.html/body/jslib #}
     //- {# index.html/body/buildcommentjsstart #}
     //- {# index.html/body/jslib2 #}
@@ -42,3 +47,9 @@ html
 
     // bower:js
     // endbower
+
+    // ANGULAR TEST
+    script(type='text/javascript').
+        'use strict';
+        var app = angular.module('app', []);
+    // END ANGULAR TEST

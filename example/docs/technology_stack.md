@@ -37,6 +37,7 @@ Global:
 
 Local:
 
+- [angularjs]() 1.3.14 - ''
 - [async](https://github.com/caolan/async) 0.9.0 - 'Async utilities for node and the browser.'
 - [aws-sdk]() 2.1.4 - 'AWS SDK for JavaScript in the browser and Node.js.'
 - [debug](https://github.com/visionmedia/debug) 2.1.1 - 'Tiny node.js & browser debugging utility for your libraries and applications.'

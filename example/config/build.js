@@ -45,7 +45,7 @@ buildConfig = {
     '.bin/www'
   ],
 
-  miscFiles: [    
+  miscFiles: [
     './bin{,/**}',
     './server/**/*.js',
     'app.json',
@@ -53,7 +53,7 @@ buildConfig = {
     'Procfile'
   ],
 
-  vendorFiles: [    
+  vendorFiles: [
     './public/bower_components{,/**}'
   ],
 
