@@ -59,4 +59,5 @@ Local:
 - [mongoose](http://mongoosejs.com/) 3.8.23 - 'Elegant mongodb object modeling for node.js.'
 - [request]() 2.53.0 - 'Simplified HTTP request client.'
 - [underscore](http://underscorejs.org/) 1.8.2 - 'A JavaScript library that provides a whole mess of useful functional programming helpers without extending any built-in objects.'
+- [wiredep](https://github.com/taptapship/wiredep) 2.2.2 - 'Wire dependencies to your source code.'
 - [yargs](https://github.com/chevex/yargs) 2.3.0 - 'Yargs be a node.js library fer hearties tryin' ter parse optstrings.'

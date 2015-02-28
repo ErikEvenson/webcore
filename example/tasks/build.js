@@ -23,7 +23,7 @@ module.exports = function(gulp, config) {
 
   // Build server task
   gulp.task('buildServer',
-    ['cssServer', 'jsServer', 'htmlServer', 'misc'], function() {
+    ['cssServer', 'jsServer', 'htmlServer', 'misc', 'vendor'], function() {
     // gulp.watch(source, ['misc']);
   });
 
@@ -49,11 +49,15 @@ module.exports = function(gulp, config) {
   // Process jade server files
   gulp.task('jadeServer', function(cb) {
     var LOCALS = {};
+    var wiredep = require('wiredep').stream;
 
-    return gulp.src(config.build.jadeServerFiles, {base: './server/views/'})
-      .pipe(newer(config.build.build))
-      .pipe(jade({locals: LOCALS}))
-      .pipe(gulp.dest(config.build.source + '/public'));
+    return gulp.src(config.build.jadeServerFiles, {base: './'})
+      .pipe(wiredep({
+        directory: path.join(config.build.basepath, 'public/bower_components/'),
+        bowerJson: require(path.join(config.build.basepath, './bower.json'))
+      }))
+      .pipe(jade({locals: LOCALS, pretty: true}))
+      .pipe(gulp.dest('./'));
   });
 
   // Process js client files
@@ -73,6 +77,13 @@ module.exports = function(gulp, config) {
   // Move miscellaneous files to build folder
   gulp.task('misc', function() {
     return gulp.src(config.build.miscFiles, {base: './'})
+      .pipe(newer(config.build.build))
+      .pipe(gulp.dest(config.build.build));
+  });
+
+  // Move vendor files to build folder
+  gulp.task('vendor', function() {
+    return gulp.src(config.build.vendorFiles, {base: './'})
       .pipe(newer(config.build.build))
       .pipe(gulp.dest(config.build.build));
   });

@@ -10,7 +10,8 @@ var
   del = require('del'),
   gulp = require('gulp'),
   gutil = require('gulp-util'),
-  newer = require('gulp-newer');
+  newer = require('gulp-newer'),
+  path = require('path');
 
 function loadConfig(config) {
   if (!config) { config = {}; }

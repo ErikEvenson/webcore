@@ -25,8 +25,9 @@ buildConfig = {
   ],
 
   jadeServerFiles: [
-    './server/views/**/*.jade',
-    '!./server/views/initializr{,/**}'
+    './public/**/*.jade',
+    '!./public/initializr{,/**}',
+    '!./public/bower_components{,**}'
   ],
 
   jsBuildFiles: [
@@ -50,6 +51,10 @@ buildConfig = {
     'app.json',
     'package.json',
     'Procfile'
+  ],
+
+  vendorFiles: [    
+    './public/bower_components{,/**}'
   ],
 
   jsNoLintFiles: [
