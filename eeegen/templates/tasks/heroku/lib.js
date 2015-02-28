@@ -17,8 +17,7 @@ function backupUri(options, cb) {
 
   mongoUtils.dumpDatabase(
     uri, dir, function(err, stdout, stderr) {
-      cb(err, stdout, stderr);
-      return;
+      return cb(err, stdout, stderr);
     });
 }
 
@@ -29,8 +28,7 @@ function restoreUri(options, cb) {
 
   mongoUtils.restoreDatabase(
     uri, dir, function(err, stdout, stderr) {
-      cb(err, stdout, stderr);
-      return;
+      return cb(err, stdout, stderr);
     });
 }
 
@@ -45,16 +43,16 @@ var getInstanceUri = function getInstanceUri(options, cb) {
       config.build.basepath + '/server/config/environment'
     );
 
-    cb(null, appConfig.mongo.uri);
+    return cb(null, appConfig.mongo.uri);
   } else {
     var configVars = getConfigVars(app, function(err, result) {
       if (err) { cb(err); return; }
       else {
-        cb(null, result.MONGOLAB_URI);
+        return cb(null, result.MONGOLAB_URI);
       }
     });
   }
-}
+};
 
 var backup = function backup(options, cb) {
   var
@@ -68,8 +66,7 @@ var backup = function backup(options, cb) {
   instances.push('development');
 
   if (instances.indexOf(instance) === -1) {
-    cb(new Error('That instance does not exist.'));
-    return;
+    return cb(new Error('That instance does not exist.'));
   }
 
   getInstanceUri(options, function(err, uri) {
@@ -81,8 +78,7 @@ var backup = function backup(options, cb) {
           uri: uri
         },
         function(err, stdout, stderr) {
-          cb(err, stdout, stderr);
-          return;
+          return cb(err, stdout, stderr);
         }
       );
     }
@@ -102,8 +98,7 @@ var restore = function restore(options, cb) {
   instances.push('development');
 
   if (instances.indexOf(instance) === -1) {
-    cb(new Error('That instance does not exist.'));
-    return;
+    return cb(new Error('That instance does not exist.'));
   }
 
   getInstanceUri(options, function(err, uri) {
@@ -115,8 +110,7 @@ var restore = function restore(options, cb) {
           uri: uri
         },
         function(err, stdout, stderr) {
-          cb(err, stdout, stderr);
-          return;
+          return cb(err, stdout, stderr);
         }
       );
     }
@@ -133,7 +127,7 @@ var addAddOns = function addAddOns(app, addons, cb) {
       );
     },
     function(err, results) {
-      if (err) { cb(err); } else { cb(null, results); }
+      if (err) { return cb(err); } else { return cb(null, results); }
     }
   );
 };
@@ -142,7 +136,7 @@ var configureApp = function configureApp(app, configVars, cb) {
   app.configVars().update(
     configVars,
     function(err, result) {
-      if (err) { cb(err); } else { cb(null, result); }
+      if (err) { return cb(err); } else { return cb(null, result); }
     }
   );
 };
@@ -153,7 +147,7 @@ var createApp = function createApp(name, heroku, cb) {
       name: name
     },
     function(err, result) {
-      if (err) { cb(err); } else { cb(null, result); }
+      if (err) { return cb(err); } else { return cb(null, result); }
     }
   );
 };
@@ -166,7 +160,7 @@ var createBuild = function createBuild(app, getUrl, cb) {
       }
     },
     function(err, result) {
-      if (err) { cb(err); } else { cb(null, result); }
+      if (err) { return cb(err); } else { return cb(null, result); }
     }
   );
 };
@@ -175,7 +169,7 @@ var createSource = function createSource(app, cb) {
   app.sources().create(
     {},
     function(err, source) {
-      if (err) { cb(err); } else { cb(null, source); }
+      if (err) { return cb(err); } else { return cb(null, source); }
     }
   );
 };
@@ -197,7 +191,7 @@ var deploySource = function deploySource(app, config, cb) {
     // Create upload source
     function(cb) {
       createSource(app, function(err, source) {
-        if (err) { cb(err); } else { cb(null, source); }
+        if (err) { return cb(err); } else { return cb(null, source); }
       });
     },
     // PUT tarball
@@ -207,26 +201,19 @@ var deploySource = function deploySource(app, config, cb) {
         file = config.build.temp + config.build.TARFILE_NAME + '.gz';
 
       putFile(file, putUrl, function(err) {
-        if (err) { cb(err); } else { cb(null, source); }
+        if (err) { return cb(err); } else { return cb(null, source); }
       });
     }
   ], function(err, result) {
-    if (err) {
-      cb(err);
-    } else {
-      cb(null, result);
-    }
+    if (err) { return cb(err); } else { return cb(null, result); }
   });
 };
 
 var getConfigVars = function getConfigVars(app, cb) {
-  if (!app) {
-    cb(new Error('No app provided.'));
-    return;
-  }
+  if (!app) { return cb(new Error('No app provided.')); }
 
   app.configVars().info(function(err, result) {
-    cb(err, result);
+    return cb(err, result);
   });
 };
 
@@ -245,7 +232,7 @@ var putFile = function putFile(file, putUrl, cb) {
   var urlObj = url.parse(putUrl);
 
   fs.readFile(file, function(err, data) {
-    if (err) { cb(err); }
+    if (err) { return cb(err); }
     else {
       var options = {
         body: data,
@@ -254,7 +241,7 @@ var putFile = function putFile(file, putUrl, cb) {
       };
 
       request(options, function(err, incoming, response) {
-        if (err) { cb(err); } else { cb(null); }
+        if (err) { return cb(err); } else { return cb(null); }
       });
     }
   });

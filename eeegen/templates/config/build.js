@@ -17,8 +17,7 @@ buildConfig = {
 
   instances: {
     // production: null,
-    // staging: null,
-    // someOtherInstance: null
+    staging: 'ancient-springs-6665'
   },
 
   htmlServerFiles: [
@@ -26,12 +25,12 @@ buildConfig = {
   ],
 
   jadeServerFiles: [
-    './server/views/**/*.jade',
-    '!./server/views/initializr{,/**}'
+    './public/**/*.jade',
+    '!./public/initializr{,/**}',
+    '!./public/bower_components{,**}'
   ],
 
   jsBuildFiles: [
-    './bin/www.js',
     './config/**/*.js',
     './gulpfile.js',
     './tasks/**/*.js'
@@ -42,15 +41,20 @@ buildConfig = {
   ],
 
   jsServerFiles: [
-    './server/**/*.js'
+    './server/**/*.js',
+    '.bin/www'
   ],
 
   miscFiles: [
-    './bin/**/*.js',
+    './bin{,/**}',
     './server/**/*.js',
     'app.json',
     'package.json',
     'Procfile'
+  ],
+
+  vendorFiles: [
+    './public/bower_components{,/**}'
   ],
 
   jsNoLintFiles: [

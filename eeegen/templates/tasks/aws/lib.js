@@ -1,4 +1,7 @@
-
+/**
+ * @param {Function} config - Provide configuration hash.
+ * @return {Object} - Export the lib hash of AWS functions.
+ */
 module.exports = function(config) {
   var
     AWS = require('aws-sdk'),
@@ -17,14 +20,12 @@ module.exports = function(config) {
     var objects = [];
 
     listObjects(bucketName, function(err, data) {
-      if (err) {
-        cb(err);
-      } else {
+      if (err) { return cb(err); }
+      else {
         items = data.Contents;
 
         if (items.length === 0) {
-          cb(null, 'Empty bucket.');
-          return;
+          return cb(null, 'Empty bucket.');
         }
 
         for (var i = 0; i < items.length; i += 1) {
@@ -34,7 +35,7 @@ module.exports = function(config) {
         }
 
         deleteObjects(bucketName, objects, function(err, data) {
-          cb(err, data);
+          return cb(err, data);
         });
       }
     });

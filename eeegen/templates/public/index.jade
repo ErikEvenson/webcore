@@ -4,31 +4,39 @@ html
   head
     meta(charset="utf-8")
     meta(http-equiv="X-UA-Compatible", content="IE=edge,chrome=1")
-    title
+    title ANGULAR TEST
     meta(name="description", content="")
     meta(name=viewport, content="width=device-width, initial-scale=1")
     //- {# index.html/head/appletouch #}
     //- {# index.html/head/styleslib #}
-    <% if (initializrModules.indexOf('h5bp-css') != -1) { %>
+    
     include ./initializr/h5bp-css/includenormalize.jade
-    <% } %>
+    
     //- {# index.html/head/styleslib2 #}
     //- {# index.html/head/styleslib3 #}
     //- {# index.html/head/stylesheet #}
-    <% if (initializrModules.indexOf('h5bp-stylefile') != -1) { %>
+    
     include ./initializr/h5bp-stylefile/stylesheetinclude.jade
-    <% } %>    
+        
     //- {# index.html/head/html5polyfill #}
-    <% if (initializrModules.indexOf('modernizr') != -1) { %>
+    
     include ./initializr/modernizr/modernizr.jade
-    <% } %>
+    
     //- {# index.html/head/respond #}
-  body
+
+    // bower:css
+    // endbower
+  body(ng-app="app")
     //- {# index.html/body/firstbody #}
     //- {# index.html/body/content #}
-    <% if (initializrModules.indexOf('h5bp-content') != -1) { %>
+    
     include ./initializr/h5bp-content/content.jade
-    <% } %>
+
+    // ANGULAR TEST
+    input(ng-model="example")
+    div {{ example }}
+    // END ANGULAR TEST
+
     //- {# index.html/body/jslib #}
     //- {# index.html/body/buildcommentjsstart #}
     //- {# index.html/body/jslib2 #}
@@ -36,3 +44,12 @@ html
     //- {# index.html/body/buildcommentjsend #}
     //- {# index.html/body/end #}
     //- {# index.html/body/end5 #}
+
+    // bower:js
+    // endbower
+
+    // ANGULAR TEST
+    script(type='text/javascript').
+        'use strict';
+        var app = angular.module('app', []);
+    // END ANGULAR TEST

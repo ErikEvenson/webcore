@@ -37,6 +37,7 @@ Global:
 
 Local:
 
+- [angularjs](https://angularjs.org/) 1.3.14 - 'HTML enhanced for web apps!'
 - [async](https://github.com/caolan/async) 0.9.0 - 'Async utilities for node and the browser.'
 - [aws-sdk]() 2.1.4 - 'AWS SDK for JavaScript in the browser and Node.js.'
 - [debug](https://github.com/visionmedia/debug) 2.1.1 - 'Tiny node.js & browser debugging utility for your libraries and applications.'
@@ -59,4 +60,5 @@ Local:
 - [mongoose](http://mongoosejs.com/) 3.8.23 - 'Elegant mongodb object modeling for node.js.'
 - [request]() 2.53.0 - 'Simplified HTTP request client.'
 - [underscore](http://underscorejs.org/) 1.8.2 - 'A JavaScript library that provides a whole mess of useful functional programming helpers without extending any built-in objects.'
+- [wiredep](https://github.com/taptapship/wiredep) 2.2.2 - 'Wire dependencies to your source code.'
 - [yargs](https://github.com/chevex/yargs) 2.3.0 - 'Yargs be a node.js library fer hearties tryin' ter parse optstrings.'

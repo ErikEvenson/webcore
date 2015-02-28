@@ -1,4 +1,6 @@
-
+/**
+ * @param {Object} config - Provide configuration.
+ */
 module.exports = function(config) {
   var mongoose = require('mongoose');
   mongoose.connect(config.mongo.uri);

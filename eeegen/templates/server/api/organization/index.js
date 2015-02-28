@@ -10,4 +10,5 @@ router.get('/:id', controller.show);
 // router.patch('/:id', controller.update);
 // router.delete('/:id', controller.destroy);
 
+/** @param {Object} module.exports - Export the router. */
 module.exports = router;
