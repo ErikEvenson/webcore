@@ -30,7 +30,6 @@ buildConfig = {
   ],
 
   jsBuildFiles: [
-    './bin/www.js',
     './config/**/*.js',
     './gulpfile.js',
     './tasks/**/*.js'
@@ -45,8 +44,8 @@ buildConfig = {
     '.bin/www'
   ],
 
-  miscFiles: [
-    './bin/**/*.js',
+  miscFiles: [    
+    './bin{,/**}',
     './server/**/*.js',
     'app.json',
     'package.json',

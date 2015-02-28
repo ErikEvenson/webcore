@@ -26,7 +26,7 @@ module.exports = function(config) {
       var Organization = mongoose.model('Organization');
 
       Organization.create(data.organizations, function(err) {
-        cb(err);
+        return cb(err);
       });
     };
 
@@ -39,7 +39,7 @@ module.exports = function(config) {
 
         Organization.find().find(function(err, results) {
           mongoose.connection.close();
-          cb(null, results);
+          return cb(null, results);
         });
       }
     });

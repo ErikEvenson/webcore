@@ -11,7 +11,7 @@ module.exports = function(gulp, config) {
     server = require('gulp-develop-server');
 
   var
-    app = path.join(config.build.basepath, 'bin/www.js');
+    app = path.join(config.build.basepath, 'bin/www');
 
   // Show project information
   debug(config.pkg.name + ' ' + config.pkg.version);
