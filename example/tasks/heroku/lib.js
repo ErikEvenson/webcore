@@ -54,7 +54,7 @@ var getInstanceUri = function getInstanceUri(options, cb) {
       }
     });
   }
-}
+};
 
 var backup = function backup(options, cb) {
   var

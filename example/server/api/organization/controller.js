@@ -12,7 +12,11 @@
 // var _ = require('lodash');
 var Thing = require('../../models/organization');
 
-// Get list of things
+/**
+ * A function to provide a JSON array of objects.
+ * @param {Object} req - The request.
+ * @param {Object} res - The response.
+ */
 exports.index = function(req, res) {
   Thing.find(function(err, things) {
     if (err) { return handleError(res, err); }
@@ -20,7 +24,11 @@ exports.index = function(req, res) {
   });
 };
 
-// Get a single thing
+/**
+ * A function to provide a JSON representation of an object.
+ * @param {Object} req - The request.
+ * @param {Object} res - The response.
+ */
 exports.show = function(req, res) {
   Thing.findById(req.params.id, function(err, thing) {
     if (err) { return handleError(res, err); }

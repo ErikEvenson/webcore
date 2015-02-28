@@ -41,7 +41,8 @@ buildConfig = {
   ],
 
   jsServerFiles: [
-    './server/**/*.js'
+    './server/**/*.js',
+    '.bin/www'
   ],
 
   miscFiles: [

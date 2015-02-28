@@ -36,7 +36,10 @@ function loadConfig(config) {
   return config;
 }
 
-// Gulp always runs under the development environment
+/**
+ * @param {String} process.env.NODE_ENV - Gulp always run under the development
+ * environment.
+ */
 process.env.NODE_ENV = 'development';
 
 // Create a configuration object.

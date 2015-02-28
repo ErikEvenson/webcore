@@ -4,7 +4,7 @@
   "description": "example description",
   "main": "./bin/www.js",
   "scripts": {
-    "start": "node ./bin/www.js"
+    "start": "node ./bin/www"
   },
   "dependencies": {
     "debug": "2.1.1",

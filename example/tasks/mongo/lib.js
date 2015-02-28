@@ -1,4 +1,7 @@
-
+/**
+ * @param {Function} config - Provide configuration hash.
+ * @return {Object} - Export the lib hash of mongo functions.
+ */
 module.exports = function(config) {
   var
     async = require('async'),
@@ -9,7 +12,7 @@ module.exports = function(config) {
     var appConfig = require(
       config.build.basepath + '/server/config/environment'
     );
-    
+
     require(config.build.basepath + '/server/lib/connection')(appConfig);
     require(config.build.basepath + '/server/models');
 

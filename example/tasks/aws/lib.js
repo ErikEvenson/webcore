@@ -1,4 +1,7 @@
-
+/**
+ * @param {Function} config - Provide configuration hash.
+ * @return {Object} - Export the lib hash of AWS functions.
+ */
 module.exports = function(config) {
   var
     AWS = require('aws-sdk'),

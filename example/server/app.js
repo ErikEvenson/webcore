@@ -18,6 +18,7 @@ var
 
 require('./lib/connection')(config);
 app = express();
+// require('./config/express');
 routes = require('./routes/index')(app);
 
 // middleware
