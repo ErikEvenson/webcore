@@ -7,5 +7,5 @@ temp/
 # Ignore node module directories.
 node_modules/
 
-# Ignore bower components.
+# Ignore bower components
 public/bower_components/
