@@ -6,10 +6,16 @@
 */
 module.exports = function(gulp, config) {
   var
+    concat = require('gulp-concat'),
+    debug = require('gulp-debug'),
     del = require('del'),
+    gulpif = require('gulp-if'),
     gutil = require('gulp-util'),
     jade = require('gulp-jade'),
-    newer = require('gulp-newer');
+    minifyCss = require('gulp-minify-css'),
+    newer = require('gulp-newer'),
+    usemin = require('gulp-usemin'),
+    useref = require('gulp-useref');
 
   // Build task
   gulp.task('build', ['buildClient', 'buildServer', 'lint'], function() {
@@ -35,14 +41,19 @@ module.exports = function(gulp, config) {
   // Process css files
   gulp.task('cssServer', function(cb) {
     return gulp.src(config.build.cssServerFiles, {base: './'})
-      .pipe(newer(config.build.build))
+      .pipe(concat('public/css/main.min.css', {newLine: ''}))
+      .pipe(minifyCss({keepBreaks: true}))
       .pipe(gulp.dest(config.build.build));
   });
 
   // Process html files
   gulp.task('htmlServer', ['jadeServer'], function(cb) {
+    var assets = useref.assets();
+
     return gulp.src(config.build.htmlServerFiles, {base: './'})
-      .pipe(newer(config.build.build))
+      .pipe(assets)
+      .pipe(assets.restore())
+      .pipe(useref())
       .pipe(gulp.dest(config.build.build));
   });
 

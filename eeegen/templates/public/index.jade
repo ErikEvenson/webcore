@@ -10,6 +10,8 @@ html
     //- {# index.html/head/appletouch #}
     //- {# index.html/head/styleslib #}
     
+    // build:css css/main.min.css
+
     include ./initializr/h5bp-css/includenormalize.jade
     
     //- {# index.html/head/styleslib2 #}
@@ -17,7 +19,9 @@ html
     //- {# index.html/head/stylesheet #}
     
     include ./initializr/h5bp-stylefile/stylesheetinclude.jade
-        
+
+    // endbuild
+
     //- {# index.html/head/html5polyfill #}
     
     include ./initializr/modernizr/modernizr.jade
