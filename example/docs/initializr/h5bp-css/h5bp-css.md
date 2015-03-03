@@ -1,1 +1,2 @@
-All less-mode options are ignored.
+- All less-mode options are ignored.
+- normalize.css is added to the project -- not normalize.min.css.  Minification, if desired, is performed by the build process.

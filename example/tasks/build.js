@@ -16,7 +16,6 @@ module.exports = function(gulp, config) {
     minifyCss = require('gulp-minify-css'),
     newer = require('gulp-newer'),
     uglify = require('gulp-uglify'),
-    usemin = require('gulp-usemin'),
     useref = require('gulp-useref');
 
   // Build task

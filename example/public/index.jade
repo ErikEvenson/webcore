@@ -10,16 +10,20 @@ html
     //- {# index.html/head/appletouch #}
     
     // build:css css/main.min.css
-
+    
     //- {# index.html/head/styleslib #}
+
     
     include ./initializr/h5bp-css/includenormalize.jade
+    
     
     //- {# index.html/head/styleslib2 #}
     //- {# index.html/head/styleslib3 #}
     //- {# index.html/head/stylesheet #}
     
+    
     include ./initializr/h5bp-stylefile/stylesheetinclude.jade
+     
 
     //- {# index.html/head/html5polyfill #}
 
@@ -28,7 +32,9 @@ html
 
     // endbuild
     
+    
     include ./initializr/modernizr/modernizr.jade
+    
     
     //- {# index.html/head/respond #}
 
@@ -36,7 +42,9 @@ html
     //- {# index.html/body/firstbody #}
     //- {# index.html/body/content #}
     
+    
     include ./initializr/h5bp-content/content.jade
+    
 
     // ANGULAR TEST
     input(ng-model="example")
@@ -45,13 +53,13 @@ html
 
     // build:js js/app.min.js
 
-    // bower:js
-    // endbower
-
     //- {# index.html/body/jslib #}
     //- {# index.html/body/buildcommentjsstart #}
     //- {# index.html/body/jslib2 #}
     //- {# index.html/body/myjs #}
+
+    // bower:js
+    // endbower
 
     script(type='text/javascript', src="js/app.js")
 
