@@ -51,10 +51,15 @@ html
     div {{ example }}
     // END ANGULAR TEST
 
+    // build:js js/app.min.js
+
     //- {# index.html/body/jslib #}
     //- {# index.html/body/buildcommentjsstart #}
     //- {# index.html/body/jslib2 #}
     //- {# index.html/body/myjs #}
+
+    script(type='text/javascript', src="js/app.min.js")
+
     //- {# index.html/body/buildcommentjsend #}
     //- {# index.html/body/end #}
     //- {# index.html/body/end5 #}
@@ -62,8 +67,4 @@ html
     // bower:js
     // endbower
 
-    // ANGULAR TEST
-    script(type='text/javascript').
-        'use strict';
-        var app = angular.module('app', []);
-    // END ANGULAR TEST
+    // endbuild
