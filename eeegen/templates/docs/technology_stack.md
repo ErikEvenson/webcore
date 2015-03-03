@@ -54,6 +54,7 @@ Local:
 - [gulp-jade](https://github.com/phated/gulp-jade) 1.0.0 - 'Compile Jade templates with gulp build tool.'
 - [gulp-jshint](https://github.com/spalger/gulp-jshint) 1.9.2 - 'JSHint plugin for gulp.'
 - [gulp-minify-css]()
+- [gulp-minify-html]()
 - [gulp-tar](https://github.com/sindresorhus/gulp-tar) 1.3.2 - 'Create tarball from files.'
 - [gulp-newer](https://github.com/tschaub/gulp-newer) 0.5.0 - 'Pass through newer source files only.'
 - [gulp-uglify]()

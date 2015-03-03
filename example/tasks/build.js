@@ -14,6 +14,7 @@ module.exports = function(gulp, config) {
     jade = require('gulp-jade'),
     mainBowerFiles = require('main-bower-files'),
     minifyCss = require('gulp-minify-css'),
+    minifyHtml = require('gulp-minify-html'),
     newer = require('gulp-newer'),
     uglify = require('gulp-uglify'),
     useref = require('gulp-useref');
@@ -58,6 +59,10 @@ module.exports = function(gulp, config) {
       .pipe(assets)
       .pipe(assets.restore())
       .pipe(useref())
+      .pipe(minifyHtml({
+        conditionals: true,
+        spare: true
+      }))
       .pipe(gulp.dest(config.build.build));
   });
 
