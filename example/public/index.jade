@@ -8,10 +8,11 @@ html
     meta(name="description", content="")
     meta(name=viewport, content="width=device-width, initial-scale=1")
     //- {# index.html/head/appletouch #}
-    //- {# index.html/head/styleslib #}
     
     // build:css css/main.min.css
 
+    //- {# index.html/head/styleslib #}
+    
     include ./initializr/h5bp-css/includenormalize.jade
     
     //- {# index.html/head/styleslib2 #}
@@ -20,16 +21,17 @@ html
     
     include ./initializr/h5bp-stylefile/stylesheetinclude.jade
 
-    // endbuild
-
     //- {# index.html/head/html5polyfill #}
+
+    // bower:css
+    // endbower
+
+    // endbuild
     
     include ./initializr/modernizr/modernizr.jade
     
     //- {# index.html/head/respond #}
 
-    // bower:css
-    // endbower
   body(ng-app="app")
     //- {# index.html/body/firstbody #}
     //- {# index.html/body/content #}
@@ -41,19 +43,20 @@ html
     div {{ example }}
     // END ANGULAR TEST
 
-    //- {# index.html/body/jslib #}
-    //- {# index.html/body/buildcommentjsstart #}
-    //- {# index.html/body/jslib2 #}
-    //- {# index.html/body/myjs #}
-    //- {# index.html/body/buildcommentjsend #}
-    //- {# index.html/body/end #}
-    //- {# index.html/body/end5 #}
+    // build:js js/app.min.js
 
     // bower:js
     // endbower
 
-    // ANGULAR TEST
-    script(type='text/javascript').
-        'use strict';
-        var app = angular.module('app', []);
-    // END ANGULAR TEST
+    //- {# index.html/body/jslib #}
+    //- {# index.html/body/buildcommentjsstart #}
+    //- {# index.html/body/jslib2 #}
+    //- {# index.html/body/myjs #}
+
+    script(type='text/javascript', src="js/app.js")
+
+    //- {# index.html/body/buildcommentjsend #}
+    //- {# index.html/body/end #}
+    //- {# index.html/body/end5 #}
+
+    // endbuild

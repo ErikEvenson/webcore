@@ -8,33 +8,43 @@ html
     meta(name="description", content="")
     meta(name=viewport, content="width=device-width, initial-scale=1")
     //- {# index.html/head/appletouch #}
-    //- {# index.html/head/styleslib #}
     
     // build:css css/main.min.css
+    
+    //- {# index.html/head/styleslib #}
 
+    <% if (initializrModules.indexOf('h5bp-css') != -1) { %>
     include ./initializr/h5bp-css/includenormalize.jade
+    <% } %>
     
     //- {# index.html/head/styleslib2 #}
     //- {# index.html/head/styleslib3 #}
     //- {# index.html/head/stylesheet #}
     
+    <% if (initializrModules.indexOf('h5bp-stylefile') != -1) { %>
     include ./initializr/h5bp-stylefile/stylesheetinclude.jade
-
-    // endbuild
+    <% } %> 
 
     //- {# index.html/head/html5polyfill #}
-    
-    include ./initializr/modernizr/modernizr.jade
-    
-    //- {# index.html/head/respond #}
 
     // bower:css
     // endbower
+
+    // endbuild
+    
+    <% if (initializrModules.indexOf('modernizr') != -1) { %>
+    include ./initializr/modernizr/modernizr.jade
+    <% } %>
+    
+    //- {# index.html/head/respond #}
+
   body(ng-app="app")
     //- {# index.html/body/firstbody #}
     //- {# index.html/body/content #}
     
+    <% if (initializrModules.indexOf('h5bp-content') != -1) { %>
     include ./initializr/h5bp-content/content.jade
+    <% } %>
 
     // ANGULAR TEST
     input(ng-model="example")

@@ -12,8 +12,10 @@ module.exports = function(gulp, config) {
     gulpif = require('gulp-if'),
     gutil = require('gulp-util'),
     jade = require('gulp-jade'),
+    mainBowerFiles = require('main-bower-files'),
     minifyCss = require('gulp-minify-css'),
     newer = require('gulp-newer'),
+    uglify = require('gulp-uglify'),
     usemin = require('gulp-usemin'),
     useref = require('gulp-useref');
 
@@ -40,7 +42,10 @@ module.exports = function(gulp, config) {
 
   // Process css files
   gulp.task('cssServer', function(cb) {
-    return gulp.src(config.build.cssServerFiles, {base: './'})
+    var files = mainBowerFiles('**/*.css').concat(config.build.cssServerFiles);
+
+    return gulp.src(files, {base: './'})
+      .pipe(debug({title: 'cssServer'}))
       .pipe(concat('public/css/main.min.css', {newLine: ''}))
       .pipe(minifyCss({keepBreaks: true}))
       .pipe(gulp.dest(config.build.build));
@@ -73,8 +78,12 @@ module.exports = function(gulp, config) {
 
   // Process js client files
   gulp.task('jsClient', function(cb) {
-    return gulp.src(config.build.jsClientFiles, {base: './'})
-      .pipe(newer(config.build.build))
+    var files = mainBowerFiles('**/*.js').concat(config.build.jsClientFiles);
+
+    return gulp.src(files, {base: './'})
+      .pipe(debug({title: 'jsClient'}))
+      .pipe(concat('public/js/app.min.js', {newLine: ''}))
+      .pipe(uglify())
       .pipe(gulp.dest(config.build.build));
   });
 

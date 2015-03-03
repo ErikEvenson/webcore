@@ -37,7 +37,8 @@ buildConfig = {
   ],
 
   jsClientFiles: [
-    './public/js/**/*.js'
+    './public/js/**/*.js',
+    '!./public/js/vendor/**/*.js'
   ],
 
   jsServerFiles: [
@@ -54,7 +55,8 @@ buildConfig = {
   ],
 
   vendorFiles: [
-    './public/bower_components{,/**}'
+    './public/bower_components{,/**}',
+    './public/js/vendor{,/**}'
   ],
 
   jsNoLintFiles: [

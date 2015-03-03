@@ -46,6 +46,7 @@ Local:
 - [gulp](http://gulpjs.com/) 3.8.11 - 'The streaming build system.'
 - [gulp-cached](https://github.com/wearefractal/gulp-cached) 1.0.2 - 'A simple in-memory file cache for gulp.'
 - [gulp-concat](https://github.com/wearefractal/gulp-concat) 2.5.2 - 'Streaming concat middleware for gulp.'
+- [gulp-debug]() 2.0.1
 - [gulp-develop-server](https://github.com/narirou/gulp-develop-server) 0.2.5 - 'Development assistant for node.js server by gulp.'
 - [gulp-gjslint](https://github.com/TomSeldon/gulp-gjslint) 0.1.4 - 'Gulp plugin to lint Javascript using Google Closure linter.'
 - [gulp-gzip](https://github.com/jstuckey/gulp-gzip) 0.0.8 - 'Gzip plugin for gulp.'
@@ -55,10 +56,12 @@ Local:
 - [gulp-minify-css]()
 - [gulp-tar](https://github.com/sindresorhus/gulp-tar) 1.3.2 - 'Create tarball from files.'
 - [gulp-newer](https://github.com/tschaub/gulp-newer) 0.5.0 - 'Pass through newer source files only.'
+- [gulp-uglify]()
 - [gulp-useref]()
 - [gulp-util](https://github.com/gulpjs/gulp-util) 3.0.3 - 'Utilities for gulp plugins.'
 - [heroku-client](https://github.com/heroku/node-heroku-client) 1.9.1 - 'A wrapper around the Heroku API for Node.js.'
 - [jade](http://jade-lang.com/) 1.92 - 'Robust, elegant, feature rich template engine for nodejs.'
+- [main-bower-files]()
 - [map-stream]() 0.0.5 - 'Create a through stream from an asyncronous function.'
 - [mongo-utils]() 0.4.5 - 'Friendly interface to mongodump and mongorestore commands.'
 - [mongoose](http://mongoosejs.com/) 3.8.23 - 'Elegant mongodb object modeling for node.js.'
