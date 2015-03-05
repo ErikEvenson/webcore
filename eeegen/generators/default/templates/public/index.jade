@@ -1,0 +1,70 @@
+doctype html
+//- {# index.html/htmltag #}
+html
+  head
+    meta(charset="utf-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge,chrome=1")
+    title ANGULAR TEST
+    meta(name="description", content="")
+    meta(name=viewport, content="width=device-width, initial-scale=1")
+    //- {# index.html/head/appletouch #}
+    
+    // build:css css/main.min.css
+    
+    //- {# index.html/head/styleslib #}
+
+    <% if (initializrModules.indexOf('h5bp-css') != -1) { %>
+    include ./initializr/h5bp-css/includenormalize.jade
+    <% } %>
+    
+    //- {# index.html/head/styleslib2 #}
+    //- {# index.html/head/styleslib3 #}
+    //- {# index.html/head/stylesheet #}
+    
+    <% if (initializrModules.indexOf('h5bp-stylefile') != -1) { %>
+    include ./initializr/h5bp-stylefile/stylesheetinclude.jade
+    <% } %> 
+
+    //- {# index.html/head/html5polyfill #}
+
+    // bower:css
+    // endbower
+
+    // endbuild
+    
+    <% if (initializrModules.indexOf('modernizr') != -1) { %>
+    include ./initializr/modernizr/modernizr.jade
+    <% } %>
+    
+    //- {# index.html/head/respond #}
+
+  body(ng-app="app")
+    //- {# index.html/body/firstbody #}
+    //- {# index.html/body/content #}
+    
+    <% if (initializrModules.indexOf('h5bp-content') != -1) { %>
+    include ./initializr/h5bp-content/content.jade
+    <% } %>
+
+    // ANGULAR TEST
+    input(ng-model="example")
+    div {{ example }}
+    // END ANGULAR TEST
+
+    // build:js js/app.min.js
+
+    //- {# index.html/body/jslib #}
+    //- {# index.html/body/buildcommentjsstart #}
+    //- {# index.html/body/jslib2 #}
+    //- {# index.html/body/myjs #}
+
+    // bower:js
+    // endbower
+
+    script(type='text/javascript', src="js/app.js")
+
+    //- {# index.html/body/buildcommentjsend #}
+    //- {# index.html/body/end #}
+    //- {# index.html/body/end5 #}
+
+    // endbuild

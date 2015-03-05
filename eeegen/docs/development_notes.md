@@ -7,14 +7,13 @@
 
 ## TODOs
 
-- Add maint mode
+- Add CSS compression/processing/concatenation
+- Add heroku maint mode
 - Create/clean AWS bucket
-- Refactor gulp task loading
-- Add CDN
+- Add CDNify
 - Add shrinkwrap
-- Add local env module
 - Add testing
-- Add gulp-plumber
+- Add gulp-plumber?
 - Add BrowserSync
 - Add source maps
 - Add logging
