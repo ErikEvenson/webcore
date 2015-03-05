@@ -64,7 +64,11 @@ buildConfig = {
   ],
 
   source: './',
-  temp: './temp/'
+  temp: './temp/',
+
+  testFiles: [
+    './test/**/*.js'
+  ]
 };
 
 /** @param {Object} buildConfig.jsFiles - Combine all js files. */

@@ -42,7 +42,9 @@ Global (reflect and changes to these in the README.md file):
 
 - [bower](http://bower.io/) 1.3.12 - 'A package manager for the web.'
 - [gulp](http://gulpjs.com/) 3.8.10 - 'The streaming build system.'
+- [karma-cli](https://github.com/karma-runner/karma-cli) 0.0.4 - 'The Karma command line interface.'
 - [npm](https://npmjs.org/doc/) 2.5.0 - "node package manager"
+- [mocha](https://github.com/mochajs/mocha) 2.1.0 - 'mocha - simple, flexible, fun javascript test framework for node.js & the browser.'
 * [npm-check-updates](https://www.npmjs.org/package/npm-check-updates) 1.5.1 [Fork](https://github.com/EATechnologies/npm-check-updates) - Find newer versions of dependencies than what your package.json allows.
 * [npm-install-missing](https://www.npmjs.org/package/npm-install-missing) 0.1.4 - 'This module will attempt to reinstall any missing dependencies. It can be called via the command line or used programmatically.'
 - [slush](http://slushjs.github.io/#/) 1.0.1 'The streaming scaffolding system - Gulp as a replacement for Yeoman.'

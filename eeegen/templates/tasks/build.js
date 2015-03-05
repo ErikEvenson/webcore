@@ -12,9 +12,11 @@ module.exports = function(gulp, config) {
     gulpif = require('gulp-if'),
     gutil = require('gulp-util'),
     jade = require('gulp-jade'),
+    karma = require('karma').server,
     mainBowerFiles = require('main-bower-files'),
     minifyCss = require('gulp-minify-css'),
     minifyHtml = require('gulp-minify-html'),
+    mocha = require('gulp-mocha'),
     newer = require('gulp-newer'),
     uglify = require('gulp-uglify'),
     useref = require('gulp-useref');
@@ -103,6 +105,17 @@ module.exports = function(gulp, config) {
     return gulp.src(config.build.miscFiles, {base: './'})
       .pipe(newer(config.build.build))
       .pipe(gulp.dest(config.build.build));
+  });
+
+  // Test
+  gulp.task('test', function(done) {
+    // karma.start({
+    //   configFile: config.build.basepath + '/karma.conf.js',
+    //   singleRun: true
+    // }, done);
+
+    return gulp.src(config.build.testFiles, {read: false})
+      .pipe(mocha({reporter: 'nyan'}));
   });
 
   // Move vendor files to build folder
