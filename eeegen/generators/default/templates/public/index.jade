@@ -4,7 +4,7 @@ html
   head
     meta(charset="utf-8")
     meta(http-equiv="X-UA-Compatible", content="IE=edge,chrome=1")
-    title ANGULAR TEST
+    title EEEGEN
     meta(name="description", content="")
     meta(name=viewport, content="width=device-width, initial-scale=1")
     //- {# index.html/head/appletouch #}
@@ -38,7 +38,7 @@ html
     
     //- {# index.html/head/respond #}
 
-  body(ng-app="app")
+  body
     //- {# index.html/body/firstbody #}
     //- {# index.html/body/content #}
     
@@ -46,10 +46,7 @@ html
     include ./initializr/h5bp-content/content.jade
     <% } %>
 
-    // ANGULAR TEST
-    input(ng-model="example")
-    div {{ example }}
-    // END ANGULAR TEST
+    p CONTENT
 
     // build:js js/app.min.js
 

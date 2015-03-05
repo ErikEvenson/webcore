@@ -1,6 +1,6 @@
 doctype html
 //- {# index.html/htmltag #}
-html
+html(ng-app='app')
   head
     meta(charset="utf-8")
     meta(http-equiv="X-UA-Compatible", content="IE=edge,chrome=1")
@@ -38,7 +38,7 @@ html
     
     //- {# index.html/head/respond #}
 
-  body(ng-app="app")
+  body(ng-controller="PeopleController")
     //- {# index.html/body/firstbody #}
     //- {# index.html/body/content #}
     
@@ -47,8 +47,7 @@ html
     
 
     // ANGULAR TEST
-    input(ng-model="example")
-    div {{ example }}
+    {{person.name}} lives in {{person.city}}
     // END ANGULAR TEST
 
     // build:js js/app.min.js
