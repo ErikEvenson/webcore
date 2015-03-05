@@ -76,10 +76,19 @@ To ease deployment of an already provisioned and re-build app, add the app name 
 General build commands are documented inline in [config/build.js!](config/build.js).
 
 - gulp (default)
+
+Runs a development server with un-optimized files.  Watches source files and rebuilds.
+
 - gulp build
+
+Builds and lints an optimized version of the project in the build directory.
+
 - gulp buildClient
 - gulp buildServer
 - gulp clean
+
+Cleans the build and temp directory.
+
 - gulp cssServer
 - gulp htmlServer
 - gulp jadeServer
