@@ -48,6 +48,7 @@ Local:
 - [del](https://github.com/sindresorhus/del) 1.1.1 - 'Delete files/folders using globs.'
 - [express](http://expressjs.com/) 4.9.8 - 'Fast, unopinionated, minimalist web framework for Node.js.'
 - [gulp](http://gulpjs.com/) 3.8.11 - 'The streaming build system.'
+- [gulp-bower](https://github.com/zont/gulp-bower) 0.0.10 - 'Install Bower packages.'
 - [gulp-cached](https://github.com/wearefractal/gulp-cached) 1.0.2 - 'A simple in-memory file cache for gulp.'
 - [gulp-concat](https://github.com/wearefractal/gulp-concat) 2.5.2 - 'Streaming concat middleware for gulp.'
 - [gulp-debug]() 2.0.1

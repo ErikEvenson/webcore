@@ -7,6 +7,7 @@
 module.exports = function(gulp, config) {
   var
     concat = require('gulp-concat'),
+    bower = require('gulp-bower'),
     debug = require('gulp-debug'),
     del = require('del'),
     gulpif = require('gulp-if'),
@@ -20,6 +21,10 @@ module.exports = function(gulp, config) {
     newer = require('gulp-newer'),
     uglify = require('gulp-uglify'),
     useref = require('gulp-useref');
+
+  gulp.task('bower', function() {
+    return bower()
+  });
 
   // Build task
   gulp.task('build', ['buildClient', 'buildServer', 'lint'], function() {
@@ -43,7 +48,7 @@ module.exports = function(gulp, config) {
   });
 
   // Process css files
-  gulp.task('cssServer', function(cb) {
+  gulp.task('cssServer', ['bower'], function(cb) {
     var files = mainBowerFiles('**/*.css').concat(config.build.cssServerFiles);
 
     return gulp.src(files, {base: './'})
@@ -69,7 +74,7 @@ module.exports = function(gulp, config) {
   });
 
   // Process jade server files
-  gulp.task('jadeServer', function(cb) {
+  gulp.task('jadeServer', ['bower'], function(cb) {
     var LOCALS = {};
     var wiredep = require('wiredep').stream;
 
@@ -83,7 +88,7 @@ module.exports = function(gulp, config) {
   });
 
   // Process js client files
-  gulp.task('jsClient', function(cb) {
+  gulp.task('jsClient', ['bower'], function(cb) {
     var files = mainBowerFiles('**/*.js').concat(config.build.jsClientFiles);
 
     return gulp.src(files, {base: './'})
