@@ -41,7 +41,6 @@ Global:
 
 Local:
 
-- [angularjs](https://angularjs.org/) 1.3.14 - 'HTML enhanced for web apps!'
 - [async](https://github.com/caolan/async) 0.9.0 - 'Async utilities for node and the browser.'
 - [aws-sdk]() 2.1.16 - 'AWS SDK for JavaScript in the browser and Node.js.'
 - [chai]()

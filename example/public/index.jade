@@ -1,10 +1,10 @@
 doctype html
 //- {# index.html/htmltag #}
-html(ng-app='app')
+html
   head
     meta(charset="utf-8")
     meta(http-equiv="X-UA-Compatible", content="IE=edge,chrome=1")
-    title ANGULAR TEST
+    title EEEGEN
     meta(name="description", content="")
     meta(name=viewport, content="width=device-width, initial-scale=1")
     //- {# index.html/head/appletouch #}
@@ -14,15 +14,11 @@ html(ng-app='app')
     //- {# index.html/head/styleslib #}
 
     
-    include ./initializr/h5bp-css/includenormalize.jade
-    
     
     //- {# index.html/head/styleslib2 #}
     //- {# index.html/head/styleslib3 #}
     //- {# index.html/head/stylesheet #}
     
-    
-    include ./initializr/h5bp-stylefile/stylesheetinclude.jade
      
 
     //- {# index.html/head/html5polyfill #}
@@ -33,22 +29,16 @@ html(ng-app='app')
     // endbuild
     
     
-    include ./initializr/modernizr/modernizr.jade
-    
     
     //- {# index.html/head/respond #}
 
-  body(ng-controller="PeopleController")
+  body
     //- {# index.html/body/firstbody #}
     //- {# index.html/body/content #}
     
     
-    include ./initializr/h5bp-content/content.jade
-    
 
-    // ANGULAR TEST
-    {{person.name}} lives in {{person.city}}
-    // END ANGULAR TEST
+    p CONTENT
 
     // build:js js/app.min.js
 

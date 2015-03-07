@@ -2,6 +2,5 @@
   "name": "example",
   "version": "0.1.0",
   "dependencies": {
-    "bootstrap": "~3.3.2"
   }
 }
