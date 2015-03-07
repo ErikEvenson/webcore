@@ -12,6 +12,7 @@
 */
 module.exports = function(gulp, config) {
   var
+    _ = require('underscore'),
     argv = require('yargs').argv,
     async = require('async'),
     fs = require('fs'),
@@ -30,10 +31,14 @@ module.exports = function(gulp, config) {
       instance = options.instance;
 
     // Guard clauses
-    if (instance) {
-      appName = config.build.instances[instance];
+    instances = config.build.instances;
+
+    if (instance && _.contains(_.keys(instances), instance)) {
+      instanceConfig = config.build.instances[instance];
+      appName = instanceConfig.herokuAppName;
       if (!appName) { return null; }
     }
+    else { return null; }
 
     app = heroku.apps(appName);
     return app;
@@ -48,41 +53,10 @@ module.exports = function(gulp, config) {
     });
   }
 
-  // Deploy build to a source URL
-  gulp.task('heroku-deploy', function(cb) {
-    var app = getApp({
-      appName: argv.app,
-      instance: instance
-    });
-
-    if (!app) {
-      console.error('An app must be provided.');
-      return;
-    }
-
-    async.waterfall([
-      function(cb) {
-        lib.deploySource(app, config, cb);
-      },
-      function(source, cb) {
-        getUrl = source.source_blob.get_url;
-        lib.createBuild(app, getUrl, cb);
-      }
-    ], function(err, result) {
-      if (err) {
-        console.log(err.body.message);
-        cb();
-      } else {
-        console.log(result);
-        cb();
-      }
-    });
-  });
-
   gulp.task('heroku-backup', function(cb) {
     var app = getApp({
       appName: argv.app,
-      instance: instance
+      instance: argv.instance
     });
 
     var options = {
@@ -162,6 +136,37 @@ module.exports = function(gulp, config) {
       var output = results[2];
       console.error(output.stderr);
       console.info(output.stdout);
+    });
+  });
+
+  // Deploy build to a source URL
+  gulp.task('heroku-deploy', function(cb) {
+    var app = getApp({
+      appName: argv.app,
+      instance: instance
+    });
+
+    if (!app) {
+      console.error('An app must be provided.');
+      return;
+    }
+
+    async.waterfall([
+      function(cb) {
+        lib.deploySource(app, config, cb);
+      },
+      function(source, cb) {
+        getUrl = source.source_blob.get_url;
+        lib.createBuild(app, getUrl, cb);
+      }
+    ], function(err, result) {
+      if (err) {
+        console.log(err.body.message);
+        cb();
+      } else {
+        console.log(result);
+        cb();
+      }
     });
   });
 

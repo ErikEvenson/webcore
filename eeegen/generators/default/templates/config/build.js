@@ -16,8 +16,14 @@ buildConfig = {
   ],
 
   instances: {
-    // production: null,
-    staging: 'ancient-springs-6665'
+    // production: {
+    //   awsS3BucketLocation: 'http://TBD.s3.amazonaws.com/',
+    //   herokuAppName: 'TBD'
+    // },
+    // staging: {
+    //   awsS3BucketLocation: 'http://TBD.s3.amazonaws.com/',
+    //   herokuAppName: 'TBD'
+    // }
   },
 
   htmlServerFiles: [

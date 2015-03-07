@@ -23,7 +23,7 @@ module.exports = function(gulp, config) {
     useref = require('gulp-useref');
 
   gulp.task('bower', function() {
-    return bower()
+    return bower();
   });
 
   // Build task
