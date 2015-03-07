@@ -43,7 +43,7 @@ Local:
 
 - [angularjs](https://angularjs.org/) 1.3.14 - 'HTML enhanced for web apps!'
 - [async](https://github.com/caolan/async) 0.9.0 - 'Async utilities for node and the browser.'
-- [aws-sdk]() 2.1.4 - 'AWS SDK for JavaScript in the browser and Node.js.'
+- [aws-sdk]() 2.1.16 - 'AWS SDK for JavaScript in the browser and Node.js.'
 - [chai]()
 - [debug](https://github.com/visionmedia/debug) 2.1.1 - 'Tiny node.js & browser debugging utility for your libraries and applications.'
 - [del](https://github.com/sindresorhus/del) 1.1.1 - 'Delete files/folders using globs.'
