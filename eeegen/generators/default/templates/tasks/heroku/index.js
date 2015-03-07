@@ -143,7 +143,7 @@ module.exports = function(gulp, config) {
   gulp.task('heroku-deploy', function(cb) {
     var app = getApp({
       appName: argv.app,
-      instance: instance
+      instance: argv.instance
     });
 
     if (!app) {

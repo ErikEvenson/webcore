@@ -60,8 +60,18 @@ buildConfig = {
     'Procfile'
   ],
 
+  /*
+   * Vendor files are files that will be made available on the build app's
+   * static file server.  These files typically do not include bower css and
+   * javascript files as these are optimized into a single css and js file.
+   */
   vendorFiles: [
     './public/bower_components{,/**}',
+    '!./public/bower_components/**/*.map',
+    '!./public/bower_components/**/*.coffee',
+    '!./public/bower_components/**/*.js',
+    '!./public/bower_components/**/*.less',
+    '!./public/bower_components/**/*.css',
     './public/js/vendor{,/**}'
   ],
 

@@ -44,10 +44,12 @@ Local:
 - [async](https://github.com/caolan/async) 0.9.0 - 'Async utilities for node and the browser.'
 - [aws-sdk]() 2.1.16 - 'AWS SDK for JavaScript in the browser and Node.js.'
 - [chai]()
+- [concurrent-transform](https://github.com/segmentio/concurrent-transform) 1.0.0 - 'Add some concurrency to a transform stream.'
 - [debug](https://github.com/visionmedia/debug) 2.1.1 - 'Tiny node.js & browser debugging utility for your libraries and applications.'
 - [del](https://github.com/sindresorhus/del) 1.1.1 - 'Delete files/folders using globs.'
 - [express](http://expressjs.com/) 4.9.8 - 'Fast, unopinionated, minimalist web framework for Node.js.'
 - [gulp](http://gulpjs.com/) 3.8.11 - 'The streaming build system.'
+- [gulp-awspublish](https://github.com/pgherveou/gulp-awspublish) 1.0.6 - 'gulp plugin to publish files to amazon s3.'
 - [gulp-bower](https://github.com/zont/gulp-bower) 0.0.10 - 'Install Bower packages.'
 - [gulp-cached](https://github.com/wearefractal/gulp-cached) 1.0.2 - 'A simple in-memory file cache for gulp.'
 - [gulp-concat](https://github.com/wearefractal/gulp-concat) 2.5.2 - 'Streaming concat middleware for gulp.'
@@ -61,6 +63,7 @@ Local:
 - [gulp-minify-css]()
 - [gulp-minify-html]()
 - [gulp-mocha]()
+- [gulp-replace]()
 - [gulp-tar](https://github.com/sindresorhus/gulp-tar) 1.3.2 - 'Create tarball from files.'
 - [gulp-newer](https://github.com/tschaub/gulp-newer) 0.5.0 - 'Pass through newer source files only.'
 - [gulp-uglify]()
