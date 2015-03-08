@@ -187,7 +187,9 @@ var createTarball = function createTarball(options, cb) {
     var instanceConfig = instances[instance];
 
     if (instanceConfig.awsS3Bucket) {
-      files = files.concat(config.build.herokuSlugStaticFilesNegation);
+      files = files.concat(
+        '!' + config.build.build + 'public{,/**}'
+      );
     }
   }
 

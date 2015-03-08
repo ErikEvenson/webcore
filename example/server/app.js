@@ -6,6 +6,7 @@
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
 var
+  bodyParser = require('body-parser'),
   config = require('./config/environment'),
   debug = require('debug')(__filename),
   express = require('express'),
@@ -18,8 +19,11 @@ var
 
 require('./lib/connection')(config);
 app = express();
+app.set('basepath', __dirname);
+app.use(bodyParser.json());
+
 // require('./config/express');
-routes = require('./routes/index')(app);
+routes = require('./routes')(app);
 
 // middleware
 if (config.env === 'production' || config.env === 'staging') {
@@ -31,7 +35,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
 app.use(express.static(path.join(__dirname, '..', 'public')));
-// app.use('/', routes);
+app.use('/', routes);
 
 app.listen(app.get('port'), function() {
   debug('Node app is running at localhost:' + app.get('port'));

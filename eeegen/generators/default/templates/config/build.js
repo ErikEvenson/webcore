@@ -28,10 +28,10 @@ buildConfig = {
     development: {
       awsS3Bucket: null,
       herokuAppName: null
-    },
+    }
     // production: {
-    //   awsS3Bucket: 'TBD',
-    //   herokuAppName: 'TBD'
+    //   awsS3Bucket: null,
+    //   herokuAppName: null
     // },
     // staging: {
     //   awsS3Bucket: null,
@@ -41,14 +41,12 @@ buildConfig = {
 
   // htmlServerFiles is an array of sources of server-delivered html files.
   htmlServerFiles: [
-    './public/**/*.html'
+    './server/**/*.html'
   ],
 
   // jadeServerFiles is an array of sources of server-delivered jade files.
   jadeServerFiles: [
-    './public/**/*.jade',
-    '!./public/initializr{,/**}',
-    '!./public/bower_components{,**}'
+    './server/**/*.jade'
   ],
 
   // jsBuildFiles is an array of javascript build files that are to be watched
@@ -118,17 +116,6 @@ buildConfig = {
 buildConfig.herokuSlugFiles = [
   buildConfig.build + '*',
   buildConfig.build + '**/*'
-];
-
-/**
- * @param {Array} buildConfig.herokuSlugStaticFilesNegation - Slug static
- * files that can be removed from a heroku instance that uses a static file
- * server.
- */
-buildConfig.herokuSlugStaticFilesNegation = [
-  '!' + buildConfig.build + 'public/bower_components{,/**}',
-  '!' + buildConfig.build + 'public/css{,/**}',
-  '!' + buildConfig.build + 'public/js{,/**}'
 ];
 
 /** @param {Array} buildConfig.jsFiles - Combine all js files. */

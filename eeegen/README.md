@@ -103,7 +103,7 @@ This will create a tarball in the `temp` directory, upload it to a temporary loc
 To ease deployment of an already provisioned and re-build app, add the app name as a staging instance to `config/build.js` and deploy with:
 
 ```bash
-  gulp build --instance staging
+  gulp clean && gulp build --instance staging
   gulp deploy --instance staging
 ```
 
@@ -116,7 +116,7 @@ To serve static assets from AWS S3, first create a AWS S3 bucket with:
 Add the bucketname to the staging instance in `config/build.js` and deploy with:
 
 ```bash
-  gulp build --instance staging
+  gulp clean && gulp build --instance staging
   gulp deploy --instance staging
 ```
 
