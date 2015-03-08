@@ -128,8 +128,9 @@ module.exports = function(gulp, config) {
 
     return gulp.src(config.build.jadeServerFiles, {base: './'})
       .pipe(wiredep({
+        bowerJson: require(path.join(config.build.basepath, './bower.json')),
         directory: path.join(config.build.basepath, 'public/bower_components/'),
-        bowerJson: require(path.join(config.build.basepath, './bower.json'))
+        ignorePath: /(\.\.\/)*public/
       }))
       .pipe(jade({locals: LOCALS, pretty: true}))
       .pipe(gulp.dest('./'));
