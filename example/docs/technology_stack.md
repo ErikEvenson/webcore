@@ -43,6 +43,7 @@ Local:
 
 - [async](https://github.com/caolan/async) 0.9.0 - 'Async utilities for node and the browser.'
 - [aws-sdk]() 2.1.16 - 'AWS SDK for JavaScript in the browser and Node.js.'
+- [body-parser]() 1.12.0 - ''
 - [chai]()
 - [concurrent-transform](https://github.com/segmentio/concurrent-transform) 1.0.0 - 'Add some concurrency to a transform stream.'
 - [debug](https://github.com/visionmedia/debug) 2.1.1 - 'Tiny node.js & browser debugging utility for your libraries and applications.'
