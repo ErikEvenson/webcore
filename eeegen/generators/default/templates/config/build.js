@@ -33,10 +33,10 @@ buildConfig = {
     //   awsS3Bucket: 'TBD',
     //   herokuAppName: 'TBD'
     // },
-    staging: {
-      awsS3Bucket: 'peaceful-depths-5616',
-      herokuAppName: 'peaceful-depths-5616'
-    }
+    // staging: {
+    //   awsS3Bucket: null,
+    //   herokuAppName: null
+    // }
   },
 
   // htmlServerFiles is an array of sources of server-delivered html files.
@@ -114,26 +114,31 @@ buildConfig = {
   ]
 };
 
-/** @param {Object} buildConfig.herokuSlugFiles - Slug static files. */
+/** @param {Array} buildConfig.herokuSlugFiles - Slug static files. */
 buildConfig.herokuSlugFiles = [
   buildConfig.build + '*',
   buildConfig.build + '**/*'
 ];
 
+/**
+ * @param {Array} buildConfig.herokuSlugStaticFilesNegation - Slug static
+ * files that can be removed from a heroku instance that uses a static file
+ * server.
+ */
 buildConfig.herokuSlugStaticFilesNegation = [
   '!' + buildConfig.build + 'public/bower_components{,/**}',
   '!' + buildConfig.build + 'public/css{,/**}',
   '!' + buildConfig.build + 'public/js{,/**}'
-]
+];
 
-/** @param {Object} buildConfig.jsFiles - Combine all js files. */
+/** @param {Array} buildConfig.jsFiles - Combine all js files. */
 buildConfig.jsFiles = [].concat(
   buildConfig.jsBuildFiles,
   buildConfig.jsClientFiles,
   buildConfig.jsServerFiles
 );
 
-/** @param {Object} buildConfig.lintFiles - Create list of lintable jsfiles. */
+/** @param {Array} buildConfig.lintFiles - Create list of lintable jsfiles. */
 buildConfig.jsLintFiles = [].concat(
   buildConfig.jsFiles,
   buildConfig.jsNoLintFiles

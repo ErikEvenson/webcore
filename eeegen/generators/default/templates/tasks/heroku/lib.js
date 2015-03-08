@@ -191,8 +191,6 @@ var createTarball = function createTarball(options, cb) {
     }
   }
 
-  console.log('xxxx', files);
-
   gulp.src(files)
     .pipe(tar(config.build.TARFILE_NAME))
     .pipe(gzip())

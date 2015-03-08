@@ -100,16 +100,24 @@ To setup the app for the first time:
 
 This will create a tarball in the `temp` directory, upload it to a temporary location on AWS, and have Heroku use it to provision the app.  TBD -- allow choice of app name.  The app will be available at [https://appName.herokuapp.com](https://appName.herokuapp.com) after a short delay.
 
-To deploy an already provisioned and re-built app with changes:
+To ease deployment of an already provisioned and re-build app, add the app name as a staging instance to `config/build.js` and deploy with:
 
 ```bash
-  gulp heroku-deploy --app appName
+  gulp build --instance staging
+  gulp deploy --instance staging
 ```
 
-To ease deployment of an already provisioned and re-build app, add the app name as an instance to `config/build.js` and deploy with:
+To serve static assets from AWS S3, first create a AWS S3 bucket with:
 
 ```bash
-  gulp heroku-deploy --instance staging
+  gulp aws-s3-createBucket --name <bucketName>
+```
+
+Add the bucketname to the staging instance in `config/build.js` and deploy with:
+
+```bash
+  gulp build --instance staging
+  gulp deploy --instance staging
 ```
 
 More details are provided in the docs.
