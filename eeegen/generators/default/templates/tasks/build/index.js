@@ -8,7 +8,6 @@ module.exports = function(gulp, config) {
   var
     _ = require('underscore'),
     argv = require('yargs').argv,
-    awspublish = require('gulp-awspublish'),
     concat = require('gulp-concat'),
     bower = require('gulp-bower'),
     debug = require('gulp-debug'),
@@ -17,12 +16,12 @@ module.exports = function(gulp, config) {
     gutil = require('gulp-util'),
     jade = require('gulp-jade'),
     karma = require('karma').server,
+    lib = require('./lib')(config),
     mainBowerFiles = require('main-bower-files'),
     minifyCss = require('gulp-minify-css'),
     minifyHtml = require('gulp-minify-html'),
     mocha = require('gulp-mocha'),
     newer = require('gulp-newer'),
-    parallelize = require('concurrent-transform'),
     path = require('path'),
     replace = require('gulp-replace'),
     uglify = require('gulp-uglify'),
@@ -34,37 +33,46 @@ module.exports = function(gulp, config) {
 
   // Build task
   gulp.task('build', ['buildClient', 'buildServer', 'lint'], function() {
-    // gulp.watch(source, ['misc']);
+    return;
   });
 
   // Build client task
   gulp.task('buildClient', ['jsClient'], function() {
-    // gulp.watch(source, ['misc']);
+    return;
   });
 
   // Build server task
   gulp.task('buildServer',
     ['cssServer', 'jsServer', 'htmlServer', 'misc', 'vendor'], function() {
-    // gulp.watch(source, ['misc']);
+    return;
   });
 
-  // Clean build folder
+  // Clean build folder and temp folder.
   gulp.task('clean', function(cb) {
     del([config.build.build + '*', config.build.temp + '*'], cb);
   });
 
-  // Process css files
+  // Concatenate and minify css files.
   gulp.task('cssServer', ['bower'], function(cb) {
+    // Get css files from bower and application.
     var files = mainBowerFiles('**/*.css').concat(config.build.cssServerFiles);
 
     return gulp.src(files, {base: './'})
-      .pipe(debug({title: 'cssServer'}))
+      // .pipe(debug({title: 'cssServer'}))
       .pipe(concat('public/css/main.min.css', {newLine: ''}))
       .pipe(minifyCss({keepBreaks: true}))
       .pipe(gulp.dest(config.build.build));
   });
 
-  // Process html files
+  gulp.task('deploy', ['heroku-deploy', 'syncS3Files'], function() {
+    return;
+  });
+  /*
+   * Process server-delivered html files.  Replace multiple css and javascript
+   * sources with processed css and javascript files.  Set origin for static
+   * files if instance is provided.  Minify resulting html and send to the
+   * build directory.
+   */
   gulp.task('htmlServer', ['jadeServer'], function(cb) {
     var
       instance = argv.instance,
@@ -87,10 +95,13 @@ module.exports = function(gulp, config) {
       else { return false; }
     };
 
-    return gulp.src(config.build.htmlServerFiles, {base: './'})
+    return gulp.src(config.build.htmlServerFiles, {base: config.build.basepath})
+      // Replace build blocks.
       .pipe(assets)
       .pipe(assets.restore())
       .pipe(useref())
+
+      // Set origin
       .pipe(gulpif(
         condition,
         replace('css/main.min.css', origin + 'css/main.min.css'))
@@ -99,6 +110,8 @@ module.exports = function(gulp, config) {
         condition,
         replace('js/app.min.js', origin + 'js/app.min.js'))
       )
+
+      // Minify
       .pipe(minifyHtml({
         conditionals: true,
         spare: true
@@ -106,7 +119,9 @@ module.exports = function(gulp, config) {
       .pipe(gulp.dest(config.build.build));
   });
 
-  // Process jade server files
+  /*
+   * Process server-delieverd jade files.  Wire up bower dependencies.
+   */
   gulp.task('jadeServer', ['bower'], function(cb) {
     var LOCALS = {};
     var wiredep = require('wiredep').stream;
@@ -120,25 +135,30 @@ module.exports = function(gulp, config) {
       .pipe(gulp.dest('./'));
   });
 
-  // Process js client files
+  /*
+   * Process client side javascript.  Concatenate and minify files and send
+   * to the build directory.
+   */
   gulp.task('jsClient', ['bower'], function(cb) {
     var files = mainBowerFiles('**/*.js').concat(config.build.jsClientFiles);
 
     return gulp.src(files, {base: './'})
-      .pipe(debug({title: 'jsClient'}))
+      // .pipe(debug({title: 'jsClient'}))
       .pipe(concat('public/js/app.min.js', {newLine: ''}))
       .pipe(uglify())
       .pipe(gulp.dest(config.build.build));
   });
 
-  // Process js server files
+  /*
+   * Process server side javascript files.  Send to the build directory.
+   */
   gulp.task('jsServer', function(cb) {
     return gulp.src(config.build.jsServerFiles, {base: './'})
       .pipe(newer(config.build.build))
       .pipe(gulp.dest(config.build.build));
   });
 
-  // Move miscellaneous files to build folder
+  // Move miscellaneous files to build directory.
   gulp.task('misc', function() {
     return gulp.src(config.build.miscFiles, {base: './'})
       .pipe(newer(config.build.build))
@@ -158,18 +178,21 @@ module.exports = function(gulp, config) {
 
     var instanceConfig = instances[instance];
 
-    // create a new publisher
-    var publisher = awspublish.create({
+    if (!instanceConfig.awsS3Bucket) {
+      console.log('Instance ' + instance + ' has no S3 bucket configured.');
+      return;
+    }
+
+    var files = [config.build.build + 'public/**/*'];
+
+    return lib.syncS3Bucket({
       bucket: instanceConfig.awsS3Bucket,
+      files: files,
+      gulp: gulp,
       key: config.env.AWS_ACCESS_KEY_ID,
-      region: config.aws.region,
+      region: config.env.region,
       secret: config.env.AWS_SECRET_ACCESS_KEY
     });
-
-    return gulp.src(config.build.build + 'public/**/*')
-      .pipe(parallelize(publisher.publish(), 20))
-      .pipe(publisher.sync())
-      .pipe(awspublish.reporter());
   });
 
   // Test
@@ -183,7 +206,7 @@ module.exports = function(gulp, config) {
       .pipe(mocha({reporter: 'nyan'}));
   });
 
-  // Move vendor files to build folder
+  // Move vendor files to build directory.
   gulp.task('vendor', function() {
     return gulp.src(config.build.vendorFiles, {base: './'})
       .pipe(newer(config.build.build))

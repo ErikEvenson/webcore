@@ -153,7 +153,7 @@ module.exports = function(gulp, config) {
 
     async.waterfall([
       function(cb) {
-        lib.deploySource(app, config, cb);
+        lib.deploySource(app, config, argv.instance, cb);
       },
       function(source, cb) {
         getUrl = source.source_blob.get_url;
@@ -243,7 +243,10 @@ module.exports = function(gulp, config) {
   });
 
   gulp.task('heroku-tarball', function(cb) {
-    lib.createTarball(config, cb);
+    return lib.createTarball({
+      config: config,
+      instance: argv.instance
+    }, cb);
   });
 
   // heroku API

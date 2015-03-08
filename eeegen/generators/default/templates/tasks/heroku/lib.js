@@ -1,4 +1,5 @@
 var
+  _ = require('underscore'),
   async = require('async'),
   fs = require('fs'),
   gulp = require('gulp'),
@@ -174,19 +175,39 @@ var createSource = function createSource(app, cb) {
   );
 };
 
-var createTarball = function createTarball(config, cb) {
-  gulp.src([config.build.build + '*', config.build.build + '**/*'])
+var createTarball = function createTarball(options, cb) {
+  var
+    config = options.config,
+    instance = options.instance;
+
+  var files = config.build.herokuSlugFiles;
+  var instances = config.build.instances;
+
+  if (instance && _.contains(_.keys(instances), instance)) {
+    var instanceConfig = instances[instance];
+
+    if (instanceConfig.awsS3Bucket) {
+      files = files.concat(config.build.herokuSlugStaticFilesNegation);
+    }
+  }
+
+  console.log('xxxx', files);
+
+  gulp.src(files)
     .pipe(tar(config.build.TARFILE_NAME))
     .pipe(gzip())
     .pipe(gulp.dest(config.build.temp))
     .pipe(gulpCallback(cb));
 };
 
-var deploySource = function deploySource(app, config, cb) {
+var deploySource = function deploySource(app, config, instance, cb) {
   async.waterfall([
     // Create tarball
     function(cb) {
-      createTarball(config, cb);
+      createTarball({
+        config: config,
+        instance: instance
+      }, cb);
     },
     // Create upload source
     function(cb) {
