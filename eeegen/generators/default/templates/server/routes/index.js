@@ -5,7 +5,11 @@
 module.exports = function(app) {
   var
     express = require('express'),
+    path = require('path'),
     router = express.Router();
+
+  // Serve static assets
+  app.use(express.static(path.join(app.get('basepath'), '..', 'public')));
 
   // Insert routes below
   app.use('/api/organizations', require('../api/organization'));

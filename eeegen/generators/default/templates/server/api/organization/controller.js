@@ -18,10 +18,12 @@ var Thing = require('../../models/organization');
  * @param {Object} res - The response.
  */
 exports.index = function(req, res) {
-  Thing.find(function(err, things) {
-    if (err) { return handleError(res, err); }
-    return res.status(200).json(things);
-  });
+  Thing.find()
+    .sort('-date')
+    .exec(function(err, things) {
+      if (err) { return handleError(res, err); }
+      return res.status(200).json(things);
+    });
 };
 
 /**
@@ -37,13 +39,17 @@ exports.show = function(req, res) {
   });
 };
 
-// // Creates a new thing in the DB.
-// exports.create = function(req, res) {
-//   Thing.create(req.body, function(err, thing) {
-//     if(err) { return handleError(res, err); }
-//     return res.json(201, thing);
-//   });
-// };
+/**
+ * A function to create an object.
+ * @param {Object} req - The request.
+ * @param {Object} res - The response.
+ */
+exports.create = function(req, res) {
+  Thing.create(req.body, function(err, thing) {
+    if (err) { return handleError(res, err); }
+    return res.status(201).json(thing);
+  });
+};
 
 // // Updates an existing thing in the DB.
 // exports.update = function(req, res) {
@@ -71,7 +77,7 @@ exports.show = function(req, res) {
 //   });
 // };
 
-// function handleError(res, err) {
-//   return res.send(500, err);
-// }
+function handleError(res, err) {
+  return res.send(500, err);
+}
 

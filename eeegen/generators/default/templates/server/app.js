@@ -10,33 +10,35 @@ var
   config = require('./config/environment'),
   debug = require('debug')(__filename),
   express = require('express'),
-  forceSSL = require('./middleware/ssl').force(config.hostname),
-  path = require('path');
+  forceSSL = require('./middleware/ssl').force(config.hostname);
 
 var
   app,
   routes;
 
+// Connect to the database
 require('./lib/connection')(config);
+
+// Create the server app
 app = express();
+
+// Set the server app basepath
 app.set('basepath', __dirname);
+
+// Add middleware
 app.use(bodyParser.json());
 
-// require('./config/express');
-routes = require('./routes')(app);
-
-// middleware
 if (config.env === 'production' || config.env === 'staging') {
   app.use(forceSSL);
 }
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+// Set up the routes
+routes = require('./routes')(app);
 
-app.use(express.static(path.join(__dirname, '..', 'public')));
+// Serve server routes
 app.use('/', routes);
 
+// Start listening
 app.listen(app.get('port'), function() {
   debug('Node app is running at localhost:' + app.get('port'));
 });

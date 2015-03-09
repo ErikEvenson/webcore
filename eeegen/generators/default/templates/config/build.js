@@ -28,15 +28,11 @@ buildConfig = {
     development: {
       awsS3Bucket: null,
       herokuAppName: null
+    },
+    staging: {
+      awsS3Bucket: null,
+      herokuAppName: null
     }
-    // production: {
-    //   awsS3Bucket: null,
-    //   herokuAppName: null
-    // },
-    // staging: {
-    //   awsS3Bucket: null,
-    //   herokuAppName: null
-    // }
   },
 
   // htmlServerFiles is an array of sources of server-delivered html files.
@@ -58,8 +54,9 @@ buildConfig = {
   ],
 
   // jsClientFiles is an array of javascript files that are targetted towards
-  // the browser.
+  // the browser.  app.js is loaded first to guarantee initialization.
   jsClientFiles: [
+    './public/js/app.js',
     './public/js/**/*.js',
     '!./public/js/vendor/**/*.js'
   ],

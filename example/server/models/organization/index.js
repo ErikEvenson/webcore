@@ -3,6 +3,11 @@ var
   Schema = mongoose.Schema;
 
 var OrganizationSchema = new Schema({
+  date: {
+    type: Date,
+    required: true,
+    default: Date.now
+  },
   name: {
     type: String,
     required: true
