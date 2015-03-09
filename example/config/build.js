@@ -95,6 +95,7 @@ buildConfig = {
 
   // jsNoLintFiles is an array of sources that should not be linted.
   jsNoLintFiles: [
+    '!./public/js/app.js',
     '!./public/js/vendor{,/**}'
   ],
 
