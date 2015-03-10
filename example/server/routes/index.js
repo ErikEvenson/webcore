@@ -12,7 +12,7 @@ module.exports = function(app) {
   app.use(express.static(path.join(app.get('basepath'), '..', 'public')));
 
   // Insert routes below
-  app.use('/api/organizations', require('../api/organization'));
+  app.use('/api/organizations', require('../api/organizations'));
 
   /* GET home page. */
   router.get('/', function(req, res, next) {

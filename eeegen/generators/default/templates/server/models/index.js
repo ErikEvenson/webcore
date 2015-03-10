@@ -1,2 +1,2 @@
-require('./organization');
-require('./user');
+require('./organizations');
+require('./users');

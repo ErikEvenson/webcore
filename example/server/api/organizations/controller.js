@@ -10,7 +10,7 @@
 // 'use strict';
 
 // var _ = require('lodash');
-var Thing = require('../../models/organization');
+var Thing = require('../../models/organizations');
 
 /**
  * A function to provide a JSON array of objects.
