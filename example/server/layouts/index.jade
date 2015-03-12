@@ -45,7 +45,7 @@ html
                     span(class='input-group-btn')
                         button(ng-click='addOrganization()', class='btn btn-default') Add organization
         ul(class='list-group')
-            li(ng-repeat="organization in organizations | orderBy: '-date'", class='list-group-item')
+            li(ng-repeat="organization in organizations | orderBy: '-created'", class='list-group-item')
                 strong @{{ organization.name }}
                 span {{ organization.notes }}
 

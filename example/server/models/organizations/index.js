@@ -3,18 +3,17 @@ var
   Schema = mongoose.Schema;
 
 var OrganizationSchema = new Schema({
-  date: {
-    type: Date,
-    required: true,
-    default: Date.now
+  created: {
+    default: Date.now,
+    type: Date
   },
   name: {
-    type: String,
-    required: true
+    required: true,
+    type: String
   },
   notes: {
-    type: String,
-    required: false
+    required: false,
+    type: String
   }
 });
 

@@ -100,7 +100,7 @@ To setup the app for the first time:
 
 This will create a tarball in the `temp` directory, upload it to a temporary location on AWS, and have Heroku use it to provision the app.  TBD -- allow choice of app name.  The app will be available at [https://appName.herokuapp.com](https://appName.herokuapp.com) after a short delay.
 
-To ease deployment of an already provisioned and re-build app, add the app name as a staging instance to `config/build.js` and deploy with:
+To ease deployment of an already provisioned and re-build app, add the app name as a staging instance to `config/build.js` and the hostname to `server/config/environment/staging` and deploy with:
 
 ```bash
   gulp clean && gulp build --instance staging

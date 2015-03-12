@@ -5,8 +5,9 @@ var
 
     mongo: {
       uri: process.env.MONGOLAB_URI
-    }
+    },
 
+    sessionSecret: 'FILL_IN_THIS_SECRET'
   };
 
 /** @param {Constructor} module.exports - Export development config. */

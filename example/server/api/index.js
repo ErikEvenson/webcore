@@ -5,15 +5,11 @@
 module.exports = function(app) {
   var
     express = require('express'),
-    path = require('path'),
     router = express.Router();
 
-  require('../api')(app);
-
-  /* GET home page. */
-  router.get('/', function(req, res, next) {
-    res.sendFile(app.get('basepath') + '/layouts/index.html');
-  });
+  // Insert routes below
+  app.use('/api/organizations', require('./organizations'));
+  app.use('/api/users', require('./users'));
 
   return router;
 };

@@ -1,12 +1,13 @@
 var
   stagingConfig = {
     env: process.env.NODE_ENV,
-    hostname: 'ancient-springs-6665.herokuapp.com',
+    hostname: 'blooming-forest-5734.herokuapp.com',
 
     mongo: {
       uri: process.env.MONGOLAB_URI
-    }
+    },
 
+    sessionSecret: 'FILL_IN_THIS_SECRET'
   };
 
 /** @param {Constructor} module.exports - Export development config. */

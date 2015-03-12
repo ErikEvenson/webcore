@@ -10,7 +10,7 @@
 // 'use strict';
 
 // var _ = require('lodash');
-var Thing = require('../../models/organizations');
+var Thing = require('../../models/users');
 
 /**
  * A function to provide a JSON array of objects.
@@ -19,7 +19,7 @@ var Thing = require('../../models/organizations');
  */
 exports.index = function(req, res) {
   Thing.find()
-    .sort('-created')
+    .sort('-date')
     .exec(function(err, things) {
       if (err) { return handleError(res, err); }
       return res.status(200).json(things);
