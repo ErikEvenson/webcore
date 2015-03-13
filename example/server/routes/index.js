@@ -8,12 +8,20 @@ module.exports = function(app) {
     path = require('path'),
     router = express.Router();
 
+  /* GET home page. */
+  app.get('/', function(req, res, next) {
+    res.render('index', {
+      title: 'Angular sandbox',
+      user: req.user
+    });
+  });
+
+  require('./users')(app);
   require('../api')(app);
 
-  /* GET home page. */
-  router.get('/', function(req, res, next) {
-    res.sendFile(app.get('basepath') + '/layouts/index.html');
-  });
+  // router.get('/', function(req, res, next) {
+  //   res.sendFile(app.get('basepath') + '/layouts/index.html');
+  // });
 
   return router;
 };

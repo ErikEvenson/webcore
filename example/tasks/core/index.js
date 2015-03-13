@@ -63,9 +63,9 @@ module.exports = function(gulp, config) {
     return;
   });
 
-  // Build server task
+  // Build server task (removed htmlServer for now)
   gulp.task('buildServer',
-    ['cssServer', 'jsServer', 'htmlServer', 'misc', 'vendor'], function() {
+    ['cssServer', 'jsServer', 'misc', 'views', 'vendor'], function() {
     return;
   });
 
@@ -89,6 +89,7 @@ module.exports = function(gulp, config) {
   gulp.task('deploy', ['heroku-deploy', 'syncS3Files'], function() {
     return;
   });
+
   /*
    * Process server-delivered html files.  Replace multiple css and javascript
    * sources with processed css and javascript files.  Set origin for static
@@ -233,6 +234,13 @@ module.exports = function(gulp, config) {
   // Move vendor files to build directory.
   gulp.task('vendor', function() {
     return gulp.src(config.build.vendorFiles, {base: './'})
+      .pipe(newer(config.build.build))
+      .pipe(gulp.dest(config.build.build));
+  });
+
+  // Move views to build directory.
+  gulp.task('views', function() {
+    return gulp.src(config.build.viewFiles, {base: './'})
       .pipe(newer(config.build.build))
       .pipe(gulp.dest(config.build.build));
   });

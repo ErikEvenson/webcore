@@ -3,6 +3,7 @@ var
   compress = require('compression'),
   debug = require('debug')(__filename),
   express = require('express'),
+  flash = require('connect-flash'),
   morgan = require('morgan'),
   passport = require('passport'),
   path = require('path'),
@@ -50,6 +51,11 @@ module.exports = function(basepath) {
     secret: config.sessionSecret
   }));
 
+  // Set up view engines
+  app.set('views', path.join(basepath, './views'));
+  app.set('view engine', 'jade');
+
+  app.use(flash());
   app.use(passport.initialize());
   app.use(passport.session());
 

@@ -48,6 +48,7 @@ Local:
 - [chai]() - ''
 - [compression]() - ''
 - [concurrent-transform](https://github.com/segmentio/concurrent-transform) 1.0.0 - 'Add some concurrency to a transform stream.'
+- [connect-flash]() - ''
 - [debug](https://github.com/visionmedia/debug) 2.1.1 - 'Tiny node.js & browser debugging utility for your libraries and applications.'
 - [del](https://github.com/sindresorhus/del) 1.1.1 - 'Delete files/folders using globs.'
 - [express](http://expressjs.com/) 4.9.8 - 'Fast, unopinionated, minimalist web framework for Node.js.'

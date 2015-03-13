@@ -20,6 +20,7 @@ var Thing = require('../../models/users');
 exports.index = function(req, res) {
   Thing.find()
     .sort('-date')
+    .select('-password -salt')
     .exec(function(err, things) {
       if (err) { return handleError(res, err); }
       return res.status(200).json(things);
@@ -32,11 +33,13 @@ exports.index = function(req, res) {
  * @param {Object} res - The response.
  */
 exports.show = function(req, res) {
-  Thing.findById(req.params.id, function(err, thing) {
-    if (err) { return handleError(res, err); }
-    if (!thing) { return res.send(404); }
-    return res.json(thing);
-  });
+  Thing.findById(req.params.id)
+    .select('-password -salt')
+    .exec(function(err, thing) {
+      if (err) { return handleError(res, err); }
+      if (!thing) { return res.send(404); }
+      return res.json(thing);
+    });
 };
 
 /**

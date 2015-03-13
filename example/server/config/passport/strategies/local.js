@@ -3,6 +3,9 @@ var
   LocalStrategy = require('passport-local').Strategy,
   User = require('mongoose').model('User');
 
+/**
+  * Export the local strategy.
+  */
 module.exports = function() {
   passport.use(new LocalStrategy(function(username, password, done) {
     User.findOne({
@@ -21,7 +24,7 @@ module.exports = function() {
       if (!user.authenticate(password)) {
         return done(null, false, {
           message: 'Invalid password'
-        })
+        });
       }
 
       return done(null, user);

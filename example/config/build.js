@@ -42,7 +42,7 @@ buildConfig = {
 
   // jadeServerFiles is an array of sources of server-delivered jade files.
   jadeServerFiles: [
-    './server/**/*.jade'
+    './server/layouts/**/*.jade'
   ],
 
   // jsBuildFiles is an array of javascript build files that are to be watched
@@ -91,6 +91,11 @@ buildConfig = {
     '!./public/bower_components/**/*.less',
     '!./public/bower_components/**/*.css',
     './public/js/vendor{,/**}'
+  ],
+
+  // viewFiles is an array of view files that should be sent to the server.
+  viewFiles: [
+    './server/views/**/*.jade',
   ],
 
   // jsNoLintFiles is an array of sources that should not be linted.
