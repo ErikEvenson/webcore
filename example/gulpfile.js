@@ -52,7 +52,7 @@ process.env.DEBUG = process.env.DEBUG || '*';
 
 // Load tasks
 require('./tasks/aws')(gulp, config);
-require('./tasks/build')(gulp, config);
+require('./tasks/core')(gulp, config);
 require('./tasks/default')(gulp, config);
 require('./tasks/heroku')(gulp, config);
 require('./tasks/lint')(gulp, config);
