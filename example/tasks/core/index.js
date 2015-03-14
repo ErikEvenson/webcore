@@ -91,75 +91,6 @@ module.exports = function(gulp, config) {
   });
 
   /*
-   * Process server-delivered html files.  Replace multiple css and javascript
-   * sources with processed css and javascript files.  Set origin for static
-   * files if instance is provided.  Minify resulting html and send to the
-   * build directory.
-   */
-  gulp.task('htmlServer', ['jadeServer'], function(cb) {
-    var
-      instance = argv.instance,
-      instances = config.build.instances,
-      origin = '';
-
-    if (instance && _.contains(_.keys(instances), instance)) {
-      instanceConfig = instances[instance];
-
-      if (instanceConfig.awsS3Bucket) {
-        origin = 'https://' + instanceConfig.awsS3Bucket + '.s3.amazonaws.com/';
-      }
-    }
-
-    var instanceConfig = instances[instance];
-    var assets = useref.assets();
-
-    var condition = function(file) {
-      if (path.extname(file.path) === '.html') { return true; }
-      else { return false; }
-    };
-
-    return gulp.src(config.build.htmlServerFiles, {base: config.build.basepath})
-      // Replace build blocks.
-      .pipe(assets)
-      .pipe(assets.restore())
-      .pipe(useref())
-
-      // Set origin
-      .pipe(gulpif(
-        condition,
-        replace('css/main.min.css', origin + 'css/main.min.css'))
-      )
-      .pipe(gulpif(
-        condition,
-        replace('js/app.min.js', origin + 'js/app.min.js'))
-      )
-
-      // Minify
-      .pipe(minifyHtml({
-        conditionals: true,
-        spare: true
-      }))
-      .pipe(gulp.dest(config.build.build));
-  });
-
-  /*
-   * Process server-delieverd jade files.  Wire up bower dependencies.
-   */
-  gulp.task('jadeServer', ['bower'], function(cb) {
-    var LOCALS = {};
-    var wiredep = require('wiredep').stream;
-
-    return gulp.src(config.build.jadeServerFiles, {base: './'})
-      .pipe(wiredep({
-        bowerJson: require(path.join(config.build.basepath, './bower.json')),
-        directory: path.join(config.build.basepath, 'public/bower_components/'),
-        ignorePath: /(\.\.\/)*public/
-      }))
-      .pipe(jade({locals: LOCALS, pretty: true}))
-      .pipe(gulp.dest('./'));
-  });
-
-  /*
    * Process client side javascript.  Concatenate and minify files and send
    * to the build directory.
    */
@@ -239,9 +170,83 @@ module.exports = function(gulp, config) {
   });
 
   // Move views to build directory.
-  gulp.task('views', function() {
+  gulp.task('views', ['processViews'], function() {
     return gulp.src(config.build.viewFiles, {base: './'})
       .pipe(newer(config.build.build))
+      .pipe(gulp.dest(config.build.build));
+  });
+
+  /*
+   * Wire up bower dependencies.
+   */
+  gulp.task('wiredep', ['bower'], function(cb) {
+    var LOCALS = {};
+    var wiredep = require('wiredep').stream;
+
+    return gulp.src(config.build.wiredepFiles, {base: './'})
+      .pipe(wiredep({
+        bowerJson: require(path.join(config.build.basepath, './bower.json')),
+        directory: path.join(config.build.basepath, 'public/bower_components/'),
+        ignorePath: /(\.\.\/)*public/
+      }))
+      .pipe(jade({locals: LOCALS, pretty: true}))
+      .pipe(gulp.dest('./'));
+  });
+
+  /*
+   * Process server-delivered html files.  Replace multiple css and javascript
+   * sources with processed css and javascript files.  Set origin for static
+   * files if instance is provided.  Minify resulting html and send to the
+   * build directory.
+   */
+  gulp.task('processViews', ['wiredep'], function(cb) {
+    var
+      instance = argv.instance,
+      instances = config.build.instances,
+      origin = '';
+
+    if (instance && _.contains(_.keys(instances), instance)) {
+      instanceConfig = instances[instance];
+
+      if (instanceConfig.awsS3Bucket) {
+        origin = 'https://' + instanceConfig.awsS3Bucket + '.s3.amazonaws.com/';
+      }
+    }
+
+    var instanceConfig = instances[instance];
+    var assets = useref.assets();
+
+    var condition = function(file) {
+      if (path.extname(file.path) === '.html') { return true; }
+      else { return false; }
+    };
+
+    var files = [
+      './server/views/includes/cssBlock.html',
+      './server/views/includes/jsBlock.html'
+    ];
+
+    return gulp.src(files, {base: config.build.basepath})
+      // Replace build blocks.
+      .pipe(assets)
+      .pipe(assets.restore())
+      .pipe(useref())
+
+      // Set origin
+      .pipe(gulpif(
+        condition,
+        replace('css/main.min.css', origin + 'css/main.min.css'))
+      )
+      .pipe(gulpif(
+        condition,
+        replace('js/app.min.js', origin + 'js/app.min.js'))
+      )
+
+      // // Minify
+      // .pipe(minifyHtml({
+      //   conditionals: true,
+      //   spare: true
+      // }))
       .pipe(gulp.dest(config.build.build));
   });
 

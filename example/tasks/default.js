@@ -16,7 +16,7 @@ module.exports = function(gulp, config) {
   // Show project information
   debug(config.pkg.name + ' ' + config.pkg.version);
 
-  gulp.task('default', ['browserify', 'jadeServer', 'server:start'],
+  gulp.task('default', ['browserify', 'wiredep', 'server:start'],
     function() {
       var jadeWatcher = gulp.watch(
         config.build.jadeServerFiles,

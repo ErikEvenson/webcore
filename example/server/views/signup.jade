@@ -1,34 +1,27 @@
-doctype html
-html
-  head
-    meta(charset="utf-8")
-    meta(http-equiv="X-UA-Compatible", content="IE=edge,chrome=1")
-    title #{title}
-    meta(name="description", content="")
-    meta(name=viewport, content="width=device-width, initial-scale=1")
+extends ./bases/base.jade
 
-  body
-    each message, index in messages
-      div(class="flash")= message
-      
-    form(action='/signup', method='post')
-      div
-        label First name:
-        input(type='text', name='name.first')
-      div
-        label Last name:
-        input(type='text', name='name.last')
-      div
-        label Email:
-        input(type='text', name='email')
-      div
-        label Username:
-        input(type='text', name='username')
-      div
-        label Password:
-        input(type='password', name='password')
-      div
-        input(type='submit', value='Sign up')
+block content
+  each message, index in messages
+    div(class="flash")= message
+    
+  form(action='/signup', method='post')
+    div
+      label First name:
+      input(type='text', name='name.first')
+    div
+      label Last name:
+      input(type='text', name='name.last')
+    div
+      label Email:
+      input(type='text', name='email')
+    div
+      label Username:
+      input(type='text', name='username')
+    div
+      label Password:
+      input(type='password', name='password')
+    div
+      input(type='submit', value='Sign up')
 
-    p
-      a(href="/signin") Sign in
+  p
+    a(href="/signin") Sign in

@@ -61,6 +61,12 @@ buildConfig = {
     '!./public/js/vendor/**/*.js'
   ],
 
+  // jsNoLintFiles is an array of sources that should not be linted.
+  jsNoLintFiles: [
+    '!./public/js/app.js',
+    '!./public/js/vendor{,/**}'
+  ],
+
   // jsServerFiles is an array of javascript files that are targetted for
   // execution on the server by node.
   jsServerFiles: [
@@ -75,6 +81,14 @@ buildConfig = {
     'app.json',
     'package.json',
     'Procfile'
+  ],
+
+  // temp is the path to the temp directory
+  temp: path.join(__dirname, '../temp/'),
+
+  // testFiles is an array of sources for test files.
+  testFiles: [
+    './test/**/*.js'
   ],
 
   /*
@@ -96,22 +110,13 @@ buildConfig = {
   // viewFiles is an array of view files that should be sent to the server.
   viewFiles: [
     './server/views/**/*.jade',
+    './server/views/includes/*.html',
+    '!./server/views/includes/*.jade'
   ],
 
-  // jsNoLintFiles is an array of sources that should not be linted.
-  jsNoLintFiles: [
-    '!./public/js/app.js',
-    '!./public/js/vendor{,/**}'
-  ],
-
-  // source: './',
-
-  // temp is the path to the temp directory
-  temp: path.join(__dirname, '../temp/'),
-
-  // testFiles is an array of sources for test files.
-  testFiles: [
-    './test/**/*.js'
+  wiredepFiles: [
+    './server/views/includes/cssBlock.jade',
+    './server/views/includes/jsBlock.jade'
   ]
 };
 
