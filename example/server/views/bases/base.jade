@@ -15,4 +15,12 @@ html
     //- {# index.html/body/firstbody #}
     //- {# index.html/body/content #}
     block content
+
+    if (user)
+        script.
+            window.user = !{JSON.stringify(user)};
+    else
+        script.
+            window.user = null;
+
     include ../includes/jsBlock.html
