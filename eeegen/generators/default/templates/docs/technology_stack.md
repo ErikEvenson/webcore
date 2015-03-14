@@ -41,6 +41,7 @@ Global:
 
 Local:
 
+- [angular-route]() - ''
 - [async](https://github.com/caolan/async) 0.9.0 - 'Async utilities for node and the browser.'
 - [aws-sdk]() 2.1.16 - 'AWS SDK for JavaScript in the browser and Node.js.'
 - [browserify]() - ''

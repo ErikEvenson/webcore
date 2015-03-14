@@ -54,11 +54,13 @@ buildConfig = {
   ],
 
   // jsClientFiles is an array of javascript files that are targetted towards
-  // the browser.  app.js is loaded first to guarantee initialization.
+  // the browser.  Does not include vendor or generated files.
   jsClientFiles: [
-    './public/js/app.js',
+    './public/js/app_.js',
     './public/js/**/*.js',
-    '!./public/js/vendor/**/*.js'
+    '!./public/js/app.js',
+    '!./public/js/vendor/**/*.js',
+    '!./public/js/templates/**/*.js'
   ],
 
   // jsNoLintFiles is an array of sources that should not be linted.
@@ -92,6 +94,10 @@ buildConfig = {
 
   // temp is the path to the temp directory
   temp: path.join(__dirname, '../temp/'),
+
+  templateFiles: [
+    './public/views/**/*.jade'
+  ],
 
   // testFiles is an array of sources for test files.
   testFiles: [

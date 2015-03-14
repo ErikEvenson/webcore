@@ -28,17 +28,18 @@ module.exports = function(gulp, config) {
         ['browserify', 'lint', 'server:restart']
       );
 
+      var templateWatcher = gulp.watch(
+        [config.build.templateFiles],
+        ['browserify', 'server:restart']
+      );
+
       function notify(e) {
         console.log('File ' + e.path + ' was ' + e.type + ', running tasks...');
       }
 
-      jadeWatcher.on('change', function(e) {
-        notify(e);
-      });
-
-      jsWatcher.on('change', function(e) {
-        notify(e);
-      });
+      jadeWatcher.on('change', function(e) { notify(e); });
+      jsWatcher.on('change', function(e) { notify(e); });
+      templateWatcher.on('change', function(e) { notify(e); });
     }
   );
 };

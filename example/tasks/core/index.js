@@ -75,6 +75,11 @@ module.exports = function(gulp, config) {
     del([config.build.build + '*', config.build.temp + '*'], cb);
   });
 
+  // Clean templates.
+  gulp.task('cleanTemplates', function(cb) {
+    del(['./public/js/templates'], cb);
+  });
+
   // Concatenate and minify css files.
   gulp.task('cssServer', ['bower'], function(cb) {
     // Get css files from bower and application.
@@ -120,78 +125,6 @@ module.exports = function(gulp, config) {
     return gulp.src(config.build.miscFiles, {base: './'})
       .pipe(newer(config.build.build))
       .pipe(gulp.dest(config.build.build));
-  });
-
-  // Sync everything in the build public directory to the instance's AWS S3
-  // bucket.
-  gulp.task('syncS3Files', function() {
-    var instance = argv.instance;
-    var instances = config.build.instances;
-
-    if (!instance || !_.contains(_.keys(instances), instance)) {
-      console.log('Instance ' + instance + ' is not configured.');
-      return;
-    }
-
-    var instanceConfig = instances[instance];
-
-    if (!instanceConfig.awsS3Bucket) {
-      console.log('Instance ' + instance + ' has no S3 bucket configured.');
-      return;
-    }
-
-    var files = [config.build.build + 'public/**/*'];
-
-    return lib.syncS3Bucket({
-      bucket: instanceConfig.awsS3Bucket,
-      files: files,
-      gulp: gulp,
-      key: config.env.AWS_ACCESS_KEY_ID,
-      region: config.env.region,
-      secret: config.env.AWS_SECRET_ACCESS_KEY
-    });
-  });
-
-  // Test
-  gulp.task('test', function(done) {
-    // karma.start({
-    //   configFile: config.build.basepath + '/karma.conf.js',
-    //   singleRun: true
-    // }, done);
-
-    return gulp.src(config.build.testFiles, {read: false})
-      .pipe(mocha({reporter: 'nyan'}));
-  });
-
-  // Move vendor files to build directory.
-  gulp.task('vendor', function() {
-    return gulp.src(config.build.vendorFiles, {base: './'})
-      .pipe(newer(config.build.build))
-      .pipe(gulp.dest(config.build.build));
-  });
-
-  // Move views to build directory.
-  gulp.task('views', ['processViews'], function() {
-    return gulp.src(config.build.viewFiles, {base: './'})
-      .pipe(newer(config.build.build))
-      .pipe(gulp.dest(config.build.build));
-  });
-
-  /*
-   * Wire up bower dependencies.
-   */
-  gulp.task('wiredep', ['bower'], function(cb) {
-    var LOCALS = {};
-    var wiredep = require('wiredep').stream;
-
-    return gulp.src(config.build.wiredepFiles, {base: './'})
-      .pipe(wiredep({
-        bowerJson: require(path.join(config.build.basepath, './bower.json')),
-        directory: path.join(config.build.basepath, 'public/bower_components/'),
-        ignorePath: /(\.\.\/)*public/
-      }))
-      .pipe(jade({locals: LOCALS, pretty: true}))
-      .pipe(gulp.dest('./'));
   });
 
   /*
@@ -242,16 +175,39 @@ module.exports = function(gulp, config) {
       .pipe(gulp.dest(config.build.build));
   });
 
-  gulp.task('cleanTemplates', function(cb) {
-    del(['./public/js/templates'], cb);
+  // Sync everything in the build public directory to the instance's AWS S3
+  // bucket.
+  gulp.task('syncS3Files', function() {
+    var instance = argv.instance;
+    var instances = config.build.instances;
+
+    if (!instance || !_.contains(_.keys(instances), instance)) {
+      console.log('Instance ' + instance + ' is not configured.');
+      return;
+    }
+
+    var instanceConfig = instances[instance];
+
+    if (!instanceConfig.awsS3Bucket) {
+      console.log('Instance ' + instance + ' has no S3 bucket configured.');
+      return;
+    }
+
+    var files = [config.build.build + 'public/**/*'];
+
+    return lib.syncS3Bucket({
+      bucket: instanceConfig.awsS3Bucket,
+      files: files,
+      gulp: gulp,
+      key: config.env.AWS_ACCESS_KEY_ID,
+      region: config.env.region,
+      secret: config.env.AWS_SECRET_ACCESS_KEY
+    });
   });
 
+  // Build templates
   gulp.task('templates', ['cleanTemplates'], function() {
-    var files = [
-      './public/views/**/*.jade'
-    ];
-
-    gulp.src(files, {base: './'})
+    gulp.src(config.build.templateFiles, {base: config.build.basepath})
       .pipe(jade())
       .pipe(templateCache('templates.js', {
         base: path.join(config.build.basepath, 'public'),
@@ -259,6 +215,48 @@ module.exports = function(gulp, config) {
         standalone: true
       }))
       .pipe(gulp.dest('public/js/templates'));
+  });
+
+  // Test
+  gulp.task('test', function(done) {
+    // karma.start({
+    //   configFile: config.build.basepath + '/karma.conf.js',
+    //   singleRun: true
+    // }, done);
+
+    return gulp.src(config.build.testFiles, {read: false})
+      .pipe(mocha({reporter: 'nyan'}));
+  });
+
+  // Move vendor files to build directory.
+  gulp.task('vendor', function() {
+    return gulp.src(config.build.vendorFiles, {base: './'})
+      .pipe(newer(config.build.build))
+      .pipe(gulp.dest(config.build.build));
+  });
+
+  // Move views to build directory.
+  gulp.task('views', ['processViews'], function() {
+    return gulp.src(config.build.viewFiles, {base: './'})
+      .pipe(newer(config.build.build))
+      .pipe(gulp.dest(config.build.build));
+  });
+
+  /*
+   * Wire up bower dependencies.
+   */
+  gulp.task('wiredep', ['bower'], function(cb) {
+    var LOCALS = {};
+    var wiredep = require('wiredep').stream;
+
+    return gulp.src(config.build.wiredepFiles, {base: './'})
+      .pipe(wiredep({
+        bowerJson: require(path.join(config.build.basepath, './bower.json')),
+        directory: path.join(config.build.basepath, 'public/bower_components/'),
+        ignorePath: /(\.\.\/)*public/
+      }))
+      .pipe(jade({locals: LOCALS, pretty: true}))
+      .pipe(gulp.dest('./'));
   });
 
   // Watch task
