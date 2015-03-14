@@ -7,6 +7,10 @@ var OrganizationSchema = new Schema({
     default: Date.now,
     type: Date
   },
+  creator: {
+    ref: 'User',
+    type: Schema.ObjectId
+  },
   name: {
     required: true,
     type: String

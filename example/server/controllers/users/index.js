@@ -25,6 +25,16 @@ var getErrorMessage = function(err) {
   return message;
 };
 
+exports.requiresLogin = function(req, res, next) {
+  if (!req.isAuthenticated()) {
+    return res.status(401).send({
+      message: 'User is not logged in'
+    });
+  }
+
+  next();
+};
+
 exports.renderSignin = function(req, res, next) {
   if (!req.user) {
     res.render('signin', {
@@ -55,7 +65,6 @@ exports.signup = function(req, res, next) {
 
     user.save(function(err) {
       if (err) {
-        console.log("AAAA", err);
         var message = getErrorMessage(err);
         req.flash('error', message);
         return res.redirect('/signup');

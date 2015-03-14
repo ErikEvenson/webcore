@@ -3,8 +3,14 @@ var controller = require('./controller');
 
 var router = express.Router();
 
-router.get('/', controller.index);
-router.get('/:id', controller.show);
+router.get('/', controller.requiresLogin, controller.index);
+
+router.get('/:id',
+  controller.requiresLogin,
+  controller.hasAuthorization,
+  controller.show
+);
+
 router.post('/', controller.create);
 // router.put('/:id', controller.update);
 // router.patch('/:id', controller.update);
