@@ -221,12 +221,7 @@ module.exports = function(gulp, config) {
       else { return false; }
     };
 
-    var files = [
-      './server/views/includes/cssBlock.html',
-      './server/views/includes/jsBlock.html'
-    ];
-
-    return gulp.src(files, {base: config.build.basepath})
+    return gulp.src(config.build.processFiles, {base: config.build.basepath})
       // Replace build blocks.
       .pipe(assets)
       .pipe(assets.restore())
@@ -237,16 +232,12 @@ module.exports = function(gulp, config) {
         condition,
         replace('css/main.min.css', origin + 'css/main.min.css'))
       )
+
       .pipe(gulpif(
         condition,
         replace('js/app.min.js', origin + 'js/app.min.js'))
       )
 
-      // // Minify
-      // .pipe(minifyHtml({
-      //   conditionals: true,
-      //   spare: true
-      // }))
       .pipe(gulp.dest(config.build.build));
   });
 

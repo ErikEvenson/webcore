@@ -83,6 +83,12 @@ buildConfig = {
     'Procfile'
   ],
 
+  // An array of sources to build.
+  processFiles: [
+    './server/views/includes/cssBlock.html',
+    './server/views/includes/jsBlock.html'
+  ],
+
   // temp is the path to the temp directory
   temp: path.join(__dirname, '../temp/'),
 
