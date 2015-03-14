@@ -248,10 +248,11 @@ module.exports = function(gulp, config) {
 
   gulp.task('templates', ['cleanTemplates'], function() {
     var files = [
-      './public/views/**/*.html'
+      './public/views/**/*.jade'
     ];
 
     gulp.src(files, {base: './'})
+      .pipe(jade())
       .pipe(templateCache('templates.js', {
         base: path.join(config.build.basepath, 'public'),
         moduleSystem: 'Browserify',
