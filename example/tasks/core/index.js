@@ -28,6 +28,7 @@ module.exports = function(gulp, config) {
     rename = require('gulp-rename'),
     replace = require('gulp-replace'),
     sourcemaps = require('gulp-sourcemaps'),
+    templateCache = require('gulp-angular-templatecache'),
     transform = require('vinyl-transform'),
     uglify = require('gulp-uglify'),
     useref = require('gulp-useref');
@@ -36,7 +37,7 @@ module.exports = function(gulp, config) {
     return bower();
   });
 
-  gulp.task('browserify', function() {
+  gulp.task('browserify', ['templates'], function() {
     // transform regular node stream to gulp (buffered vinyl) stream
     var browserified = transform(function(filename) {
       var b = browserify(filename);
@@ -239,6 +240,24 @@ module.exports = function(gulp, config) {
       )
 
       .pipe(gulp.dest(config.build.build));
+  });
+
+  gulp.task('cleanTemplates', function(cb) {
+    del(['./public/js/templates'], cb);
+  });
+
+  gulp.task('templates', ['cleanTemplates'], function() {
+    var files = [
+      './public/views/**/*.html'
+    ];
+
+    gulp.src(files, {base: './'})
+      .pipe(templateCache('templates.js', {
+        base: path.join(config.build.basepath, 'public'),
+        moduleSystem: 'Browserify',
+        standalone: true
+      }))
+      .pipe(gulp.dest('public/js/templates'));
   });
 
   // Watch task

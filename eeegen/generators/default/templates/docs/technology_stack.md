@@ -54,6 +54,7 @@ Local:
 - [express](http://expressjs.com/) 4.9.8 - 'Fast, unopinionated, minimalist web framework for Node.js.'
 - [express-session]() - ''
 - [gulp](http://gulpjs.com/) 3.8.11 - 'The streaming build system.'
+- [gulp-angular-templatecache]() - ''
 - [gulp-awspublish](https://github.com/pgherveou/gulp-awspublish) 1.0.6 - 'gulp plugin to publish files to amazon s3.'
 - [gulp-bower](https://github.com/zont/gulp-bower) 0.0.10 - 'Install Bower packages.'
 - [gulp-cached](https://github.com/wearefractal/gulp-cached) 1.0.2 - 'A simple in-memory file cache for gulp.'
