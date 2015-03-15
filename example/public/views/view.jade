@@ -1,5 +1,18 @@
 h2 Just testing again!
 
 section(ng-controller="ExampleController")
-  input(type="text", id="text1", ng-model="name")
-  input(type="text", id="text2", ng-model="name")
+  div(data-ng-show="!authentication.user")
+    a(href="/signup") Signup
+    a(href="/signin") Signin
+
+  div(data-ng-show="authentication.user")
+    h1 Hello
+      span(data-ng-bind="authentication.user.name.first")
+
+    a(href="/signout") Signout
+
+    ul
+      li
+        a(href="/#!/organizations") List organizations
+      li
+        a(href="/#!/organizations/create") Create organization

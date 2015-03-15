@@ -8,7 +8,9 @@ var appModule = angular.module(
   appName,
   [
     'example',
+    'ngResource',
     'ngRoute',
+    'organizations',
     'templates',
     'users'
   ]

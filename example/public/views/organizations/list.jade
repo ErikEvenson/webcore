@@ -1,0 +1,14 @@
+section(data-ng-controller="OrganizationsController", data-ng-init="find()")
+  h1 Organizations
+
+  ul
+    li(data-ng-repeat="organization in organizations")
+      a(data-ng-href="#!/organizations/{{organization._id}}", data-ng-bind="organization.name")
+      br
+      small(data-ng-bind="organization.created | date:'medium'")
+      small /
+      small(data-ng-bind="organization.creator.name.first")
+      p(data-ng-bind="organization.notes")
+
+  div(data-ng-hide="!organizations || organizations.length")
+    a(href="/#!/organizations/create") Create organization

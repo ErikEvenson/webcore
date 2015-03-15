@@ -1,14 +1,4 @@
 extends ./bases/base.jade
 
 block content
-  if (user)
-    h2 Hello #{user.name.first}
-    p
-      a(href="/signout") Sign out
-  else
-    p
-      a(href="/signup") Sign up
-    p
-      a(href="/signin") Sign in
-
   section(ng-view)

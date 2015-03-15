@@ -1,0 +1,21 @@
+section(data-ng-controller="OrganizationsController")
+  h1 New Organization
+
+  form(data-ng-submit="create()", novalidate)
+    div
+      label(for="name") Name
+
+      div
+        input(type="text", data-ng-model="name", id="name", placeholder="Name", required)
+
+    div
+      label(for="notes") Notes
+
+      div
+        textarea(data-ng-model="notes", id="notes", cols="30", rows="10", placeholder="Notes")
+
+    div
+      input(type="submit")
+
+    div(data-ng-show="error")
+      strong(data-ng-bind="error")

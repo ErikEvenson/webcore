@@ -16,5 +16,7 @@ router.post('/', controller.create);
 // router.patch('/:id', controller.update);
 // router.delete('/:id', controller.destroy);
 
+router.param('id', controller.thingByID);
+
 /** @param {Object} module.exports - Export the router. */
 module.exports = router;
