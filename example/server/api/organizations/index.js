@@ -11,10 +11,28 @@ router.get('/:id',
   controller.show
 );
 
-router.post('/', controller.create);
-// router.put('/:id', controller.update);
-// router.patch('/:id', controller.update);
-// router.delete('/:id', controller.destroy);
+router.post('/',
+  controller.requiresLogin,
+  controller.create
+);
+
+router.put('/:id',
+  controller.requiresLogin,
+  controller.hasAuthorization,
+  controller.update
+);
+
+router.patch('/:id',
+  controller.requiresLogin,
+  controller.hasAuthorization,
+  controller.update
+);
+
+router.delete('/:id',
+  controller.requiresLogin,
+  controller.hasAuthorization,
+  controller.destroy
+);
 
 router.param('id', controller.thingByID);
 

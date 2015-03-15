@@ -33,7 +33,21 @@ angular.module('organizations').controller('OrganizationsController', [
       );
     };
 
-    // $scope.delete = TBD
+    $scope.delete = function(organization) {
+      if (organization) {
+        organization.$remove(function() {
+          for (var i in $scope.organizations) {
+            if ($scope.organizations[i] === organization) {
+              $scope.organizations.splice(i, 1);
+            }
+          }
+        });
+      } else {
+        $scope.organization.$remove(function() {
+          $location.path('organizations');
+        });
+      }
+    };
 
     $scope.find = function() {
       $scope.organizations = Organizations.query();
@@ -45,6 +59,15 @@ angular.module('organizations').controller('OrganizationsController', [
       });
     };
 
-    // $scope.update = TBD
+    $scope.update = function() {
+      $scope.organization.$update(
+        function() {
+          $location.path('organizations/' + $scope.organization._id);
+        },
+        function() {
+          $scope.error = errorResponse.data.message;
+        }
+      );
+    };
   }
 ]);

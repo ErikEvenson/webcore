@@ -85,6 +85,7 @@ Local:
     "karma-chrome-launcher": "0.1.7",
     "karma-mocha": "0.1.10",
     "karma-phantomjs-launcher": "0.1.4",
+- [lodash]() - ''
 - [main-bower-files]()
 - [map-stream]() 0.0.5 - 'Create a through stream from an asyncronous function.'
     "mocha": "2.1.0",

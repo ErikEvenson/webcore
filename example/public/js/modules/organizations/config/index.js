@@ -12,6 +12,9 @@ angular.module('organizations').config([
       })
       .when('/organizations/:id', {
         templateUrl: 'views/organizations/view.html'
+      })
+      .when('/organizations/:id/edit', {
+        templateUrl: 'views/organizations/edit.html'
       });
   }
 ]);
