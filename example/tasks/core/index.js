@@ -9,7 +9,6 @@ module.exports = function(gulp, config) {
   var
     _ = require('underscore'),
     argv = require('yargs').argv,
-    browserify = require('browserify'),
     concat = require('gulp-concat'),
     bower = require('gulp-bower'),
     debug = require('gulp-debug'),
@@ -40,6 +39,7 @@ module.exports = function(gulp, config) {
   gulp.task('browserify', ['templates'], function() {
     // transform regular node stream to gulp (buffered vinyl) stream
     var browserified = transform(function(filename) {
+      var browserify = require('browserify');
       var b = browserify(filename);
       return b.bundle();
     });
