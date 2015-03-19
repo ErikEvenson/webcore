@@ -4,7 +4,7 @@
 # Adapted from:
 # https://github.com/hashicorp/puppet-bootstrap
 #
-# 2012-2014 3E Enterprises, LLC
+# 2012-2015 3E Enterprises, LLC
 
 set -e
 

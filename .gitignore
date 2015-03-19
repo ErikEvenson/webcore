@@ -1,16 +1,17 @@
 # Ignored files and directories.
-# 2012-2014 3E Enterprises, LLC
+# 2012-2015 3E Enterprises, LLC
 
 # .gitkeep files are used to maintain directories.
 !.gitkeep
 
 # Vagrant data files.
-.vagrant
+/.vagrant
 
 # Ignore puppet files
-puppet/.tmp
-puppet/modules/*
-puppet/Puppetfile.lock
+/puppet/.tmp
+/puppet/modules/*
+!/puppet/modules/.gitkeep
+/puppet/Puppetfile.lock
 
 # Ignore DS_Store files
 .DS_Store

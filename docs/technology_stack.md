@@ -30,11 +30,11 @@ These tools are installed directly on the host.  On a Mac, they are can be insta
 - [vagrant-cachier](https://github.com/fgrehm/vagrant-cachier/) 1.2.0 - "A Vagrant plugin that helps you reduce the amount of coffee you drink while waiting for boxes to be provisioned by sharing a common package cache among similiar VM instances."
 - [vagrant-librarian-puppet](https://github.com/mhahn/vagrant-librarian-puppet) 0.8.0 - A Vagrant plugin to install Puppet modules using Librarian-Puppet.
 - [vagrant-vbguest](https://github.com/dotless-de/vagrant-vbguest) 0.10.0 [Changelog[(https://github.com/dotless-de/vagrant-vbguest/blob/master/CHANGELOG.md) [Fork](https://github.com/EATechnologies/vagrant-vbguest) - automatically keeps VirtualBox Guest Additions up to date.  ***Updates are manual.***
-- [VirtualBox](https://www.virtualbox.org/) 4.3.20 [Changelog](https://www.virtualbox.org/wiki/Changelog) 4.3.20-96996 - used to host development environment.
+- [VirtualBox](https://www.virtualbox.org/) 4.3.26 [Changelog](https://www.virtualbox.org/wiki/Changelog) 4.3.26-98988 - used to host development environment.
 
 ## Puppet modules
 
-- [puppetlabs-apt](https://forge.puppetlabs.com/puppetlabs/apt) 1.7.0 - "The APT module provides a simple interface for managing APT source, key, and definitions with Puppet."
+- [puppetlabs-apt](https://forge.puppetlabs.com/puppetlabs/apt) 1.8.0 - "The APT module provides a simple interface for managing APT source, key, and definitions with Puppet."
 - [puppetlabs-stdlib](https://forge.puppetlabs.com/puppetlabs/stdlib) 4.5.1 - "This module provides a "standard library" of resources for developing Puppet Modules."
 
 ## Vagrant/vagrant-installed

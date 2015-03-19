@@ -1,5 +1,5 @@
 # Installs vim.
-# 2012-2014 3E Enterprises, LLC
+# 2012-2015 3E Enterprises, LLC
 
 class vim {
   Package {ensure => installed}
