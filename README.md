@@ -79,3 +79,29 @@ eval `ssh-agent -s` && ssh-add ~/.ssh/**/*id_rsa
 ```
 
 When done, exit the virtual environment and `vagrant halt` to stop the virtual machine.  Use `vagrant destroy` to reclaim the disk space (although this will require you to re-provision the machine again later).  `vagrant remove` should be used to remove the base box from the system as well.  `vagrant up` and `vagrant ssh web` to start another development session later.
+
+## Scripts
+
+### Lint scripts
+
+Linting of the puppet scripts can be done via [puppet-lint](http://puppet-lint.com/) with:
+
+```bash
+./scripts/manage.sh lint
+```
+
+This will lint manifests and local_modules.
+
+### Puppet scripts
+
+Puppet script validation can be performed with:
+
+```bash
+./scripts/manage.sh pvalidate
+```
+
+Puppet provisioning can be applied with:
+
+```bash
+sudo ./scripts/manage.sh papply
+```
