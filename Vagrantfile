@@ -1,5 +1,5 @@
 # Vagrantfile default
-# 2012-2014 3E Enterprises, LLC
+# 2012-2015 3E Enterprises, LLC
 
 # This configuration will set up a default base VM provisioned with puppet.
 # Uses vagrant-vbguest plugin (https://github.com/dotless-de/vagrant-vbguest)

@@ -1,5 +1,5 @@
 # Installs development base.
-# 2012-2014 Van Brunt and Associates and 3E Enterprises, LLC
+# 2012-2015 3E Enterprises, LLC
 
 class dev_base {
   include git
